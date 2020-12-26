@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets_explorer/nested_list/nested_list_screen.dart';
+
+import 'nested_list/nested_list_screen.dart';
 
 void main() {
   runApp(MyApp());
