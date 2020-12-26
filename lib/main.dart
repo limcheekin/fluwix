@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets_explorer/nested_list/nested_list_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -7,60 +8,45 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    List<String> names = [
+      'Nested List',
+      'Tab Buttons',
+      'Stock Chart',
+    ];
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Scaffold(
+          appBar: AppBar(
+            title: Text('Flutter Widgets'),
+          ),
+          body: Center(
+            child: ListView.builder(
+              itemCount: names.length,
+              itemBuilder: (BuildContext context, int position) {
+                var name = names[position];
+                return Card(
+                  margin: EdgeInsets.fromLTRB(8, 4, 8, 4),
+                  child: ListTile(
+                    title: Text(name),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                    onTap: () {
+                      switch (position) {
+                        case 0:
+                          _gotoScreen(context, NestedListScreen());
+                          break;
+                        default:
+                      }
+                    },
+                  ),
+                );
+              },
+            ),
+          )),
     );
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
-    );
+  void _gotoScreen(BuildContext context, Widget screen) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => screen,
+    ));
   }
 }
