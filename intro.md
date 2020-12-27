@@ -9,7 +9,7 @@ The project following certain naming conventions and directory stucture as per t
 <img alt="Directory Structure" src="images/directory_structure.png" />
 </p>
 
-- The `common/presentation/widgets` directory stored code of reusable widgets of the project
+- The `common/presentation/widgets` directory stored the codes of reusable widgets of the project
 
 - Each widget will be coded in separate branch and come with it's own `README.md` file. The recommended naming convention is the directory name in `lib` and `images` directory is same with the branch name and the main file of the widget is `branch_name`_screen.
 
