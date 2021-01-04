@@ -1,6 +1,6 @@
 # flutter-widgets-explorer
 
-The Flutter Widgets Explorer project is created to learn, test and demo flutter widgets.
+The Flutter Widgets Explorer project is created to learn, test and demo flutter widgets in one application.
 
 ## Getting Started
 
@@ -13,8 +13,9 @@ Each widget will be coded in separate branch and come with it's own readme file.
 
 ## Branches:
 
+- __main__: List of all widgets that is ready.
 - [__base__: Basic skeleton of the Flutter Widgets Explorer project. If you would like to create similar project, you can start here!](intro.md)
-- [__nested-list__: Nested vertical and horizontal list with dynamic content in the list item](lib/nested_list/README.md)
+- [__nested_list__: Nested vertical and horizontal list with dynamic content in the list item](lib/nested_list/README.md)
 
 ## General References
 
