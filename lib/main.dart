@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets_explorer/tab_buttons/tab_buttons_screen.dart';
+import 'tab_buttons/tab_buttons_screen.dart';
 
 import 'nested_list/nested_list_screen.dart';
+import 'stock_chart/stock_chart_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -37,6 +38,9 @@ class MyApp extends StatelessWidget {
                           break;
                         case 1:
                           _gotoScreen(context, TabButtonsScreen());
+                          break;
+                        case 2:
+                          _gotoScreen(context, StockChartScreen());
                           break;
                         default:
                       }

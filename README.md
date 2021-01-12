@@ -34,6 +34,14 @@ Each widget will be coded in separate branch and come with it's own readme file.
 </a> 
 </td>
 </tr>
+<tr valign="top">
+<td width="33.3%">
+<a href="lib/stock_chart/README.md" target="_blank">
+<img alt="Stock Chart Screen" src="images/stock_chart/thumbnail.png" height="384px" width="216px" />
+</br><strong>stock_chart</strong>: Stock candlestick or line chart with indicators support.
+</a> 
+</td>
+</tr>
 <table>
 
 ## General References
