@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets_explorer/tab_buttons/tab_buttons_screen.dart';
 
 import 'nested_list/nested_list_screen.dart';
 
@@ -33,6 +34,9 @@ class MyApp extends StatelessWidget {
                       switch (position) {
                         case 0:
                           _gotoScreen(context, NestedListScreen());
+                          break;
+                        case 1:
+                          _gotoScreen(context, TabButtonsScreen());
                           break;
                         default:
                       }
