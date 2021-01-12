@@ -17,19 +17,19 @@ Each widget will be coded in separate branch and come with it's own readme file.
 <tr valign="top">
 <td>
 <a href="intro.md" target="_blank">
-<img alt="Main Screen" src="images/thumbnail.png" />
+<img alt="Main Screen" src="images/thumbnail.png" height="384px" width="216px" />
 </br><strong>base</strong>: Basic skeleton of the Flutter Widgets Explorer project. If you would like to create similar project, you can start here!
 </a> 
 </td>
 <td>
 <a href="lib/nested_list/README.md" target="_blank">
-<img alt="Nested List Screen" src="images/nested_list/thumbnail.png" />
+<img alt="Nested List Screen" src="images/nested_list/thumbnail.png" height="384px" width="216px" />
 </br><strong>nested_list</strong>: Nested vertical and horizontal list with dynamic content in the list item.
 </a> 
 </td>
 <td>
 <a href="lib/tab_buttons/README.md" target="_blank">
-<img alt="Tab Buttons Screen" src="images/tab_buttons/thumbnail.png" />
+<img alt="Tab Buttons Screen" src="images/tab_buttons/thumbnail.png" height="384px" width="216px"  />
 </br><strong>tab_buttons</strong>: tabbar where each tab indicator is a toggle button.
 </a> 
 </td>
