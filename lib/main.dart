@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
 import 'tab_buttons/tab_buttons_screen.dart';
 
 import 'nested_list/nested_list_screen.dart';
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       'Nested List',
       'Tab Buttons',
       'Stock Chart',
+      "Expansion/Collapse View",
     ];
     return MaterialApp(
       home: Scaffold(
@@ -41,6 +43,9 @@ class MyApp extends StatelessWidget {
                           break;
                         case 2:
                           _gotoScreen(context, StockChartScreen());
+                          break;
+                        case 3:
+                          _gotoScreen(context, ExpansionCollapseViewScreen());
                           break;
                         default:
                       }

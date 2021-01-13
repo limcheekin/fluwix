@@ -41,6 +41,14 @@ Each widget will be coded in separate branch and come with it's own readme file.
 </br><strong>stock_chart</strong>: Stock candlestick or line chart with indicators support.
 </a> 
 </td>
+<td width="33.3%">
+<a href="lib/expansion_collapse_view/README.md" target="_blank">
+<img alt="Expansion/Collapse View" src="images/expansion_collapse_view/thumbnail.png" height="384px" width="216px" />
+</br><strong>expansion_collapse_view</strong>: Expansion/Collapse view using Flutter built-in widgets.
+</a> 
+</td>
+<td width="33.3%">
+</td>
 </tr>
 <table>
 
