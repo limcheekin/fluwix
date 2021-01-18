@@ -24,7 +24,7 @@ Each widget will be coded in separate branch and come with it's own readme file.
 <td width="33.3%">
 <a href="lib/nested_list/README.md" target="_blank">
 <img alt="Nested List Screen" src="images/nested_list/thumbnail.png" height="384px" width="216px" />
-</br><strong>nested_list</strong>: Nested vertical and horizontal list with dynamic content in the list item.
+</br><strong>nested_list</strong>: Nested horizontal list with dynamic content in vertical list items.
 </a> 
 </td>
 <td width="33.3%">
