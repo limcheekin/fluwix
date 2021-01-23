@@ -7,7 +7,7 @@ The Flutter Widgets Explorer project is created to learn, test and demo flutter 
 The first screen launched in the app is a list of widget names. 
 After select a widget name, the selected widget details will show on next screen.
 <p> 
-<img alt="Main Screen" src="images/main.png" height="480px" width="270px" />
+<img alt="Main Screen" src="images/thumbnail.png" height="480px" width="270px" />
 </p>
 Each widget will be coded in separate branch and come with it's own readme file.
 
@@ -48,6 +48,10 @@ Each widget will be coded in separate branch and come with it's own readme file.
 </a> 
 </td>
 <td width="33.3%">
+<a href="lib/charts/README.md" target="_blank">
+<img alt="Charts Gallery" src="images/charts/thumbnail.png" height="384px" width="216px" />
+</br><strong>charts</strong>: Charts Gallery show case the data visualization capability of the charts_flutter package.
+</a> 
 </td>
 </tr>
 <table>

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'charts/charts_screen.dart';
 import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
 import 'tab_buttons/tab_buttons_screen.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       'Tab Buttons',
       'Stock Chart',
       "Expansion/Collapse View",
+      "Charts Gallery",
     ];
     return MaterialApp(
       home: Scaffold(
@@ -47,6 +49,9 @@ class MyApp extends StatelessWidget {
                         case 3:
                           _gotoScreen(context, ExpansionCollapseViewScreen());
                           break;
+                        case 4:
+                          _gotoScreen(context, ChartsScreen());
+                          break;
                         default:
                       }
                     },
@@ -59,8 +64,11 @@ class MyApp extends StatelessWidget {
   }
 
   void _gotoScreen(BuildContext context, Widget screen) {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (_) => screen,
-    ));
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => screen,
+        settings: RouteSettings(name: '/${screen.runtimeType}'),
+      ),
+    );
   }
 }
