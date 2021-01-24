@@ -26,3 +26,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/stock_chart/depth.json
+    - assets/chart_datatable/quarterly_result.json

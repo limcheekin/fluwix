@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'chart_datatable/chart_datatable_screen.dart';
 import 'charts/charts_screen.dart';
 import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
 import 'tab_buttons/tab_buttons_screen.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       'Stock Chart',
       "Expansion/Collapse View",
       "Charts Gallery",
+      "Chart & Data Table"
     ];
     return MaterialApp(
       home: Scaffold(
@@ -51,6 +53,9 @@ class MyApp extends StatelessWidget {
                           break;
                         case 4:
                           _gotoScreen(context, ChartsScreen());
+                          break;
+                        case 5:
+                          _gotoScreen(context, ChartDataTableScreen());
                           break;
                         default:
                       }
