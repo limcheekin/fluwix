@@ -15,6 +15,10 @@ class QuarterlyResult {
     this.quarterRevenue,
   });
 
+  double get quarterProfitMargin {
+    return quarterProfit / quarterRevenue;
+  }
+
   QuarterlyResult.fromJson(Map<String, dynamic> json) {
     dateAnnounced = json['dateAnnounced'] != null
         ? DateTime.parse(json['dateAnnounced'])
