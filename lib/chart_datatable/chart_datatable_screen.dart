@@ -77,9 +77,9 @@ class ChartDataTableScreen extends StatelessWidget {
         groupingType: charts.BarGroupingType.grouped,
         // Set a bar label decorator.
         // Example configuring different styles for inside/outside:
-        //       barRendererDecorator: new charts.BarLabelDecorator(
-        //          insideLabelStyleSpec: new charts.TextStyleSpec(...),
-        //          outsideLabelStyleSpec: new charts.TextStyleSpec(...)),
+        //       barRendererDecorator: charts.BarLabelDecorator(
+        //          insideLabelStyleSpec: charts.TextStyleSpec(...),
+        //          outsideLabelStyleSpec: charts.TextStyleSpec(...)),
         barRendererDecorator: charts.BarLabelDecorator<String>(
           labelPosition: charts.BarLabelPosition.outside,
         ),
@@ -112,10 +112,10 @@ class ChartDataTableScreen extends StatelessWidget {
         ),
       ),
 
-      // Set the initial viewport by providing a new AxisSpec with the
+      // Set the initial viewport by providing a AxisSpec with the
       // desired viewport: a starting domain and the data size.
-      domainAxis: new charts.OrdinalAxisSpec(
-          viewport: new charts.OrdinalViewport(
+      domainAxis: charts.OrdinalAxisSpec(
+          viewport: charts.OrdinalViewport(
         _getDomain(quarterResults[midIndex]),
         midIndex,
       )),
