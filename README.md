@@ -54,6 +54,14 @@ Each widget will be coded in separate branch and come with it's own readme file.
 </a> 
 </td>
 </tr>
+<tr valign="top">
+<td width="33.3%">
+<a href="lib/chart_datatable/README.md" target="_blank">
+<img alt="Chart & Data Table Screen" src="images/chart_datatable/thumbnail.png" height="384px" width="216px" />
+</br><strong>chart_datatable</strong>: Real world quarterly results in combo chart and tabular format.
+</a> 
+</td>
+</tr>
 <table>
 
 ## General References

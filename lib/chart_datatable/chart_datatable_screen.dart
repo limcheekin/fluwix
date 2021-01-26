@@ -30,6 +30,7 @@ class ChartDataTableScreen extends StatelessWidget {
                       height: 300,
                       child: _createChart(quarterResults),
                     ),
+                    Divider(),
                     _createDataTable(quarterResults),
                   ],
                 ),
