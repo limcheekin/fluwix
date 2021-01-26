@@ -5,3 +5,4 @@ A picture is worth a thousand words:-
 
 ## References
 - [Parse local JSON file in Flutter](https://www.developerlibs.com/2018/11/flutter-how-to-parse-local-json-file-in.html)
+- [DataTable in Flutter](https://medium.com/@aervadiyayash510/datatable-in-flutter-916ef8081651)

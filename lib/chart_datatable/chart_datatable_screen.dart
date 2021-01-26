@@ -21,19 +21,26 @@ class ChartDataTableScreen extends StatelessWidget {
           builder: (context, snapshot) {
             final quarterResults = _getQuarterlyResults(snapshot);
 
-            return Column(
-              children: [
-                SizedBox(
-                  height: 300,
-                  child: _createChart(quarterResults),
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 300,
+                      child: _createChart(quarterResults),
+                    ),
+                    _createDataTable(quarterResults),
+                  ],
                 ),
-              ],
+              ),
             );
           }),
     );
   }
 
   Widget _createChart(final quarterResults) {
+    var reversedQuarterResults = quarterResults.reversed.toList();
     final defaultTitleStyleSpec = charts.TextStyleSpec(
       fontSize: 14,
     );
@@ -42,7 +49,7 @@ class ChartDataTableScreen extends StatelessWidget {
         id: 'Revenue',
         domainFn: (QuarterlyResult result, _) => _getDomain(result),
         measureFn: (QuarterlyResult result, _) => result.quarterRevenue * 0.001,
-        data: quarterResults,
+        data: reversedQuarterResults,
         labelAccessorFn: (QuarterlyResult result, _) =>
             '\$${(result.quarterRevenue * 0.001).round()}',
       ),
@@ -50,7 +57,7 @@ class ChartDataTableScreen extends StatelessWidget {
         id: 'Profit',
         domainFn: (QuarterlyResult result, _) => _getDomain(result),
         measureFn: (QuarterlyResult result, _) => result.quarterProfit * 0.001,
-        data: quarterResults,
+        data: reversedQuarterResults,
         labelAccessorFn: (QuarterlyResult result, _) =>
             '\$${(result.quarterProfit * 0.001).round()}',
       ),
@@ -60,7 +67,7 @@ class ChartDataTableScreen extends StatelessWidget {
         domainFn: (QuarterlyResult result, _) => _getDomain(result),
         measureFn: (QuarterlyResult result, _) =>
             result.quarterProfitMargin * 100,
-        data: quarterResults,
+        data: reversedQuarterResults,
       )
         ..setAttribute(charts.measureAxisIdKey, secondaryMeasureAxisId)
         // Configure our custom line renderer for this series.
@@ -110,9 +117,9 @@ class ChartDataTableScreen extends StatelessWidget {
       ),
       secondaryMeasureAxis: charts.NumericAxisSpec(
         /*tickFormatterSpec:
-                          charts.BasicNumericTickFormatterSpec.fromNumberFormat(
-                        NumberFormat.percentPattern(),
-                      ),*/
+                                            charts.BasicNumericTickFormatterSpec.fromNumberFormat(
+                                          NumberFormat.percentPattern(),
+                                        ),*/
         tickProviderSpec: charts.BasicNumericTickProviderSpec(
           desiredTickCount: 6,
         ),
@@ -122,7 +129,7 @@ class ChartDataTableScreen extends StatelessWidget {
       // desired viewport: a starting domain and the data size.
       domainAxis: charts.OrdinalAxisSpec(
           viewport: charts.OrdinalViewport(
-        _getDomain(quarterResults[midIndex]),
+        _getDomain(reversedQuarterResults[midIndex]),
         midIndex,
       )),
       behaviors: [
@@ -160,14 +167,117 @@ class ChartDataTableScreen extends StatelessWidget {
     );
   }
 
+  Widget _createDataTable(List<QuarterlyResult> quarterResults) {
+    final dateFormat = DateFormat('dd MMM yy');
+    final quarterFormat = DateFormat('MMM yy');
+    final numberFormat = NumberFormat("###,###,###,###");
+    var year = quarterResults[0].financialYearEnd.year;
+    var dataRowColor = Colors.transparent;
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: DataTable(
+        columnSpacing: 28.0,
+        dataRowHeight: 36.0,
+        headingRowColor: MaterialStateProperty.resolveWith(
+          (_) => Colors.grey[300],
+        ),
+        columns: [
+          DataColumn(
+            label: Text("Date"),
+            numeric: false,
+          ),
+          DataColumn(
+            label: Text("Financial Year"),
+            numeric: false,
+          ),
+          DataColumn(
+            label: Text("Quarter"),
+            numeric: false,
+          ),
+          DataColumn(
+            label: SizedBox(
+              width: 100.0,
+              //width: 100.0,
+              child: Text(
+                "Revenue (RM,000)",
+                softWrap: true,
+                textAlign: TextAlign.right,
+              ),
+            ),
+            numeric: true,
+          ),
+          DataColumn(
+            label: SizedBox(
+              width: 80.0,
+              child: Text(
+                "Profit (RM,000)",
+                softWrap: true,
+                textAlign: TextAlign.right,
+              ),
+            ),
+            numeric: true,
+          ),
+          DataColumn(
+            label: SizedBox(
+              width: 100.0,
+              child: Text(
+                "Profit Margin (%)",
+                softWrap: true,
+                textAlign: TextAlign.right,
+              ),
+            ),
+            numeric: true,
+          ),
+        ],
+        rows: quarterResults
+            .map(
+              (result) => DataRow(
+                color: MaterialStateProperty.resolveWith(
+                  (_) {
+                    if (year != result.financialYearEnd.year) {
+                      dataRowColor = dataRowColor == Colors.transparent
+                          ? Colors.grey[300]
+                          : Colors.transparent;
+                      year = result.financialYearEnd.year;
+                    }
+                    return dataRowColor;
+                  },
+                ),
+                cells: [
+                  DataCell(
+                    Text(dateFormat.format(result.dateAnnounced)),
+                  ),
+                  DataCell(
+                    Text(dateFormat.format(result.financialYearEnd)),
+                  ),
+                  DataCell(
+                    Text(
+                        'Q${result.quarter} ${quarterFormat.format(result.quarterEnd)}'),
+                  ),
+                  DataCell(
+                    Text(numberFormat.format(result.quarterRevenue)),
+                  ),
+                  DataCell(
+                    Text(numberFormat.format(result.quarterProfit)),
+                  ),
+                  DataCell(
+                    Text(NumberFormat.decimalPercentPattern(decimalDigits: 1)
+                        .format(result.quarterProfitMargin)),
+                  ),
+                ],
+              ),
+            )
+            .toList(),
+      ),
+    );
+  }
+
   List<QuarterlyResult> _getQuarterlyResults(snapshot) {
     final list = json.decode(snapshot.data.toString())['list'];
 
     print('list.length = ${list.length}');
     return List.generate(
-            list.length, (index) => QuarterlyResult.fromJson(list[index]))
-        .reversed
-        .toList();
+        list.length, (index) => QuarterlyResult.fromJson(list[index]));
   }
 
   String _getDomain(QuarterlyResult result) {
