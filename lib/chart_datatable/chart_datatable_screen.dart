@@ -44,7 +44,7 @@ class ChartDataTableScreen extends StatelessWidget {
         measureFn: (QuarterlyResult result, _) => result.quarterRevenue * 0.001,
         data: quarterResults,
         labelAccessorFn: (QuarterlyResult result, _) =>
-            '${(result.quarterRevenue * 0.001).round()}',
+            '\$${(result.quarterRevenue * 0.001).round()}',
       ),
       charts.Series<QuarterlyResult, String>(
         id: 'Profit',
@@ -52,10 +52,10 @@ class ChartDataTableScreen extends StatelessWidget {
         measureFn: (QuarterlyResult result, _) => result.quarterProfit * 0.001,
         data: quarterResults,
         labelAccessorFn: (QuarterlyResult result, _) =>
-            '${(result.quarterProfit * 0.001).round()}',
+            '\$${(result.quarterProfit * 0.001).round()}',
       ),
       charts.Series<QuarterlyResult, String>(
-        id: 'Profit Margin',
+        id: 'Profit Margin (%)',
         colorFn: (_, __) => charts.MaterialPalette.deepOrange.shadeDefault,
         domainFn: (QuarterlyResult result, _) => _getDomain(result),
         measureFn: (QuarterlyResult result, _) =>
@@ -82,6 +82,12 @@ class ChartDataTableScreen extends StatelessWidget {
         //          outsideLabelStyleSpec: charts.TextStyleSpec(...)),
         barRendererDecorator: charts.BarLabelDecorator<String>(
           labelPosition: charts.BarLabelPosition.outside,
+          outsideLabelStyleSpec: charts.TextStyleSpec(
+            fontSize: 10,
+            color: charts.Color.black,
+          ),
+
+          //labelPadding: 0,
         ),
       ),
       // Custom renderer configuration for the line series. This will be used for
@@ -90,14 +96,14 @@ class ChartDataTableScreen extends StatelessWidget {
         charts.LineRendererConfig(
           // ID used to link series to this renderer.
           customRendererId: profitMarginLineRendererId,
-          //includePoints: true,
+          includePoints: true,
         )
       ],
       primaryMeasureAxis: charts.NumericAxisSpec(
-        tickFormatterSpec:
-            charts.BasicNumericTickFormatterSpec.fromNumberFormat(
-          NumberFormat.compact(),
-        ),
+        //tickFormatterSpec:
+        //    charts.BasicNumericTickFormatterSpec.fromNumberFormat(
+        //  NumberFormat.compact(),
+        //),
         tickProviderSpec: charts.BasicNumericTickProviderSpec(
           desiredTickCount: 6,
         ),
