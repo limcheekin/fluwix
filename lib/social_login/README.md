@@ -10,3 +10,4 @@ I'd love to hear from you! :)
 ## References
 - [Social auth (Facebook and Google) in Flutter without Firebase](https://fayaz07.medium.com/social-authentication-facebook-and-google-in-flutter-without-firebase-e3ca289ed50c)
 - [The Gorgeous Login](https://github.com/huextrat/TheGorgeousLogin)
+- [com.google.android.gms.common.api.ApiException: 12500](https://medium.com/@sejoonlim/com-google-android-gms-common-api-apiexception-12500-7a6df323e7bc)

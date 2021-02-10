@@ -30,6 +30,7 @@ flutter:
   assets:
     - assets/stock_chart/depth.json
     - assets/chart_datatable/quarterly_result.json
+    - assets/social_login/img/login_logo.png
 
   fonts:
     - family: WorkSansSemiBold
