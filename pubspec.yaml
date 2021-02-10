@@ -19,6 +19,7 @@ dependencies:
   charts_flutter: ^0.9.0
   google_sign_in: ^4.5.9
   flutter_facebook_login: ^3.0.0
+  font_awesome_flutter: ^8.11.0
 
 dev_dependencies:
   flutter_test:
@@ -29,3 +30,16 @@ flutter:
   assets:
     - assets/stock_chart/depth.json
     - assets/chart_datatable/quarterly_result.json
+
+  fonts:
+    - family: WorkSansSemiBold
+      fonts:
+        - asset: assets/social_login/fonts/Work_Sans/WorkSans-SemiBold.ttf
+
+    - family: WorkSansBold
+      fonts:
+        - asset: assets/social_login/fonts/Work_Sans/WorkSans-Bold.ttf
+
+    - family: WorkSansMedium
+      fonts:
+        - asset: assets/social_login/fonts/Work_Sans/WorkSans-Medium.ttf

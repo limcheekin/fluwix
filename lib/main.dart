@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets_explorer/social_login/social_login_screen.dart';
 import 'chart_datatable/chart_datatable_screen.dart';
 import 'charts/charts_screen.dart';
 import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
       'Stock Chart',
       "Expansion/Collapse View",
       "Charts Gallery",
-      "Chart & Data Table"
+      "Chart & Data Table",
+      "Social Login"
     ];
     return MaterialApp(
       home: Scaffold(
@@ -56,6 +58,9 @@ class MyApp extends StatelessWidget {
                           break;
                         case 5:
                           _gotoScreen(context, ChartDataTableScreen());
+                          break;
+                        case 6:
+                          _gotoScreen(context, SocialLoginScreen());
                           break;
                         default:
                       }
