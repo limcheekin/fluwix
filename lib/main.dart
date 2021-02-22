@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       "Chart & Data Table"
     ];
     return MaterialApp(
+      title: "Flutter Widgets Explorer",
       home: Scaffold(
           appBar: AppBar(
             title: Text('Flutter Widgets'),
