@@ -22,11 +22,19 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.8.1
+  flutter_native_splash: ^0.3.0
 
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "dev_assets/images/icon.png"
+  image_path: "dev_assets/images/icon_white_bg.png"
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: dev_assets/images/icon_white_bg.png
+  color_dark: "#000000"
+  image_dark: dev_assets/images/icon_black_bg.png
+  fullscreen: true
 
 flutter:
   uses-material-design: true
