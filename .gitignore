@@ -44,3 +44,5 @@ app.*.map.json
 android/**/.project
 android/**/.classpath
 android/**/.settings
+
+.vscode/
