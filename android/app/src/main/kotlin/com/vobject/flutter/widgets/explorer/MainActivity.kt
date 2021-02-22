@@ -1,4 +1,4 @@
-package com.example.flutter_widgets_explorer
+package com.vobject.flutter.widgets.explorer
 
 import io.flutter.embedding.android.FlutterActivity
 

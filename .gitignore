@@ -39,3 +39,8 @@ app.*.symbols
 
 # Obfuscation related
 app.*.map.json
+
+# android
+android/**/.project
+android/**/.classpath
+android/**/.settings
