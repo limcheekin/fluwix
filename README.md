@@ -61,6 +61,14 @@ Each widget will be coded in separate branch and come with it's own readme file.
 </br><strong>chart_datatable</strong>: Real world quarterly results in combo chart and tabular format.
 </a> 
 </td>
+<td width="33.3%">
+<a href="lib/syntax_view/README.md" target="_blank">
+<img alt="Syntax View Screen" src="images/syntax_view/thumbnail.png" height="384px" width="216px" />
+</br><strong>syntax_view</strong>: View code, copy and paste.
+</a> 
+</td>
+<td width="33.3%">
+</td>
 </tr>
 <table>
 

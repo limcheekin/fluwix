@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'chart_datatable/chart_datatable_screen.dart';
 import 'charts/charts_screen.dart';
 import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
+import 'syntax_view/syntax_view_screen.dart';
 import 'tab_buttons/tab_buttons_screen.dart';
 
 import 'nested_list/nested_list_screen.dart';
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
       'Stock Chart',
       "Expansion/Collapse View",
       "Charts Gallery",
-      "Chart & Data Table"
+      "Chart & Data Table",
+      "Syntax View",
     ];
     return MaterialApp(
       title: "Flutter Widgets Explorer",
@@ -57,6 +59,9 @@ class MyApp extends StatelessWidget {
                           break;
                         case 5:
                           _gotoScreen(context, ChartDataTableScreen());
+                          break;
+                        case 6:
+                          _gotoScreen(context, SyntaxViewScreen());
                           break;
                         default:
                       }
