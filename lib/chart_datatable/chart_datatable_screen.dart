@@ -19,23 +19,27 @@ class ChartDataTableScreen extends StatelessWidget {
           future: DefaultAssetBundle.of(context)
               .loadString('assets/chart_datatable/quarterly_result.json'),
           builder: (context, snapshot) {
-            final quarterResults = _getQuarterlyResults(snapshot);
+            if (snapshot.connectionState == ConnectionState.done) {
+              final quarterResults = _getQuarterlyResults(snapshot);
 
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 300,
-                      child: _createChart(quarterResults),
-                    ),
-                    Divider(),
-                    _createDataTable(quarterResults),
-                  ],
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 300,
+                        child: _createChart(quarterResults),
+                      ),
+                      Divider(),
+                      _createDataTable(quarterResults),
+                    ],
+                  ),
                 ),
-              ),
-            );
+              );
+            } else {
+              return Text("No data loaded");
+            }
           }),
     );
   }
