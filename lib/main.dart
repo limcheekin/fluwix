@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'animate_icons/animate_icons_screen.dart';
 import 'chart_datatable/chart_datatable_screen.dart';
 import 'charts/charts_screen.dart';
 import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
@@ -9,6 +11,8 @@ import 'nested_list/nested_list_screen.dart';
 import 'stock_chart/stock_chart_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIOverlays([]);
   runApp(MyApp());
 }
 
@@ -23,6 +27,7 @@ class MyApp extends StatelessWidget {
       "Charts Gallery",
       "Chart & Data Table",
       "Syntax View",
+      "Animate Icons",
     ];
     return MaterialApp(
       title: "Flutter Widgets Explorer",
@@ -62,6 +67,9 @@ class MyApp extends StatelessWidget {
                           break;
                         case 6:
                           _gotoScreen(context, SyntaxViewScreen());
+                          break;
+                        case 7:
+                          _gotoScreen(context, AnimateIconsScreen());
                           break;
                         default:
                       }

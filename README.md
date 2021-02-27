@@ -68,6 +68,10 @@ Each widget will be coded in separate branch and come with it's own readme file.
 </a> 
 </td>
 <td width="33.3%">
+<a href="lib/animate_icons/README.md" target="_blank">
+<img alt="Animate Icons Screen" src="images/animate_icons/thumbnail.png" height="384px" width="216px" />
+</br><strong>animate_icons</strong>: Animate any two icons.
+</a> 
 </td>
 </tr>
 <table>
