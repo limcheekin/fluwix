@@ -33,7 +33,7 @@ class ContentCard extends StatelessWidget {
   ) {
     final showMoreButton = setSizeFn != null;
     final iconSize = 24.0;
-    List<Widget> children = List(size);
+    List<Widget> children = List.filled(size, null);
     for (var i = 0; i < size; i++) {
       children[i] = Text(
         "$text $i",

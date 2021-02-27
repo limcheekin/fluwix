@@ -45,8 +45,8 @@ class _StockChartScreenState extends State<StockChartScreen> {
 
   void initDepth(List<DepthEntity> bids, List<DepthEntity> asks) {
     if (bids == null || asks == null || bids.isEmpty || asks.isEmpty) return;
-    _bids = List();
-    _asks = List();
+    _bids = [];
+    _asks = [];
     double amount = 0.0;
     bids?.sort((left, right) => left.price.compareTo(right.price));
     //累加买入委托量
@@ -222,10 +222,9 @@ class _StockChartScreenState extends State<StockChartScreen> {
 
   Widget button(String text, {VoidCallback onPressed, bool selected = false}) {
     return SizedBox(
-      width: 50.0,
+      width: 60.0,
       height: 30.0,
-      child: FlatButton(
-        padding: EdgeInsets.all(0.0),
+      child: TextButton(
         onPressed: () {
           if (onPressed != null) {
             onPressed();
@@ -238,7 +237,14 @@ class _StockChartScreenState extends State<StockChartScreen> {
             fontSize: 12.0,
           ),
         ),
-        color: selected ? Colors.blue : Colors.blue.withOpacity(0.6),
+        style: ButtonStyle(
+          foregroundColor:
+              MaterialStateProperty.resolveWith((states) => Colors.white),
+          backgroundColor: selected
+              ? MaterialStateProperty.resolveWith((states) => Colors.blue)
+              : MaterialStateProperty.resolveWith(
+                  (states) => Colors.blue.withOpacity(0.6)),
+        ),
       ),
     );
   }
