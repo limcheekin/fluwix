@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'animate_icons/animate_icons_screen.dart';
 import 'chart_datatable/chart_datatable_screen.dart';
 import 'charts/charts_screen.dart';
@@ -9,10 +8,9 @@ import 'tab_buttons/tab_buttons_screen.dart';
 
 import 'nested_list/nested_list_screen.dart';
 import 'stock_chart/stock_chart_screen.dart';
+import 'url_launcher/url_launcher_screen.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setEnabledSystemUIOverlays([]);
   runApp(MyApp());
 }
 
@@ -28,6 +26,7 @@ class MyApp extends StatelessWidget {
       "Chart & Data Table",
       "Syntax View",
       "Animate Icons",
+      "URL Launcher",
     ];
     return MaterialApp(
       title: "Flutter Widgets Explorer",
@@ -70,6 +69,9 @@ class MyApp extends StatelessWidget {
                           break;
                         case 7:
                           _gotoScreen(context, AnimateIconsScreen());
+                          break;
+                        case 8:
+                          _gotoScreen(context, UrlLauncherScreen());
                           break;
                         default:
                       }

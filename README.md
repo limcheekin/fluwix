@@ -74,6 +74,14 @@ Each widget will be coded in separate branch and come with it's own readme file.
 </a> 
 </td>
 </tr>
+<tr valign="top">
+<td width="33.3%">
+<a href="lib/url_launcher/README.md" target="_blank">
+<img alt="URL Launcher Screen" src="images/url_launcher/thumbnail.png" height="384px" width="216px" />
+</br><strong>url_launcher</strong>: Launch a URL to browse website, make phone call, send Email or SMS.
+</a> 
+</td>
+</tr>
 <table>
 
 ## General References
