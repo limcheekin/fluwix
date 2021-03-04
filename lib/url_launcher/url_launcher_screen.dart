@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UrlLauncherScreen extends StatefulWidget {
@@ -132,6 +133,24 @@ class _UrlLauncherScreenState extends State<UrlLauncherScreen> {
                   onChanged: (String text) => _toLaunch = text,
                   decoration: const InputDecoration(
                     hintText: 'Enter the URL to launch',
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Link(
+                  uri: Uri.parse(_toLaunch),
+                  builder: (BuildContext context, FollowLink followLink) =>
+                      TextButton(
+                    onPressed: followLink,
+                    child: Text(
+                      'Link class: $_toLaunch',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 18,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
                   ),
                 ),
               ),
