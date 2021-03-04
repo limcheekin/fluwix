@@ -82,6 +82,12 @@ Each widget will be coded in separate branch and come with it's own readme file.
 </br><strong>url_launcher</strong>: Launch a URL to browse website, make phone call, send Email or SMS.
 </a> 
 </td>
+<td width="33.3%">
+<a href="lib/markdown/README.md" target="_blank">
+<img alt="Markdown View Screen" src="images/markdown/thumbnail.png" height="384px" width="216px" />
+</br><strong>markdown</strong>: Display Markdown file from Github repo.
+</a> 
+</td>
 </tr>
 <table>
 

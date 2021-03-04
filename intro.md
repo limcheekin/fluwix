@@ -5,9 +5,8 @@ The basic skeleton of the Flutter Widgets Explorer project is created without an
 ## Directory Structure
 
 The project following certain naming conventions and directory stucture as per the following image and description:
-<p> 
-<img alt="Directory Structure" src="images/directory_structure.png" />
-</p>
+
+![Directory Structure](https://raw.githubusercontent.com/limcheekin/flutter-widgets-explorer/main/images/directory_structure.png "Directory Structure")
 
 - The `common/presentation/widgets` directory stored the codes of reusable widgets of the project
 

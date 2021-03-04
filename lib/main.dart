@@ -3,6 +3,7 @@ import 'animate_icons/animate_icons_screen.dart';
 import 'chart_datatable/chart_datatable_screen.dart';
 import 'charts/charts_screen.dart';
 import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
+import 'markdown/markdown_screen.dart';
 import 'syntax_view/syntax_view_screen.dart';
 import 'tab_buttons/tab_buttons_screen.dart';
 
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       "Syntax View",
       "Animate Icons",
       "URL Launcher",
+      "Markdown View",
     ];
     return MaterialApp(
       title: "Flutter Widgets Explorer",
@@ -72,6 +74,9 @@ class MyApp extends StatelessWidget {
                           break;
                         case 8:
                           _gotoScreen(context, UrlLauncherScreen());
+                          break;
+                        case 9:
+                          _gotoScreen(context, MarkdownScreen());
                           break;
                         default:
                       }
