@@ -1,1 +1,2 @@
-Showcase Syntax View, Animate Icons and URL Launcher.
+Showcase Markdown View and Shimmer Effect. 
+Updated URL Launcher for Link class.
