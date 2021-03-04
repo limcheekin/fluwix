@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+
 import 'animate_icons/animate_icons_screen.dart';
 import 'chart_datatable/chart_datatable_screen.dart';
 import 'charts/charts_screen.dart';
 import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
 import 'markdown/markdown_screen.dart';
+import 'nested_list/nested_list_screen.dart';
+import 'shimmer/shimmer_effect_screen.dart';
+import 'stock_chart/stock_chart_screen.dart';
 import 'syntax_view/syntax_view_screen.dart';
 import 'tab_buttons/tab_buttons_screen.dart';
-
-import 'nested_list/nested_list_screen.dart';
-import 'stock_chart/stock_chart_screen.dart';
 import 'url_launcher/url_launcher_screen.dart';
 
 void main() {
@@ -22,13 +23,14 @@ class MyApp extends StatelessWidget {
       'Nested List',
       'Tab Buttons',
       'Stock Chart',
-      "Expansion/Collapse View",
-      "Charts Gallery",
-      "Chart & Data Table",
-      "Syntax View",
-      "Animate Icons",
-      "URL Launcher",
-      "Markdown View",
+      'Expansion/Collapse View',
+      'Charts Gallery',
+      'Chart & Data Table',
+      'Syntax View',
+      'Animate Icons',
+      'URL Launcher',
+      'Markdown View',
+      'Shimmer Effect',
     ];
     return MaterialApp(
       title: "Flutter Widgets Explorer",
@@ -77,6 +79,9 @@ class MyApp extends StatelessWidget {
                           break;
                         case 9:
                           _gotoScreen(context, MarkdownScreen());
+                          break;
+                        case 10:
+                          _gotoScreen(context, ShimmerEffectScreen());
                           break;
                         default:
                       }

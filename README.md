@@ -88,6 +88,13 @@ Each widget will be coded in separate branch and come with it's own readme file.
 </br><strong>markdown</strong>: Display Markdown file from Github repo.
 </a> 
 </td>
+</td>
+<td width="33.3%">
+<a href="lib/shimmer/README.md" target="_blank">
+<img alt="Shimmer Effect" src="images/shimmer/thumbnail.png" height="384px" width="216px" />
+</br><strong>shimmer</strong>: Better way to show loading status.
+</a> 
+</td>
 </tr>
 <table>
 
