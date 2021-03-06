@@ -272,8 +272,8 @@ class _StockChartScreenState extends State<StockChartScreen> {
 
   //获取火币数据，需要翻墙
   Future<String> getIPAddress(String period) async {
-    var url =
-        'https://api.huobi.br.com/market/history/kline?period=${period ?? '1day'}&size=300&symbol=btcusdt';
+    var url = Uri.parse(
+        'https://api.huobi.br.com/market/history/kline?period=${period ?? '1day'}&size=300&symbol=btcusdt');
     String result;
     var response = await http.get(url);
     if (response.statusCode == 200) {

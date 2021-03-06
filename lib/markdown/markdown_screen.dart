@@ -13,7 +13,7 @@ class MarkdownScreen extends StatelessWidget {
   // REF: https://flutter.dev/docs/cookbook/networking/fetch-data#5-display-the-data
   Future<Response> _fetchGithubContent(String url) async {
     return http.get(
-      url,
+      Uri.parse(url),
       headers: {
         'Accept': 'application/vnd.github.v3.raw',
       },
