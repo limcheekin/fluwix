@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import 'about/about_screen.dart';
 import 'animate_icons/animate_icons_screen.dart';
@@ -34,11 +35,45 @@ class MyApp extends StatelessWidget {
       'Shimmer Effect',
       'About Dialog',
     ];
+
+    final List<Widget> aboutBoxChildren = <Widget>[
+      SizedBox(height: 24),
+      Text(
+        'Learn, test and showcase flutter widgets in one application.',
+        style: Theme.of(context).textTheme.bodyText2,
+      ),
+    ];
+
     return MaterialApp(
       title: "Flutter Widgets Explorer",
       home: Scaffold(
           appBar: AppBar(
             title: Text('Flutter Widgets'),
+            actions: [
+              FutureBuilder<PackageInfo>(
+                future: PackageInfo.fromPlatform(),
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  if (snapshot.hasData) {
+                    final packageInfo = snapshot.data;
+                    return IconButton(
+                      icon: Icon(Icons.info_outline),
+                      onPressed: () {
+                        showAboutDialog(
+                          context: context,
+                          applicationIcon: Logo(),
+                          applicationName: packageInfo.appName,
+                          applicationVersion: packageInfo.version,
+                          applicationLegalese:
+                              '\u{a9} ${DateTime.now().year} Lim Chee Kin',
+                          children: aboutBoxChildren,
+                        );
+                      },
+                    );
+                  }
+                  return SizedBox.shrink();
+                },
+              ),
+            ],
           ),
           body: Center(
             child: ListView.builder(
