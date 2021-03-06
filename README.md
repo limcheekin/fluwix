@@ -96,6 +96,14 @@ Each widget will be coded in separate branch and come with it's own readme file.
 </a> 
 </td>
 </tr>
+<tr valign="top">
+<td width="33.3%">
+<a href="lib/about/README.md" target="_blank">
+<img alt="About Screen" src="images/about/thumbnail.png" height="384px" width="216px" />
+</br><strong>about</strong>: About the application and licenses.
+</a> 
+</td>
+</tr>
 <table>
 
 ## General References

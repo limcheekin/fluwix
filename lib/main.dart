@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'about/about_screen.dart';
 import 'animate_icons/animate_icons_screen.dart';
 import 'chart_datatable/chart_datatable_screen.dart';
 import 'charts/charts_screen.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
       'URL Launcher',
       'Markdown View',
       'Shimmer Effect',
+      'About Dialog',
     ];
     return MaterialApp(
       title: "Flutter Widgets Explorer",
@@ -82,6 +84,9 @@ class MyApp extends StatelessWidget {
                           break;
                         case 10:
                           _gotoScreen(context, ShimmerEffectScreen());
+                          break;
+                        case 11:
+                          _gotoScreen(context, AboutScreen());
                           break;
                         default:
                       }
