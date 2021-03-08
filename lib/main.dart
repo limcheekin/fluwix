@@ -9,6 +9,7 @@ import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
 import 'markdown/markdown_screen.dart';
 import 'nested_list/nested_list_screen.dart';
 import 'shimmer/shimmer_effect_screen.dart';
+import 'source_code_view/source_code_view_screen.dart';
 import 'stock_chart/stock_chart_screen.dart';
 import 'syntax_view/syntax_view_screen.dart';
 import 'tab_buttons/tab_buttons_screen.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
       'Markdown View',
       'Shimmer Effect',
       'About Dialog',
+      'Source Code View',
     ];
 
     final List<Widget> aboutBoxChildren = <Widget>[
@@ -122,6 +124,9 @@ class MyApp extends StatelessWidget {
                           break;
                         case 11:
                           _gotoScreen(context, AboutScreen());
+                          break;
+                        case 12:
+                          _gotoScreen(context, SourceCodeViewScreen());
                           break;
                         default:
                       }
