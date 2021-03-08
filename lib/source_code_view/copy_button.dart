@@ -26,6 +26,9 @@ class CopyButton extends StatelessWidget {
         _saveToClipboard();
         return true;
       },
+      onEndIconPress: () {
+        return true;
+      },
       duration: Duration(milliseconds: 600),
       clockwise: true,
       color: Theme.of(context).primaryColor,
