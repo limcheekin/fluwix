@@ -22,7 +22,7 @@ var result = fibonacci(20);
       syntaxTheme: SyntaxTheme.standard(),
       withZoom: true,
       withLinesCount: true,
-      expanded: false,
+      expanded: true,
     ),
     "Dracula": SyntaxView(
       code: code,
@@ -30,7 +30,7 @@ var result = fibonacci(20);
       syntaxTheme: SyntaxTheme.dracula(),
       withZoom: true,
       withLinesCount: true,
-      expanded: false,
+      expanded: true,
     ),
     "AyuLight": SyntaxView(
       code: code,
@@ -38,7 +38,7 @@ var result = fibonacci(20);
       syntaxTheme: SyntaxTheme.ayuLight(),
       withZoom: true,
       withLinesCount: true,
-      expanded: false,
+      expanded: true,
     ),
     "AyuDark": SyntaxView(
       code: code,
@@ -46,7 +46,7 @@ var result = fibonacci(20);
       syntaxTheme: SyntaxTheme.ayuDark(),
       withZoom: true,
       withLinesCount: true,
-      expanded: false,
+      expanded: true,
     ),
     "GravityLight": SyntaxView(
       code: code,
@@ -147,10 +147,9 @@ var result = fibonacci(20);
                       ],
                     ),
                   ),
-                  //Divider(),
                   if (syntaxView.expanded)
                     Container(
-                        height: MediaQuery.of(context).size.height / 2.5,
+                        height: MediaQuery.of(context).size.height * 0.25,
                         child: syntaxView)
                   else
                     syntaxView

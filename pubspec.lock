@@ -106,6 +106,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
+<<<<<<< HEAD
   ffi:
     dependency: transitive
     description:
@@ -113,6 +114,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+=======
+>>>>>>> syntax_view
   flutter:
     dependency: "direct main"
     description: flutter
@@ -219,6 +222,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.0"
+<<<<<<< HEAD
   package_info_plus:
     dependency: "direct main"
     description:
@@ -261,6 +265,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+=======
+>>>>>>> syntax_view
   path:
     dependency: transitive
     description:
@@ -371,6 +377,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.0"
+<<<<<<< HEAD
   url_launcher:
     dependency: "direct main"
     description:
@@ -413,6 +420,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+=======
+>>>>>>> syntax_view
   vector_math:
     dependency: transitive
     description:
@@ -420,6 +429,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+<<<<<<< HEAD
   win32:
     dependency: transitive
     description:
@@ -427,6 +437,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+=======
+>>>>>>> syntax_view
   xml:
     dependency: transitive
     description:
@@ -442,5 +454,10 @@ packages:
     source: hosted
     version: "3.1.0"
 sdks:
+<<<<<<< HEAD
   dart: ">=2.12.0-259.9.beta <3.0.0"
   flutter: ">=1.22.0"
+=======
+  dart: ">=2.12.0-0.0 <3.0.0"
+  flutter: ">=0.3.6"
+>>>>>>> syntax_view
