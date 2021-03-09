@@ -19,10 +19,13 @@ class SourceCodeView extends StatelessWidget {
     return Column(
       children: [
         for (String path in this.paths)
-          GithubSyntaxView(
-            apiUrl: apiUrl,
-            linkUrl: linkUrl,
-            path: path,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GithubSyntaxView(
+              apiUrl: apiUrl,
+              linkUrl: linkUrl,
+              path: path,
+            ),
           )
       ],
     );

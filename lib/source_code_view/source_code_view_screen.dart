@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets_explorer/source_code_view/source_code_view.dart';
+import 'source_code_view.dart';
 
 class SourceCodeViewScreen extends StatelessWidget {
   const SourceCodeViewScreen({Key key}) : super(key: key);
@@ -15,14 +15,17 @@ class SourceCodeViewScreen extends StatelessWidget {
         title: Text('Source Code View'),
       ),
       body: SingleChildScrollView(
-        child: SourceCodeView(
-          apiUrl: githubApiUrl,
-          linkUrl: githubLinkUrl,
-          paths: [
-            'lib/expansion_collapse_view/expansion_collapse_view_screen.dart',
-            'lib/expansion_collapse_view/expansion_panel_screen.dart',
-            'lib/expansion_collapse_view/expansion_tile_screen.dart',
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: SourceCodeView(
+            apiUrl: githubApiUrl,
+            linkUrl: githubLinkUrl,
+            paths: [
+              'lib/expansion_collapse_view/expansion_collapse_view_screen.dart',
+              'lib/expansion_collapse_view/expansion_panel_screen.dart',
+              'lib/expansion_collapse_view/expansion_tile_screen.dart',
+            ],
+          ),
         ),
       ),
     );
