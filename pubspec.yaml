@@ -23,6 +23,7 @@ dependencies:
   flutter_markdown: ^0.6.0
   shimmer: ^1.1.2
   package_info_plus: ^1.0.0
+  pubspec_parse: ^1.0.0
 
 dev_dependencies:
   flutter_test:

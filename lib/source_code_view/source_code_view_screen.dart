@@ -3,10 +3,9 @@ import 'source_code_view.dart';
 
 class SourceCodeViewScreen extends StatelessWidget {
   const SourceCodeViewScreen({Key key}) : super(key: key);
-  static const githubApiUrl =
-      'https://api.github.com/repos/limcheekin/flutter-widgets-explorer/contents/';
-  static const githubLinkUrl =
-      'https://github.com/limcheekin/flutter-widgets-explorer/blob/main/';
+  static const owner = 'limcheekin';
+  static const repository = 'flutter-widgets-explorer';
+  static const branch = 'source_code_view';
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +17,12 @@ class SourceCodeViewScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: SourceCodeView(
-            apiUrl: githubApiUrl,
-            linkUrl: githubLinkUrl,
+            owner: owner,
+            repository: repository,
+            ref: branch,
             paths: [
-              'lib/expansion_collapse_view/expansion_collapse_view_screen.dart',
-              'lib/expansion_collapse_view/expansion_panel_screen.dart',
-              'lib/expansion_collapse_view/expansion_tile_screen.dart',
+              'lib/source_code_view/source_code_view_screen.dart',
+              //'lib/source_code_view/source_code_view.dart',
             ],
           ),
         ),

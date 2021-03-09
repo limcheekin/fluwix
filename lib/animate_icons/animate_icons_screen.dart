@@ -57,7 +57,6 @@ class _AnimateIconsScreenState extends State<AnimateIconsScreen> {
                 },
                 duration: Duration(milliseconds: 600),
                 clockwise: true,
-                color: Colors.deepPurple,
               ),
               IconButton(
                 iconSize: 50.0,

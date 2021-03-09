@@ -31,7 +31,6 @@ class CopyButton extends StatelessWidget {
       },
       duration: Duration(milliseconds: 600),
       clockwise: true,
-      color: Theme.of(context).primaryColor,
     );
   }
 }
