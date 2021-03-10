@@ -85,7 +85,7 @@ Each widget will be coded in separate branch and come with it's own readme file.
 <td width="33.3%">
 <a href="lib/markdown/README.md" target="_blank">
 <img alt="Markdown View Screen" src="images/markdown/thumbnail.png" height="384px" width="216px" />
-</br><strong>markdown</strong>: Display Markdown file from Github repo.
+</br><strong>markdown</strong>: Display Markdown file from Github repository.
 </a> 
 </td>
 </td>
@@ -102,6 +102,14 @@ Each widget will be coded in separate branch and come with it's own readme file.
 <img alt="About Screen" src="images/about/thumbnail.png" height="384px" width="216px" />
 </br><strong>about</strong>: About the application and licenses.
 </a> 
+</td>
+<td width="33.3%">
+<a href="lib/source_code_view/README.md" target="_blank">
+<img alt="Source Code View" src="images/source_code_view/thumbnail.png" height="384px" width="216px" />
+</br><strong>source_code_view</strong>: Share your source code of Github public repository.
+</a> 
+</td>
+<td width="33.3%">
 </td>
 </tr>
 <table>
