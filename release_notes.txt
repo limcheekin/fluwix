@@ -1,2 +1,1 @@
-Showcase Markdown View and Shimmer Effect. 
-Updated URL Launcher for Link class.
+Showcase About Dialog and Source Code View.
