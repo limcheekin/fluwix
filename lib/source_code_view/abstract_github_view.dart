@@ -26,8 +26,7 @@ abstract class AbstractGithubView extends StatelessWidget {
         super(key: key);
 
   // REF: https://flutter.dev/docs/cookbook/networking/fetch-data#5-display-the-data
-  Future<Response> _fetchGithubContent(String url) {
-    print('client $client, url $url');
+  Future<Response> fetchGithubContent(String url) {
     if (client != null) {
       return client.get(
         Uri.parse(url),
@@ -52,7 +51,7 @@ abstract class AbstractGithubView extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: FutureBuilder<Response>(
-          future: _fetchGithubContent(this.apiUrl),
+          future: fetchGithubContent(this.apiUrl),
           builder: (context, snapshot) {
             final linkText =
                 this.path.substring(this.path.lastIndexOf('/') + 1);
@@ -102,7 +101,7 @@ abstract class AbstractGithubView extends StatelessWidget {
                 ],
               );
             }
-            return _buildShimmer(linkText);
+            return buildShimmer(linkText);
           },
         ),
       ),
@@ -114,17 +113,17 @@ abstract class AbstractGithubView extends StatelessWidget {
       final response = snapshot.data;
       return response.statusCode == 200
           ? buildWidget(context, response.body)
-          : _buildGithubErrorWidget(
-              'Failed to fetch content from ${this.apiUrl}${this.path}! '
+          : buildGithubErrorWidget(
+              'Failed to fetch content from ${this.apiUrl}! '
               'Please click the link above to access the github content.');
     } else {
       print(snapshot.error);
-      return _buildGithubErrorWidget('Connection error! '
+      return buildGithubErrorWidget('Connection error! '
           'Please click the link above to access the github content.');
     }
   }
 
-  Widget _buildGithubErrorWidget(String error) {
+  Widget buildGithubErrorWidget(String error) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Text(error),
@@ -133,7 +132,7 @@ abstract class AbstractGithubView extends StatelessWidget {
 
   Widget buildWidget(BuildContext context, String responseBody);
 
-  Widget _buildShimmer(String linkText) {
+  Widget buildShimmer(String linkText) {
     return Shimmer.fromColors(
       baseColor: Colors.grey[300],
       highlightColor: Colors.grey[100],

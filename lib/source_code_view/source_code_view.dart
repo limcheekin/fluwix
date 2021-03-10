@@ -9,6 +9,8 @@ class SourceCodeView extends StatelessWidget {
   final String repository;
   final String ref;
   final List<String> paths;
+  final bool isShowDependencies;
+  final List<String> showDependencies;
   final Client client;
 
   SourceCodeView({
@@ -16,6 +18,8 @@ class SourceCodeView extends StatelessWidget {
     @required this.repository,
     @required this.ref,
     @required this.paths,
+    this.isShowDependencies = true,
+    this.showDependencies,
     this.client,
     Key key,
   }) : super(key: key);
@@ -26,22 +30,19 @@ class SourceCodeView extends StatelessWidget {
 
     return Column(
       children: [
-        PubspecDependenciesView(
-          owner: owner,
-          repository: repository,
-          ref: ref,
-          client: httpClient,
-          showDependencies: [
-            'flutter_syntax_view',
-            'shimmer',
-            'flutter_launcher_icons',
-          ],
-        ),
+        if (this.isShowDependencies)
+          PubspecDependenciesView(
+            owner: this.owner,
+            repository: this.repository,
+            ref: this.ref,
+            client: httpClient,
+            showDependencies: this.showDependencies,
+          ),
         for (String path in this.paths)
           GithubSyntaxView(
-            owner: owner,
-            repository: repository,
-            ref: ref,
+            owner: this.owner,
+            repository: this.repository,
+            ref: this.ref,
             path: path,
             client: httpClient,
           ),
