@@ -106,7 +106,7 @@ Each widget will be coded in separate branch and come with it's own readme file.
 <td width="33.3%">
 <a href="lib/source_code_view/README.md" target="_blank">
 <img alt="Source Code View" src="images/source_code_view/thumbnail.png" height="384px" width="216px" />
-</br><strong>source_code_view</strong>: Share your source code of Github public repository.
+</br><strong>source_code_view</strong>: Share your source code from Github public repository.
 </a> 
 </td>
 <td width="33.3%">
@@ -120,3 +120,5 @@ Each widget will be coded in separate branch and come with it's own readme file.
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 - [Online documentation](https://flutter.dev/docs)
 - [flutter-examples: An ultimate cheatbook of curated designs](http://flutterexamples.com/)
+- [TodoMVC for Flutter](https://github.com/brianegan/flutter_architecture_samples)
+- [Open Source Flutter Apps](https://github.com/tortuvshin/open-source-flutter-apps)
