@@ -122,3 +122,4 @@ Each widget will be coded in separate branch and come with it's own readme file.
 - [flutter-examples: An ultimate cheatbook of curated designs](http://flutterexamples.com/)
 - [TodoMVC for Flutter](https://github.com/brianegan/flutter_architecture_samples)
 - [Open Source Flutter Apps](https://github.com/tortuvshin/open-source-flutter-apps)
+- [Flutter Samples by the Flutter Team](https://flutter.github.io/samples/#)
