@@ -5,6 +5,7 @@ import 'package:pubspec_parse/pubspec_parse.dart';
 import 'package:url_launcher/link.dart';
 import 'abstract_github_view.dart';
 import 'copy_button.dart';
+import 'multiple_requests_http_client.dart';
 
 class PubspecDependenciesView extends AbstractGithubView {
   final List<String> showDependencies;
@@ -13,7 +14,7 @@ class PubspecDependenciesView extends AbstractGithubView {
     @required String repository,
     @required String ref,
     String path = 'pubspec.yaml',
-    Client client,
+    MultipleRequestsHttpClient client,
     this.showDependencies,
     Key key,
   }) : super(
@@ -37,6 +38,9 @@ class PubspecDependenciesView extends AbstractGithubView {
             final linkText =
                 this.path.substring(this.path.lastIndexOf('/') + 1);
             if (snapshot.connectionState == ConnectionState.done) {
+              if (client != null) {
+                client.close();
+              }
               final response = snapshot.data;
               String code;
               if (snapshot.hasData && response.statusCode == 200) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_syntax_view/flutter_syntax_view.dart';
-import 'package:http/http.dart';
 import 'abstract_github_view.dart';
+import 'multiple_requests_http_client.dart';
 
 class GithubSyntaxView extends AbstractGithubView {
   const GithubSyntaxView({
@@ -9,7 +9,7 @@ class GithubSyntaxView extends AbstractGithubView {
     @required String repository,
     @required String ref,
     @required String path,
-    Client client,
+    MultipleRequestsHttpClient client,
     Key key,
   }) : super(
           owner: owner,
