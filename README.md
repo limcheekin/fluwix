@@ -1,6 +1,7 @@
 # flutter-widgets-explorer
 
 The Flutter Widgets Explorer is created to learn, test and demo flutter widgets in one application.
+
 <a href='https://play.google.com/store/apps/details?id=com.vobject.flutter.widgets.explorer&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="50%"/></a>
 
 ## Getting Started
@@ -123,3 +124,5 @@ Each widget will be coded in separate branch and come with it's own readme file.
 - [TodoMVC for Flutter](https://github.com/brianegan/flutter_architecture_samples)
 - [Open Source Flutter Apps](https://github.com/tortuvshin/open-source-flutter-apps)
 - [Flutter Samples by the Flutter Team](https://flutter.github.io/samples/#)
+- [Flutter Gems - A Curated Package Guide for Flutter](https://fluttergems.dev/)
+- [Flutter Layouts Demo](https://github.com/bizz84/layout-demo-flutter)
