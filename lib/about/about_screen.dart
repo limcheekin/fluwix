@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets_explorer/common/presentation/widgets/center_text.dart';
+import '../common/presentation/widgets/center_text.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 /// This is the stateless widget that the main application instantiates.

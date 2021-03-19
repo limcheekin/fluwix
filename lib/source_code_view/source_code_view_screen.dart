@@ -21,6 +21,7 @@ class SourceCodeViewScreen extends StatelessWidget {
             repository: repository,
             ref: branch,
             paths: [
+              'lib/source_code_view/multiple_requests_http_client.dart',
               'lib/source_code_view/abstract_github_view.dart',
               'lib/source_code_view/copy_button.dart',
               'lib/source_code_view/github_syntax_view.dart',

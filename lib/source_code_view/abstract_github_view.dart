@@ -4,13 +4,14 @@ import 'package:url_launcher/link.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'copy_button.dart';
+import 'multiple_requests_http_client.dart';
 
 abstract class AbstractGithubView extends StatelessWidget {
   final String apiUrl;
   final String linkUrl;
   final String path;
   final bool hasCopyButton;
-  final Client client;
+  final MultipleRequestsHttpClient client;
 
   const AbstractGithubView({
     @required String owner,
@@ -56,6 +57,9 @@ abstract class AbstractGithubView extends StatelessWidget {
             final linkText =
                 this.path.substring(this.path.lastIndexOf('/') + 1);
             if (snapshot.connectionState == ConnectionState.done) {
+              if (client != null) {
+                client.close();
+              }
               final response = snapshot.data;
               return Column(
                 children: [

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets_explorer/source_code_view/pubspec_dependencies_view.dart';
-import 'package:http/http.dart';
-import 'package:http/http.dart' as http;
+import 'pubspec_dependencies_view.dart';
 import 'github_syntax_view.dart';
+import 'multiple_requests_http_client.dart';
 
 class SourceCodeView extends StatelessWidget {
   final String owner;
@@ -11,7 +10,7 @@ class SourceCodeView extends StatelessWidget {
   final List<String> paths;
   final bool isShowDependencies;
   final List<String> showDependencies;
-  final Client client;
+  final MultipleRequestsHttpClient client;
 
   SourceCodeView({
     @required this.owner,
@@ -26,7 +25,8 @@ class SourceCodeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Client httpClient = this.client ?? http.Client();
+    MultipleRequestsHttpClient httpClient =
+        this.client ?? MultipleRequestsHttpClient();
 
     return Column(
       children: [
@@ -48,10 +48,5 @@ class SourceCodeView extends StatelessWidget {
           ),
       ],
     );
-    /*finally {
-      if (this.client == null) {
-        httpClient.close();
-      }
-    }*/
   }
 }
