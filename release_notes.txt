@@ -1,1 +1,1 @@
-Showcase About Dialog and Source Code View.
+Updated Source Code View module and release Showcase module.
