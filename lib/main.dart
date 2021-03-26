@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:source_code_view/source_code_view_screen.dart';
 
 import 'about/about_screen.dart';
 import 'animate_icons/animate_icons_screen.dart';
@@ -9,7 +10,6 @@ import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
 import 'markdown/markdown_screen.dart';
 import 'nested_list/nested_list_screen.dart';
 import 'shimmer/shimmer_effect_screen.dart';
-import 'source_code_view/source_code_view_screen.dart';
 import 'stock_chart/stock_chart_screen.dart';
 import 'syntax_view/syntax_view_screen.dart';
 import 'tab_buttons/tab_buttons_screen.dart';

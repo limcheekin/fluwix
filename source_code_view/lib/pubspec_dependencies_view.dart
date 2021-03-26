@@ -16,6 +16,7 @@ class PubspecDependenciesView extends AbstractGithubView {
     String path = 'pubspec.yaml',
     MultipleRequestsHttpClient client,
     this.showDependencies,
+    bool wantKeepAlive = true,
     Key key,
   }) : super(
           owner: owner,
@@ -23,23 +24,34 @@ class PubspecDependenciesView extends AbstractGithubView {
           ref: ref,
           path: path,
           client: client,
+          wantKeepAlive: wantKeepAlive,
           key: key,
         );
 
   @override
+  _PubspecDependenciesViewState createState() =>
+      _PubspecDependenciesViewState();
+}
+
+class _PubspecDependenciesViewState
+    extends AbstractGithubViewState<PubspecDependenciesView> {
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Card(
       elevation: 6.0,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: FutureBuilder<Response>(
-          future: super.fetchGithubContent(this.apiUrl),
+          future: this.getGithubContent,
           builder: (context, snapshot) {
-            final linkText =
-                this.path.substring(this.path.lastIndexOf('/') + 1);
+            final linkText = this
+                .widget
+                .path
+                .substring(this.widget.path.lastIndexOf('/') + 1);
             if (snapshot.connectionState == ConnectionState.done) {
-              if (client != null) {
-                client.close();
+              if (this.widget.client != null) {
+                this.widget.client.close();
               }
               final response = snapshot.data;
               String code;
@@ -55,7 +67,7 @@ class PubspecDependenciesView extends AbstractGithubView {
                         child: Align(
                           alignment: Alignment.centerLeft,
                           child: Link(
-                            uri: Uri.parse(this.linkUrl),
+                            uri: Uri.parse(this.widget.linkUrl),
                             builder:
                                 (BuildContext context, FollowLink followLink) =>
                                     TextButton(
@@ -76,7 +88,7 @@ class PubspecDependenciesView extends AbstractGithubView {
                       ),
                       Expanded(
                         flex: 1,
-                        child: this.hasCopyButton &&
+                        child: this.widget.hasCopyButton &&
                                 snapshot.hasData &&
                                 response.statusCode == 200
                             ? Align(
@@ -102,8 +114,8 @@ class PubspecDependenciesView extends AbstractGithubView {
     final Map<String, String> dependencies = {};
     final Map<String, String> devDependencies = {};
 
-    if (this.showDependencies != null) {
-      for (String key in this.showDependencies) {
+    if (this.widget.showDependencies != null) {
+      for (String key in this.widget.showDependencies) {
         var value = pubspec.dependencies[key];
         if (value != null && value is HostedDependency) {
           dependencies[key] = value.version.toString();
@@ -160,7 +172,7 @@ class PubspecDependenciesView extends AbstractGithubView {
               withLinesCount: false,
             )
           : super.buildGithubErrorWidget(
-              'Failed to fetch content from ${this.apiUrl}! '
+              'Failed to fetch content from ${this.widget.apiUrl}! '
               'Please click the link above to access the github content.');
     } else {
       print(snapshot.error);
@@ -171,6 +183,6 @@ class PubspecDependenciesView extends AbstractGithubView {
 
   @override
   Widget buildWidget(BuildContext context, String responseBody) {
-    throw UnimplementedError();
+    throw UnimplementedError('buildWidget method never be invoked');
   }
 }

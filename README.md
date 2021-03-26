@@ -105,9 +105,9 @@ Each widget will be coded in separate branch and come with it's own readme file.
 </a> 
 </td>
 <td width="33.3%">
-<a href="lib/source_code_view/README.md" target="_blank">
-<img alt="Source Code View" src="images/source_code_view/thumbnail.png" height="384px" width="216px" />
-</br><strong>source_code_view</strong>: Share your source code from Github public repository.
+<a href="source_code_view/README.md" target="_blank">
+<img alt="Source Code View" src="source_code_view/images/thumbnail.png" height="384px" width="216px" />
+</br><strong>source_code_view</strong>: Share your source code of Github public repository.
 </a> 
 </td>
 <td width="33.3%">

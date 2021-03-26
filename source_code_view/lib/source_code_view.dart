@@ -7,6 +7,7 @@ class SourceCodeView extends StatelessWidget {
   final String owner;
   final String repository;
   final String ref;
+  final String pubspecPath;
   final List<String> paths;
   final bool isShowDependencies;
   final List<String> showDependencies;
@@ -17,6 +18,7 @@ class SourceCodeView extends StatelessWidget {
     @required this.repository,
     @required this.ref,
     @required this.paths,
+    this.pubspecPath = 'pubspec.yaml',
     this.isShowDependencies = true,
     this.showDependencies,
     this.client,
@@ -35,6 +37,7 @@ class SourceCodeView extends StatelessWidget {
             owner: this.owner,
             repository: this.repository,
             ref: this.ref,
+            path: this.pubspecPath,
             client: httpClient,
             showDependencies: this.showDependencies,
           ),

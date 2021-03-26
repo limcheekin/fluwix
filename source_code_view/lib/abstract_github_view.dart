@@ -6,11 +6,15 @@ import 'package:http/http.dart' as http;
 import 'copy_button.dart';
 import 'multiple_requests_http_client.dart';
 
-abstract class AbstractGithubView extends StatelessWidget {
+// REF: https://stackoverflow.com/questions/50696945/flutter-statefulwidget-state-class-inheritance
+// REF: https://blog.gskinner.com/archives/2020/08/flutter-extending-statet.html
+// REF: https://github.com/diegoveloper/flutter-samples/blob/master/lib/persistent_tabbar/page2.dart
+abstract class AbstractGithubView extends StatefulWidget {
   final String apiUrl;
   final String linkUrl;
   final String path;
   final bool hasCopyButton;
+  final bool wantKeepAlive;
   final MultipleRequestsHttpClient client;
 
   const AbstractGithubView({
@@ -18,6 +22,7 @@ abstract class AbstractGithubView extends StatelessWidget {
     @required String repository,
     @required String ref,
     @required this.path,
+    @required this.wantKeepAlive,
     this.hasCopyButton = true,
     this.client,
     Key key,
@@ -25,19 +30,36 @@ abstract class AbstractGithubView extends StatelessWidget {
             'https://api.github.com/repos/$owner/$repository/contents/$path?ref=$ref',
         this.linkUrl = 'https://github.com/$owner/$repository/blob/$ref/$path',
         super(key: key);
+}
 
-  // REF: https://flutter.dev/docs/cookbook/networking/fetch-data#5-display-the-data
-  Future<Response> fetchGithubContent(String url) {
-    if (client != null) {
-      return client.get(
-        Uri.parse(url),
+abstract class AbstractGithubViewState<T extends AbstractGithubView>
+    extends State<T> with AutomaticKeepAliveClientMixin<T> {
+  /* REF: https://api.flutter.dev/flutter/widgets/FutureBuilder-class.html
+  The future must have been obtained earlier, e.g. during State.initState, State.didUpdateWidget, 
+  or State.didChangeDependencies. 
+  It must not be created during the State.build or StatelessWidget.build method call when 
+  constructing the FutureBuilder. If the future is created at the same time as the FutureBuilder, 
+  then every time the FutureBuilder's parent is rebuilt, the asynchronous task will be restarted.
+  */
+  Future<Response> getGithubContent;
+
+  @override
+  void initState() {
+    super.initState();
+    getGithubContent = fetchGithubContent();
+  }
+
+  Future<Response> fetchGithubContent() {
+    if (this.widget.client != null) {
+      return this.widget.client.get(
+        Uri.parse(this.widget.apiUrl),
         headers: {
           'Accept': 'application/vnd.github.v3.raw',
         },
       );
     } else {
       return http.get(
-        Uri.parse(url),
+        Uri.parse(this.widget.apiUrl),
         headers: {
           'Accept': 'application/vnd.github.v3.raw',
         },
@@ -47,18 +69,21 @@ abstract class AbstractGithubView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Card(
       elevation: 6.0,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: FutureBuilder<Response>(
-          future: fetchGithubContent(this.apiUrl),
+          future: this.getGithubContent,
           builder: (context, snapshot) {
-            final linkText =
-                this.path.substring(this.path.lastIndexOf('/') + 1);
+            final linkText = this
+                .widget
+                .path
+                .substring(this.widget.path.lastIndexOf('/') + 1);
             if (snapshot.connectionState == ConnectionState.done) {
-              if (client != null) {
-                client.close();
+              if (this.widget.client != null) {
+                this.widget.client.close();
               }
               final response = snapshot.data;
               return Column(
@@ -70,7 +95,7 @@ abstract class AbstractGithubView extends StatelessWidget {
                         child: Align(
                           alignment: Alignment.centerLeft,
                           child: Link(
-                            uri: Uri.parse(this.linkUrl),
+                            uri: Uri.parse(this.widget.linkUrl),
                             builder:
                                 (BuildContext context, FollowLink followLink) =>
                                     TextButton(
@@ -91,7 +116,7 @@ abstract class AbstractGithubView extends StatelessWidget {
                       ),
                       Expanded(
                         flex: 1,
-                        child: this.hasCopyButton &&
+                        child: this.widget.hasCopyButton &&
                                 snapshot.hasData &&
                                 response.statusCode == 200
                             ? Align(
@@ -118,7 +143,7 @@ abstract class AbstractGithubView extends StatelessWidget {
       return response.statusCode == 200
           ? buildWidget(context, response.body)
           : buildGithubErrorWidget(
-              'Failed to fetch content from ${this.apiUrl}! '
+              'Failed to fetch content from ${this.widget.apiUrl}! '
               'Please click the link above to access the github content.');
     } else {
       print(snapshot.error);
@@ -162,7 +187,7 @@ abstract class AbstractGithubView extends StatelessWidget {
               ),
               Expanded(
                 flex: 1,
-                child: this.hasCopyButton
+                child: this.widget.hasCopyButton
                     ? Align(
                         alignment: Alignment.centerRight,
                         child: Icon(Icons.copy),
@@ -181,4 +206,7 @@ abstract class AbstractGithubView extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => this.widget.wantKeepAlive;
 }

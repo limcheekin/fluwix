@@ -15,6 +15,7 @@ class CopyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimateIcons(
+      controller: AnimateIconController(),
       size: 24.0,
       startIcon: Icons.copy,
       endIcon: Icons.check,

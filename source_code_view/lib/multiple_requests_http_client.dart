@@ -9,12 +9,13 @@ class MultipleRequestsHttpClient {
 
   Future<Response> get(Uri url, {Map<String, String> headers}) {
     ++requestCount;
+    print('get() requestCount $requestCount $url');
     return client.get(url, headers: headers);
   }
 
   void close() {
     --requestCount;
-    // print('requestCount $requestCount');
+    print('close() requestCount $requestCount');
     if (requestCount == 0) {
       client.close();
       print('client connection closed');
