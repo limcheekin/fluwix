@@ -10,6 +10,7 @@ class GithubSyntaxView extends AbstractGithubView {
     @required String ref,
     @required String path,
     MultipleRequestsHttpClient client,
+    bool wantKeepAlive = true,
     Key key,
   }) : super(
           owner: owner,
@@ -17,9 +18,15 @@ class GithubSyntaxView extends AbstractGithubView {
           ref: ref,
           path: path,
           client: client,
+          wantKeepAlive: wantKeepAlive,
           key: key,
         );
 
+  @override
+  _GithubSyntaxViewState createState() => _GithubSyntaxViewState();
+}
+
+class _GithubSyntaxViewState extends AbstractGithubViewState<GithubSyntaxView> {
   @override
   Widget buildWidget(BuildContext context, String responseBody) {
     return SyntaxView(
