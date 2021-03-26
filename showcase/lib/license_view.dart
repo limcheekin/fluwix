@@ -18,6 +18,7 @@ class LicenseView extends AbstractGithubView {
           path: path,
           client: client,
           wantKeepAlive: wantKeepAlive,
+          hasCopyButton: false,
           key: key,
         );
   @override
