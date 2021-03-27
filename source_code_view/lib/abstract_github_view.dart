@@ -87,6 +87,7 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
               }
               final response = snapshot.data;
               return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Row(
                     children: [
