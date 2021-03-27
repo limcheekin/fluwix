@@ -17,14 +17,14 @@ class ShowcaseScreen extends StatelessWidget {
       ),
       body: Showcase(
         widget: Center(
-          child: Text('This is center text.'),
+          child: Text('This is your widget.'),
         ),
         owner: owner,
         repository: repository,
         ref: branch,
         readMe: 'showcase/README.md',
-        pubspecPath: 'showcase/pubspec.yaml',
         codePaths: [
+          'showcase/pubspec.yaml',
           'showcase/lib/license_view.dart',
           'showcase/lib/main.dart',
           'showcase/lib/read_me_view.dart',

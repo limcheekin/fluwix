@@ -24,7 +24,7 @@ class Showcase extends StatelessWidget {
     this.license = 'LICENSE',
     this.pubspecPath = 'pubspec.yaml',
     this.codePaths,
-    this.isShowDependencies = true,
+    this.isShowDependencies = false,
     this.showDependencies,
     Key key,
   }) : super(key: key);
