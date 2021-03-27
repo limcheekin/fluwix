@@ -32,6 +32,16 @@ class ShowcaseScreen extends StatelessWidget {
           'showcase/lib/read_me_view.dart',
           'showcase/lib/license_view.dart',
         ],
+        additionalTabs: [
+          Tab(text: 'Car'),
+          Tab(text: 'Transit'),
+          Tab(text: 'Bike'),
+        ],
+        additionalTabBarViews: [
+          Icon(Icons.directions_car),
+          Icon(Icons.directions_transit),
+          Icon(Icons.directions_bike),
+        ],
       ),
     );
   }
