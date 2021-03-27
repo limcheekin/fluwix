@@ -1,1 +1,1 @@
-Updated Source Code View module and release Showcase module.
+Improved Source Code View and Showcase support additional tabs.
