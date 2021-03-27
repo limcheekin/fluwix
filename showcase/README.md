@@ -4,7 +4,7 @@ The Showcase module is a reusable widget with tabs to showcase your widget, disp
 
 A picture is worth a thousand words:-
 
-![Showcase screenshots](images/screenshots.gif "Showcase screenshots")
+![Showcase screenshots](https://github.com/limcheekin/flutter-widgets-explorer/raw/showcase/showcase/images/screenshots.gif "Showcase screenshots")
 
 If you are interested to reuse the source code of the screen, please check out the `showcase` branch of the git repository hosted at https://github.com/limcheekin/flutter-widgets-explorer. Feel free to fork the repository and send me pull request.
 
