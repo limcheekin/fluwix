@@ -19,7 +19,7 @@ class SourceCodeView extends StatelessWidget {
     @required this.ref,
     @required this.paths,
     this.pubspecPath = 'pubspec.yaml',
-    this.isShowDependencies = true,
+    this.isShowDependencies = false,
     this.showDependencies,
     this.client,
     Key key,
