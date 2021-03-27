@@ -35,6 +35,7 @@ class Showcase extends StatelessWidget {
       length: 4,
       child: Column(children: [
         TabBar(
+          isScrollable: true,
           labelColor: Colors.blue,
           unselectedLabelColor: Colors.black,
           tabs: [
