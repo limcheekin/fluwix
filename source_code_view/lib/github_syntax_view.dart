@@ -4,15 +4,35 @@ import 'abstract_github_view.dart';
 import 'multiple_requests_http_client.dart';
 
 class GithubSyntaxView extends AbstractGithubView {
-  const GithubSyntaxView({
+  final SyntaxTheme syntaxTheme;
+  final Syntax syntax;
+  static const Map<String, Syntax> FILE_EXTENSION_SYNTAX_MAPPING = {
+    '.dart': Syntax.DART,
+    '.c': Syntax.C,
+    '.cpp': Syntax.CPP,
+    '.js': Syntax.JAVASCRIPT,
+    '.kt': Syntax.KOTLIN,
+    '.kts': Syntax.KOTLIN,
+    '.ktm': Syntax.KOTLIN,
+    '.java': Syntax.JAVA,
+    '.swift': Syntax.SWIFT,
+    '.yml': Syntax.YAML,
+    '.yaml': Syntax.YAML,
+  };
+
+  GithubSyntaxView({
     @required String owner,
     @required String repository,
     @required String ref,
     @required String path,
+    SyntaxTheme syntaxTheme,
     MultipleRequestsHttpClient client,
     bool wantKeepAlive = true,
     Key key,
-  }) : super(
+  })  : this.syntaxTheme = syntaxTheme ?? SyntaxTheme.vscodeDark(),
+        this.syntax = FILE_EXTENSION_SYNTAX_MAPPING[
+            path.substring(path.lastIndexOf('.')).toLowerCase()],
+        super(
           owner: owner,
           repository: repository,
           ref: ref,
@@ -31,8 +51,8 @@ class _GithubSyntaxViewState extends AbstractGithubViewState<GithubSyntaxView> {
   Widget buildWidget(BuildContext context, String responseBody) {
     return SyntaxView(
       code: responseBody,
-      syntax: Syntax.DART,
-      syntaxTheme: SyntaxTheme.vscodeDark(),
+      syntax: this.widget.syntax,
+      syntaxTheme: this.widget.syntaxTheme,
       withZoom: true,
       withLinesCount: true,
       expanded: false,

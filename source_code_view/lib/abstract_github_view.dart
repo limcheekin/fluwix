@@ -46,10 +46,10 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
   @override
   void initState() {
     super.initState();
-    getGithubContent = fetchGithubContent();
+    getGithubContent = _fetchGithubContent();
   }
 
-  Future<Response> fetchGithubContent() {
+  Future<Response> _fetchGithubContent() {
     if (this.widget.client != null) {
       return this.widget.client.get(
         Uri.parse(this.widget.apiUrl),
@@ -87,6 +87,7 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
               }
               final response = snapshot.data;
               return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Row(
                     children: [
