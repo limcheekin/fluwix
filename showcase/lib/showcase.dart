@@ -14,6 +14,11 @@ class Showcase extends StatelessWidget {
   final List<String> codePaths;
   final bool isShowDependencies;
   final List<String> showDependencies;
+  final bool showReadMe;
+  final bool showCode;
+  final bool showLicense;
+  final List<Widget> additionalTabs;
+  final List<Widget> additionalTabBarViews;
 
   const Showcase({
     @required this.widget,
@@ -24,63 +29,88 @@ class Showcase extends StatelessWidget {
     this.license = 'LICENSE',
     this.pubspecPath = 'pubspec.yaml',
     this.codePaths,
+    this.additionalTabs,
+    this.additionalTabBarViews,
     this.isShowDependencies = false,
     this.showDependencies,
+    this.showReadMe = true,
+    this.showCode = true,
+    this.showLicense = true,
     Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> tabs = [
+      Tab(
+        text: 'Showcase',
+      ),
+      if (this.showReadMe)
+        Tab(
+          text: 'Read Me',
+        ),
+      if (this.showCode)
+        Tab(
+          text: 'Code',
+        ),
+      if (this.showLicense)
+        Tab(
+          text: 'License',
+        ),
+    ];
+
+    if (this.additionalTabs != null && this.additionalTabs.isNotEmpty) {
+      tabs.addAll(this.additionalTabs);
+    }
+
+    List<Widget> tabBarViews = [
+      this.widget,
+      if (this.showReadMe)
+        ReadMeView(
+          owner: owner,
+          repository: repository,
+          ref: ref,
+          path: this.readMe,
+        ),
+      if (this.showCode)
+        SingleChildScrollView(
+          child: SourceCodeView(
+            owner: owner,
+            repository: repository,
+            ref: ref,
+            pubspecPath: pubspecPath,
+            paths: codePaths,
+            showDependencies: this.showDependencies,
+          ),
+        ),
+      if (this.showLicense)
+        SingleChildScrollView(
+          child: LicenseView(
+            owner: owner,
+            repository: repository,
+            ref: ref,
+            path: this.license,
+          ),
+        ),
+    ];
+
+    if (this.additionalTabBarViews != null &&
+        this.additionalTabBarViews.isNotEmpty) {
+      tabBarViews.addAll(this.additionalTabBarViews);
+    }
+
     return DefaultTabController(
-      length: 4,
+      length: tabs.length,
       child: Column(children: [
         TabBar(
+          isScrollable: true,
           labelColor: Colors.blue,
           unselectedLabelColor: Colors.black,
-          tabs: [
-            Tab(
-              text: 'Showcase',
-            ),
-            Tab(
-              text: 'Read Me',
-            ),
-            Tab(
-              text: 'Code',
-            ),
-            Tab(
-              text: 'License',
-            ),
-          ],
+          tabs: tabs,
         ),
         Expanded(
           child: TabBarView(
-            children: [
-              this.widget,
-              ReadMeView(
-                owner: owner,
-                repository: repository,
-                ref: ref,
-                path: this.readMe,
-              ),
-              SingleChildScrollView(
-                child: SourceCodeView(
-                  owner: owner,
-                  repository: repository,
-                  ref: ref,
-                  pubspecPath: pubspecPath,
-                  paths: codePaths,
-                  showDependencies: this.showDependencies,
-                ),
-              ),
-              SingleChildScrollView(
-                child: LicenseView(
-                  owner: owner,
-                  repository: repository,
-                  ref: ref,
-                  path: this.license,
-                ),
-              ),
-            ],
+            children: tabBarViews,
           ),
         ),
       ]),
