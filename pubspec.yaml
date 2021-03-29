@@ -55,3 +55,9 @@ flutter:
     - assets/shimmer/images/chevron_right.png
     - assets/shimmer/images/background.jpg
     - assets/about/images/logo_bright.png
+
+scripts:
+  record: adb shell screenrecord --size 324x576 /sdcard/recording.mp4
+  pull_recording: adb pull /sdcard/recording.mp4
+  convert_mp4_to_gif: ./gifify.sh recording.mp4
+
