@@ -26,9 +26,9 @@ abstract class AbstractGithubView extends StatefulWidget {
     this.hasCopyButton = true,
     this.client,
     Key key,
-  })  : this.apiUrl =
+  })  : apiUrl =
             'https://api.github.com/repos/$owner/$repository/contents/$path?ref=$ref',
-        this.linkUrl = 'https://github.com/$owner/$repository/blob/$ref/$path',
+        linkUrl = 'https://github.com/$owner/$repository/blob/$ref/$path',
         super(key: key);
 }
 
@@ -50,16 +50,16 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
   }
 
   Future<Response> _fetchGithubContent() {
-    if (this.widget.client != null) {
-      return this.widget.client.get(
-        Uri.parse(this.widget.apiUrl),
+    if (widget.client != null) {
+      return widget.client.get(
+        Uri.parse(widget.apiUrl),
         headers: {
           'Accept': 'application/vnd.github.v3.raw',
         },
       );
     } else {
       return http.get(
-        Uri.parse(this.widget.apiUrl),
+        Uri.parse(widget.apiUrl),
         headers: {
           'Accept': 'application/vnd.github.v3.raw',
         },
@@ -75,15 +75,13 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: FutureBuilder<Response>(
-          future: this.getGithubContent,
+          future: getGithubContent,
           builder: (context, snapshot) {
-            final linkText = this
-                .widget
-                .path
-                .substring(this.widget.path.lastIndexOf('/') + 1);
+            final linkText =
+                widget.path.substring(widget.path.lastIndexOf('/') + 1);
             if (snapshot.connectionState == ConnectionState.done) {
-              if (this.widget.client != null) {
-                this.widget.client.close();
+              if (widget.client != null) {
+                widget.client.close();
               }
               final response = snapshot.data;
               return Column(
@@ -96,7 +94,7 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
                         child: Align(
                           alignment: Alignment.centerLeft,
                           child: Link(
-                            uri: Uri.parse(this.widget.linkUrl),
+                            uri: Uri.parse(widget.linkUrl),
                             builder:
                                 (BuildContext context, FollowLink followLink) =>
                                     TextButton(
@@ -117,7 +115,7 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
                       ),
                       Expanded(
                         flex: 1,
-                        child: this.widget.hasCopyButton &&
+                        child: widget.hasCopyButton &&
                                 snapshot.hasData &&
                                 response.statusCode == 200
                             ? Align(
@@ -144,7 +142,7 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
       return response.statusCode == 200
           ? buildWidget(context, response.body)
           : buildGithubErrorWidget(
-              'Failed to fetch content from ${this.widget.apiUrl}! '
+              'Failed to fetch content from ${widget.apiUrl}! '
               'Please click the link above to access the github content.');
     } else {
       print(snapshot.error);
@@ -188,7 +186,7 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
               ),
               Expanded(
                 flex: 1,
-                child: this.widget.hasCopyButton
+                child: widget.hasCopyButton
                     ? Align(
                         alignment: Alignment.centerRight,
                         child: Icon(Icons.copy),
@@ -209,5 +207,5 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
   }
 
   @override
-  bool get wantKeepAlive => this.widget.wantKeepAlive;
+  bool get wantKeepAlive => widget.wantKeepAlive;
 }

@@ -7,9 +7,9 @@ class CopyButton extends StatelessWidget {
   const CopyButton({@required this.text, Key key}) : super(key: key);
 
   void _saveToClipboard() {
-    ClipboardData data = ClipboardData(text: text);
+    final data = ClipboardData(text: text);
     Clipboard.setData(data);
-    print("Save $text to clipboard");
+    print('Save $text to clipboard');
   }
 
   @override
