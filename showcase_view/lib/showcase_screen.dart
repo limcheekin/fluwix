@@ -5,7 +5,7 @@ import 'showcase.dart';
 class ShowcaseScreen extends StatelessWidget {
   static const owner = 'limcheekin';
   static const repository = 'flutter-widgets-explorer';
-  static const branch = 'showcase';
+  static const branch = 'showcase_view';
 
   const ShowcaseScreen({Key key}) : super(key: key);
 
