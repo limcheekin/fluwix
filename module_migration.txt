@@ -1,0 +1,52 @@
+1. git checkout <name>
+2. git merge showcase_view
+3. flutter create -t module <name>
+4. Remove comments of pubspec.yaml and update description and add the following configs below description:
+publish_to: "none"
+Then, add the following dependencies:
+dependencies:
+  flutter:
+    sdk: flutter
+
+  common_ui:
+    path: ../common_ui
+  showcase_view:
+    path: ../showcase_view  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  pedantic: 
+5. Add module specific dependencies to the pubspec.yaml, used latest version if possible.  
+6. Create an images directory and moved the images there.
+7. Moved the README.md to module root and codes to lib directory.
+8. Update lib/main.dart with the following code:
+import 'package:flutter/material.dart';
+import 'package:common_ui/my_module.dart';
+
+void main() => runApp(MyModule(
+      title: '',
+      home: Screen(),
+    ));
+9. Add ShowCaseView to the existing _screen.dart:
+  static const owner = 'limcheekin';
+  static const repository = 'flutter-widgets-explorer';
+  static const branch = '';
+
+  return ShowcaseView(
+      title: '',
+      widget: widget,
+      owner: owner,
+      repository: repository,
+      ref: branch,
+      readMe: '$branch/README.md',
+      codePaths: [
+        '$branch/pubspec.yaml',
+        '$branch/lib/main.dart',
+        'common_ui/lib/my_module.dart',
+        '$branch/lib/_screen.dart',
+      ],
+    );  
+10. Test the module by running module's lib/main.dart
+11. If everything look fine, push the codes and merge the changes to main branch.
