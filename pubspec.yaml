@@ -25,6 +25,8 @@ dependencies:
   shimmer: ^1.1.2
   package_info_plus: ^1.0.0
   pubspec_parse: ^1.0.0
+  nested_list:
+    path: nested_list
   source_code_view:
     path: source_code_view
   showcase_view:
