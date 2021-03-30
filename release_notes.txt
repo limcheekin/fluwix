@@ -1,1 +1,2 @@
-Improved Source Code View and Showcase support additional tabs.
+Updated to flutter_modular navigation,
+Start migration to modules and integrating Showcase View.
