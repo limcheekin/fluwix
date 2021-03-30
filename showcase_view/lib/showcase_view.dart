@@ -4,6 +4,7 @@ import 'read_me_view.dart';
 import 'package:source_code_view/source_code_view.dart';
 
 class ShowcaseView extends StatelessWidget {
+  final String title;
   final Widget widget;
   final String owner;
   final String repository;
@@ -18,6 +19,7 @@ class ShowcaseView extends StatelessWidget {
   final List<Widget> additionalTabBarViews;
 
   const ShowcaseView({
+    @required this.title,
     @required this.widget,
     @required this.owner,
     @required this.repository,
@@ -91,21 +93,29 @@ class ShowcaseView extends StatelessWidget {
       tabBarViews.addAll(this.additionalTabBarViews);
     }
 
-    return DefaultTabController(
-      length: tabs.length,
-      child: Column(children: [
-        TabBar(
-          isScrollable: true,
-          labelColor: Colors.blue,
-          unselectedLabelColor: Colors.black,
-          tabs: tabs,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(this.title),
+      ),
+      body: DefaultTabController(
+        length: tabs.length,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TabBar(
+              isScrollable: true,
+              labelColor: Colors.blue,
+              unselectedLabelColor: Colors.black,
+              tabs: tabs,
+            ),
+            Expanded(
+              child: TabBarView(
+                children: tabBarViews,
+              ),
+            ),
+          ],
         ),
-        Expanded(
-          child: TabBarView(
-            children: tabBarViews,
-          ),
-        ),
-      ]),
+      ),
     );
   }
 }
