@@ -13,7 +13,7 @@ import 'nested_list/nested_list_screen.dart';
 import 'shimmer/shimmer_effect_screen.dart';
 import 'stock_chart/stock_chart_screen.dart';
 import 'syntax_view/syntax_view_screen.dart';
-import 'tab_buttons/tab_buttons_screen.dart';
+import '../tab_buttons/lib/tab_buttons_screen.dart';
 import 'url_launcher/url_launcher_screen.dart';
 
 void main() {
