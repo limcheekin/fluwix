@@ -111,9 +111,9 @@ Each widget will be coded in separate branch and come with it's own readme file.
 </a> 
 </td>
 <td width="33.3%">
-<a href="showcase/README.md" target="_blank">
-<img alt="Source Code View" src="showcase/images/thumbnail.png" height="384px" width="216px" />
-</br><strong>showcase</strong>: Showcase your widget with read me, codes and license.
+<a href="showcase_view/README.md" target="_blank">
+<img alt="Showcase View" src="showcase_view/images/thumbnail.png" height="384px" width="216px" />
+</br><strong>showcase_view</strong>: Showcase your widget with read me, codes and license.
 </a>
 </td>
 </tr>

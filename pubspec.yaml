@@ -26,8 +26,8 @@ dependencies:
   pubspec_parse: ^1.0.0
   source_code_view:
     path: source_code_view
-  showcase:
-    path: showcase    
+  showcase_view:
+    path: showcase_view    
 
 dev_dependencies:
   flutter_test:

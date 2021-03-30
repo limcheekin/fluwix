@@ -1,41 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:showcase/license_view.dart';
-import 'package:showcase/read_me_view.dart';
+import 'license_view.dart';
+import 'read_me_view.dart';
 import 'package:source_code_view/source_code_view.dart';
 
-class Showcase extends StatelessWidget {
+class ShowcaseView extends StatelessWidget {
+  final String title;
   final Widget widget;
   final String owner;
   final String repository;
   final String ref;
   final String readMe;
   final String license;
-  final String pubspecPath;
   final List<String> codePaths;
-  final bool isShowDependencies;
-  final List<String> showDependencies;
   final bool showReadMe;
   final bool showCode;
   final bool showLicense;
   final List<Widget> additionalTabs;
   final List<Widget> additionalTabBarViews;
 
-  const Showcase({
+  const ShowcaseView({
+    @required this.title,
     @required this.widget,
     @required this.owner,
     @required this.repository,
     @required this.ref,
+    this.showReadMe = true,
     this.readMe = 'README.md',
-    this.license = 'LICENSE',
-    this.pubspecPath = 'pubspec.yaml',
+    this.showCode = true,
     this.codePaths,
+    this.showLicense = true,
+    this.license = 'LICENSE',
     this.additionalTabs,
     this.additionalTabBarViews,
-    this.isShowDependencies = false,
-    this.showDependencies,
-    this.showReadMe = true,
-    this.showCode = true,
-    this.showLicense = true,
     Key key,
   }) : super(key: key);
 
@@ -78,9 +74,7 @@ class Showcase extends StatelessWidget {
             owner: owner,
             repository: repository,
             ref: ref,
-            pubspecPath: pubspecPath,
             paths: codePaths,
-            showDependencies: this.showDependencies,
           ),
         ),
       if (this.showLicense)
@@ -99,21 +93,29 @@ class Showcase extends StatelessWidget {
       tabBarViews.addAll(this.additionalTabBarViews);
     }
 
-    return DefaultTabController(
-      length: tabs.length,
-      child: Column(children: [
-        TabBar(
-          isScrollable: true,
-          labelColor: Colors.blue,
-          unselectedLabelColor: Colors.black,
-          tabs: tabs,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(this.title),
+      ),
+      body: DefaultTabController(
+        length: tabs.length,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TabBar(
+              isScrollable: true,
+              labelColor: Colors.blue,
+              unselectedLabelColor: Colors.black,
+              tabs: tabs,
+            ),
+            Expanded(
+              child: TabBarView(
+                children: tabBarViews,
+              ),
+            ),
+          ],
         ),
-        Expanded(
-          child: TabBarView(
-            children: tabBarViews,
-          ),
-        ),
-      ]),
+      ),
     );
   }
 }
