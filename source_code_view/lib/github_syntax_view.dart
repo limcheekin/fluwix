@@ -25,12 +25,12 @@ class GithubSyntaxView extends AbstractGithubView {
     @required String repository,
     @required String ref,
     @required String path,
-    SyntaxTheme syntaxTheme,
+    SyntaxTheme theme,
     MultipleRequestsHttpClient client,
     bool wantKeepAlive = true,
     Key key,
-  })  : this.syntaxTheme = syntaxTheme ?? SyntaxTheme.vscodeDark(),
-        this.syntax = FILE_EXTENSION_SYNTAX_MAPPING[
+  })  : syntaxTheme = theme ?? SyntaxTheme.vscodeDark(),
+        syntax = FILE_EXTENSION_SYNTAX_MAPPING[
             path.substring(path.lastIndexOf('.')).toLowerCase()],
         super(
           owner: owner,
@@ -51,8 +51,8 @@ class _GithubSyntaxViewState extends AbstractGithubViewState<GithubSyntaxView> {
   Widget buildWidget(BuildContext context, String responseBody) {
     return SyntaxView(
       code: responseBody,
-      syntax: this.widget.syntax,
-      syntaxTheme: this.widget.syntaxTheme,
+      syntax: widget.syntax,
+      syntaxTheme: widget.syntaxTheme,
       withZoom: true,
       withLinesCount: true,
       expanded: false,

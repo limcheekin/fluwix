@@ -20,16 +20,15 @@ class SourceCodeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MultipleRequestsHttpClient httpClient =
-        this.client ?? MultipleRequestsHttpClient();
+    final httpClient = client ?? MultipleRequestsHttpClient();
 
     return Column(
       children: [
-        for (String path in this.paths)
+        for (String path in paths)
           GithubSyntaxView(
-            owner: this.owner,
-            repository: this.repository,
-            ref: this.ref,
+            owner: owner,
+            repository: repository,
+            ref: ref,
             path: path,
             client: httpClient,
           ),
