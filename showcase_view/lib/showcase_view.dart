@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'license_view.dart';
 import 'read_me_view.dart';
 import 'package:source_code_view/source_code_view.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class ShowcaseView extends StatelessWidget {
   final String title;
@@ -9,6 +10,7 @@ class ShowcaseView extends StatelessWidget {
   final String owner;
   final String repository;
   final String ref;
+  final String fromRouteName;
   final String readMe;
   final String license;
   final List<String> codePaths;
@@ -24,6 +26,7 @@ class ShowcaseView extends StatelessWidget {
     @required this.owner,
     @required this.repository,
     @required this.ref,
+    this.fromRouteName = '/',
     this.showReadMe = true,
     this.readMe = 'README.md',
     this.showCode = true,
@@ -95,6 +98,10 @@ class ShowcaseView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Modular.to.navigate(this.fromRouteName),
+        ),
         title: Text(this.title),
       ),
       body: DefaultTabController(
