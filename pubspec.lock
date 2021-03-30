@@ -37,7 +37,7 @@ packages:
     source: hosted
     version: "2.1.0"
   buttons_tabbar:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: buttons_tabbar
       url: "https://pub.dartlang.org"
@@ -107,7 +107,7 @@ packages:
     source: hosted
     version: "3.0.0"
   cupertino_icons:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: cupertino_icons
       url: "https://pub.dartlang.org"
@@ -192,12 +192,12 @@ packages:
     source: sdk
     version: "0.0.0"
   http:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: http
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.0"
+    version: "0.13.1"
   http_parser:
     dependency: transitive
     description:
@@ -406,6 +406,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.10.0"
+  stock_chart:
+    dependency: "direct main"
+    description:
+      path: stock_chart
+      relative: true
+    source: path
+    version: "1.0.0+1"
   stream_channel:
     dependency: transitive
     description:
@@ -442,7 +449,7 @@ packages:
     source: hosted
     version: "0.2.19"
   trading_chart:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: trading_chart
       url: "https://pub.dartlang.org"
