@@ -20,6 +20,8 @@ dependencies:
   pubspec_parse: ^1.0.0
   common_ui:
     path: ../common_ui
+  showcase_view:
+    path: ../showcase_view  
 
 dev_dependencies:
   flutter_test:

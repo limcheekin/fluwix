@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:showcase_view/showcase_view.dart';
 import 'source_code_view.dart';
 
 class SourceCodeViewScreen extends StatelessWidget {
@@ -9,11 +10,9 @@ class SourceCodeViewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Source Code View'),
-      ),
-      body: SingleChildScrollView(
+    return ShowcaseView(
+      title: 'Source Code View',
+      widget: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: SourceCodeView(
@@ -30,11 +29,15 @@ class SourceCodeViewScreen extends StatelessWidget {
               'source_code_view/lib/multiple_requests_http_client.dart',
               'source_code_view/lib/copy_button.dart',
               'source_code_view/lib/github_syntax_view.dart',
-              'source_code_view/lib/pubspec_dependencies_view.dart',
             ],
           ),
         ),
       ),
+      owner: owner,
+      repository: repository,
+      ref: branch,
+      readMe: 'source_code_view/README.md',
+      showCode: false,
     );
   }
 }
