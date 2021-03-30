@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
 
   trading_chart: ^0.1.2
+  http: ^0.13.1
   common_ui:
     path: ../common_ui
   showcase_view:
