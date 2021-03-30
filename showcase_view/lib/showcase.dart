@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:showcase/license_view.dart';
-import 'package:showcase/read_me_view.dart';
+import 'license_view.dart';
+import 'read_me_view.dart';
 import 'package:source_code_view/source_code_view.dart';
 
 class Showcase extends StatelessWidget {

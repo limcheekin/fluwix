@@ -1,5 +1,5 @@
-name: showcase
-description: Showcase module
+name: showcase_view
+description: Showcase View module.
 
 publish_to: "none"
 
@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_markdown: ^0.6.0  
+  flutter_markdown: ^0.6.0
   source_code_view:
     path: ../source_code_view
 
@@ -25,5 +25,5 @@ flutter:
 
   module:
     androidX: true
-    androidPackage: com.example.showcase
-    iosBundleIdentifier: com.example.showcase
+    androidPackage: com.example.showcase_view
+    iosBundleIdentifier: com.example.showcaseView

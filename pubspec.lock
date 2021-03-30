@@ -345,10 +345,10 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.2"
-  showcase:
+  showcase_view:
     dependency: "direct main"
     description:
-      path: showcase
+      path: showcase_view
       relative: true
     source: path
     version: "1.0.0+1"

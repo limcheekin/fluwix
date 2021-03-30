@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:showcase/showcase_screen.dart';
+import 'package:showcase_view/showcase_screen.dart';
 import 'package:source_code_view/source_code_view_screen.dart';
 
 import 'about/about_screen.dart';
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
       'Shimmer Effect',
       'About Dialog',
       'Source Code View',
-      'Showcase',
+      'Showcase View',
     ];
 
     final List<Widget> aboutBoxChildren = <Widget>[
