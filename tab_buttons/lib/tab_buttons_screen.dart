@@ -51,11 +51,11 @@ class TabButtonsWidget extends StatelessWidget {
               tabs: [
                 Tab(
                   icon: Icon(Icons.directions_car),
-                  text: "car",
+                  text: 'car',
                 ),
                 Tab(
                   icon: Icon(Icons.directions_transit),
-                  text: "transit",
+                  text: 'transit',
                 ),
                 Tab(icon: Icon(Icons.directions_bike)),
                 Tab(icon: Icon(Icons.directions_car)),
