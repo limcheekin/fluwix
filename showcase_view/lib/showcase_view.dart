@@ -15,7 +15,7 @@ class ShowcaseView extends StatelessWidget {
   final bool showReadMe;
   final bool showCode;
   final bool showLicense;
-  final List<Widget> additionalTabs;
+  final List<Tab> additionalTabs;
   final List<Widget> additionalTabBarViews;
 
   const ShowcaseView({
@@ -37,38 +37,38 @@ class ShowcaseView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> tabs = [
+    final tabs = [
       Tab(
         text: 'Showcase',
       ),
-      if (this.showReadMe)
+      if (showReadMe)
         Tab(
           text: 'Read Me',
         ),
-      if (this.showCode)
+      if (showCode)
         Tab(
           text: 'Code',
         ),
-      if (this.showLicense)
+      if (showLicense)
         Tab(
           text: 'License',
         ),
     ];
 
-    if (this.additionalTabs != null && this.additionalTabs.isNotEmpty) {
-      tabs.addAll(this.additionalTabs);
+    if (additionalTabs != null && additionalTabs.isNotEmpty) {
+      tabs.addAll(additionalTabs);
     }
 
-    List<Widget> tabBarViews = [
-      this.widget,
-      if (this.showReadMe)
+    final tabBarViews = [
+      widget,
+      if (showReadMe)
         ReadMeView(
           owner: owner,
           repository: repository,
           ref: ref,
-          path: this.readMe,
+          path: readMe,
         ),
-      if (this.showCode)
+      if (showCode)
         SingleChildScrollView(
           child: SourceCodeView(
             owner: owner,
@@ -77,25 +77,24 @@ class ShowcaseView extends StatelessWidget {
             paths: codePaths,
           ),
         ),
-      if (this.showLicense)
+      if (showLicense)
         SingleChildScrollView(
           child: LicenseView(
             owner: owner,
             repository: repository,
             ref: ref,
-            path: this.license,
+            path: license,
           ),
         ),
     ];
 
-    if (this.additionalTabBarViews != null &&
-        this.additionalTabBarViews.isNotEmpty) {
-      tabBarViews.addAll(this.additionalTabBarViews);
+    if (additionalTabBarViews != null && additionalTabBarViews.isNotEmpty) {
+      tabBarViews.addAll(additionalTabBarViews);
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(this.title),
+        title: Text(title),
       ),
       body: DefaultTabController(
         length: tabs.length,
