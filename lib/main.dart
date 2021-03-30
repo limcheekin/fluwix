@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nested_list/nested_list_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:showcase_view/showcase_screen.dart';
 import 'package:source_code_view/source_code_view_screen.dart';
@@ -9,7 +10,6 @@ import 'chart_datatable/chart_datatable_screen.dart';
 import 'charts/charts_screen.dart';
 import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
 import 'markdown/markdown_screen.dart';
-import 'nested_list/nested_list_screen.dart';
 import 'shimmer/shimmer_effect_screen.dart';
 import 'stock_chart/stock_chart_screen.dart';
 import 'syntax_view/syntax_view_screen.dart';
