@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'showcase.dart';
+import 'showcase_view.dart';
 
 class ShowcaseScreen extends StatelessWidget {
   static const owner = 'limcheekin';
@@ -15,7 +15,7 @@ class ShowcaseScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Showcase View'),
       ),
-      body: Showcase(
+      body: ShowcaseView(
         widget: Center(
           child: Text('This is your widget.'),
         ),

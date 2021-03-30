@@ -3,39 +3,33 @@ import 'license_view.dart';
 import 'read_me_view.dart';
 import 'package:source_code_view/source_code_view.dart';
 
-class Showcase extends StatelessWidget {
+class ShowcaseView extends StatelessWidget {
   final Widget widget;
   final String owner;
   final String repository;
   final String ref;
   final String readMe;
   final String license;
-  final String pubspecPath;
   final List<String> codePaths;
-  final bool isShowDependencies;
-  final List<String> showDependencies;
   final bool showReadMe;
   final bool showCode;
   final bool showLicense;
   final List<Widget> additionalTabs;
   final List<Widget> additionalTabBarViews;
 
-  const Showcase({
+  const ShowcaseView({
     @required this.widget,
     @required this.owner,
     @required this.repository,
     @required this.ref,
+    this.showReadMe = true,
     this.readMe = 'README.md',
-    this.license = 'LICENSE',
-    this.pubspecPath = 'pubspec.yaml',
+    this.showCode = true,
     this.codePaths,
+    this.showLicense = true,
+    this.license = 'LICENSE',
     this.additionalTabs,
     this.additionalTabBarViews,
-    this.isShowDependencies = false,
-    this.showDependencies,
-    this.showReadMe = true,
-    this.showCode = true,
-    this.showLicense = true,
     Key key,
   }) : super(key: key);
 
@@ -78,9 +72,7 @@ class Showcase extends StatelessWidget {
             owner: owner,
             repository: repository,
             ref: ref,
-            pubspecPath: pubspecPath,
             paths: codePaths,
-            showDependencies: this.showDependencies,
           ),
         ),
       if (this.showLicense)
