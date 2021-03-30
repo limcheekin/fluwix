@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+import 'package:showcase_view/showcase_view.dart';
 import 'package:trading_chart/flutter_k_chart.dart';
 import 'package:trading_chart/k_chart_widget.dart';
 
@@ -16,6 +17,9 @@ class StockChartScreen extends StatefulWidget {
 }
 
 class _StockChartScreenState extends State<StockChartScreen> {
+  static const owner = 'limcheekin';
+  static const repository = 'flutter-widgets-explorer';
+  static const branch = 'stock_chart';
   List<KLineEntity> datas;
   bool showLoading = true;
   MainState _mainState = MainState.NONE;
@@ -47,7 +51,7 @@ class _StockChartScreenState extends State<StockChartScreen> {
     if (bids == null || asks == null || bids.isEmpty || asks.isEmpty) return;
     _bids = [];
     _asks = [];
-    double amount = 0.0;
+    var amount = 0.0;
     bids?.sort((left, right) => left.price.compareTo(right.price));
     //累加买入委托量
     bids.reversed.forEach((item) {
@@ -69,12 +73,9 @@ class _StockChartScreenState extends State<StockChartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Stock Chart'),
-      ),
-      backgroundColor: Color(0xff17212F),
-      body: ListView(
+    return ShowcaseView(
+      title: 'Stock Chart',
+      widget: ListView(
         children: <Widget>[
           Stack(children: <Widget>[
             Container(
@@ -110,6 +111,16 @@ class _StockChartScreenState extends State<StockChartScreen> {
           )
         ],
       ),
+      owner: owner,
+      repository: repository,
+      ref: branch,
+      readMe: '$branch/README.md',
+      codePaths: [
+        '$branch/pubspec.yaml',
+        '$branch/lib/main.dart',
+        'common_ui/lib/my_module.dart',
+        '$branch/lib/stock_chart_screen.dart',
+      ],
     );
   }
 
@@ -122,12 +133,12 @@ class _StockChartScreenState extends State<StockChartScreen> {
           alignment: WrapAlignment.center,
           children: [
             button(
-              "Line",
+              'Line',
               onPressed: () => isLine = true,
               selected: isLine,
             ),
             button(
-              "Bars",
+              'Bars',
               onPressed: () => isLine = false,
               selected: !isLine,
             ),
@@ -144,27 +155,27 @@ class _StockChartScreenState extends State<StockChartScreen> {
           alignment: WrapAlignment.center,
           children: [
             button(
-              "MACD",
+              'MACD',
               onPressed: () => _secondaryState = SecondaryState.MACD,
               selected: _mainState == MainState.MA,
             ),
             button(
-              "KDJ",
+              'KDJ',
               onPressed: () => _secondaryState = SecondaryState.KDJ,
               selected: _secondaryState == SecondaryState.KDJ,
             ),
             button(
-              "RSI",
+              'RSI',
               onPressed: () => _secondaryState = SecondaryState.RSI,
               selected: _secondaryState == SecondaryState.RSI,
             ),
             button(
-              "WR",
+              'WR',
               onPressed: () => _secondaryState = SecondaryState.WR,
               selected: _secondaryState == SecondaryState.WR,
             ),
             button(
-              "NONE",
+              'NONE',
               onPressed: () => _secondaryState = SecondaryState.NONE,
               selected: _secondaryState == SecondaryState.NONE,
             ),
@@ -181,17 +192,17 @@ class _StockChartScreenState extends State<StockChartScreen> {
           alignment: WrapAlignment.center,
           children: [
             button(
-              "MA",
+              'MA',
               onPressed: () => _mainState = MainState.MA,
               selected: _mainState == MainState.MA,
             ),
             button(
-              "BOLL",
+              'BOLL',
               onPressed: () => _mainState = MainState.BOLL,
               selected: _mainState == MainState.BOLL,
             ),
             button(
-              "NONE",
+              'NONE',
               onPressed: () => _mainState = MainState.NONE,
               selected: _mainState == MainState.NONE,
             ),
@@ -209,7 +220,7 @@ class _StockChartScreenState extends State<StockChartScreen> {
           alignment: WrapAlignment.center,
           children: [
             button(
-              isChinese ? "ZH" : 'EN',
+              isChinese ? 'ZH' : 'EN',
               onPressed: () => isChinese = !isChinese,
               selected: true,
             ),
@@ -231,12 +242,6 @@ class _StockChartScreenState extends State<StockChartScreen> {
             setState(() {});
           }
         },
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 12.0,
-          ),
-        ),
         style: ButtonStyle(
           foregroundColor:
               MaterialStateProperty.resolveWith((states) => Colors.white),
@@ -245,12 +250,18 @@ class _StockChartScreenState extends State<StockChartScreen> {
               : MaterialStateProperty.resolveWith(
                   (states) => Colors.blue.withOpacity(0.6)),
         ),
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 12.0,
+          ),
+        ),
       ),
     );
   }
 
   void getData(String period) {
-    Future<String> future = getIPAddress('$period');
+    final future = getIPAddress('$period');
     future.then((result) {
       Map parseJson = json.decode(result);
       List list = parseJson['data'];
