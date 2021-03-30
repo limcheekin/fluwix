@@ -13,7 +13,7 @@ class ShowcaseScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Showcase'),
+        title: Text('Showcase View'),
       ),
       body: Showcase(
         widget: Center(
