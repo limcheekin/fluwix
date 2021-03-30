@@ -27,6 +27,8 @@ dependencies:
   pubspec_parse: ^1.0.0
   nested_list:
     path: nested_list
+  tab_buttons:
+    path: tab_buttons  
   source_code_view:
     path: source_code_view
   showcase_view:
