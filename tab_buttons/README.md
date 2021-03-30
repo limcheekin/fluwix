@@ -1,9 +1,9 @@
-# tab-buttons
+# tab_buttons
 
 The developer of the [buttons_tabbar flutter package](https://pub.dev/packages/buttons_tabbar) written in the article [Flutter: TabBar With Buttons as Tabs](https://medium.com/better-programming/flutter-tabbar-with-buttons-as-tabs-ios-style-4dff5ae6c055), he created the package is to create tab bar which common in iOS application, but he was unable to find one in the default flutter implementation.
 
 A picture is worth a thousand words:-
-<br /><img src="../../images/tab_buttons/screenshots.gif" height="480px" width="270px" />
+<br /><img src="images/screenshots.gif" height="480px" width="270px" />
 
 After I implemented the example, I found an article [5 Ways of styling Tab in Flutter](https://mightytechno.com/style-tabs-in-flutter-app/). I think we might able to style the default tabs to achieve similar effect.
 
