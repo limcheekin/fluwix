@@ -47,6 +47,7 @@ void main() => runApp(MyModule(
         'common_ui/lib/my_module.dart',
         '$branch/lib/_screen.dart',
       ],
-    );  
-10. Test the module by running module's lib/main.dart
-11. If everything look fine, push the codes and merge the changes to main branch.
+    );
+10. Copy analysis_options.yaml to module and run "flutter analyze", then fix all problems.      
+11. Test the module by running module's lib/main.dart
+12. If everything look fine, push the codes and merge the changes to main branch.
