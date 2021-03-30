@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_modular: ^3.0.2+1
   cupertino_icons: ^1.0.0
   buttons_tabbar: ^1.1.1
   trading_chart: ^0.1.2

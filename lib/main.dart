@@ -15,31 +15,56 @@ import 'stock_chart/stock_chart_screen.dart';
 import 'syntax_view/syntax_view_screen.dart';
 import 'tab_buttons/tab_buttons_screen.dart';
 import 'url_launcher/url_launcher_screen.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'string.dart';
 
-void main() {
-  runApp(MyApp());
+final AppModule appModule = AppModule();
+void main() => runApp(ModularApp(module: appModule, child: AppWidget()));
+
+class AppModule extends Module {
+  @override
+  final List<Bind> binds = [];
+
+  @override
+  final List<ModularRoute> routes = [
+    // ChildRoute(Modular.initialRoute, child: (context, args) => HomeScreen()),
+    ChildRoute('/', child: (_, __) => HomeScreen()),
+    ChildRoute('/nested_list', child: (_, __) => NestedListScreen()),
+    ChildRoute('/tab_buttons', child: (_, __) => TabButtonsScreen()),
+    ChildRoute('/stock_chart', child: (_, __) => StockChartScreen()),
+    ChildRoute('/expansion_collapse_view',
+        child: (_, __) => ExpansionCollapseViewScreen()),
+    ChildRoute('/charts_gallery', child: (_, __) => ChartsScreen()),
+    ChildRoute('/chart_data_table', child: (_, __) => ChartDataTableScreen()),
+    ChildRoute('/syntax_view', child: (_, __) => SyntaxViewScreen()),
+    ChildRoute('/animate_icons', child: (_, __) => AnimateIconsScreen()),
+    ChildRoute('/url_launcher', child: (_, __) => UrlLauncherScreen()),
+    ChildRoute('/markdown_view', child: (_, __) => MarkdownScreen()),
+    ChildRoute('/shimmer_effect', child: (_, __) => ShimmerEffectScreen()),
+    ChildRoute('/about_dialog', child: (_, __) => AboutScreen()),
+    ChildRoute('/source_code_view', child: (_, __) => SourceCodeViewScreen()),
+    ChildRoute('/showcase_view', child: (_, __) => ShowcaseScreen()),
+  ];
 }
 
-class MyApp extends StatelessWidget {
+class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<String> names = [
-      'Nested List',
-      'Tab Buttons',
-      'Stock Chart',
-      'Expansion/Collapse View',
-      'Charts Gallery',
-      'Chart & Data Table',
-      'Syntax View',
-      'Animate Icons',
-      'URL Launcher',
-      'Markdown View',
-      'Shimmer Effect',
-      'About Dialog',
-      'Source Code View',
-      'Showcase View',
-    ];
+    return MaterialApp(
+      title: 'Flutter Widgets Explorer',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+    ).modular();
+  }
+}
 
+class HomeScreen extends StatelessWidget {
+  static const String WORD_DELIMITER = '_';
+
+  @override
+  Widget build(BuildContext context) {
     final List<Widget> aboutBoxChildren = <Widget>[
       SizedBox(height: 24),
       Text(
@@ -48,107 +73,50 @@ class MyApp extends StatelessWidget {
       ),
     ];
 
-    return MaterialApp(
-      title: "Flutter Widgets Explorer",
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text('Flutter Widgets'),
-            actions: [
-              FutureBuilder<PackageInfo>(
-                future: PackageInfo.fromPlatform(),
-                builder: (BuildContext context, AsyncSnapshot snapshot) {
-                  if (snapshot.hasData) {
-                    final packageInfo = snapshot.data;
-                    return IconButton(
-                      icon: Icon(Icons.info_outline),
-                      onPressed: () {
-                        showAboutDialog(
-                          context: context,
-                          applicationIcon: Logo(),
-                          applicationName: packageInfo.appName,
-                          applicationVersion: packageInfo.version,
-                          applicationLegalese:
-                              '\u{a9} ${DateTime.now().year} Lim Chee Kin',
-                          children: aboutBoxChildren,
-                        );
-                      },
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Flutter Widgets Explorer'),
+        actions: [
+          FutureBuilder<PackageInfo>(
+            future: PackageInfo.fromPlatform(),
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+              if (snapshot.hasData) {
+                final packageInfo = snapshot.data;
+                return IconButton(
+                  icon: Icon(Icons.info_outline),
+                  onPressed: () {
+                    showAboutDialog(
+                      context: context,
+                      applicationIcon: Logo(),
+                      applicationName: packageInfo.appName,
+                      applicationVersion: packageInfo.version,
+                      applicationLegalese:
+                          '\u{a9} ${DateTime.now().year} Lim Chee Kin',
+                      children: aboutBoxChildren,
                     );
-                  }
-                  return SizedBox.shrink();
-                },
-              ),
-            ],
-          ),
-          body: Center(
-            child: ListView.builder(
-              itemCount: names.length,
-              itemBuilder: (BuildContext context, int position) {
-                var name = names[position];
-                return Card(
-                  margin: EdgeInsets.fromLTRB(8, 4, 8, 4),
-                  child: ListTile(
-                    title: Text(name),
-                    trailing: Icon(Icons.keyboard_arrow_right),
-                    onTap: () {
-                      switch (position) {
-                        case 0:
-                          _gotoScreen(context, NestedListScreen());
-                          break;
-                        case 1:
-                          _gotoScreen(context, TabButtonsScreen());
-                          break;
-                        case 2:
-                          _gotoScreen(context, StockChartScreen());
-                          break;
-                        case 3:
-                          _gotoScreen(context, ExpansionCollapseViewScreen());
-                          break;
-                        case 4:
-                          _gotoScreen(context, ChartsScreen());
-                          break;
-                        case 5:
-                          _gotoScreen(context, ChartDataTableScreen());
-                          break;
-                        case 6:
-                          _gotoScreen(context, SyntaxViewScreen());
-                          break;
-                        case 7:
-                          _gotoScreen(context, AnimateIconsScreen());
-                          break;
-                        case 8:
-                          _gotoScreen(context, UrlLauncherScreen());
-                          break;
-                        case 9:
-                          _gotoScreen(context, MarkdownScreen());
-                          break;
-                        case 10:
-                          _gotoScreen(context, ShimmerEffectScreen());
-                          break;
-                        case 11:
-                          _gotoScreen(context, AboutScreen());
-                          break;
-                        case 12:
-                          _gotoScreen(context, SourceCodeViewScreen());
-                          break;
-                        case 13:
-                          _gotoScreen(context, ShowcaseScreen());
-                          break;
-                        default:
-                      }
-                    },
-                  ),
+                  },
                 );
-              },
+              }
+              return SizedBox.shrink();
+            },
+          ),
+        ],
+      ),
+      body: ListView.builder(
+        itemCount: appModule.routes.length - 1,
+        itemBuilder: (BuildContext context, int index) {
+          final route = appModule.routes[index + 1];
+          return Card(
+            margin: EdgeInsets.fromLTRB(8, 4, 8, 4),
+            child: ListTile(
+              title: Text(route.routerName
+                  .substring(1)
+                  .toTitleCase(wordDelimiter: WORD_DELIMITER)),
+              trailing: Icon(Icons.keyboard_arrow_right),
+              onTap: () => Modular.to.navigate(route.routerName),
             ),
-          )),
-    );
-  }
-
-  void _gotoScreen(BuildContext context, Widget screen) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) => screen,
-        settings: RouteSettings(name: '/${screen.runtimeType}'),
+          );
+        },
       ),
     );
   }
