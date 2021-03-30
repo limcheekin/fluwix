@@ -33,15 +33,16 @@ class ContentCard extends StatelessWidget {
   ) {
     final showMoreButton = setSizeFn != null;
     final iconSize = 24.0;
-    List<Widget> children = List.filled(size, null);
-    for (var i = 0; i < size; i++) {
-      children[i] = Text(
-        "$text $i",
+    final children = List.generate(
+      size,
+      (index) => Text(
+        '$text $index',
         style: TextStyle(
           fontSize: 28,
         ),
-      );
-    }
+      ),
+    );
+
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(
@@ -66,7 +67,7 @@ class ContentCard extends StatelessWidget {
                     size: iconSize, // default size is 24.0
                   ),
                   onPressed: () {
-                    print("menu button pressed");
+                    print('menu button pressed');
                   },
                 ),
               ),

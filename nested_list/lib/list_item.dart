@@ -24,8 +24,6 @@ class _ListItemState extends State<ListItem> {
 
   @override
   Widget build(BuildContext context) {
-    print('_ListItemState.build()');
-
     return widget.nestedListData[widget.index]['size'] == null
         ? ContentCard(
             widget.nestedListData[widget.index]['data'][0],
@@ -37,28 +35,4 @@ class _ListItemState extends State<ListItem> {
             widget.nestedListData[widget.index]['data'],
           );
   }
-
-  /*Widget _buildHorizontalList(final size, final subListData) {
-    print('_buildHorizontalList()');
-    return SizedBox(
-      height: size.height,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: subListData.length,
-          itemBuilder: (BuildContext content, int index) {
-            return SizedBox(
-              width: size.width,
-              child: Card(
-                elevation: 10.0,
-                margin: EdgeInsets.all(5),
-                child: _buildCardContent(
-                  subListData[index],
-                  Random().nextInt(3) + 3,
-                  -1,
-                ),
-              ),
-            );
-          }),
-    );
-  }*/
 }

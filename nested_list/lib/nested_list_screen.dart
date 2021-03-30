@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:showcase_view/showcase_view.dart';
 
 import 'list_item.dart';
 
@@ -10,6 +11,10 @@ class NestedListScreen extends StatefulWidget {
 }
 
 class _NestedListScreenState extends State<NestedListScreen> {
+  static const owner = 'limcheekin';
+  static const repository = 'flutter-widgets-explorer';
+  static const branch = 'nested_list';
+
   final List<Map<String, Object>> nestedListData = [
     {
       'size': null,
@@ -79,13 +84,22 @@ class _NestedListScreenState extends State<NestedListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Nested List'),
-      ),
-      body: Container(
-        child: _buildMainList(),
-      ),
+    return ShowcaseView(
+      title: 'Nested List',
+      widget: _buildMainList(),
+      owner: owner,
+      repository: repository,
+      ref: branch,
+      readMe: '$branch/README.md',
+      codePaths: [
+        '$branch/pubspec.yaml',
+        '$branch/lib/main.dart',
+        'common_ui/lib/my_module.dart',
+        '$branch/lib/nested_list_screen.dart',
+        '$branch/lib/list_item.dart',
+        '$branch/lib/horizontal_list.dart',
+        '$branch/lib/content_card.dart',
+      ],
     );
   }
 
