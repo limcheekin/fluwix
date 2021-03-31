@@ -24,22 +24,22 @@ Each widget will be coded in separate branch and come with it's own readme file.
 </a> 
 </td>
 <td width="33.3%">
-<a href="lib/nested_list/README.md" target="_blank">
-<img alt="Nested List Screen" src="images/nested_list/thumbnail.png" height="384px" width="216px" />
+<a href="nested_list/README.md" target="_blank">
+<img alt="Nested List Screen" src="nested_list/images/thumbnail.png" height="384px" width="216px" />
 </br><strong>nested_list</strong>: Nested horizontal list with dynamic content in vertical list items.
 </a> 
 </td>
 <td width="33.3%">
-<a href="lib/tab_buttons/README.md" target="_blank">
-<img alt="Tab Buttons Screen" src="images/tab_buttons/thumbnail.png" height="384px" width="216px"  />
+<a href="tab_buttons/README.md" target="_blank">
+<img alt="Tab Buttons Screen" src="tab_buttons/images/thumbnail.png" height="384px" width="216px"  />
 </br><strong>tab_buttons</strong>: tabbar where each tab indicator is a toggle button.
 </a> 
 </td>
 </tr>
 <tr valign="top">
 <td width="33.3%">
-<a href="lib/stock_chart/README.md" target="_blank">
-<img alt="Stock Chart Screen" src="images/stock_chart/thumbnail.png" height="384px" width="216px" />
+<a href="stock_chart/README.md" target="_blank">
+<img alt="Stock Chart Screen" src="stock_chart/images/thumbnail.png" height="384px" width="216px" />
 </br><strong>stock_chart</strong>: Stock candlestick or line chart with indicators support.
 </a> 
 </td>
