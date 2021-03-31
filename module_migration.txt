@@ -43,8 +43,6 @@ void main() => runApp(MyModule(
       readMe: '$branch/README.md',
       codePaths: [
         '$branch/pubspec.yaml',
-        '$branch/lib/main.dart',
-        'common_ui/lib/my_module.dart',
         '$branch/lib/_screen.dart',
       ],
     );
