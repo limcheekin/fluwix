@@ -21,8 +21,6 @@ class SourceCodeViewScreen extends StatelessWidget {
             ref: branch,
             paths: [
               'source_code_view/pubspec.yaml',
-              'source_code_view/lib/main.dart',
-              'common_ui/lib/my_module.dart',
               'source_code_view/lib/source_code_view_screen.dart',
               'source_code_view/lib/source_code_view.dart',
               'source_code_view/lib/abstract_github_view.dart',
