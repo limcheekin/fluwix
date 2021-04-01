@@ -42,6 +42,9 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
   then every time the FutureBuilder's parent is rebuilt, the asynchronous task will be restarted.
   */
   Future<Response> getGithubContent;
+  static const GITHUB_HTTP_HEADERS = {
+    'Accept': 'application/vnd.github.v3.raw',
+  };
 
   @override
   void initState() {
@@ -53,16 +56,12 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
     if (widget.client != null) {
       return widget.client.get(
         Uri.parse(widget.apiUrl),
-        headers: {
-          'Accept': 'application/vnd.github.v3.raw',
-        },
+        headers: GITHUB_HTTP_HEADERS,
       );
     } else {
       return http.get(
         Uri.parse(widget.apiUrl),
-        headers: {
-          'Accept': 'application/vnd.github.v3.raw',
-        },
+        headers: GITHUB_HTTP_HEADERS,
       );
     }
   }
