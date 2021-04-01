@@ -1,4 +1,4 @@
-# flutter-widgets-explorer
+# Flutter Widgets Explorer [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 The Flutter Widgets Explorer is created to learn, test and demo flutter widgets in one application.
 
