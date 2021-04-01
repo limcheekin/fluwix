@@ -2,9 +2,13 @@
 
 Start from now, you can treat Flutter Widgets Explorer as a platform to showcase your widget with README, codes and licensing statement. The Flutter Widgets Explorer supports Android devices at the moment and will support Web in a week or two. 
 
-That's made possible by the Showcase View widget, let's me show you how it looks:-
+That's made possible by the Showcase View widget, let's me show you how it looks:
 
 ![Showcase View screenshots](https://github.com/limcheekin/flutter-widgets-explorer/raw/showcase_view/showcase_view/images/screenshots.gif "Showcase View screenshots")
+
+If the default Read Me, Code and License tabs are not enough for you, the Showcase View widget support additional tabs, please see the following image:
+
+![Showcase View Additional Tabs](https://github.com/limcheekin/flutter-widgets-explorer/raw/showcase_view/showcase_view/images/thumbnail_additional_tabs.png "Showcase View Additional Tabs")
 
 Sound and look interesting? Here is the [steps](SHOWCASE_YOUR_WIDGETS.md) on how to do add your showcase to the Flutter Widgets Explorer. I can't wait to see owesome showcases will be created by you!
 

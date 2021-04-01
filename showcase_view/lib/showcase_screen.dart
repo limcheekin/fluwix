@@ -20,8 +20,6 @@ class ShowcaseScreen extends StatelessWidget {
       readMe: 'showcase_view/README.md',
       codePaths: [
         'showcase_view/pubspec.yaml',
-        'showcase_view/lib/main.dart',
-        'common_ui/lib/my_module.dart',
         'showcase_view/lib/showcase_screen.dart',
         'showcase_view/lib/showcase_view.dart',
         'showcase_view/lib/read_me_view.dart',
