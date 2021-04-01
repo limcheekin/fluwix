@@ -1,6 +1,6 @@
 # Flutter Widgets Explorer [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-The Flutter Widgets Explorer is created to learn, test and demo flutter widgets in one application.
+The Flutter Widgets Explorer is created to learn and showcase Flutter Widgets in one application.
 
 <a href='https://play.google.com/store/apps/details?id=com.vobject.flutter.widgets.explorer&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="50%"/></a>
 
