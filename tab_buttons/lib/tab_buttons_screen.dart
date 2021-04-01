@@ -25,8 +25,6 @@ class _TabButtonsScreenState extends State<TabButtonsScreen> {
       readMe: '$branch/README.md',
       codePaths: [
         '$branch/pubspec.yaml',
-        '$branch/lib/main.dart',
-        'common_ui/lib/my_module.dart',
         '$branch/lib/tab_buttons_screen.dart',
       ],
     );
