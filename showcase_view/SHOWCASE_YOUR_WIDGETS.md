@@ -50,11 +50,13 @@ Please see the following steps to showcase your fantastic widget in the Flutter 
     import 'package:flutter/material.dart';
     import 'package:common_ui/my_module.dart';
     import 'fantastic_widget_screen.dart';
-
-    void main() => runApp(MyModule(
-      title: 'Fantastic Widget',
-      home: FantasticWidgetScreen(),
-    ));
+    
+    void main() => runApp(
+      MyModule(
+        title: 'Fantastic Widget',
+        home: FantasticWidgetScreen(),
+      ),
+    );
     ```
     Please refer to the [main.dart](https://github.com/limcheekin/flutter-widgets-explorer/blob/tab_buttons/tab_buttons/lib/main.dart) file of the `tab_buttons` module for sample code.
 
