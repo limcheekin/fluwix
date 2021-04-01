@@ -13,9 +13,7 @@ class ShowcaseScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ShowcaseView(
       title: 'Showcase View',
-      widget: Center(
-        child: Text('This is your widget.'),
-      ),
+      widget: YourWidget(),
       owner: owner,
       repository: repository,
       ref: branch,
@@ -39,6 +37,15 @@ class ShowcaseScreen extends StatelessWidget {
         Icon(Icons.directions_transit),
         Icon(Icons.directions_bike),
       ],
+    );
+  }
+}
+
+class YourWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('This is your widget.'),
     );
   }
 }
