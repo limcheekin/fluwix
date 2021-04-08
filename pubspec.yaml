@@ -30,13 +30,15 @@ dependencies:
   source_code_view:
     path: source_code_view
   showcase_view:
-    path: showcase_view    
+    path: showcase_view
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.9.0
   flutter_native_splash: ^1.0.1
+  module_starter:
+    path: module_starter
 
 flutter_icons:
   android: "launcher_icon"

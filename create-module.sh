@@ -1,0 +1,1 @@
+flutter pub run module_starter $1
