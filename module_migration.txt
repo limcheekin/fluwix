@@ -1,53 +1,11 @@
 1. Fork the flutter-widgets-explorer repo, git clone the repo and git checkout <branch_name>.
 2. git merge showcase_view
-3. flutter create -t module <name>
-4. Remove test directory of the module, as there's no test case created on current code base.
-5. Remove comments of pubspec.yaml and update description and add the following configs below description:
-publish_to: "none"
-Then, add the following dependencies:
-dependencies:
-  flutter:
-    sdk: flutter
-
-  common_ui:
-    path: ../common_ui
-  showcase_view:
-    path: ../showcase_view  
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  
-  pedantic: 
-6. Add module specific dependencies to the pubspec.yaml, used latest version if possible.  
-7. Create an images directory and moved the thumbnail.png and screenshots.gif from images/<name> there.
-8. Moved the README.md to module directory and codes from lib/<name> directory to module's lib directory.
-9. Update module's lib/main.dart with the following code:
-import 'package:flutter/material.dart';
-import 'package:common_ui/my_module.dart';
-
-void main() => runApp(MyModule(
-      title: '',
-      home: Screen(),
-    ));
-10. Add ShowCaseView to the existing _screen.dart:
-  static const owner = 'limcheekin';
-  static const repository = 'flutter-widgets-explorer';
-  static const branch = '';
-
-  return ShowcaseView(
-      title: '',
-      widget: widget,
-      owner: owner,
-      repository: repository,
-      ref: branch,
-      readMe: '$branch/README.md',
-      codePaths: [
-        '$branch/pubspec.yaml',
-        '$branch/lib/_screen.dart',
-      ],
-    );
-11. You can safely ignore errors in the project lib/main.dart and project's pubspec.yaml.    
-12. Copy analysis_options.yaml to module directory and run "flutter analyze", then fix all problems.      
-13. Test the module by running module's lib/main.dart
-14. If the module is running fine, commit the changes, push it to remote branch and send me pull request.
+3. Create module with command: flutter pub run module_starter <module_name>
+4. Add module specific dependencies to the pubspec.yaml, used latest version if possible.  
+5. Create an images directory and moved the thumbnail.png and screenshots.gif from images/<name> there.
+6. Moved the README.md to module directory and codes from lib/<name> directory to module's lib directory.
+7. Copy the code of existing _screen.dart and modify to become ModuleNameWidget class of new _screen.dart.
+8. You can safely ignore errors in the project lib/main.dart and project's pubspec.yaml.    
+9. Run "flutter analyze", then fix all problems.      
+10. Test the module by running module's lib/main.dart
+11. If the module is running fine, commit the changes, push it to remote branch and send me pull request.
