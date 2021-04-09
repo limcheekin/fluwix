@@ -3,6 +3,7 @@ import 'license_view.dart';
 import 'read_me_view.dart';
 import 'package:source_code_view/source_code_view.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class ShowcaseView extends StatelessWidget {
   final String title;
@@ -72,21 +73,27 @@ class ShowcaseView extends StatelessWidget {
           path: readMe,
         ),
       if (showCode)
-        SingleChildScrollView(
-          child: SourceCodeView(
-            owner: owner,
-            repository: repository,
-            ref: ref,
-            paths: codePaths,
+        Scrollbar(
+          isAlwaysShown: true,
+          child: SingleChildScrollView(
+            child: SourceCodeView(
+              owner: owner,
+              repository: repository,
+              ref: ref,
+              paths: codePaths,
+            ),
           ),
         ),
       if (showLicense)
-        SingleChildScrollView(
-          child: LicenseView(
-            owner: owner,
-            repository: repository,
-            ref: ref,
-            path: license,
+        Scrollbar(
+          isAlwaysShown: true,
+          child: SingleChildScrollView(
+            child: LicenseView(
+              owner: owner,
+              repository: repository,
+              ref: ref,
+              path: license,
+            ),
           ),
         ),
     ];
@@ -95,32 +102,81 @@ class ShowcaseView extends StatelessWidget {
       tabBarViews.addAll(additionalTabBarViews);
     }
 
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () => Modular.to.navigate(fromRouteName),
-        ),
-        title: Text(title),
-      ),
-      body: DefaultTabController(
-        length: tabs.length,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TabBar(
-              isScrollable: true,
-              labelColor: Colors.blue,
-              unselectedLabelColor: Colors.black,
-              tabs: tabs,
+    return getValueForScreenType<bool>(
+      context: context,
+      mobile: true,
+      tablet: false,
+    )
+        ? Scaffold(
+            appBar: AppBar(
+              leading: IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () => Modular.to.navigate(fromRouteName),
+              ),
+              title: Text(title),
             ),
-            Expanded(
-              child: TabBarView(
-                children: tabBarViews,
+            body: TabPanel(
+              tabs: tabs,
+              tabBarViews: tabBarViews,
+            ),
+          )
+        : Scaffold(
+            body: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5.0),
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        fontSize: 28.0,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: TabPanel(
+                      tabs: tabs,
+                      tabBarViews: tabBarViews,
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          );
+  }
+}
+
+class TabPanel extends StatelessWidget {
+  const TabPanel({
+    Key key,
+    @required this.tabs,
+    @required this.tabBarViews,
+  }) : super(key: key);
+
+  final List<Tab> tabs;
+  final List<Widget> tabBarViews;
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: tabs.length,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TabBar(
+            isScrollable: true,
+            labelColor: Colors.blue,
+            unselectedLabelColor: Colors.black,
+            tabs: tabs,
+          ),
+          Expanded(
+            child: TabBarView(
+              children: tabBarViews,
+            ),
+          ),
+        ],
       ),
     );
   }

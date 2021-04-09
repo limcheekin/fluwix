@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/link.dart';
@@ -128,7 +129,7 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
                 ],
               );
             }
-            return buildShimmer(linkText);
+            return _buildLoadingIndicator(linkText);
           },
         ),
       ),
@@ -159,7 +160,58 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
 
   Widget buildWidget(BuildContext context, String responseBody);
 
-  Widget buildShimmer(String linkText) {
+  Widget _buildLoadingIndicator(String linkText) {
+    // REF: https://stackoverflow.com/questions/57937280/how-can-i-detect-if-my-flutter-app-is-running-in-the-web
+    if (kIsWeb) {
+      return Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                flex: 9,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    linkText,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: widget.hasCopyButton
+                    ? Align(
+                        alignment: Alignment.centerRight,
+                        child: Icon(Icons.copy),
+                      )
+                    : SizedBox.shrink(),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 10.0),
+            child: LinearProgressIndicator(),
+          ),
+          Container(
+            height: 100.0,
+            width: double.infinity,
+            color: Colors.grey[300],
+          ),
+        ],
+      );
+    } else {
+      // shimmer effect not working in web yet
+      return _buildShimmer(linkText);
+    }
+  }
+
+  Widget _buildShimmer(String linkText) {
     return Shimmer.fromColors(
       baseColor: Colors.grey[300],
       highlightColor: Colors.grey[100],

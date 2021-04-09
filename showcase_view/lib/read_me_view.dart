@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:source_code_view/abstract_github_view.dart';
@@ -26,11 +28,31 @@ class ReadMeView extends AbstractGithubView {
 }
 
 class _ReadMeViewState extends AbstractGithubViewState<ReadMeView> {
+  static const CORS_PROXY = 'https://cors.bridged.cc/';
   @override
   Widget buildWidget(BuildContext context, String responseBody) {
+    final lines = LineSplitter.split(responseBody);
+    var body = '';
+    final exp = RegExp(
+        r'(https?):\/\/[\w/\-?=%.]+\.[\w/\-?=%.]+(?:gif|png|jpg)',
+        caseSensitive: false);
+    lines.forEach((line) {
+      final matches = exp.allMatches(line);
+      if (matches.isNotEmpty) {
+        matches.forEach((match) {
+          final imageUrl = line.substring(match.start, match.end);
+          line = line.replaceAll(imageUrl, CORS_PROXY + imageUrl);
+        });
+      }
+      body += '$line\n';
+    });
+
     return Expanded(
-      child: Markdown(
-        data: responseBody,
+      child: Scrollbar(
+        isAlwaysShown: true,
+        child: Markdown(
+          data: body,
+        ),
       ),
     );
   }

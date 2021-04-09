@@ -1,5 +1,5 @@
 extension StringExtension on String {
-  static const String DEFAULT_WORD_DELIMITER = ' ';
+  static const String DEFAULT_WORD_DELIMITER = '_';
   static const String SPACE = ' ';
   // REF: https://gist.github.com/filiph/d4e0c0a9efb0f869f984317372f5bee8
   String toTitleCase({String wordDelimiter = DEFAULT_WORD_DELIMITER}) {

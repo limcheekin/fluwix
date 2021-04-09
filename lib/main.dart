@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nested_list/nested_list_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 import 'package:showcase_view/showcase_screen.dart';
 import 'package:source_code_view/source_code_view_screen.dart';
 import 'package:stock_chart/stock_chart_screen.dart';
@@ -60,11 +61,18 @@ class AppWidget extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
-  static const String WORD_DELIMITER = '_';
-
   @override
   Widget build(BuildContext context) {
-    final List<Widget> aboutBoxChildren = <Widget>[
+    final appBar = _buildAppBar(context);
+    return ScreenTypeLayout.builder(
+      mobile: (BuildContext context) => NarrowLayout(appBar: appBar),
+      tablet: (BuildContext context) => NarrowLayout(appBar: appBar),
+      desktop: (BuildContext context) => WideLayout(appBar: appBar),
+    );
+  }
+
+  AppBar _buildAppBar(BuildContext context) {
+    final aboutBoxChildren = <Widget>[
       SizedBox(height: 24),
       Text(
         'Learn, test and showcase flutter widgets in one application.',
@@ -72,50 +80,128 @@ class HomeScreen extends StatelessWidget {
       ),
     ];
 
+    return AppBar(
+      title: Text('Flutter Widgets Explorer'),
+      actions: [
+        FutureBuilder<PackageInfo>(
+          future: PackageInfo.fromPlatform(),
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            if (snapshot.hasData) {
+              final packageInfo = snapshot.data;
+              return IconButton(
+                icon: Icon(Icons.info_outline),
+                onPressed: () {
+                  showAboutDialog(
+                    context: context,
+                    applicationIcon: Logo(),
+                    applicationName: packageInfo.appName,
+                    applicationVersion: packageInfo.version,
+                    applicationLegalese:
+                        '\u{a9} ${DateTime.now().year} Lim Chee Kin',
+                    children: aboutBoxChildren,
+                  );
+                },
+              );
+            }
+            return SizedBox.shrink();
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class NarrowLayout extends StatelessWidget {
+  final AppBar appBar;
+  const NarrowLayout({
+    @required this.appBar,
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Flutter Widgets Explorer'),
-        actions: [
-          FutureBuilder<PackageInfo>(
-            future: PackageInfo.fromPlatform(),
-            builder: (BuildContext context, AsyncSnapshot snapshot) {
-              if (snapshot.hasData) {
-                final packageInfo = snapshot.data;
-                return IconButton(
-                  icon: Icon(Icons.info_outline),
-                  onPressed: () {
-                    showAboutDialog(
-                      context: context,
-                      applicationIcon: Logo(),
-                      applicationName: packageInfo.appName,
-                      applicationVersion: packageInfo.version,
-                      applicationLegalese:
-                          '\u{a9} ${DateTime.now().year} Lim Chee Kin',
-                      children: aboutBoxChildren,
-                    );
-                  },
-                );
-              }
-              return SizedBox.shrink();
-            },
-          ),
-        ],
-      ),
+      appBar: appBar,
       body: ListView.builder(
         itemCount: appModule.routes.length - 1,
         itemBuilder: (BuildContext context, int index) {
-          final route = appModule.routes[index + 1];
+          final routerName = appModule.routes[index + 1].routerName;
           return Card(
             margin: EdgeInsets.fromLTRB(8, 4, 8, 4),
             child: ListTile(
-              title: Text(route.routerName
-                  .substring(1)
-                  .toTitleCase(wordDelimiter: WORD_DELIMITER)),
+              title: Text(routerName.substring(1).toTitleCase()),
               trailing: Icon(Icons.keyboard_arrow_right),
-              onTap: () => Modular.to.navigate(route.routerName),
+              onTap: () => Modular.to.navigate(routerName),
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+class WideLayout extends StatefulWidget {
+  final AppBar appBar;
+  const WideLayout({
+    @required this.appBar,
+    Key key,
+  }) : super(key: key);
+
+  @override
+  _WideLayoutState createState() => _WideLayoutState();
+}
+
+class _WideLayoutState extends State<WideLayout> {
+  int _selectedIndex = -1;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: widget.appBar,
+      // REF: https://stackoverflow.com/questions/65654632/why-the-scroll-bar-is-missing-in-flutter-web
+      body: Scrollbar(
+        isAlwaysShown: true,
+        child: Row(
+          children: [
+            SizedBox(
+              width: 280.0,
+              child: ListView.builder(
+                itemCount: appModule.routes.length - 1,
+                itemBuilder: (BuildContext context, int index) {
+                  final routerName = appModule.routes[index + 1].routerName;
+                  return ListTile(
+                    title: Text(routerName.substring(1).toTitleCase()),
+                    selected: index == _selectedIndex,
+                    trailing: index == _selectedIndex
+                        ? Icon(Icons.keyboard_arrow_right)
+                        : null,
+                    onTap: () {
+                      setState(() {
+                        _selectedIndex = index;
+                      });
+                    },
+                  );
+                },
+              ),
+            ),
+            Expanded(
+              child: _selectedIndex == -1
+                  ? RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        text: 'Welcome to Flutter Widgets Explorer!',
+                        style: TextStyle(fontSize: 28.0),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: '\n\nPlease select a showcase on the left',
+                            style: TextStyle(fontSize: 18.0),
+                          ),
+                        ],
+                      ),
+                    )
+                  : appModule.routes[_selectedIndex + 1].child(context, null),
+            ),
+          ],
+        ),
       ),
     );
   }
