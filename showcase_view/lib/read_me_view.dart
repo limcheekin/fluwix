@@ -34,7 +34,7 @@ class _ReadMeViewState extends AbstractGithubViewState<ReadMeView> {
   Widget buildWidget(BuildContext context, String responseBody) {
     return Expanded(
       child: Scrollbar(
-        isAlwaysShown: true,
+        isAlwaysShown: kIsWeb,
         child: Markdown(
           data: _addCorsProxyToImageUrls(responseBody),
         ),

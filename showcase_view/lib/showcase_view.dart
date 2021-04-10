@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'license_view.dart';
 import 'read_me_view.dart';
@@ -20,6 +21,9 @@ class ShowcaseView extends StatelessWidget {
   final bool showLicense;
   final List<Tab> additionalTabs;
   final List<Widget> additionalTabBarViews;
+  static const bool PINNED = true;
+  static const bool SNAP = false;
+  static const bool FLOATING = false;
 
   const ShowcaseView({
     @required this.title,
@@ -74,7 +78,7 @@ class ShowcaseView extends StatelessWidget {
         ),
       if (showCode)
         Scrollbar(
-          isAlwaysShown: true,
+          isAlwaysShown: kIsWeb,
           child: SingleChildScrollView(
             child: SourceCodeView(
               owner: owner,
@@ -85,16 +89,11 @@ class ShowcaseView extends StatelessWidget {
           ),
         ),
       if (showLicense)
-        Scrollbar(
-          isAlwaysShown: true,
-          child: SingleChildScrollView(
-            child: LicenseView(
-              owner: owner,
-              repository: repository,
-              ref: ref,
-              path: license,
-            ),
-          ),
+        LicenseView(
+          owner: owner,
+          repository: repository,
+          ref: ref,
+          path: license,
         ),
     ];
 
@@ -102,82 +101,50 @@ class ShowcaseView extends StatelessWidget {
       tabBarViews.addAll(additionalTabBarViews);
     }
 
-    return getValueForScreenType<bool>(
-      context: context,
-      mobile: true,
-      tablet: false,
-    )
-        ? Scaffold(
-            appBar: AppBar(
-              leading: IconButton(
-                icon: Icon(Icons.arrow_back),
-                onPressed: () => Modular.to.navigate(fromRouteName),
-              ),
-              title: Text(title),
-            ),
-            body: TabPanel(
-              tabs: tabs,
-              tabBarViews: tabBarViews,
-            ),
-          )
-        : Scaffold(
-            body: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5.0),
-                    child: Text(
-                      title,
-                      style: TextStyle(
-                        fontSize: 28.0,
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: TabPanel(
-                      tabs: tabs,
-                      tabBarViews: tabBarViews,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-  }
-}
+    final tabBar = TabBar(
+      isScrollable: true,
+      labelColor: Colors.blue,
+      unselectedLabelColor: Colors.black,
+      tabs: tabs,
+    );
 
-class TabPanel extends StatelessWidget {
-  const TabPanel({
-    Key key,
-    @required this.tabs,
-    @required this.tabBarViews,
-  }) : super(key: key);
-
-  final List<Tab> tabs;
-  final List<Widget> tabBarViews;
-
-  @override
-  Widget build(BuildContext context) {
     return DefaultTabController(
       length: tabs.length,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TabBar(
-            isScrollable: true,
-            labelColor: Colors.blue,
-            unselectedLabelColor: Colors.black,
-            tabs: tabs,
-          ),
-          Expanded(
-            child: TabBarView(
-              children: tabBarViews,
+      child: getValueForScreenType<bool>(
+        context: context,
+        mobile: true,
+        tablet: false,
+      )
+          ? Scaffold(
+              appBar: AppBar(
+                leading: IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () => Modular.to.navigate(fromRouteName),
+                ),
+                bottom: tabBar,
+                title: Text(title),
+              ),
+              body: TabBarView(
+                children: tabBarViews,
+              ),
+            )
+          : Scaffold(
+              appBar: AppBar(
+                elevation: 0.0,
+                bottom: tabBar,
+                title: Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 28.0,
+                    color: Colors.black,
+                  ),
+                ),
+                backgroundColor: Colors.white,
+              ),
+              body: TabBarView(
+                children: tabBarViews,
+              ),
             ),
-          ),
-        ],
-      ),
     );
   }
 }

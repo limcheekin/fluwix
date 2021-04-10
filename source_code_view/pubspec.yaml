@@ -17,6 +17,7 @@ dependencies:
   url_launcher: ^6.0.2
   shimmer: ^1.1.2
   http: ^0.13.0
+  responsive_builder:
   common_ui:
     path: ../common_ui
   showcase_view:

@@ -6,6 +6,7 @@ import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'copy_button.dart';
 import 'multiple_requests_http_client.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 // REF: https://stackoverflow.com/questions/50696945/flutter-statefulwidget-state-class-inheritance
 // REF: https://blog.gskinner.com/archives/2020/08/flutter-extending-statet.html
@@ -70,70 +71,82 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Card(
-      elevation: 6.0,
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: FutureBuilder<Response>(
-          future: getGithubContent,
-          builder: (context, snapshot) {
-            final linkText =
-                widget.path.substring(widget.path.lastIndexOf('/') + 1);
-            if (snapshot.connectionState == ConnectionState.done) {
-              if (widget.client != null) {
-                widget.client.close();
-              }
-              final response = snapshot.data;
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+    final contentWidget = FutureBuilder<Response>(
+      future: getGithubContent,
+      builder: (context, snapshot) {
+        final linkText =
+            widget.path.substring(widget.path.lastIndexOf('/') + 1);
+        if (snapshot.connectionState == ConnectionState.done) {
+          if (widget.client != null) {
+            widget.client.close();
+          }
+          final response = snapshot.data;
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
                 children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        flex: 9,
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Link(
-                            uri: Uri.parse(widget.linkUrl),
-                            builder:
-                                (BuildContext context, FollowLink followLink) =>
-                                    TextButton(
-                              onPressed: followLink,
-                              child: Text(
-                                linkText,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              ),
+                  Expanded(
+                    flex: 9,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Link(
+                        uri: Uri.parse(widget.linkUrl),
+                        builder:
+                            (BuildContext context, FollowLink followLink) =>
+                                TextButton(
+                          onPressed: followLink,
+                          child: Text(
+                            linkText,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              decoration: TextDecoration.underline,
                             ),
                           ),
                         ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: widget.hasCopyButton &&
-                                snapshot.hasData &&
-                                response.statusCode == 200
-                            ? Align(
-                                alignment: Alignment.centerRight,
-                                child: CopyButton(text: response.body))
-                            : SizedBox.shrink(),
-                      ),
-                    ],
+                    ),
                   ),
-                  _buildWidget(context, snapshot)
+                  Expanded(
+                    flex: 1,
+                    child: widget.hasCopyButton &&
+                            snapshot.hasData &&
+                            response.statusCode == 200
+                        ? Align(
+                            alignment: Alignment.centerRight,
+                            child: CopyButton(text: response.body))
+                        : SizedBox.shrink(),
+                  ),
                 ],
-              );
-            }
-            return _buildLoadingIndicator(linkText);
-          },
-        ),
-      ),
+              ),
+              _buildWidget(context, snapshot)
+            ],
+          );
+        }
+        return _buildLoadingIndicator(linkText);
+      },
     );
+
+    return getValueForScreenType<bool>(
+      context: context,
+      mobile: true,
+      tablet: false,
+    )
+        ? Card(
+            elevation: 6.0,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: contentWidget,
+            ),
+          )
+        : Container(
+            color: Colors.white,
+            padding: const EdgeInsets.all(20.0),
+            child: contentWidget,
+          );
   }
 
   Widget _buildWidget(BuildContext context, AsyncSnapshot<Response> snapshot) {
