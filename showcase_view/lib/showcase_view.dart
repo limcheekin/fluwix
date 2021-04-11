@@ -68,7 +68,10 @@ class ShowcaseView extends StatelessWidget {
     }
 
     final tabBarViews = [
-      widget,
+      Container(
+        color: Colors.white,
+        child: widget,
+      ),
       if (showReadMe)
         ReadMeView(
           owner: owner,
