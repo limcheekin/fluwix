@@ -101,13 +101,6 @@ class ShowcaseView extends StatelessWidget {
       tabBarViews.addAll(additionalTabBarViews);
     }
 
-    final tabBar = TabBar(
-      isScrollable: true,
-      labelColor: Colors.blue,
-      unselectedLabelColor: Colors.black,
-      tabs: tabs,
-    );
-
     return DefaultTabController(
       length: tabs.length,
       child: getValueForScreenType<bool>(
@@ -121,7 +114,10 @@ class ShowcaseView extends StatelessWidget {
                   icon: Icon(Icons.arrow_back),
                   onPressed: () => Modular.to.navigate(fromRouteName),
                 ),
-                bottom: tabBar,
+                bottom: TabBar(
+                  isScrollable: true,
+                  tabs: tabs,
+                ),
                 title: Text(title),
               ),
               body: TabBarView(
@@ -131,7 +127,12 @@ class ShowcaseView extends StatelessWidget {
           : Scaffold(
               appBar: AppBar(
                 elevation: 0.0,
-                bottom: tabBar,
+                bottom: TabBar(
+                  isScrollable: true,
+                  labelColor: Colors.blue,
+                  unselectedLabelColor: Colors.black,
+                  tabs: tabs,
+                ),
                 title: Text(
                   title,
                   style: TextStyle(
