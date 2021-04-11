@@ -14,6 +14,7 @@ class MultipleRequestsHttpClient {
   }
 
   void close() {
+    if (requestCount == 0) return;
     --requestCount;
     print('close() requestCount $requestCount');
     if (requestCount == 0) {
