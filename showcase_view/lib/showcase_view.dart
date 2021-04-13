@@ -21,9 +21,6 @@ class ShowcaseView extends StatelessWidget {
   final bool showLicense;
   final List<Tab> additionalTabs;
   final List<Widget> additionalTabBarViews;
-  static const bool PINNED = true;
-  static const bool SNAP = false;
-  static const bool FLOATING = false;
 
   const ShowcaseView({
     @required this.title,
@@ -113,10 +110,12 @@ class ShowcaseView extends StatelessWidget {
       )
           ? Scaffold(
               appBar: AppBar(
-                leading: IconButton(
-                  icon: Icon(Icons.arrow_back),
-                  onPressed: () => Modular.to.navigate(fromRouteName),
-                ),
+                leading: !kIsWeb
+                    ? IconButton(
+                        icon: Icon(Icons.arrow_back),
+                        onPressed: () => Modular.to.navigate(fromRouteName),
+                      )
+                    : null,
                 bottom: TabBar(
                   isScrollable: true,
                   tabs: tabs,
