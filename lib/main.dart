@@ -161,12 +161,12 @@ class _WideLayoutState extends State<WideLayout> {
     return Scaffold(
       appBar: widget.appBar,
       // REF: https://stackoverflow.com/questions/65654632/why-the-scroll-bar-is-missing-in-flutter-web
-      body: Scrollbar(
-        isAlwaysShown: true,
-        child: Row(
-          children: [
-            SizedBox(
-              width: 280.0,
+      body: Row(
+        children: [
+          SizedBox(
+            width: 280.0,
+            child: Scrollbar(
+              isAlwaysShown: true,
               child: ListView.builder(
                 itemCount: appModule.routes.length - 1,
                 itemBuilder: (BuildContext context, int index) {
@@ -186,33 +186,32 @@ class _WideLayoutState extends State<WideLayout> {
                 },
               ),
             ),
-            Expanded(
-              child: _selectedIndex == -1
-                  ? Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.network(
-                            'https://flutter-widgets-explorer.netlify.app/welcome.png'),
-                        RichText(
-                          textAlign: TextAlign.center,
-                          text: TextSpan(
-                            text: 'Welcome to Flutter Widgets Explorer!',
-                            style: TextStyle(fontSize: 28.0),
-                            children: <TextSpan>[
-                              TextSpan(
-                                text:
-                                    '\n\nPlease select a showcase on the left',
-                                style: TextStyle(fontSize: 18.0),
-                              ),
-                            ],
-                          ),
+          ),
+          Expanded(
+            child: _selectedIndex == -1
+                ? Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.network(
+                          'https://flutter-widgets-explorer.netlify.app/welcome.png'),
+                      RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                          text: 'Welcome to Flutter Widgets Explorer!',
+                          style: TextStyle(fontSize: 28.0),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: '\n\nPlease select a showcase on the left',
+                              style: TextStyle(fontSize: 18.0),
+                            ),
+                          ],
                         ),
-                      ],
-                    )
-                  : appModule.routes[_selectedIndex + 1].child(context, null),
-            ),
-          ],
-        ),
+                      ),
+                    ],
+                  )
+                : appModule.routes[_selectedIndex + 1].child(context, null),
+          ),
+        ],
       ),
     );
   }
