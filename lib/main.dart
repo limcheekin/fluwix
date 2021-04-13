@@ -75,7 +75,7 @@ class HomeScreen extends StatelessWidget {
     final aboutBoxChildren = <Widget>[
       SizedBox(height: 24),
       Text(
-        'Learn, test and showcase flutter widgets in one application.',
+        'Learn and showcase Flutter Widgets in one application.',
         style: Theme.of(context).textTheme.bodyText2,
       ),
     ];
