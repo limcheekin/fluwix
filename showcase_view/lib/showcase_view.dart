@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
 import 'license_view.dart';
 import 'read_me_view.dart';
 import 'package:source_code_view/source_code_view.dart';
@@ -21,6 +22,7 @@ class ShowcaseView extends StatelessWidget {
   final bool showLicense;
   final List<Tab> additionalTabs;
   final List<Widget> additionalTabBarViews;
+  static const GITHUB_URL = 'https://github.com/';
 
   const ShowcaseView({
     @required this.title,
@@ -135,11 +137,46 @@ class ShowcaseView extends StatelessWidget {
                   unselectedLabelColor: Colors.black,
                   tabs: tabs,
                 ),
-                title: Text(
-                  title,
-                  style: TextStyle(
-                    fontSize: 28.0,
-                    color: Colors.black,
+                title: Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: TextStyle(
+                          fontSize: 24.0,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Link(
+                        uri: Uri.parse(GITHUB_URL + owner),
+                        builder:
+                            (BuildContext context, FollowLink followLink) =>
+                                Row(
+                          children: [
+                            Text(
+                              'By ',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 13.0,
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: followLink,
+                              child: Text(
+                                owner,
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 13.0,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
                   ),
                 ),
                 backgroundColor: Colors.white,
