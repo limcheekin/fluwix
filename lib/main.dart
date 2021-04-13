@@ -185,18 +185,25 @@ class _WideLayoutState extends State<WideLayout> {
             ),
             Expanded(
               child: _selectedIndex == -1
-                  ? RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        text: 'Welcome to Flutter Widgets Explorer!',
-                        style: TextStyle(fontSize: 28.0),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: '\n\nPlease select a showcase on the left',
-                            style: TextStyle(fontSize: 18.0),
+                  ? Column(
+                      children: [
+                        Image.network(
+                            'https://flutter-widgets-explorer.netlify.app/welcome.png'),
+                        RichText(
+                          textAlign: TextAlign.center,
+                          text: TextSpan(
+                            text: 'Welcome to Flutter Widgets Explorer!',
+                            style: TextStyle(fontSize: 28.0),
+                            children: <TextSpan>[
+                              TextSpan(
+                                text:
+                                    '\n\nPlease select a showcase on the left',
+                                style: TextStyle(fontSize: 18.0),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     )
                   : appModule.routes[_selectedIndex + 1].child(context, null),
             ),
