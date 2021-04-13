@@ -1,11 +1,11 @@
 {
-    "name": "flutter_widgets_explorer",
+    "name": "Flutter Widgets Explorer",
     "short_name": "flutter_widgets_explorer",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Flutter Widgets Explorer: Learn, test and showcase flutter widgets in one application.",
+    "description": "Flutter Widgets Explorer: Learn and showcase Flutter Widgets in one application.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
