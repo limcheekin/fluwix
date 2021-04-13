@@ -189,6 +189,7 @@ class _WideLayoutState extends State<WideLayout> {
             Expanded(
               child: _selectedIndex == -1
                   ? Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.network(
                             'https://flutter-widgets-explorer.netlify.app/welcome.png'),
