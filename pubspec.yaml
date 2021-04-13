@@ -32,6 +32,8 @@ dependencies:
     path: source_code_view
   showcase_view:
     path: showcase_view
+  material_design_showcase:
+    path: material_design_showcase  
 
 dev_dependencies:
   flutter_test:

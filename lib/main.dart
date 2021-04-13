@@ -6,6 +6,7 @@ import 'package:showcase_view/showcase_screen.dart';
 import 'package:source_code_view/source_code_view_screen.dart';
 import 'package:stock_chart/stock_chart_screen.dart';
 import 'package:tab_buttons/tab_buttons_screen.dart';
+import 'package:material_design_showcase/material_design_showcase_screen.dart';
 import 'about/about_screen.dart';
 import 'animate_icons/animate_icons_screen.dart';
 import 'chart_datatable/chart_datatable_screen.dart';
@@ -44,6 +45,8 @@ class AppModule extends Module {
     ChildRoute('/about_dialog', child: (_, __) => AboutScreen()),
     ChildRoute('/source_code_view', child: (_, __) => SourceCodeViewScreen()),
     ChildRoute('/showcase_view', child: (_, __) => ShowcaseScreen()),
+    ChildRoute('/material_design_showcase',
+        child: (_, __) => MaterialDesignShowcaseScreen()),
   ];
 }
 
