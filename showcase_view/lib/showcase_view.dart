@@ -108,7 +108,8 @@ class ShowcaseView extends StatelessWidget {
       child: getValueForScreenType<bool>(
         context: context,
         mobile: true,
-        tablet: false,
+        tablet: true,
+        desktop: false,
       )
           ? Scaffold(
               appBar: AppBar(
