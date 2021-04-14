@@ -170,7 +170,7 @@ class _WideLayoutState extends State<WideLayout> {
           SizedBox(
             width: 280.0,
             child: Scrollbar(
-              isAlwaysShown: true,
+              isAlwaysShown: false,
               child: ListView.builder(
                 itemCount: appModule.routes.length - 1,
                 itemBuilder: (BuildContext context, int index) {
@@ -196,8 +196,7 @@ class _WideLayoutState extends State<WideLayout> {
                 ? Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.network(
-                          'https://flutter-widgets-explorer.netlify.app/welcome.png'),
+                      Image.network('https://fluwix.com/welcome.png'),
                       RichText(
                         textAlign: TextAlign.center,
                         text: TextSpan(
