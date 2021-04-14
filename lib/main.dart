@@ -196,7 +196,7 @@ class _WideLayoutState extends State<WideLayout> {
                 ? Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.network('https://fluwix.com/welcome.png'),
+                      Image.network('http://fluwix.com/welcome.png'),
                       RichText(
                         textAlign: TextAlign.center,
                         text: TextSpan(
