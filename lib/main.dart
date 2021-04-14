@@ -8,7 +8,7 @@ import 'package:stock_chart/stock_chart_screen.dart';
 import 'package:tab_buttons/tab_buttons_screen.dart';
 import 'package:material_design_showcase/material_design_showcase_screen.dart';
 import 'package:url_strategy/url_strategy.dart';
-import 'about/about_screen.dart';
+import 'package:about_dialog/about_dialog_screen.dart';
 import 'animate_icons/animate_icons_screen.dart';
 import 'chart_datatable/chart_datatable_screen.dart';
 import 'charts/charts_screen.dart';
@@ -46,7 +46,7 @@ class AppModule extends Module {
     ChildRoute('/url_launcher', child: (_, __) => UrlLauncherScreen()),
     ChildRoute('/markdown_view', child: (_, __) => MarkdownScreen()),
     ChildRoute('/shimmer_effect', child: (_, __) => ShimmerEffectScreen()),
-    ChildRoute('/about_dialog', child: (_, __) => AboutScreen()),
+    ChildRoute('/about_dialog', child: (_, __) => AboutDialogScreen()),
     ChildRoute('/source_code_view', child: (_, __) => SourceCodeViewScreen()),
     ChildRoute('/showcase_view', child: (_, __) => ShowcaseScreen()),
     ChildRoute('/material_design_showcase',

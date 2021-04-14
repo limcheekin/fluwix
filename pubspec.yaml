@@ -21,7 +21,6 @@ dependencies:
   url_launcher: ^6.0.3
   flutter_markdown: ^0.6.0
   shimmer: ^1.1.2
-  package_info_plus: ^1.0.0
   pubspec_parse: ^1.0.0
   nested_list:
     path: nested_list
@@ -35,6 +34,8 @@ dependencies:
     path: showcase_view
   material_design_showcase:
     path: material_design_showcase
+  about_dialog:
+    path: about_dialog  
 
 dev_dependencies:
   flutter_test:
