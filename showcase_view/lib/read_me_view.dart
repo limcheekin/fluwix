@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:source_code_view/abstract_github_view.dart';
 import 'package:source_code_view/multiple_requests_http_client.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ReadMeView extends AbstractGithubView {
   const ReadMeView({
@@ -37,6 +38,8 @@ class _ReadMeViewState extends AbstractGithubViewState<ReadMeView> {
         isAlwaysShown: kIsWeb,
         child: Markdown(
           data: _addCorsProxyToImageUrls(responseBody),
+          selectable: true,
+          onTapLink: _onTapLink,
         ),
       ),
     );
@@ -61,5 +64,23 @@ class _ReadMeViewState extends AbstractGithubViewState<ReadMeView> {
       body += '$line\n';
     });
     return body;
+  }
+
+  void _onTapLink(String text, String href, String title) {
+    print('text $text');
+    print('href $href');
+    _launchInBrowser(href);
+  }
+
+  Future<void> _launchInBrowser(String url) async {
+    if (await canLaunch(url)) {
+      await launch(
+        url,
+        forceSafariVC: false,
+        forceWebView: false,
+      );
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
