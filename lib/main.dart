@@ -7,6 +7,7 @@ import 'package:source_code_view/source_code_view_screen.dart';
 import 'package:stock_chart/stock_chart_screen.dart';
 import 'package:tab_buttons/tab_buttons_screen.dart';
 import 'package:material_design_showcase/material_design_showcase_screen.dart';
+import 'package:url_strategy/url_strategy.dart';
 import 'about/about_screen.dart';
 import 'animate_icons/animate_icons_screen.dart';
 import 'chart_datatable/chart_datatable_screen.dart';
@@ -20,7 +21,10 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'string.dart';
 
 final AppModule appModule = AppModule();
-void main() => runApp(ModularApp(module: appModule, child: AppWidget()));
+void main() {
+  setPathUrlStrategy();
+  runApp(ModularApp(module: appModule, child: AppWidget()));
+}
 
 class AppModule extends Module {
   @override
