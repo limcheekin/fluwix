@@ -4,9 +4,13 @@ import 'package:showcase_view/showcase_view.dart';
 class ModuleNameScreen extends StatelessWidget {
   const ModuleNameScreen({Key key}) : super(key: key);
 
-  static const owner = 'limcheekin';
-  static const repository = 'flutter-widgets-explorer';
-  static const branch = 'module_name';
+  /// Github URL: https://github.com/limcheekin/flutter-widgets-explorer/tree/module_starter
+  /// owner = 'limcheekin';
+  /// repository = 'flutter-widgets-explorer';
+  /// branch = 'module_starter';
+  static const owner = '';
+  static const repository = '';
+  static const branch = '';
 
   @override
   Widget build(BuildContext context) {
