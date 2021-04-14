@@ -9,7 +9,7 @@ import 'package:tab_buttons/tab_buttons_screen.dart';
 import 'package:material_design_showcase/material_design_showcase_screen.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:about_dialog/about_dialog_screen.dart';
-import 'animate_icons/animate_icons_screen.dart';
+import 'package:animated_icons/animated_icons_screen.dart';
 import 'chart_datatable/chart_datatable_screen.dart';
 import 'charts/charts_screen.dart';
 import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
@@ -42,7 +42,7 @@ class AppModule extends Module {
     ChildRoute('/charts_gallery', child: (_, __) => ChartsScreen()),
     ChildRoute('/chart_data_table', child: (_, __) => ChartDataTableScreen()),
     ChildRoute('/syntax_view', child: (_, __) => SyntaxViewScreen()),
-    ChildRoute('/animate_icons', child: (_, __) => AnimateIconsScreen()),
+    ChildRoute('/animated_icons', child: (_, __) => AnimatedIconsScreen()),
     ChildRoute('/url_launcher', child: (_, __) => UrlLauncherScreen()),
     ChildRoute('/markdown_view', child: (_, __) => MarkdownScreen()),
     ChildRoute('/shimmer_effect', child: (_, __) => ShimmerEffectScreen()),
