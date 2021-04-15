@@ -395,12 +395,19 @@ packages:
     source: hosted
     version: "0.4.1"
   shimmer:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: shimmer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.2"
+    version: "2.0.0"
+  shimmer_effect:
+    dependency: "direct main"
+    description:
+      path: shimmer_effect
+      relative: true
+    source: path
+    version: "1.0.0+1"
   showcase_view:
     dependency: "direct main"
     description:

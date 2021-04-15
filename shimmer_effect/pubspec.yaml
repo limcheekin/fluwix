@@ -1,9 +1,9 @@
-name: source_code_view
-description: Source Code View module.
-
-version: 1.0.0+1
+name: shimmer_effect
+description: Shimmer Effect module.
 
 publish_to: "none"
+
+version: 1.0.0+1
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -12,12 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_syntax_view: ^3.2.2
-  animate_icons: ^1.0.0
-  url_launcher: ^6.0.2
   shimmer: ^2.0.0
-  http: ^0.13.0
-  responsive_builder:
   common_ui:
     path: ../common_ui
   showcase_view:
@@ -26,13 +21,17 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  
   pedantic:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/chevron_right.png
+    - assets/background.jpg
+
 
   module:
     androidX: true
-    androidPackage: com.example.source_code_view
-    iosBundleIdentifier: com.example.sourceCodeView
+    androidPackage: com.example.shimmer_effect
+    iosBundleIdentifier: com.example.shimmerEffect
