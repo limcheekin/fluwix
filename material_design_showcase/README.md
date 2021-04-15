@@ -1,6 +1,6 @@
 # material_design_showcase
 
-A new flutter module project.
+Please see the [README](https://github.com/miquelbeltran/flutter_material_showcase/blob/master/README.md) of the flutter_material_showcase.
 
 ## Getting Started
 
