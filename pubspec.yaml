@@ -18,7 +18,6 @@ dependencies:
   charts_flutter: ^0.10.0
   flutter_syntax_view: ^3.2.2
   url_launcher: ^6.0.3
-  flutter_markdown: ^0.6.0
   nested_list:
     path: nested_list
   tab_buttons:
@@ -41,6 +40,8 @@ dependencies:
     path: shimmer_effect
   expansion_collapse_view:
     path: expansion_collapse_view   
+  markdown_view:
+    path: markdown_view
 
 dev_dependencies:
   flutter_test:

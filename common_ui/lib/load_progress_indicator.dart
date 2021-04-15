@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LoadProgressIndicator extends StatelessWidget {
-  const LoadProgressIndicator({Key key}) : super(key: key);
+  const LoadProgressIndicator({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
