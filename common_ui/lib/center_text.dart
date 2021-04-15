@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CenterText extends StatelessWidget {
-  const CenterText(this.title, {Key key}) : super(key: key);
+  const CenterText(this.title, {Key? key}) : super(key: key);
 
   final String title;
   @override
