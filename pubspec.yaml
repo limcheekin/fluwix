@@ -39,6 +39,8 @@ dependencies:
     path: chart_data_table    
   shimmer_effect:
     path: shimmer_effect
+  expansion_collapse_view:
+    path: expansion_collapse_view   
 
 dev_dependencies:
   flutter_test:

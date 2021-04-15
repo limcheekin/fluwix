@@ -12,7 +12,7 @@ import 'package:about_dialog/about_dialog_screen.dart';
 import 'package:animated_icons/animated_icons_screen.dart';
 import 'package:chart_data_table/chart_data_table_screen.dart';
 import 'charts/charts_screen.dart';
-import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
+import 'package:expansion_collapse_view/expansion_collapse_view_screen.dart';
 import 'markdown/markdown_screen.dart';
 import 'package:shimmer_effect/shimmer_effect_screen.dart';
 import 'syntax_view/syntax_view_screen.dart';
