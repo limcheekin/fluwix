@@ -16,9 +16,9 @@ Please see the following steps to showcase your fantastic widget in the Flutter 
 
 4. Update the `FantasticWidgetWidget` class with your showcase code in the `lib/fantastic_widget_screen.dart` file.
 
-5. Update the `README.md` file in the module directory to describe the showcase. Then, add a `LICENSE` file for licensing information of the showcase.
+5. Update the `README.md` file in the module directory to describe the showcase. Then, add a `LICENSE` file for licensing information of the showcase. By the way, these two files can be located in your own GitHub repository instead of the module directory, please see [material_design_showcase](https://github.com/limcheekin/flutter-widgets-explorer/blob/main/material_design_showcase/lib/material_design_showcase_screen.dart) for example. 
     - __README.md__: Support standard Markdown syntax only, inline HTML not supported, please see [flutter_markdown](https://pub.dev/packages/flutter_markdown) package for more information. All URLs must be an absolute URL, for example https://github.com/limcheekin/flutter-widgets-explorer/raw/showcase_view/showcase_view/images/screenshots.gif.
-    - __LICENSE__: must be a plain text file. 
+    - __LICENSE__: must be a plain text file.
 
 6. In the module directory, run `flutter analyze`, then fix all reported coding issues.
 
