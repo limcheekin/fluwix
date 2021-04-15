@@ -10,7 +10,7 @@ import 'package:material_design_showcase/material_design_showcase_screen.dart';
 import 'about/about_screen.dart';
 import 'animate_icons/animate_icons_screen.dart';
 import 'chart_datatable/chart_datatable_screen.dart';
-import 'charts/charts_screen.dart';
+import 'package:charts_gallery/charts_gallery_screen.dart';
 import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
 import 'markdown/markdown_screen.dart';
 import 'shimmer/shimmer_effect_screen.dart';
@@ -35,7 +35,7 @@ class AppModule extends Module {
     ChildRoute('/stock_chart', child: (_, __) => StockChartScreen()),
     ChildRoute('/expansion_collapse_view',
         child: (_, __) => ExpansionCollapseViewScreen()),
-    ChildRoute('/charts_gallery', child: (_, __) => ChartsScreen()),
+    ChildRoute('/charts_gallery', child: (_, __) => ChartsGalleryScreen()),
     ChildRoute('/chart_data_table', child: (_, __) => ChartDataTableScreen()),
     ChildRoute('/syntax_view', child: (_, __) => SyntaxViewScreen()),
     ChildRoute('/animate_icons', child: (_, __) => AnimateIconsScreen()),
