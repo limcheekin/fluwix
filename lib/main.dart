@@ -9,7 +9,7 @@ import 'package:tab_buttons/tab_buttons_screen.dart';
 import 'package:material_design_showcase/material_design_showcase_screen.dart';
 import 'about/about_screen.dart';
 import 'animate_icons/animate_icons_screen.dart';
-import 'chart_datatable/chart_datatable_screen.dart';
+import 'package:chart_data_table/chart_data_table_screen.dart';
 import 'charts/charts_screen.dart';
 import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
 import 'markdown/markdown_screen.dart';
