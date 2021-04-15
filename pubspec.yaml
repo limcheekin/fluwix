@@ -19,8 +19,6 @@ dependencies:
   flutter_syntax_view: ^3.2.2
   url_launcher: ^6.0.3
   flutter_markdown: ^0.6.0
-  shimmer: ^1.1.2
-  pubspec_parse: ^1.0.0
   nested_list:
     path: nested_list
   tab_buttons:
@@ -39,6 +37,8 @@ dependencies:
     path: animated_icons    
   chart_data_table:
     path: chart_data_table    
+  shimmer_effect:
+    path: shimmer_effect
 
 dev_dependencies:
   flutter_test:
@@ -62,9 +62,6 @@ flutter_native_splash:
 
 flutter:
   uses-material-design: true
-  assets:
-    - assets/shimmer/images/chevron_right.png
-    - assets/shimmer/images/background.jpg
 
 scripts:
   record: adb shell screenrecord --size 324x576 /sdcard/recording.mp4

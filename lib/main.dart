@@ -14,7 +14,7 @@ import 'package:chart_data_table/chart_data_table_screen.dart';
 import 'charts/charts_screen.dart';
 import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
 import 'markdown/markdown_screen.dart';
-import 'shimmer/shimmer_effect_screen.dart';
+import 'package:shimmer_effect/shimmer_effect_screen.dart';
 import 'syntax_view/syntax_view_screen.dart';
 import 'url_launcher/url_launcher_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';

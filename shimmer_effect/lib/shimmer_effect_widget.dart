@@ -1,35 +1,43 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class ShimmerEffectScreen extends StatelessWidget {
-  const ShimmerEffectScreen({Key key}) : super(key: key);
+class ShimmerEffectWidget extends StatelessWidget {
+  const ShimmerEffectWidget({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("Shimmer Effect"),
-          bottom: TabBar(
-            tabs: <Widget>[
-              Tab(
-                text: "Loading List",
-              ),
-              Tab(
-                text: "Slide To Unlock",
-              ),
-            ],
-          ),
-        ),
-        body: TabBarView(
-          children: <Widget>[
-            LoadingListPage(),
-            SlideToUnlockPage(),
-          ],
-        ),
-      ),
-    );
+    return kIsWeb
+        ? Center(
+            child: Text('Shimmer Effect is not supported in Flutter Web!'),
+          )
+        : DefaultTabController(
+            length: 2,
+            child: Column(
+              children: [
+                TabBar(
+                  labelColor: Colors.blue,
+                  unselectedLabelColor: Colors.black,
+                  tabs: [
+                    Tab(
+                      text: 'Loading List',
+                    ),
+                    Tab(
+                      text: 'Slide To Unlock',
+                    ),
+                  ],
+                ),
+                Expanded(
+                  child: TabBarView(
+                    children: [
+                      LoadingListPage(),
+                      SlideToUnlockPage(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
   }
 }
 
@@ -151,17 +159,17 @@ class SlideToUnlockPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final DateTime time = DateTime.now();
-    final int hour = time.hour;
-    final int minute = time.minute;
-    final int day = time.weekday;
-    final int month = time.month;
-    final int dayInMonth = time.day;
+    final time = DateTime.now();
+    final hour = time.hour;
+    final minute = time.minute;
+    final day = time.weekday;
+    final month = time.month;
+    final dayInMonth = time.day;
     return Stack(
       fit: StackFit.expand,
       children: <Widget>[
         Image.asset(
-          'assets/shimmer/images/background.jpg',
+          'packages/shimmer_effect/assets/background.jpg',
           fit: BoxFit.cover,
         ),
         Positioned(
@@ -197,11 +205,14 @@ class SlideToUnlockPage extends StatelessWidget {
               child: Opacity(
                 opacity: 0.8,
                 child: Shimmer.fromColors(
+                  baseColor: Colors.black12,
+                  highlightColor: Colors.white,
+                  loop: 3,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
+                    children: [
                       Image.asset(
-                        'assets/shimmer/images/chevron_right.png',
+                        'packages/shimmer_effect/assets/chevron_right.png',
                         height: 20.0,
                       ),
                       const Padding(
@@ -215,9 +226,6 @@ class SlideToUnlockPage extends StatelessWidget {
                       )
                     ],
                   ),
-                  baseColor: Colors.black12,
-                  highlightColor: Colors.white,
-                  loop: 3,
                 ),
               ),
             ))
