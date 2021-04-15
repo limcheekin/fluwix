@@ -82,7 +82,7 @@ class HomeScreen extends StatelessWidget {
     final aboutBoxChildren = <Widget>[
       SizedBox(height: 24),
       Text(
-        'Learn and showcase Flutter Widgets in one application.',
+        'Learn and showcase your Flutter Widgets in one application.',
         style: Theme.of(context).textTheme.bodyText2,
       ),
     ];
@@ -196,7 +196,7 @@ class _WideLayoutState extends State<WideLayout> {
                 ? Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.network('http://fluwix.com/welcome.png'),
+                      Image.network('https://www.fluwix.com/welcome.png'),
                       RichText(
                         textAlign: TextAlign.center,
                         text: TextSpan(
