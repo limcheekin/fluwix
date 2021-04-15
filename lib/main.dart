@@ -11,7 +11,7 @@ import 'package:url_strategy/url_strategy.dart';
 import 'package:about_dialog/about_dialog_screen.dart';
 import 'package:animated_icons/animated_icons_screen.dart';
 import 'package:chart_data_table/chart_data_table_screen.dart';
-import 'charts/charts_screen.dart';
+import 'package:charts_gallery/charts_gallery_screen.dart';
 import 'package:expansion_collapse_view/expansion_collapse_view_screen.dart';
 import 'package:markdown_view/markdown_view_screen.dart';
 import 'package:shimmer_effect/shimmer_effect_screen.dart';
@@ -39,7 +39,7 @@ class AppModule extends Module {
     ChildRoute('/stock_chart', child: (_, __) => StockChartScreen()),
     ChildRoute('/expansion_collapse_view',
         child: (_, __) => ExpansionCollapseViewScreen()),
-    ChildRoute('/charts_gallery', child: (_, __) => ChartsScreen()),
+    ChildRoute('/charts_gallery', child: (_, __) => ChartsGalleryScreen()),
     ChildRoute('/chart_data_table', child: (_, __) => ChartDataTableScreen()),
     ChildRoute('/syntax_view', child: (_, __) => SyntaxViewScreen()),
 
