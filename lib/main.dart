@@ -15,7 +15,7 @@ import 'charts/charts_screen.dart';
 import 'package:expansion_collapse_view/expansion_collapse_view_screen.dart';
 import 'package:markdown_view/markdown_view_screen.dart';
 import 'package:shimmer_effect/shimmer_effect_screen.dart';
-import 'syntax_view/syntax_view_screen.dart';
+import 'package:syntax_view/syntax_view_screen.dart';
 import 'package:url_launcher_showcase/url_launcher_showcase_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'string.dart';

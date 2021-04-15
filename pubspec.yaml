@@ -16,7 +16,7 @@ dependencies:
   responsive_builder: ^0.4.1
   url_strategy: ^0.2.0
   charts_flutter: ^0.10.0
-  flutter_syntax_view: ^3.2.2
+
   nested_list:
     path: nested_list
   tab_buttons:
@@ -43,6 +43,8 @@ dependencies:
     path: markdown_view
   url_launcher_showcase:
     path: url_launcher_showcase    
+  syntax_view:
+    path: syntax_view    
 
 dev_dependencies:
   flutter_test:
