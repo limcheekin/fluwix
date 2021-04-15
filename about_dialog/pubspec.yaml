@@ -26,6 +26,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/logo_bright.png
 
   module:
     androidX: true
