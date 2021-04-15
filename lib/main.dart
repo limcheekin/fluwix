@@ -11,7 +11,7 @@ import 'about/about_screen.dart';
 import 'animate_icons/animate_icons_screen.dart';
 import 'chart_datatable/chart_datatable_screen.dart';
 import 'charts/charts_screen.dart';
-import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
+import 'package:expansion_collapse_view/expansion_collapse_view_screen.dart';
 import 'markdown/markdown_screen.dart';
 import 'shimmer/shimmer_effect_screen.dart';
 import 'syntax_view/syntax_view_screen.dart';

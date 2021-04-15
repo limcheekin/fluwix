@@ -33,7 +33,9 @@ dependencies:
   showcase_view:
     path: showcase_view
   material_design_showcase:
-    path: material_design_showcase  
+    path: material_design_showcase
+  expansion_collapse_view:
+    path: expansion_collapse_view   
 
 dev_dependencies:
   flutter_test:
@@ -57,12 +59,6 @@ flutter_native_splash:
 
 flutter:
   uses-material-design: true
-  assets:
-    - assets/stock_chart/depth.json
-    - assets/chart_datatable/quarterly_result.json
-    - assets/shimmer/images/chevron_right.png
-    - assets/shimmer/images/background.jpg
-    - assets/about/images/logo_bright.png
 
 scripts:
   record: adb shell screenrecord --size 324x576 /sdcard/recording.mp4
