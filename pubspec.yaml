@@ -15,7 +15,7 @@ dependencies:
   flutter_modular: ^3.0.2+1
   responsive_builder: ^0.4.1
   url_strategy: ^0.2.0
-  charts_flutter: ^0.9.0
+  charts_flutter: ^0.10.0
   flutter_syntax_view: ^3.2.2
   url_launcher: ^6.0.3
   flutter_markdown: ^0.6.0
@@ -37,6 +37,8 @@ dependencies:
     path: about_dialog  
   animated_icons:
     path: animated_icons    
+  chart_data_table:
+    path: chart_data_table    
 
 dev_dependencies:
   flutter_test:
@@ -62,7 +64,6 @@ flutter:
   uses-material-design: true
   assets:
     - assets/stock_chart/depth.json
-    - assets/chart_datatable/quarterly_result.json
     - assets/shimmer/images/chevron_right.png
     - assets/shimmer/images/background.jpg
     - assets/about/images/logo_bright.png

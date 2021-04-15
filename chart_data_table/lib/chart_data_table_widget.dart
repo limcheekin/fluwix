@@ -5,42 +5,38 @@ import 'quarterly_result.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:intl/intl.dart';
 
-class ChartDataTableScreen extends StatelessWidget {
+class ChartDataTableWidget extends StatelessWidget {
   static const secondaryMeasureAxisId = 'secondaryMeasureAxisId';
   static const profitMarginLineRendererId = 'profitMarginLine';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Chart & Data Table"),
-      ),
-      body: FutureBuilder(
-          future: DefaultAssetBundle.of(context)
-              .loadString('assets/chart_datatable/quarterly_result.json'),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
-              final quarterResults = _getQuarterlyResults(snapshot);
+    return FutureBuilder(
+      future: DefaultAssetBundle.of(context)
+          .loadString('packages/chart_data_table/assets/quarterly_result.json'),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          final quarterResults = _getQuarterlyResults(snapshot);
 
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 300,
-                        child: _createChart(quarterResults),
-                      ),
-                      Divider(),
-                      _createDataTable(quarterResults),
-                    ],
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 300,
+                    child: _createChart(quarterResults),
                   ),
-                ),
-              );
-            } else {
-              return Text("No data loaded");
-            }
-          }),
+                  Divider(),
+                  _createDataTable(quarterResults),
+                ],
+              ),
+            ),
+          );
+        } else {
+          return Text('No data loaded');
+        }
+      },
     );
   }
 
@@ -49,7 +45,7 @@ class ChartDataTableScreen extends StatelessWidget {
     final defaultTitleStyleSpec = charts.TextStyleSpec(
       fontSize: 14,
     );
-    final List<charts.Series<QuarterlyResult, String>> seriesList = [
+    final seriesList = [
       charts.Series<QuarterlyResult, String>(
         id: 'Revenue',
         domainFn: (QuarterlyResult result, _) => _getDomain(result),
@@ -175,7 +171,7 @@ class ChartDataTableScreen extends StatelessWidget {
   Widget _createDataTable(List<QuarterlyResult> quarterResults) {
     final dateFormat = DateFormat('dd MMM yy');
     final quarterFormat = DateFormat('MMM yy');
-    final numberFormat = NumberFormat("###,###,###,###");
+    final numberFormat = NumberFormat('###,###,###,###');
     var year = quarterResults[0].financialYearEnd.year;
     var dataRowColor = Colors.transparent;
     return SingleChildScrollView(
@@ -188,15 +184,15 @@ class ChartDataTableScreen extends StatelessWidget {
         ),
         columns: [
           DataColumn(
-            label: Text("Date"),
+            label: Text('Date'),
             numeric: false,
           ),
           DataColumn(
-            label: Text("Financial Year"),
+            label: Text('Financial Year'),
             numeric: false,
           ),
           DataColumn(
-            label: Text("Quarter"),
+            label: Text('Quarter'),
             numeric: false,
           ),
           DataColumn(
@@ -204,7 +200,7 @@ class ChartDataTableScreen extends StatelessWidget {
               width: 100.0,
               //width: 100.0,
               child: Text(
-                "Revenue (RM,000)",
+                'Revenue (RM,000)',
                 softWrap: true,
                 textAlign: TextAlign.right,
               ),
@@ -215,7 +211,7 @@ class ChartDataTableScreen extends StatelessWidget {
             label: SizedBox(
               width: 80.0,
               child: Text(
-                "Profit (RM,000)",
+                'Profit (RM,000)',
                 softWrap: true,
                 textAlign: TextAlign.right,
               ),
@@ -226,7 +222,7 @@ class ChartDataTableScreen extends StatelessWidget {
             label: SizedBox(
               width: 100.0,
               child: Text(
-                "Profit Margin (%)",
+                'Profit Margin (%)',
                 softWrap: true,
                 textAlign: TextAlign.right,
               ),

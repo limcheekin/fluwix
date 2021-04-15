@@ -10,7 +10,7 @@ import 'package:material_design_showcase/material_design_showcase_screen.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:about_dialog/about_dialog_screen.dart';
 import 'package:animated_icons/animated_icons_screen.dart';
-import 'chart_datatable/chart_datatable_screen.dart';
+import 'package:chart_data_table/chart_data_table_screen.dart';
 import 'charts/charts_screen.dart';
 import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
 import 'markdown/markdown_screen.dart';
