@@ -32,7 +32,7 @@ class _StockChartScreenState extends State<StockChartScreen> {
   void initState() {
     super.initState();
     getData('1day');
-    rootBundle.loadString('assets/stock_chart/depth.json').then((result) {
+    rootBundle.loadString('packages/$branch/assets/depth.json').then((result) {
       final parseJson = json.decode(result);
       Map tick = parseJson['tick'];
       var bids = tick['bids']
