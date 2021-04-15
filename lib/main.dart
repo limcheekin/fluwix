@@ -15,7 +15,7 @@ import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
 import 'markdown/markdown_screen.dart';
 import 'shimmer/shimmer_effect_screen.dart';
 import 'syntax_view/syntax_view_screen.dart';
-import 'url_launcher/url_launcher_screen.dart';
+import 'package:url_launcher_showcase/url_launcher_showcase_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'string.dart';
 
@@ -39,7 +39,8 @@ class AppModule extends Module {
     ChildRoute('/chart_data_table', child: (_, __) => ChartDataTableScreen()),
     ChildRoute('/syntax_view', child: (_, __) => SyntaxViewScreen()),
     ChildRoute('/animate_icons', child: (_, __) => AnimateIconsScreen()),
-    ChildRoute('/url_launcher', child: (_, __) => UrlLauncherScreen()),
+    ChildRoute('/url_launcher_showcase',
+        child: (_, __) => UrlLauncherShowcaseScreen()),
     ChildRoute('/markdown_view', child: (_, __) => MarkdownScreen()),
     ChildRoute('/shimmer_effect', child: (_, __) => ShimmerEffectScreen()),
     ChildRoute('/about_dialog', child: (_, __) => AboutScreen()),
