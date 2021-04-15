@@ -159,6 +159,7 @@ class WideLayout extends StatefulWidget {
 }
 
 class _WideLayoutState extends State<WideLayout> {
+  static const CORS_PROXY = 'https://cors.bridged.cc/';
   int _selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
@@ -196,7 +197,8 @@ class _WideLayoutState extends State<WideLayout> {
                 ? Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.network('https://www.fluwix.com/welcome.png'),
+                      Image.network(
+                          CORS_PROXY + 'https://www.fluwix.com/welcome.png'),
                       RichText(
                         textAlign: TextAlign.center,
                         text: TextSpan(
