@@ -87,7 +87,7 @@ class Logo extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Image.asset(
-        'assets/about/images/logo_bright.png',
+        'packages/about_dialog/assets/logo_bright.png',
         width: 48,
         height: 48,
       ),
