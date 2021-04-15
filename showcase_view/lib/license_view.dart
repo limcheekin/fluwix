@@ -33,7 +33,10 @@ class _LicenseViewState extends AbstractGithubViewState<LicenseView> {
       child: Scrollbar(
         isAlwaysShown: kIsWeb,
         child: SingleChildScrollView(
-          child: Text(responseBody),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Text(responseBody),
+          ),
         ),
       ),
     );
