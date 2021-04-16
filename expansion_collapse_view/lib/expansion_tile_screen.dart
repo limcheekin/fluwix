@@ -11,7 +11,7 @@ class ExpansionTileScreen extends StatelessWidget {
             SizedBox(height: 20.0),
             ExpansionTile(
               title: Text(
-                "Title",
+                'Title',
                 style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
               ),
               children: <Widget>[

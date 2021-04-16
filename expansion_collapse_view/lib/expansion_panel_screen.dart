@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ExpansionPanelScreen extends StatefulWidget {
+  @override
   ExpansionPanelScreenState createState() => ExpansionPanelScreenState();
 }
 
@@ -30,6 +31,7 @@ class ExpansionPanelScreenState extends State<ExpansionPanelScreen> {
         leading: Icon(Icons.image)),
   ];
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
