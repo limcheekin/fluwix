@@ -200,7 +200,8 @@ class _WideLayoutState extends State<WideLayout> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.network(
-                        'https://flutter-widgets-explorer.netlify.app/welcome.png',
+                        CORS_PROXY +
+                            'https://flutter-widgets-explorer.netlify.app/welcome.png',
                         width: 633.0,
                         height: 475.0,
                       ),
