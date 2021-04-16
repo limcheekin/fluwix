@@ -152,6 +152,9 @@ class ShowcaseView extends StatelessWidget {
                       ),
                       Link(
                         uri: Uri.parse(GITHUB_URL + owner),
+                        target: kIsWeb
+                            ? LinkTarget.blank
+                            : LinkTarget.defaultTarget,
                         builder:
                             (BuildContext context, FollowLink followLink) =>
                                 Row(
