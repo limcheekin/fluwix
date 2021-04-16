@@ -11,7 +11,7 @@ After select a showcase, the selected showcase details will show on next screen.
 <p> 
 <img alt="Main Screen" src="images/thumbnail.png" height="480px" width="270px" />
 </p>
-Each showcase will be coded in it's own branch and module, can have it's own readme or license file, please see [Steps To Showcase Your Widgets](showcase_view/SHOWCASE_YOUR_WIDGETS.md) for more information.
+Each showcase will be coded in it's own branch and module, can have it's own readme or license file, please see showcase_view/SHOWCASE_YOUR_WIDGETS.md for more information.
 
 ## Branches:
 

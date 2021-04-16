@@ -1,9 +1,9 @@
 name: flutter_widgets_explorer
-description: Flutter Widgets Explorer project.
+description: Flutter Widgets Explorer - Learn and showcase your Flutter Widgets in one application.
 
 publish_to: "none"
 
-version: 0.4.0
+version: 0.5.0
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
