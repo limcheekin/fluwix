@@ -4,13 +4,14 @@ import 'package:showcase_view/showcase_view.dart';
 class ModuleNameScreen extends StatelessWidget {
   const ModuleNameScreen({Key key}) : super(key: key);
 
-  /// Github URL: https://github.com/limcheekin/flutter-widgets-explorer/tree/module_starter
-  /// owner = 'limcheekin';
-  /// repository = 'flutter-widgets-explorer';
-  /// branch = 'module_starter';
-  static const owner = '';
-  static const repository = '';
-  static const branch = '';
+  // Configure the properties for external GitHub repo, for example:
+  // https://github.com/miquelbeltran/flutter_material_showcase
+  // owner = 'miquelbeltran';
+  // repository = 'flutter_material_showcase';
+  // branch = 'master';
+  static const owner = 'limcheekin';
+  static const repository = 'flutter-widgets-explorer';
+  static const branch = 'module_name';
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,9 @@ class ModuleNameScreen extends StatelessWidget {
       owner: owner,
       repository: repository,
       ref: branch,
+      // $branch/ prefix is not needed for external GitHub repo
+      // Please refer to the following sample code:
+      // https://github.com/limcheekin/flutter-widgets-explorer/blob/main/material_design_showcase/lib/material_design_showcase_screen.dart
       readMe: '$branch/README.md',
       codePaths: [
         '$branch/pubspec.yaml',
