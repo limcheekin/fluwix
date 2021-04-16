@@ -92,6 +92,9 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
                       alignment: Alignment.centerLeft,
                       child: Link(
                         uri: Uri.parse(widget.linkUrl),
+                        target: kIsWeb
+                            ? LinkTarget.blank
+                            : LinkTarget.defaultTarget,
                         builder:
                             (BuildContext context, FollowLink followLink) =>
                                 TextButton(
