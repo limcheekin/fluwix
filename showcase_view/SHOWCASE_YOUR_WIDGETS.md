@@ -40,8 +40,11 @@ Please see the following steps to showcase your fantastic widget in the Flutter 
       
       <a href='https://play.google.com/store/apps/details?id=com.vobject.flutter.widgets.explorer&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="50%"/></a>
     
-    - Web with Direct Link ([fluwix.com](https://www.fluwix.com))
+    - Web via Direct Link
       
       For example, you can share the following URL for the [material_design_showcase](https://github.com/limcheekin/flutter-widgets-explorer/tree/main/material_design_showcase) module:
       https://www.fluwix.com/material_design_showcase
 
+    - Embed HTML (The way I shared in my blog)
+        - [Code](https://github.com/limcheekin/flutter-widgets-explorer/blob/main/web/embed.html)
+        - [Live](https://www.fluwix.com/embed.html) 
