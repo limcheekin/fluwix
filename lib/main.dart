@@ -7,20 +7,24 @@ import 'package:source_code_view/source_code_view_screen.dart';
 import 'package:stock_chart/stock_chart_screen.dart';
 import 'package:tab_buttons/tab_buttons_screen.dart';
 import 'package:material_design_showcase/material_design_showcase_screen.dart';
-import 'about/about_screen.dart';
-import 'animate_icons/animate_icons_screen.dart';
-import 'chart_datatable/chart_datatable_screen.dart';
-import 'charts/charts_screen.dart';
-import 'expansion_collapse_view/expansion_collapse_view_screen.dart';
-import 'markdown/markdown_screen.dart';
-import 'shimmer/shimmer_effect_screen.dart';
-import 'syntax_view/syntax_view_screen.dart';
-import 'url_launcher/url_launcher_screen.dart';
+import 'package:url_strategy/url_strategy.dart';
+import 'package:about_dialog/about_dialog_screen.dart';
+import 'package:animated_icons/animated_icons_screen.dart';
+import 'package:chart_data_table/chart_data_table_screen.dart';
+import 'package:charts_gallery/charts_gallery_screen.dart';
+import 'package:expansion_collapse_view/expansion_collapse_view_screen.dart';
+import 'package:markdown_view/markdown_view_screen.dart';
+import 'package:shimmer_effect/shimmer_effect_screen.dart';
+import 'package:syntax_view/syntax_view_screen.dart';
+import 'package:url_launcher_showcase/url_launcher_showcase_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'string.dart';
 
 final AppModule appModule = AppModule();
-void main() => runApp(ModularApp(module: appModule, child: AppWidget()));
+void main() {
+  setPathUrlStrategy();
+  runApp(ModularApp(module: appModule, child: AppWidget()));
+}
 
 class AppModule extends Module {
   @override
@@ -35,14 +39,16 @@ class AppModule extends Module {
     ChildRoute('/stock_chart', child: (_, __) => StockChartScreen()),
     ChildRoute('/expansion_collapse_view',
         child: (_, __) => ExpansionCollapseViewScreen()),
-    ChildRoute('/charts_gallery', child: (_, __) => ChartsScreen()),
+    ChildRoute('/charts_gallery', child: (_, __) => ChartsGalleryScreen()),
     ChildRoute('/chart_data_table', child: (_, __) => ChartDataTableScreen()),
     ChildRoute('/syntax_view', child: (_, __) => SyntaxViewScreen()),
-    ChildRoute('/animate_icons', child: (_, __) => AnimateIconsScreen()),
-    ChildRoute('/url_launcher', child: (_, __) => UrlLauncherScreen()),
-    ChildRoute('/markdown_view', child: (_, __) => MarkdownScreen()),
+
+    ChildRoute('/animated_icons', child: (_, __) => AnimatedIconsScreen()),
+    ChildRoute('/url_launcher_showcase',
+        child: (_, __) => UrlLauncherShowcaseScreen()),
+    ChildRoute('/markdown_view', child: (_, __) => MarkdownViewScreen()),
     ChildRoute('/shimmer_effect', child: (_, __) => ShimmerEffectScreen()),
-    ChildRoute('/about_dialog', child: (_, __) => AboutScreen()),
+    ChildRoute('/about_dialog', child: (_, __) => AboutDialogScreen()),
     ChildRoute('/source_code_view', child: (_, __) => SourceCodeViewScreen()),
     ChildRoute('/showcase_view', child: (_, __) => ShowcaseScreen()),
     ChildRoute('/material_design_showcase',
@@ -78,7 +84,7 @@ class HomeScreen extends StatelessWidget {
     final aboutBoxChildren = <Widget>[
       SizedBox(height: 24),
       Text(
-        'Learn and showcase Flutter Widgets in one application.',
+        'Learn and showcase your Flutter Widgets in one application.',
         style: Theme.of(context).textTheme.bodyText2,
       ),
     ];
@@ -155,6 +161,7 @@ class WideLayout extends StatefulWidget {
 }
 
 class _WideLayoutState extends State<WideLayout> {
+  static const CORS_PROXY = 'https://cors.bridged.cc/';
   int _selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
@@ -166,7 +173,7 @@ class _WideLayoutState extends State<WideLayout> {
           SizedBox(
             width: 280.0,
             child: Scrollbar(
-              isAlwaysShown: true,
+              isAlwaysShown: false,
               child: ListView.builder(
                 itemCount: appModule.routes.length - 1,
                 itemBuilder: (BuildContext context, int index) {
@@ -193,7 +200,11 @@ class _WideLayoutState extends State<WideLayout> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.network(
-                          'https://flutter-widgets-explorer.netlify.app/welcome.png'),
+                        CORS_PROXY +
+                            'https://flutter-widgets-explorer.netlify.app/images/welcome.png',
+                        width: 633.0,
+                        height: 475.0,
+                      ),
                       RichText(
                         textAlign: TextAlign.center,
                         text: TextSpan(
