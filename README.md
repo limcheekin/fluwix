@@ -4,14 +4,16 @@ The Flutter Widgets Explorer is created to learn and showcase your Flutter Widge
 
 <a href='https://play.google.com/store/apps/details?id=com.vobject.flutter.widgets.explorer&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="50%"/></a>
 
+Alternatively, you can see it on the web at [fluwix.com](http://fluwix.com).
+
 ## Getting Started
 
 The first screen launched in the app is a list of showcases. 
 After select a showcase, the selected showcase details will show on next screen.
-<p> 
-<img alt="Main Screen" src="images/thumbnail.png" height="480px" width="270px" />
-</p>
-Each showcase will be coded in it's own branch and module, can have it's own readme or license file, please see showcase_view/SHOWCASE_YOUR_WIDGETS.md for more information.
+
+![Main Listing Screen](images/thumbnail.png "Main Listing Screen")
+
+Each showcase will be coded in it's own branch and module, can have it's own readme or license file, please see [Steps To Showcase Your Widgets](showcase_view/SHOWCASE_YOUR_WIDGETS.md) for more information.
 
 ## Branches:
 
