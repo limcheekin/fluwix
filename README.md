@@ -140,3 +140,4 @@ Each showcase will be coded in it's own branch and module, can have it's own rea
 - [Flutter Samples by the Flutter Team](https://flutter.github.io/samples/#)
 - [Flutter Gems - A Curated Package Guide for Flutter](https://fluttergems.dev/)
 - [Flutter Layouts Demo](https://github.com/bizz84/layout-demo-flutter)
+- [Flutter Community Plus Plugins](https://github.com/fluttercommunity/plus_plugins)
