@@ -1,4 +1,21 @@
 # Steps To Showcase Your Widgets
+
+First of all, after your showcase deployed to production, you can share it to the world via:
+    
+- Android app
+    
+    <a href='https://play.google.com/store/apps/details?id=com.vobject.flutter.widgets.explorer&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="50%"/></a>
+
+- Web Direct Link
+    
+    For example, you can share the following URL for the [material_design_showcase](https://github.com/limcheekin/flutter-widgets-explorer/tree/main/material_design_showcase) module:
+    https://www.fluwix.com/material_design_showcase
+
+- Embed HTML (The way I shared in [my blog](http://limcheekin.blogspot.com/p/flutter-widgets-explorer.html))
+    - [Code](https://github.com/limcheekin/flutter-widgets-explorer/blob/main/web/embed.html)
+    - [Live demo](https://www.fluwix.com/embed.html) 
+
+
 Please see the following steps to showcase your fantastic widget in the Flutter Widgets Explorer:
 
 1. Fork the flutter-widgets-explorer repo and clone it to your local working directory.
@@ -33,18 +50,3 @@ Please see the following steps to showcase your fantastic widget in the Flutter 
     ```
 
 8. Finally, the module integration is completed. Execute the project's `main.dart` file to test your showcase. Everything seems working fine? Great! Your showcase is ready to go live, push the changes to remote repository and send me pull request.
-
-9. After your showcase is published or released to production, you can share your showcase via:
-    
-    - Android app
-      
-      <a href='https://play.google.com/store/apps/details?id=com.vobject.flutter.widgets.explorer&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="50%"/></a>
-    
-    - Web via Direct Link
-      
-      For example, you can share the following URL for the [material_design_showcase](https://github.com/limcheekin/flutter-widgets-explorer/tree/main/material_design_showcase) module:
-      https://www.fluwix.com/material_design_showcase
-
-    - Embed HTML (The way I shared in [my blog](http://limcheekin.blogspot.com/p/flutter-widgets-explorer.html))
-        - [Code](https://github.com/limcheekin/flutter-widgets-explorer/blob/main/web/embed.html)
-        - [Live demo](https://www.fluwix.com/embed.html) 
