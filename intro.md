@@ -2,6 +2,8 @@
 
 The basic skeleton of the Flutter Widgets Explorer project is created without any external dependencies. If you would like to create similar project to learn about Flutter widgets, you can reuse all the codes of the __base__ branch. I hope it is useful to you and save you some efforts and times.
 
+__Note__: While the code in the __base__ branch still working fine, the Flutter Widgets Explorer no longer using the code structure described below. Please refer to the `lib/main.dart` of the __main__ branch for latest code structure and the [blog post](http://limcheekin.blogspot.com/2021/03/flutter-navigation-fluttermodular-or.html) to find out the reason I adopted [flutter_modular](https://pub.dev/packages/flutter_modular) package.
+
 ## Directory Structure
 
 The project following certain naming conventions and directory stucture as per the following image and description:
