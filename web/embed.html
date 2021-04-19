@@ -1,6 +1,21 @@
-<iframe allowfullscreen="true" height="576" src="https://www.fluwix.com" style="border: 0;" title="Flutter Widgets Explorer: An app to learn and showcase your Flutter Widgets on the mobile and web" width="324"></iframe>
+<script>
+    // https://developer.mozilla.org/en-US/docs/Web/API/Element/requestFullScreen#example
+    function toggleFullscreen() {
+        let elem = document.querySelector("#fluwix");
+
+        if (!document.fullscreenElement) {
+            elem.requestFullscreen().catch(err => {
+                alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+            });
+        } else {
+            document.exitFullscreen();
+        }
+    }
+</script>    
+<iframe id="fluwix" allowfullscreen="true" height="576" src="https://www.fluwix.com" style="border: 0;" title="Flutter Widgets Explorer: An app to learn and showcase your Flutter Widgets on the mobile and web" width="324"></iframe>
 <div style="background-color: black; width: 324px; display: flex; justify-content:space-evenly;">
-<a href="https://play.google.com/store/apps/details?id=com.vobject.flutter.widgets.explorer" target="_blank"><img alt="Google Play Store" border="0" src="https://fluwix.com/images/embed/google_play_24.png" /></a>
-<a href="https://www.fluwix.com" target="_blank"><img alt="Flutter Widgets Explorer" border="0" src="https://fluwix.com/images/embed/fluwix-com-24.png" /></a>
-<a href="https://github.com/limcheekin/flutter-widgets-explorer" target="_blank"><img alt="Flutter Widgets Explorer Source Repository" border="0" src="https://fluwix.com/images/embed/github_black_24.png" /></a>
+    <a href="https://play.google.com/store/apps/details?id=com.vobject.flutter.widgets.explorer" target="_blank"><img alt="Google Play Store" border="0" src="https://fluwix.com/images/embed/google_play_24.png" /></a>
+    <a href="https://www.fluwix.com" target="_blank"><img alt="Flutter Widgets Explorer" border="0" src="https://fluwix.com/images/embed/fluwix-com-24.png" /></a>
+    <a href="https://github.com/limcheekin/flutter-widgets-explorer" target="_blank"><img alt="Flutter Widgets Explorer Source Repository" border="0" src="https://fluwix.com/images/embed/github_black_24.png" /></a>
+    <a onclick="toggleFullscreen()"><img alt="Click for full screen" border="0" src="https://fluwix.com/images/embed/full_screen_24.png" /></a>
 </div>
