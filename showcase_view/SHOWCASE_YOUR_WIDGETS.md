@@ -45,6 +45,6 @@ Please see the following steps to showcase your fantastic widget in the Flutter 
       For example, you can share the following URL for the [material_design_showcase](https://github.com/limcheekin/flutter-widgets-explorer/tree/main/material_design_showcase) module:
       https://www.fluwix.com/material_design_showcase
 
-    - Embed HTML (The way I shared in my blog)
+    - Embed HTML (The way I shared in [my blog](http://limcheekin.blogspot.com/p/flutter-widgets-explorer.html))
         - [Code](https://github.com/limcheekin/flutter-widgets-explorer/blob/main/web/embed.html)
-        - [Live](https://www.fluwix.com/embed.html) 
+        - [Live demo](https://www.fluwix.com/embed.html) 
