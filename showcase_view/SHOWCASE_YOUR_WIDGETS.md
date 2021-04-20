@@ -1,6 +1,6 @@
 # Steps To Showcase Your Widgets
 
-First of all, after your showcase deployed to production, you can share it to the world via:
+First of all, once your showcase deployed to production, you can share it to the world via:
     
 - Android app
     
