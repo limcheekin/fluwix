@@ -44,7 +44,9 @@ dependencies:
   syntax_view:
     path: syntax_view    
   charts_gallery:
-    path: charts_gallery  
+    path: charts_gallery
+  percent_indicator_showcase:
+    path: percent_indicator_showcase  
 
 dev_dependencies:
   flutter_test:

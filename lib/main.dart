@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nested_list/nested_list_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:percent_indicator_showcase/percent_indicator_showcase_screen.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:showcase_view/showcase_screen.dart';
 import 'package:source_code_view/source_code_view_screen.dart';
@@ -53,6 +54,8 @@ class AppModule extends Module {
     ChildRoute('/showcase_view', child: (_, __) => ShowcaseScreen()),
     ChildRoute('/material_design_showcase',
         child: (_, __) => MaterialDesignShowcaseScreen()),
+    ChildRoute('/percent_indicator_showcase',
+        child: (_, __) => PercentIndicatorShowcaseScreen()),
   ];
 }
 
