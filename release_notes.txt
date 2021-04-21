@@ -1,2 +1,2 @@
-Web released to fluwix.com,
-Added Material Design Showcase.
+Showcase the Percent Indicator by Diego Velásquez López (diegoveloper)
+Back button always visible in narrow layout
