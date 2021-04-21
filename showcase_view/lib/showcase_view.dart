@@ -113,12 +113,10 @@ class ShowcaseView extends StatelessWidget {
       )
           ? Scaffold(
               appBar: AppBar(
-                leading: !kIsWeb
-                    ? IconButton(
-                        icon: Icon(Icons.arrow_back),
-                        onPressed: () => Modular.to.navigate(fromRouteName),
-                      )
-                    : null,
+                leading: IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () => Modular.to.navigate(fromRouteName),
+                ),
                 bottom: TabBar(
                   isScrollable: true,
                   tabs: tabs,
