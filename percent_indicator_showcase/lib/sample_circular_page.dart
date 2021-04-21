@@ -22,11 +22,11 @@ class _SampleCircularPageState extends State<SampleCircularPage> {
             percent: 0.7,
             animateFromLastPercent: true,
             center: Text(
-              "70.0%",
+              '70.0%',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
             ),
             footer: Text(
-              "Sales this week",
+              'Sales this week',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),
             ),
             circularStrokeCap: CircularStrokeCap.round,
@@ -40,7 +40,7 @@ class _SampleCircularPageState extends State<SampleCircularPage> {
             radius: 100.0,
             lineWidth: 10.0,
             percent: 0.5,
-            center: Text("50%"),
+            center: Text('50%'),
             circularStrokeCap: CircularStrokeCap.round,
             backgroundColor: Colors.grey,
             maskFilter: MaskFilter.blur(BlurStyle.solid, 3),
@@ -54,7 +54,7 @@ class _SampleCircularPageState extends State<SampleCircularPage> {
             radius: 100.0,
             lineWidth: 10.0,
             percent: 0.8,
-            header: Text("Icon header"),
+            header: Text('Icon header'),
             center: Icon(
               Icons.person_pin,
               size: 50.0,
@@ -74,7 +74,7 @@ class _SampleCircularPageState extends State<SampleCircularPage> {
               arcBackgroundColor: Colors.orangeAccent,
               arcType: ArcType.HALF,
               center: Text(
-                "40 hours",
+                '40 hours',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0),
               ),
               circularStrokeCap: CircularStrokeCap.butt,
@@ -91,7 +91,7 @@ class _SampleCircularPageState extends State<SampleCircularPage> {
               arcBackgroundColor: Colors.teal,
               arcType: ArcType.FULL,
               center: Text(
-                "20 hours",
+                '20 hours',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0),
               ),
               circularStrokeCap: CircularStrokeCap.butt,
@@ -107,7 +107,7 @@ class _SampleCircularPageState extends State<SampleCircularPage> {
             percent: 0.5,
             startAngle: 90,
             center: Text(
-              "Start angle 250",
+              'Start angle 250',
               textAlign: TextAlign.center,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0),
             ),
@@ -123,11 +123,11 @@ class _SampleCircularPageState extends State<SampleCircularPage> {
             percent: 0.7,
             animateFromLastPercent: true,
             center: Text(
-              "70.0%",
+              '70.0%',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
             ),
             footer: Text(
-              "Sales this week",
+              'Sales this week',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),
             ),
             circularStrokeCap: CircularStrokeCap.round,
@@ -139,7 +139,7 @@ class _SampleCircularPageState extends State<SampleCircularPage> {
               radius: 60.0,
               lineWidth: 5.0,
               percent: 1.0,
-              center: Text("100%"),
+              center: Text('100%'),
               progressColor: Colors.green,
             ),
           ),
@@ -154,7 +154,7 @@ class _SampleCircularPageState extends State<SampleCircularPage> {
                     radius: 45.0,
                     lineWidth: 4.0,
                     percent: 0.10,
-                    center: Text("10%"),
+                    center: Text('10%'),
                     progressColor: Colors.red,
                   ),
                   Padding(
@@ -166,7 +166,7 @@ class _SampleCircularPageState extends State<SampleCircularPage> {
                     backgroundWidth: 1.0,
                     percent: 0.2,
                     animation: true,
-                    center: Text("20%"),
+                    center: Text('20%'),
                     progressColor: Colors.orangeAccent,
                   ),
                   Padding(
@@ -176,7 +176,7 @@ class _SampleCircularPageState extends State<SampleCircularPage> {
                     radius: 45.0,
                     lineWidth: 4.0,
                     percent: 0.30,
-                    center: Text("30%"),
+                    center: Text('30%'),
                     progressColor: Colors.orange,
                   ),
                   Padding(
@@ -189,7 +189,7 @@ class _SampleCircularPageState extends State<SampleCircularPage> {
                     animation: true,
                     animationDuration: 200,
                     percent: 0.60,
-                    center: Text("60%"),
+                    center: Text('60%'),
                     progressColor: Colors.yellow,
                   ),
                   Padding(
@@ -199,7 +199,7 @@ class _SampleCircularPageState extends State<SampleCircularPage> {
                     radius: 45.0,
                     lineWidth: 4.0,
                     percent: 0.90,
-                    center: Text("90%"),
+                    center: Text('90%'),
                     progressColor: Colors.green,
                   ),
                   Padding(
@@ -228,7 +228,7 @@ class _SampleCircularPageState extends State<SampleCircularPage> {
             animationDuration: 2500,
             animateFromLastPercent: true,
             center: Text(
-              "50.0%",
+              '50.0%',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
             ),
             footer: Text(
