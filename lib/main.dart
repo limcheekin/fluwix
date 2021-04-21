@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nested_list/nested_list_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -19,6 +20,7 @@ import 'package:shimmer_effect/shimmer_effect_screen.dart';
 import 'package:syntax_view/syntax_view_screen.dart';
 import 'package:url_launcher_showcase/url_launcher_showcase_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:common_ui/constants.dart';
 import 'string.dart';
 
 final AppModule appModule = AppModule();
@@ -174,9 +176,9 @@ class _WideLayoutState extends State<WideLayout> {
       body: Row(
         children: [
           SizedBox(
-            width: 280.0,
+            width: LEFT_NAVIGATION_PANEL_WIDTH,
             child: Scrollbar(
-              isAlwaysShown: false,
+              isAlwaysShown: kIsWeb,
               child: ListView.builder(
                 itemCount: appModule.routes.length - 1,
                 itemBuilder: (BuildContext context, int index) {
