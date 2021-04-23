@@ -3,7 +3,7 @@ description: Flutter Widgets Explorer - Learn and showcase your Flutter Widgets 
 
 publish_to: "none"
 
-version: 0.5.0
+version: 0.5.1
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
