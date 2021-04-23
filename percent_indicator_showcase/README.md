@@ -1,6 +1,7 @@
 # percent_indicator_showcase
 
-A new flutter module project.
+
+Please see the [README](https://github.com/diegoveloper/flutter_percent_indicator/blob/master/README.md) of the flutter_percent_indicator.
 
 ## Getting Started
 
