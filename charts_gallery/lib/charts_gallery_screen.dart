@@ -17,9 +17,9 @@ import 'legends/legends_gallery.dart' as legends show buildGallery;
 class ChartsGalleryScreen extends StatelessWidget {
   const ChartsGalleryScreen({Key key}) : super(key: key);
 
-  static const owner = 'limcheekin';
-  static const repository = 'flutter-widgets-explorer';
-  static const branch = 'charts_gallery';
+  static const owner = 'google';
+  static const repository = 'charts';
+  static const branch = 'master';
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +29,11 @@ class ChartsGalleryScreen extends StatelessWidget {
       owner: owner,
       repository: repository,
       ref: branch,
-      readMe: '$branch/README.md',
+      readMe: 'README.md',
       codePaths: [
-        '$branch/pubspec.yaml',
-        '$branch/lib/charts_gallery_screen.dart',
+        'charts_flutter/example/pubspec.yaml',
+        'charts_flutter/example/lib/main.dart',
+        'charts_flutter/example/lib/home.dart',
       ],
     );
   }
