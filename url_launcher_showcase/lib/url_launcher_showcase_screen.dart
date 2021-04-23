@@ -6,12 +6,8 @@ import 'url_launcher_showcase_widget.dart';
 class UrlLauncherShowcaseScreen extends StatelessWidget {
   const UrlLauncherShowcaseScreen({Key key}) : super(key: key);
 
-  /// Github URL: https://github.com/limcheekin/flutter-widgets-explorer/tree/module_starter
-  /// owner = 'limcheekin';
-  /// repository = 'flutter-widgets-explorer';
-  /// branch = 'module_starter';
   static const owner = 'limcheekin';
-  static const repository = 'flutter-widgets-explorer';
+  static const repository = 'fluwix';
   static const branch = 'url_launcher_showcase';
 
   @override
