@@ -12,7 +12,7 @@ class NestedListScreen extends StatefulWidget {
 
 class _NestedListScreenState extends State<NestedListScreen> {
   static const owner = 'limcheekin';
-  static const repository = 'flutter-widgets-explorer';
+  static const repository = 'fluwix';
   static const branch = 'nested_list';
 
   final List<Map<String, Object>> nestedListData = [
