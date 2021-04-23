@@ -17,9 +17,9 @@ class StockChartScreen extends StatefulWidget {
 }
 
 class _StockChartScreenState extends State<StockChartScreen> {
-  static const owner = 'limcheekin';
-  static const repository = 'flutter-widgets-explorer';
-  static const branch = 'stock_chart';
+  static const owner = 'frankie060392';
+  static const repository = 'k_chart';
+  static const branch = 'master';
   List<KLineEntity> datas;
   bool showLoading = true;
   MainState _mainState = MainState.NONE;
@@ -114,12 +114,10 @@ class _StockChartScreenState extends State<StockChartScreen> {
       owner: owner,
       repository: repository,
       ref: branch,
-      readMe: '$branch/README.md',
+      readMe: 'README.md',
       codePaths: [
-        '$branch/pubspec.yaml',
-        '$branch/lib/main.dart',
-        'common_ui/lib/my_module.dart',
-        '$branch/lib/stock_chart_screen.dart',
+        'example/pubspec.yaml',
+        'example/lib/main.dart',
       ],
     );
   }
