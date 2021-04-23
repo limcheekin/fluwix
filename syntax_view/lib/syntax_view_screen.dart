@@ -6,9 +6,9 @@ import 'syntax_view_widget.dart';
 class SyntaxViewScreen extends StatelessWidget {
   const SyntaxViewScreen({Key key}) : super(key: key);
 
-  static const owner = 'limcheekin';
-  static const repository = 'flutter-widgets-explorer';
-  static const branch = 'syntax_view';
+  static const owner = 'BaderEddineOuaich';
+  static const repository = 'flutter_syntax_view';
+  static const branch = 'master';
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +18,10 @@ class SyntaxViewScreen extends StatelessWidget {
       owner: owner,
       repository: repository,
       ref: branch,
-      readMe: '$branch/README.md',
+      readMe: 'README.md',
       codePaths: [
-        '$branch/pubspec.yaml',
-        '$branch/lib/syntax_view_screen.dart',
-        '$branch/lib/syntax_view_widget.dart',
+        'example/pubspec.yaml',
+        'example/lib/main.dart',
       ],
     );
   }
