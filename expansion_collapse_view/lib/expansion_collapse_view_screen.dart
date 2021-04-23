@@ -8,7 +8,7 @@ class ExpansionCollapseViewScreen extends StatelessWidget {
   const ExpansionCollapseViewScreen({Key key}) : super(key: key);
 
   static const owner = 'limcheekin';
-  static const repository = 'flutter-widgets-explorer';
+  static const repository = 'fluwix';
   static const branch = 'expansion_collapse_view';
 
   @override
