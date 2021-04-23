@@ -10,9 +10,9 @@ class TabButtonsScreen extends StatefulWidget {
 }
 
 class _TabButtonsScreenState extends State<TabButtonsScreen> {
-  static const owner = 'limcheekin';
-  static const repository = 'flutter-widgets-explorer';
-  static const branch = 'tab_buttons';
+  static const owner = 'Afonsocraposo';
+  static const repository = 'buttons_tabbar';
+  static const branch = 'master';
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +22,10 @@ class _TabButtonsScreenState extends State<TabButtonsScreen> {
       owner: owner,
       repository: repository,
       ref: branch,
-      readMe: '$branch/README.md',
+      readMe: 'README.md',
       codePaths: [
-        '$branch/pubspec.yaml',
-        '$branch/lib/tab_buttons_screen.dart',
+        'pubspec.yaml',
+        'example/example.dart',
       ],
     );
   }
