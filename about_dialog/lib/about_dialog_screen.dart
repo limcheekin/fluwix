@@ -6,7 +6,7 @@ class AboutDialogScreen extends StatelessWidget {
   const AboutDialogScreen({Key key}) : super(key: key);
 
   static const owner = 'limcheekin';
-  static const repository = 'flutter-widgets-explorer';
+  static const repository = 'fluwix';
   static const branch = 'about_dialog';
 
   @override

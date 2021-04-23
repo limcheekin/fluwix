@@ -1,9 +1,9 @@
-# about
+# about_dialog
 
 The about dialog described what the application did and its licensing information.
 
 A picture is worth a thousand words:-
-<br /><img src="../../images/about/screenshots.gif" height="480px" width="270px" />
+![About Dialog screenshots](https://github.com/limcheekin/fluwix/raw/main/about_dialog/images/screenshots.gif "About Dialog screenshots")
 
 If you are interested to reuse the source code of the screen, please check out the `about` branch of the git repository hosted at https://github.com/limcheekin/flutter-widgets-explorer. Feel free to fork the repository and send me a pull request.
 
