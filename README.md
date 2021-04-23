@@ -126,6 +126,14 @@ Each showcase will be coded in it's own branch and module, can have it's own rea
 </br><strong>material_design_showcase</strong>: Showcase Material Design components.
 </a> 
 </td>
+<td width="33.3%">
+<a href="percent_indicator_showcase/README.md" target="_blank">
+<img alt="Percent Indicator Showcase Screen" src="percent_indicator_showcase/images/thumbnail.png" height="384px" width="216px" />
+</br><strong>percent_indicator_showcase</strong>: Showcase Circular and Linear percent indicators.
+</a> 
+</td>
+<td width="33.3%">
+</td>
 </tr>
 <table>
 
