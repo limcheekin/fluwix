@@ -5,7 +5,7 @@ import 'source_code_view.dart';
 class SourceCodeViewScreen extends StatelessWidget {
   const SourceCodeViewScreen({Key key}) : super(key: key);
   static const owner = 'limcheekin';
-  static const repository = 'flutter-widgets-explorer';
+  static const repository = 'fluwix';
   static const branch = 'source_code_view';
 
   @override
