@@ -34,7 +34,7 @@ class AppModule extends Module {
   final List<Bind> binds = [];
 
   @override
-  final List<ModularRoute> routes = [
+  final List<ModularRoute> routes = List.from([
     // ChildRoute(Modular.initialRoute, child: (context, args) => HomeScreen()),
     ChildRoute('/', child: (_, __) => HomeScreen()),
     ChildRoute('/nested_list', child: (_, __) => NestedListScreen()),
@@ -58,7 +58,7 @@ class AppModule extends Module {
         child: (_, __) => MaterialDesignShowcaseScreen()),
     ChildRoute('/percent_indicator_showcase',
         child: (_, __) => PercentIndicatorShowcaseScreen()),
-  ];
+  ].reversed);
 }
 
 class AppWidget extends StatelessWidget {
@@ -139,7 +139,7 @@ class NarrowLayout extends StatelessWidget {
       body: ListView.builder(
         itemCount: appModule.routes.length - 1,
         itemBuilder: (BuildContext context, int index) {
-          final routerName = appModule.routes[index + 1].routerName;
+          final routerName = appModule.routes[index].routerName;
           return Card(
             margin: EdgeInsets.fromLTRB(8, 4, 8, 4),
             child: ListTile(
@@ -182,7 +182,7 @@ class _WideLayoutState extends State<WideLayout> {
               child: ListView.builder(
                 itemCount: appModule.routes.length - 1,
                 itemBuilder: (BuildContext context, int index) {
-                  final routerName = appModule.routes[index + 1].routerName;
+                  final routerName = appModule.routes[index].routerName;
                   return ListTile(
                     title: Text(routerName.substring(1).toTitleCase()),
                     selected: index == _selectedIndex,
@@ -225,7 +225,7 @@ class _WideLayoutState extends State<WideLayout> {
                       ),
                     ],
                   )
-                : appModule.routes[_selectedIndex + 1].child(context, null),
+                : appModule.routes[_selectedIndex].child(context, null),
           ),
         ],
       ),
