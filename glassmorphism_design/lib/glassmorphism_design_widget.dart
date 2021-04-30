@@ -6,7 +6,7 @@ final String likes = '67',
     gotpoints = '130',
     popularity = '83',
     totalPoints = '130',
-    details = 'A Flutter Glassmorphic UI package.',
+    details = 'A Flutter Glassmorphic UI package',
     pac = 'glassmorphism: ^2.0.1',
     date = 'Apr 29, 2021';
 
@@ -111,8 +111,7 @@ class _GlassmorphismDesignWidgetState extends State<GlassmorphismDesignWidget> {
                             child: GlassCard(context),
                           ),
                           Positioned(
-                            bottom:
-                                MediaQuery.of(context).size.height * 0.3 + 100,
+                            bottom: MediaQuery.of(context).size.height * 0.41,
                             child: InkWell(
                               onTap: () {
                                 // launchTFF();
@@ -217,7 +216,7 @@ Widget GlassCard(var context) {
                   pac,
                   style: TextStyle(
                     fontFamily: 'RobotoMono',
-                    fontSize: 25.0,
+                    fontSize: 22.0,
                     color: Colors.white,
                     fontWeight: FontWeight.w900,
                   ),
@@ -234,7 +233,7 @@ Widget GlassCard(var context) {
                 ),
               ),
               Text(
-                'Published by Ritick Saha\n(The Flutter Foundry)',
+                'by Ritick Saha\n(The Flutter Foundry)',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'RobotoMono',
@@ -327,28 +326,14 @@ Widget GlassCard(var context) {
               ),
               SizedBox(height: size.height * 0.001),
               Text(
-                'Small Package Discription:',
+                '$details',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'RobotoMono',
                   fontStyle: FontStyle.italic,
-                  fontSize: 18.0,
+                  fontSize: 16.0,
                   color: Colors.white,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Text(
-                  '$details',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'RobotoMono',
-                    fontStyle: FontStyle.italic,
-                    fontSize: 16.0,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w200,
-                  ),
+                  fontWeight: FontWeight.w200,
                 ),
               ),
               SizedBox(height: size.height * 0.001),
