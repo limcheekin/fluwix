@@ -8,7 +8,7 @@ final String likes = '67',
     totalPoints = '130',
     details = 'A Flutter Glassmorphic UI package',
     pac = 'glassmorphism: ^2.0.1',
-    date = 'Apr 29, 2021';
+    date = 'Apr 30, 2021';
 
 class GlassmorphismDesignWidget extends StatefulWidget {
   GlassmorphismDesignWidget({Key key, this.title}) : super(key: key);
