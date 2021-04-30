@@ -57,7 +57,7 @@ dev_dependencies:
   flutter_native_splash: ^1.0.1
   module_starter:
     path: module_starter
-
+    
 flutter_icons:
   android: "launcher_icon"
   ios: true
@@ -77,4 +77,8 @@ scripts:
   record: adb shell screenrecord --size 324x576 /sdcard/recording.mp4
   pull_recording: adb pull /sdcard/recording.mp4
   convert_mp4_to_gif: ./gifify.sh recording.mp4
+  web: 
+    - flutter build web
+    - python -m http.server 8000 &
+    - google-chrome http://localhost:8000
 
