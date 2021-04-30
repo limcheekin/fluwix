@@ -6,7 +6,7 @@ final String likes = '67',
     gotpoints = '130',
     popularity = '83',
     totalPoints = '130',
-    details = 'A Flutter package for implementation of Glassmorphic UI easily.',
+    details = 'A Flutter Glassmorphic UI package.',
     pac = 'glassmorphism: ^2.0.1',
     date = 'Apr 29, 2021';
 
@@ -22,154 +22,150 @@ class GlassmorphismDesignWidget extends StatefulWidget {
 class _GlassmorphismDesignWidgetState extends State<GlassmorphismDesignWidget> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Container(
-          height: double.infinity,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image:
-                    Image.asset('packages/glassmorphism_design/assets/bg.png')
-                        .image,
-                fit: BoxFit.cover),
-          ),
-          child: SafeArea(
-            child: Stack(
-              children: <Widget>[
-                Positioned(
-                  top: MediaQuery.of(context).size.height * 0.02,
-                  left: MediaQuery.of(context).size.width * 0.05,
-                  child: GlassmorphicContainer(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      height: MediaQuery.of(context).size.height * 0.9,
-                      borderRadius: 40,
-                      blur: 7,
-                      alignment: Alignment.bottomCenter,
-                      border: 2,
-                      linearGradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Color(0xFFF75035).withAlpha(55),
-                            Color(0xFFffffff).withAlpha(45),
-                          ],
-                          stops: [
-                            0.3,
-                            1,
-                          ]),
-                      borderGradient: LinearGradient(
-                          begin: Alignment.bottomRight,
-                          end: Alignment.topLeft,
-                          colors: [
-                            Color(0xFF4579C5).withAlpha(100),
-                            Color(0xFFFFFFFF).withAlpha(55),
-                            Color(0xFFF75035).withAlpha(10),
-                          ],
-                          stops: [
-                            0.06,
-                            0.95,
-                            1
-                          ]),
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: Stack(
-                          children: <Widget>[
-                            // Center(child: Container()),
-                            Positioned(
-                              bottom:
-                                  MediaQuery.of(context).size.height * 0.3 - 70,
-                              left: 40,
-                              child: Container(
-                                width: 100,
-                                height: 100.0,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  gradient: LinearGradient(colors: [
-                                    Color(0xFFBC1642),
-                                    Color(0xFFCB5AC6),
-                                  ]),
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              bottom: 50,
-                              left: 30,
-                              child: Container(
-                                width: 80,
-                                height: 40,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.rectangle,
-                                  gradient: LinearGradient(colors: [
-                                    Color(0xFFFDFC47),
-                                    Color(0xFF24FE41),
-                                  ]),
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              top: MediaQuery.of(context).size.height * 0.015,
-                              left: MediaQuery.of(context).size.width * 0.025,
-                              child: GlassCard(context),
-                            ),
-                            Center(
-                              child: Positioned(
-                                  bottom:
-                                      MediaQuery.of(context).size.height * 0.3 +
-                                          100,
-                                  child: InkWell(
-                                    onTap: () {
-                                      // launchTFF();
-                                    },
-                                    child: Image.asset(
-                                      'packages/glassmorphism_design/assets/logo.png',
-                                      height: 60,
-                                    ),
-                                  )),
-                            )
-                          ],
-                        ),
-                      )),
-                ),
-                Positioned(
-                  top: MediaQuery.of(context).size.height * 0.52 + 10,
-                  left: MediaQuery.of(context).size.width * 0.05 + 10,
-                  child: GlassmorphicContainer(
-                    width: MediaQuery.of(context).size.width * 0.9 - 20,
-                    height: MediaQuery.of(context).size.height * 0.4 - 20,
-                    borderRadius: 35,
-                    blur: 10,
+    return Center(
+      child: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: Image.asset('packages/glassmorphism_design/assets/bg.png')
+                  .image,
+              fit: BoxFit.cover),
+        ),
+        child: SafeArea(
+          child: Stack(
+            children: <Widget>[
+              Positioned(
+                top: MediaQuery.of(context).size.height * 0.02,
+                left: MediaQuery.of(context).size.width * 0.05,
+                child: GlassmorphicContainer(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: MediaQuery.of(context).size.height * 0.9,
+                    borderRadius: 40,
+                    blur: 7,
                     alignment: Alignment.bottomCenter,
                     border: 2,
                     linearGradient: LinearGradient(
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
-                          Color(0xFFFFFFFF).withAlpha(0),
-                          Color(0xFFFFFFFF).withAlpha(0),
+                          Color(0xFFF75035).withAlpha(55),
+                          Color(0xFFffffff).withAlpha(45),
                         ],
                         stops: [
                           0.3,
                           1,
                         ]),
                     borderGradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
+                        begin: Alignment.bottomRight,
+                        end: Alignment.topLeft,
                         colors: [
-                          Color(0xFFFFFFFF).withAlpha(01),
-                          Color(0xFFFFFFFF).withAlpha(100),
-                          Color(0xFFFFFFFF).withAlpha(01),
+                          Color(0xFF4579C5).withAlpha(100),
+                          Color(0xFFFFFFFF).withAlpha(55),
+                          Color(0xFFF75035).withAlpha(10),
                         ],
                         stops: [
-                          0.2,
-                          0.9,
-                          1,
+                          0.06,
+                          0.95,
+                          1
                         ]),
-                    child: Body2(),
-                  ),
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: Stack(
+                        children: <Widget>[
+                          Positioned(
+                            bottom:
+                                MediaQuery.of(context).size.height * 0.3 - 70,
+                            left: 40,
+                            child: Container(
+                              width: 100,
+                              height: 100.0,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                gradient: LinearGradient(colors: [
+                                  Color(0xFFBC1642),
+                                  Color(0xFFCB5AC6),
+                                ]),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 50,
+                            left: 30,
+                            child: Container(
+                              width: 80,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                gradient: LinearGradient(colors: [
+                                  Color(0xFFFDFC47),
+                                  Color(0xFF24FE41),
+                                ]),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: MediaQuery.of(context).size.height * 0.015,
+                            left: MediaQuery.of(context).size.width * 0.025,
+                            child: GlassCard(context),
+                          ),
+                          Center(
+                            child: Positioned(
+                                bottom:
+                                    MediaQuery.of(context).size.height * 0.3 +
+                                        100,
+                                child: InkWell(
+                                  onTap: () {
+                                    // launchTFF();
+                                  },
+                                  child: Image.asset(
+                                    'packages/glassmorphism_design/assets/logo.png',
+                                    height: 60,
+                                  ),
+                                )),
+                          )
+                        ],
+                      ),
+                    )),
+              ),
+              Positioned(
+                top: MediaQuery.of(context).size.height * 0.52 + 10,
+                left: MediaQuery.of(context).size.width * 0.05 + 10,
+                child: GlassmorphicContainer(
+                  width: MediaQuery.of(context).size.width * 0.9 - 20,
+                  height: MediaQuery.of(context).size.height * 0.4 - 20,
+                  borderRadius: 35,
+                  blur: 10,
+                  alignment: Alignment.bottomCenter,
+                  border: 2,
+                  linearGradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color(0xFFFFFFFF).withAlpha(0),
+                        Color(0xFFFFFFFF).withAlpha(0),
+                      ],
+                      stops: [
+                        0.3,
+                        1,
+                      ]),
+                  borderGradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color(0xFFFFFFFF).withAlpha(01),
+                        Color(0xFFFFFFFF).withAlpha(100),
+                        Color(0xFFFFFFFF).withAlpha(01),
+                      ],
+                      stops: [
+                        0.2,
+                        0.9,
+                        1,
+                      ]),
+                  child: Body2(),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -350,7 +346,7 @@ Widget GlassCard(var context) {
                   style: TextStyle(
                     fontFamily: 'RobotoMono',
                     fontStyle: FontStyle.italic,
-                    fontSize: 18.0,
+                    fontSize: 16.0,
                     color: Colors.white,
                     fontWeight: FontWeight.w200,
                   ),
@@ -384,6 +380,7 @@ class Body2 extends StatelessWidget {
         ),
         Text(
           'An example Use Case Of GlassmorphicContainer',
+          textAlign: TextAlign.center,
           style: TextStyle(
             fontFamily: 'Futura Md BT',
             fontSize: 16.0,

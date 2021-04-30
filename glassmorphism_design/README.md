@@ -1,6 +1,6 @@
 # glassmorphism_design
 
-A new flutter module project.
+Please see the [README](https://github.com/RitickSaha/glassmorphism/blob/master/README.md) of the glassmorphism package.
 
 ## Getting Started
 

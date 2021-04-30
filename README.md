@@ -133,6 +133,10 @@ Each showcase will be coded in it's own branch and module, can have it's own rea
 </a> 
 </td>
 <td width="33.3%">
+<a href="glassmorphism_design/README.md" target="_blank">
+<img alt="Glassmorphism Design Screen" src="glassmorphism_design/images/thumbnail.png" height="384px" width="216px" />
+</br><strong>glassmorphism_design</strong>: Simplify the creation of Glassmorphic Container.
+</a> 
 </td>
 </tr>
 <table>
