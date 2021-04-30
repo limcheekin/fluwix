@@ -1,2 +1,1 @@
-Showcase the Percent Indicator by Diego Velásquez López (diegoveloper)
-Back button always visible in narrow layout
+Showcase the Glassmorphism package by Ritick Saha (RitickSaha)
