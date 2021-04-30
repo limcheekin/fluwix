@@ -72,6 +72,7 @@ class _GlassmorphismDesignWidgetState extends State<GlassmorphismDesignWidget> {
                     child: Container(
                       alignment: Alignment.center,
                       child: Stack(
+                        alignment: Alignment.center,
                         children: <Widget>[
                           Positioned(
                             bottom:
@@ -109,21 +110,19 @@ class _GlassmorphismDesignWidgetState extends State<GlassmorphismDesignWidget> {
                             left: MediaQuery.of(context).size.width * 0.025,
                             child: GlassCard(context),
                           ),
-                          Center(
-                            child: Positioned(
-                                bottom:
-                                    MediaQuery.of(context).size.height * 0.3 +
-                                        100,
-                                child: InkWell(
-                                  onTap: () {
-                                    // launchTFF();
-                                  },
-                                  child: Image.asset(
-                                    'packages/glassmorphism_design/assets/logo.png',
-                                    height: 60,
-                                  ),
-                                )),
-                          )
+                          Positioned(
+                            bottom:
+                                MediaQuery.of(context).size.height * 0.3 + 100,
+                            child: InkWell(
+                              onTap: () {
+                                // launchTFF();
+                              },
+                              child: Image.asset(
+                                'packages/glassmorphism_design/assets/logo.png',
+                                height: 60,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     )),
