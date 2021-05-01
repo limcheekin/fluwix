@@ -68,7 +68,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Widgets Explorer',
+      title: APP_TITLE,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -92,13 +92,13 @@ class HomeScreen extends StatelessWidget {
     final aboutBoxChildren = <Widget>[
       SizedBox(height: 24),
       Text(
-        'Learn and showcase your Flutter Widgets in one application.',
+        APP_SUBTITLE,
         style: Theme.of(context).textTheme.bodyText2,
       ),
     ];
 
     return AppBar(
-      title: Text('Flutter Widgets Explorer'),
+      title: Text(APP_TITLE),
       actions: [
         FutureBuilder<PackageInfo>(
           future: PackageInfo.fromPlatform(),
@@ -216,7 +216,7 @@ class _WideLayoutState extends State<WideLayout> {
                       RichText(
                         textAlign: TextAlign.center,
                         text: TextSpan(
-                          text: 'Welcome to Flutter Widgets Explorer!',
+                          text: 'Welcome to Fluwix!\n' + APP_SUBTITLE,
                           style: TextStyle(fontSize: 28.0),
                           children: <TextSpan>[
                             TextSpan(

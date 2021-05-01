@@ -1,8 +1,8 @@
-name: Deploy Flutter Web
+name: Deploy Fluwix.com
 
 on:
   push:
-    branches: [main]
+    branches: [rebranding]
   workflow_dispatch:
 
 jobs:
