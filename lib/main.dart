@@ -22,6 +22,7 @@ import 'package:syntax_view/syntax_view_screen.dart';
 import 'package:url_launcher_showcase/url_launcher_showcase_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:common_ui/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'string.dart';
 
 final AppModule appModule = AppModule();
@@ -137,6 +138,12 @@ class NarrowLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) {
+        _showMyDialog(context);
+      },
+    );
+
     return Scaffold(
       appBar: appBar,
       body: ListView.builder(
@@ -153,6 +160,30 @@ class NarrowLayout extends StatelessWidget {
           );
         },
       ),
+    );
+  }
+
+  Future<void> _showMyDialog(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Install Fluwix'),
+          content: Text(
+              'The Flutter Widgets Explorer no longer supported as it is rebranded as Fluwix.\n\nPlease install Fluwix to get the latest showcases.'),
+          actions: [
+            ElevatedButton(
+              child: Text('Install Now'),
+              onPressed: () {
+                launch(
+                    'http://play.google.com/store/apps/details?id=com.fluwix');
+              },
+            ),
+          ],
+          elevation: 10.0,
+        );
+      },
     );
   }
 }
