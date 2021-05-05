@@ -167,6 +167,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_colorpicker:
+    dependency: transitive
+    description:
+      name: flutter_colorpicker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.0"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -209,6 +216,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.7+1"
+  flutter_neumorphic:
+    dependency: transitive
+    description:
+      name: flutter_neumorphic
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.1.0"
   flutter_syntax_view:
     dependency: transitive
     description:
@@ -328,6 +342,13 @@ packages:
     dependency: "direct main"
     description:
       path: nested_list
+      relative: true
+    source: path
+    version: "1.0.0+1"
+  neumorphism_design:
+    dependency: "direct main"
+    description:
+      path: neumorphism_design
       relative: true
     source: path
     version: "1.0.0+1"

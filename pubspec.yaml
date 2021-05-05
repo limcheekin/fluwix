@@ -48,7 +48,9 @@ dependencies:
   percent_indicator_showcase:
     path: percent_indicator_showcase
   glassmorphism_design:
-    path: glassmorphism_design    
+    path: glassmorphism_design
+  neumorphism_design:
+    path: neumorphism_design      
 
 dev_dependencies:
   flutter_test:
