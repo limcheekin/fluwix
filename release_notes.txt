@@ -1,1 +1,1 @@
-Showcase the Glassmorphism package by Ritick Saha (RitickSaha)
+Rebranded Flutter Widgets Explorer to Fluwix.
