@@ -4,7 +4,7 @@ First of all, once your showcase deployed to production, you can share it to the
     
 - Android app
     
-    <a href='https://play.google.com/store/apps/details?id=com.vobject.flutter.widgets.explorer&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="50%"/></a>
+    <a href='https://play.google.com/store/apps/details?id=com.fluwix&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="50%"/></a>
 
 - Web Direct Link
     
