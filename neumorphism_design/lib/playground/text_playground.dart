@@ -447,7 +447,7 @@ class __PageState extends State<_Page> {
   }
 
   FontWeight _fontWeight() {
-    switch ((fontWeight / 100).toInt()) {
+    switch (fontWeight ~/ 100) {
       case 1:
         return FontWeight.w100;
       case 2:

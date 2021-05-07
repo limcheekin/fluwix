@@ -36,7 +36,7 @@ class __PageState extends State<_Page> {
   String lastName = '';
   double age = 12;
   Gender gender;
-  Set<String> rides = Set();
+  Set<String> rides = {};
 
   @override
   Widget build(BuildContext context) {

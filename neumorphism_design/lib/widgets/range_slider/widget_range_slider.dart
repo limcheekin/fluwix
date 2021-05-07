@@ -136,6 +136,7 @@ class _DefaultWidgetState extends State<_DefaultWidget> {
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -262,6 +263,7 @@ double highVal = 80;
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

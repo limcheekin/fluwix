@@ -65,7 +65,7 @@ class _PageState extends State<_Page> {
 
 class _DefaultWidget extends StatefulWidget {
   @override
-  createState() => _DefaultWidgetState();
+  _DefaultWidgetState createState() => _DefaultWidgetState();
 }
 
 class _DefaultWidgetState extends State<_DefaultWidget> {
@@ -122,6 +122,7 @@ Expanded(
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -135,7 +136,7 @@ Expanded(
 
 class _ColorWidget extends StatefulWidget {
   @override
-  createState() => _ColorWidgetState();
+  _ColorWidgetState createState() => _ColorWidgetState();
 }
 
 class _ColorWidgetState extends State<_ColorWidget> {
@@ -233,6 +234,7 @@ Expanded(
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

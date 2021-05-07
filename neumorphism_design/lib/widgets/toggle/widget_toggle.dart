@@ -181,6 +181,7 @@ Expanded(
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -272,7 +273,7 @@ NeumorphicToggle(
             ),
             onAnimationChangedFinished: (value) {
               if (value == 0) {
-                Scaffold.of(context)
+                ScaffoldMessenger.of(context)
                     .showSnackBar(SnackBar(content: Text('on back !')));
                 print('onAnimationChangedFinished: $_selectedIndex');
               }
@@ -289,6 +290,7 @@ NeumorphicToggle(
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
