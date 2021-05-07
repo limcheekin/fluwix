@@ -89,8 +89,8 @@ class _EmbossmbossWidgetState extends State<_EmbossmbossWidget> {
 
   Widget _generateEmbosss(
       {int number, Widget child, bool reverseEachPair = false}) {
-    Widget element = child;
-    for (int i = 0; i < number; ++i) {
+    var element = child;
+    for (var i = 0; i < number; ++i) {
       element = Neumorphic(
         padding: EdgeInsets.all(20),
         style: NeumorphicStyle(

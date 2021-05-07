@@ -316,7 +316,7 @@ class __PageContentState extends State<_PageContent> {
   }
 
   Widget _buildDots(BuildContext context) {
-    final double dotsSize = 18;
+    final dotsSize = 18.0;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[

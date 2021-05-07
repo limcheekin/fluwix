@@ -125,11 +125,11 @@ class __PageState extends State<_Page> {
   int selectedConfiguratorIndex = 0;
 
   Widget _configurators() {
-    final Color buttonActiveColor = Theme.of(context).accentColor;
-    final Color buttonInnactiveColor = Colors.white;
+    final buttonActiveColor = Theme.of(context).accentColor;
+    final buttonInnactiveColor = Colors.white;
 
-    final Color textActiveColor = Colors.white;
-    final Color textInactiveColor = Colors.black.withOpacity(0.3);
+    final textActiveColor = Colors.white;
+    final textInactiveColor = Colors.black.withOpacity(0.3);
 
     return Card(
       margin: EdgeInsets.all(8),
@@ -238,11 +238,11 @@ class __PageState extends State<_Page> {
   }
 
   Widget shapeWidget() {
-    final Color buttonActiveColor = Theme.of(context).accentColor;
-    final Color buttonInnactiveColor = Colors.white;
+    final buttonActiveColor = Theme.of(context).accentColor;
+    final buttonInnactiveColor = Colors.white;
 
-    final Color iconActiveColor = Colors.white;
-    final Color iconInactiveColor = Colors.black.withOpacity(0.3);
+    final iconActiveColor = Colors.white;
+    final iconInactiveColor = Colors.black.withOpacity(0.3);
 
     return Row(
       mainAxisSize: MainAxisSize.max,
