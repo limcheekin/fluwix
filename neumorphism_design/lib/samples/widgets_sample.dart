@@ -75,15 +75,15 @@ class _ContainersListPageState extends State<WidgetsSample> {
             boxShape: NeumorphicBoxShape.stadium(),
           ),
           padding: EdgeInsets.symmetric(vertical: 8, horizontal: 18),
-          child: Text(
-            'button 1',
-            style: TextStyle(color: _textColor()),
-          ),
           onPressed: () {
             setState(() {
               useDark = !useDark;
             });
           },
+          child: Text(
+            'button 1',
+            style: TextStyle(color: _textColor()),
+          ),
         ),
         SizedBox(width: 10),
         NeumorphicButton(
@@ -92,11 +92,11 @@ class _ContainersListPageState extends State<WidgetsSample> {
             boxShape: NeumorphicBoxShape.stadium(),
           ),
           padding: EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+          onPressed: () {},
           child: Text(
             'button 2',
             style: TextStyle(color: _textColor()),
           ),
-          onPressed: () {},
         ),
       ],
     );
@@ -111,6 +111,13 @@ class _ContainersListPageState extends State<WidgetsSample> {
         ),
         SizedBox(width: 12),
         NeumorphicRadio(
+          value: 1,
+          groupValue: _groupValue,
+          onChanged: (value) {
+            setState(() {
+              _groupValue = value;
+            });
+          },
           child: SizedBox(
             height: 50,
             width: 50,
@@ -121,16 +128,16 @@ class _ContainersListPageState extends State<WidgetsSample> {
               ),
             ),
           ),
-          value: 1,
+        ),
+        SizedBox(width: 12),
+        NeumorphicRadio(
+          value: 2,
           groupValue: _groupValue,
           onChanged: (value) {
             setState(() {
               _groupValue = value;
             });
           },
-        ),
-        SizedBox(width: 12),
-        NeumorphicRadio(
           child: SizedBox(
             height: 50,
             width: 50,
@@ -141,16 +148,16 @@ class _ContainersListPageState extends State<WidgetsSample> {
               ),
             ),
           ),
-          value: 2,
+        ),
+        SizedBox(width: 12),
+        NeumorphicRadio(
+          value: 3,
           groupValue: _groupValue,
           onChanged: (value) {
             setState(() {
               _groupValue = value;
             });
           },
-        ),
-        SizedBox(width: 12),
-        NeumorphicRadio(
           child: SizedBox(
             height: 50,
             width: 50,
@@ -161,13 +168,6 @@ class _ContainersListPageState extends State<WidgetsSample> {
               ),
             ),
           ),
-          value: 3,
-          groupValue: _groupValue,
-          onChanged: (value) {
-            setState(() {
-              _groupValue = value;
-            });
-          },
         ),
       ],
     );
@@ -376,6 +376,7 @@ class _ContainersListPageState extends State<WidgetsSample> {
                   Stack(
                     children: <Widget>[
                       Neumorphic(
+                        style: NeumorphicStyle(depth: -8),
                         child: AppBar(
                           iconTheme: IconThemeData.fallback(),
                           backgroundColor: Colors.transparent,
@@ -385,7 +386,6 @@ class _ContainersListPageState extends State<WidgetsSample> {
                             style: TextStyle(color: Colors.black),
                           ),
                         ),
-                        style: NeumorphicStyle(depth: -8),
                       ),
                       /*
                       Positioned(

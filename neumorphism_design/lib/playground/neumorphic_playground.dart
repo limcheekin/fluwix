@@ -72,13 +72,13 @@ class __PageState extends State<_Page> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12)),
                 color: Theme.of(context).accentColor,
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 child: Text(
                   'back',
                   style: TextStyle(color: Colors.white),
                 ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
               ),
             ),
             Flexible(
@@ -128,6 +128,11 @@ class __PageState extends State<_Page> {
                     color: selectedConfiguratorIndex == 0
                         ? buttonActiveColor
                         : buttonInnactiveColor,
+                    onPressed: () {
+                      setState(() {
+                        selectedConfiguratorIndex = 0;
+                      });
+                    },
                     child: Text(
                       'Style',
                       style: TextStyle(
@@ -136,11 +141,6 @@ class __PageState extends State<_Page> {
                             : textInactiveColor,
                       ),
                     ),
-                    onPressed: () {
-                      setState(() {
-                        selectedConfiguratorIndex = 0;
-                      });
-                    },
                   ),
                 ),
               ),
@@ -151,14 +151,6 @@ class __PageState extends State<_Page> {
                   child: RaisedButton(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
-                    child: Text(
-                      'Element',
-                      style: TextStyle(
-                        color: selectedConfiguratorIndex == 1
-                            ? textActiveColor
-                            : textInactiveColor,
-                      ),
-                    ),
                     color: selectedConfiguratorIndex == 1
                         ? buttonActiveColor
                         : buttonInnactiveColor,
@@ -167,6 +159,14 @@ class __PageState extends State<_Page> {
                         selectedConfiguratorIndex = 1;
                       });
                     },
+                    child: Text(
+                      'Element',
+                      style: TextStyle(
+                        color: selectedConfiguratorIndex == 1
+                            ? textActiveColor
+                            : textInactiveColor,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -177,14 +177,6 @@ class __PageState extends State<_Page> {
                   child: RaisedButton(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
-                    child: Text(
-                      'Child',
-                      style: TextStyle(
-                        color: selectedConfiguratorIndex == 2
-                            ? textActiveColor
-                            : textInactiveColor,
-                      ),
-                    ),
                     color: selectedConfiguratorIndex == 2
                         ? buttonActiveColor
                         : buttonInnactiveColor,
@@ -193,6 +185,14 @@ class __PageState extends State<_Page> {
                         selectedConfiguratorIndex = 2;
                       });
                     },
+                    child: Text(
+                      'Child',
+                      style: TextStyle(
+                        color: selectedConfiguratorIndex == 2
+                            ? textActiveColor
+                            : textInactiveColor,
+                      ),
+                    ),
                   ),
                 ),
               )

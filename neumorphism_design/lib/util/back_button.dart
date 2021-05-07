@@ -11,15 +11,15 @@ class NeumorphicBack extends StatelessWidget {
         boxShape: NeumorphicBoxShape.circle(),
         shape: NeumorphicShape.flat,
       ),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
       child: Icon(
         Icons.arrow_back,
         color: NeumorphicTheme.isUsingDark(context)
             ? Colors.white70
             : Colors.black87,
       ),
-      onPressed: () {
-        Navigator.of(context).pop();
-      },
     );
   }
 }

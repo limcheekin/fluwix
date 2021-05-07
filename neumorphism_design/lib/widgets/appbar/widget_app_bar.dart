@@ -96,8 +96,8 @@ class AppBarPageUsingTheme extends StatelessWidget {
             title: Text('App bar'),
             actions: <Widget>[
               NeumorphicButton(
-                child: Icon(Icons.add),
                 onPressed: () {},
+                child: Icon(Icons.add),
               ),
             ],
           ),
@@ -118,8 +118,8 @@ class SizedAppBarPageUsingTheme extends StatelessWidget {
               title: Text('App bar custom size'),
               actions: <Widget>[
                 NeumorphicButton(
-                  child: Icon(Icons.add),
                   onPressed: () {},
+                  child: Icon(Icons.add),
                 ),
               ],
             ),
@@ -139,8 +139,8 @@ class FirstThemeContent extends StatelessWidget {
             title: Text('App bar'),
             actions: <Widget>[
               NeumorphicButton(
-                child: Icon(Icons.add),
                 onPressed: () {},
+                child: Icon(Icons.add),
               ),
             ],
           ),
@@ -170,8 +170,8 @@ class _MyDrawer extends StatelessWidget {
                     isLead ? NeumorphicBackButton() : NeumorphicCloseButton(),
                 actions: <Widget>[
                   NeumorphicButton(
-                    child: Icon(Icons.style),
                     onPressed: () {},
+                    child: Icon(Icons.style),
                   ),
                   isLead
                       ? NeumorphicCloseButton()

@@ -12,15 +12,15 @@ class ThemeConfigurator extends StatelessWidget {
         shape: NeumorphicShape.flat,
         boxShape: NeumorphicBoxShape.circle(),
       ),
+      onPressed: () {
+        _changeColor(context);
+      },
       child: Icon(
         Icons.settings,
         color: NeumorphicTheme.isUsingDark(context)
             ? Colors.white70
             : Colors.black87,
       ),
-      onPressed: () {
-        _changeColor(context);
-      },
     );
   }
 
@@ -36,10 +36,10 @@ class ThemeConfigurator extends StatelessWidget {
             ),
             actions: <Widget>[
               NeumorphicButton(
-                child: const Text('Close'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
+                child: const Text('Close'),
               ),
             ],
           );

@@ -25,8 +25,8 @@ class SamplesHome extends StatelessWidget {
           BorderRadius.circular(12),
         ),
       ),
-      child: Center(child: Text(text)),
       onPressed: onClick,
+      child: Center(child: Text(text)),
     );
   }
 

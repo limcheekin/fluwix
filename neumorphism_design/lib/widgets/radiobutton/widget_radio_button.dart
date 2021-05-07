@@ -274,12 +274,12 @@ class _EnabledDisabledWidgetState extends State<_EnabledDisabledWidget> {
             groupValue: groupValue,
             value: 1,
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 18),
-            child: Text('First'),
             onChanged: (value) {
               setState(() {
                 groupValue = value;
               });
             },
+            child: Text('First'),
           ),
           SizedBox(width: 24),
           Text(
@@ -292,12 +292,12 @@ class _EnabledDisabledWidgetState extends State<_EnabledDisabledWidget> {
             groupValue: groupValue,
             value: 2,
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 18),
-            child: Text('Second'),
             onChanged: (value) {
               setState(() {
                 groupValue = value;
               });
             },
+            child: Text('Second'),
           ),
         ],
       ),

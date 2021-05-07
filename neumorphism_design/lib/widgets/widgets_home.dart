@@ -31,8 +31,8 @@ class WidgetsHome extends StatelessWidget {
         ),
         shape: NeumorphicShape.flat,
       ),
-      child: Center(child: Text(text)),
       onPressed: onClick,
+      child: Center(child: Text(text)),
     );
   }
 

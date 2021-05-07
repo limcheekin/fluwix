@@ -432,19 +432,19 @@ Neumorphic(
               SizedBox(width: 12),
               Neumorphic(
                 padding: EdgeInsets.all(18),
-                child: Icon(Icons.play_arrow),
                 style: NeumorphicStyle(
                   depth: -10.0,
                 ),
+                child: Icon(Icons.play_arrow),
               ),
               SizedBox(width: 12),
               Neumorphic(
                 padding: EdgeInsets.all(18),
-                child: Icon(Icons.play_arrow),
                 style: NeumorphicStyle(
                   boxShape: NeumorphicBoxShape.circle(),
                   depth: -10.0,
                 ),
+                child: Icon(Icons.play_arrow),
               ),
             ],
           ),
@@ -519,45 +519,45 @@ Neumorphic(
               Neumorphic(
                 drawSurfaceAboveChild: false,
                 margin: EdgeInsets.all(8),
-                child: Image.asset(
-                  'packages/neumorphism_design/assets/images/weeknd.jpg',
-                  height: 100,
-                  width: 100,
-                  fit: BoxFit.cover,
-                ),
                 style: NeumorphicStyle(
                   surfaceIntensity: 1,
                   shape: NeumorphicShape.concave,
                 ),
-              ),
-              SizedBox(width: 12),
-              Neumorphic(
                 child: Image.asset(
                   'packages/neumorphism_design/assets/images/weeknd.jpg',
                   height: 100,
                   width: 100,
                   fit: BoxFit.cover,
                 ),
+              ),
+              SizedBox(width: 12),
+              Neumorphic(
                 drawSurfaceAboveChild: true,
                 margin: EdgeInsets.all(8),
                 style: NeumorphicStyle(
                   surfaceIntensity: 1,
                   shape: NeumorphicShape.concave,
                 ),
-              ),
-              SizedBox(width: 12),
-              Neumorphic(
                 child: Image.asset(
                   'packages/neumorphism_design/assets/images/weeknd.jpg',
                   height: 100,
                   width: 100,
                   fit: BoxFit.cover,
                 ),
+              ),
+              SizedBox(width: 12),
+              Neumorphic(
                 drawSurfaceAboveChild: true,
                 margin: EdgeInsets.all(8),
                 style: NeumorphicStyle(
                   intensity: 1,
                   shape: NeumorphicShape.convex,
+                ),
+                child: Image.asset(
+                  'packages/neumorphism_design/assets/images/weeknd.jpg',
+                  height: 100,
+                  width: 100,
+                  fit: BoxFit.cover,
                 ),
               ),
             ],
@@ -566,27 +566,21 @@ Neumorphic(
             children: <Widget>[
               Neumorphic(
                 drawSurfaceAboveChild: false,
-                child: Image.asset(
-                  'packages/neumorphism_design/assets/images/weeknd.jpg',
-                  height: 100,
-                  width: 100,
-                  fit: BoxFit.cover,
-                ),
                 margin: EdgeInsets.all(8),
                 style: NeumorphicStyle(
                   boxShape: NeumorphicBoxShape.circle(),
                   surfaceIntensity: 1,
                   shape: NeumorphicShape.concave,
                 ),
-              ),
-              SizedBox(width: 12),
-              Neumorphic(
                 child: Image.asset(
                   'packages/neumorphism_design/assets/images/weeknd.jpg',
                   height: 100,
                   width: 100,
                   fit: BoxFit.cover,
                 ),
+              ),
+              SizedBox(width: 12),
+              Neumorphic(
                 drawSurfaceAboveChild: true,
                 margin: EdgeInsets.all(8),
                 style: NeumorphicStyle(
@@ -594,21 +588,27 @@ Neumorphic(
                   boxShape: NeumorphicBoxShape.circle(),
                   shape: NeumorphicShape.concave,
                 ),
-              ),
-              SizedBox(width: 12),
-              Neumorphic(
                 child: Image.asset(
                   'packages/neumorphism_design/assets/images/weeknd.jpg',
                   height: 100,
                   width: 100,
                   fit: BoxFit.cover,
                 ),
+              ),
+              SizedBox(width: 12),
+              Neumorphic(
                 drawSurfaceAboveChild: true,
                 margin: EdgeInsets.all(8),
                 style: NeumorphicStyle(
                   surfaceIntensity: 1,
                   boxShape: NeumorphicBoxShape.circle(),
                   shape: NeumorphicShape.convex,
+                ),
+                child: Image.asset(
+                  'packages/neumorphism_design/assets/images/weeknd.jpg',
+                  height: 100,
+                  width: 100,
+                  fit: BoxFit.cover,
                 ),
               ),
             ],

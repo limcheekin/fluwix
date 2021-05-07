@@ -95,14 +95,14 @@ class _ClockPageState extends State<_Page> {
                     ),
                     child: NeumorphicButton(
                       padding: EdgeInsets.all(12.0),
-                      child: Icon(
-                        Icons.add,
-                        color: Color(0xFFC1CDE5),
-                      ),
                       style: NeumorphicStyle(
                         depth: -1,
                         boxShape: NeumorphicBoxShape.roundRect(
                             BorderRadius.circular(8)),
+                      ),
+                      child: Icon(
+                        Icons.add,
+                        color: Color(0xFFC1CDE5),
                       ),
                     ),
                   ),

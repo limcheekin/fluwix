@@ -316,10 +316,10 @@ class _EnabledDisabledWidgetState extends State<_EnabledDisabledWidget> {
           SizedBox(width: 12),
           NeumorphicButton(
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 18),
-            child: Text('First'),
             onPressed: () {
               setState(() {});
             },
+            child: Text('First'),
           ),
           SizedBox(width: 24),
           Text(
@@ -394,8 +394,8 @@ NeumorphicButton(
               SizedBox(width: 12),
               NeumorphicButton(
                 onPressed: () {},
-                child: Text('Press me all night long'),
                 duration: Duration(seconds: 1),
+                child: Text('Press me all night long'),
               ),
               SizedBox(width: 12),
             ],

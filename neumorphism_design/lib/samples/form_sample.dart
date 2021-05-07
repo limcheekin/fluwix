@@ -312,8 +312,8 @@ class _GenderField extends StatelessWidget {
                 boxShape: NeumorphicBoxShape.circle(),
               ),
               value: Gender.MALE,
-              child: Icon(Icons.account_box),
               onChanged: (value) => onChanged(value),
+              child: Icon(Icons.account_box),
             ),
             SizedBox(width: 12),
             NeumorphicRadio(
@@ -323,8 +323,8 @@ class _GenderField extends StatelessWidget {
                 boxShape: NeumorphicBoxShape.circle(),
               ),
               value: Gender.FEMALE,
-              child: Icon(Icons.pregnant_woman),
               onChanged: (value) => onChanged(value),
+              child: Icon(Icons.pregnant_woman),
             ),
             SizedBox(width: 12),
             NeumorphicRadio(
@@ -334,8 +334,8 @@ class _GenderField extends StatelessWidget {
                 boxShape: NeumorphicBoxShape.circle(),
               ),
               value: Gender.NON_BINARY,
-              child: Icon(Icons.supervised_user_circle),
               onChanged: (value) => onChanged(value),
+              child: Icon(Icons.supervised_user_circle),
             ),
             SizedBox(
               width: 18,
