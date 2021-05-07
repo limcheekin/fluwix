@@ -17,9 +17,9 @@ class _ContainersListPageState extends State<WidgetsSample> {
   bool useDark = false;
 
   Color _textColor() {
-    if (useDark)
+    if (useDark) {
       return Colors.white70;
-    else {
+    } else {
       return Colors.black;
     }
   }

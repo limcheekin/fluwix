@@ -198,7 +198,7 @@ class __PageContentState extends State<_PageContent> {
           ),
           Row(
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () {
                   setState(() {
                     NeumorphicTheme.of(context)
@@ -213,7 +213,7 @@ class __PageContentState extends State<_PageContent> {
                   'style 1',
                 ),
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () {
                   setState(() {
                     NeumorphicTheme.of(context)
