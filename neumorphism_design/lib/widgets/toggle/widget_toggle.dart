@@ -8,7 +8,7 @@ class ToggleWidgetPage extends StatefulWidget {
   ToggleWidgetPage({Key key}) : super(key: key);
 
   @override
-  createState() => _WidgetPageState();
+  _WidgetPageState createState() => _WidgetPageState();
 }
 
 class _WidgetPageState extends State<ToggleWidgetPage> {
@@ -29,7 +29,7 @@ class _WidgetPageState extends State<ToggleWidgetPage> {
 
 class _Page extends StatefulWidget {
   @override
-  createState() => _PageState();
+  _PageState createState() => _PageState();
 }
 
 class _PageState extends State<_Page> {
@@ -64,7 +64,7 @@ class _PageState extends State<_Page> {
 
 class _DefaultWidget extends StatefulWidget {
   @override
-  createState() => _DefaultWidgetState();
+  State createState() => _DefaultWidgetState();
 }
 
 class _DefaultWidgetState extends State<_DefaultWidget> {
@@ -194,7 +194,7 @@ Expanded(
 
 class _SmallWidget extends StatefulWidget {
   @override
-  createState() => _SmallWidgetState();
+  State createState() => _SmallWidgetState();
 }
 
 class _SmallWidgetState extends State<_SmallWidget> {

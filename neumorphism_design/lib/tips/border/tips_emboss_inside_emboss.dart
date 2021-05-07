@@ -8,7 +8,7 @@ class TipsRecursiveeEmbossPage extends StatefulWidget {
   TipsRecursiveeEmbossPage({Key key}) : super(key: key);
 
   @override
-  createState() => _WidgetPageState();
+  _WidgetPageState createState() => _WidgetPageState();
 }
 
 class _WidgetPageState extends State<TipsRecursiveeEmbossPage> {
@@ -29,7 +29,7 @@ class _WidgetPageState extends State<TipsRecursiveeEmbossPage> {
 
 class _Page extends StatefulWidget {
   @override
-  createState() => _PageState();
+  _PageState createState() => _PageState();
 }
 
 class _PageState extends State<_Page> {
@@ -63,7 +63,7 @@ class _PageState extends State<_Page> {
 
 class _EmbossmbossWidget extends StatefulWidget {
   @override
-  createState() => _EmbossmbossWidgetState();
+  _EmbossmbossWidgetState createState() => _EmbossmbossWidgetState();
 }
 
 class _EmbossmbossWidgetState extends State<_EmbossmbossWidget> {

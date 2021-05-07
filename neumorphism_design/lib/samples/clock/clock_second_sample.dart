@@ -26,7 +26,7 @@ class ClockAlarmPage extends StatelessWidget {
 
 class _Page extends StatefulWidget {
   @override
-  createState() => _ClockPageState();
+  _ClockPageState createState() => _ClockPageState();
 }
 
 class _ClockPageState extends State<_Page> {

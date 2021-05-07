@@ -8,7 +8,7 @@ class TipsBorderPage extends StatefulWidget {
   TipsBorderPage({Key key}) : super(key: key);
 
   @override
-  createState() => _WidgetPageState();
+  _WidgetPageState createState() => _WidgetPageState();
 }
 
 class _WidgetPageState extends State<TipsBorderPage> {
@@ -29,7 +29,7 @@ class _WidgetPageState extends State<TipsBorderPage> {
 
 class _Page extends StatefulWidget {
   @override
-  createState() => _PageState();
+  _PageState createState() => _PageState();
 }
 
 class _PageState extends State<_Page> {
@@ -154,7 +154,7 @@ class _CustomWidget extends StatefulWidget {
       @required this.secondStyle});
 
   @override
-  createState() => _CustomWidgetState();
+  _CustomWidgetState createState() => _CustomWidgetState();
 }
 
 class _CustomWidgetState extends State<_CustomWidget> {

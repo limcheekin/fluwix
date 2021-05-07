@@ -9,7 +9,7 @@ class ContainerWidgetPage extends StatefulWidget {
   ContainerWidgetPage({Key key}) : super(key: key);
 
   @override
-  createState() => _WidgetPageState();
+  _WidgetPageState createState() => _WidgetPageState();
 }
 
 class _WidgetPageState extends State<ContainerWidgetPage> {
@@ -30,7 +30,7 @@ class _WidgetPageState extends State<ContainerWidgetPage> {
 
 class _Page extends StatefulWidget {
   @override
-  createState() => _PageState();
+  _PageState createState() => _PageState();
 }
 
 class _PageState extends State<_Page> {
@@ -70,7 +70,7 @@ class _PageState extends State<_Page> {
 
 class _DefaultWidget extends StatefulWidget {
   @override
-  createState() => _DefaultWidgetState();
+  _DefaultWidgetState createState() => _DefaultWidgetState();
 }
 
 class _DefaultWidgetState extends State<_DefaultWidget> {
@@ -120,7 +120,7 @@ Neumorphic(
 
 class _CircleWidget extends StatefulWidget {
   @override
-  createState() => _CircleWidgetState();
+  _CircleWidgetState createState() => _CircleWidgetState();
 }
 
 class _CircleWidgetState extends State<_CircleWidget> {
@@ -170,7 +170,7 @@ Neumorphic(
 
 class _RoundRectWidget extends StatefulWidget {
   @override
-  createState() => _RoundRectWidgetState();
+  _RoundRectWidgetState createState() => _RoundRectWidgetState();
 }
 
 class _RoundRectWidgetState extends State<_RoundRectWidget> {
@@ -222,7 +222,7 @@ Neumorphic(
 
 class _ColorizableWidget extends StatefulWidget {
   @override
-  createState() => _ColorizableWidgetState();
+  _ColorizableWidgetState createState() => _ColorizableWidgetState();
 }
 
 class _ColorizableWidgetState extends State<_ColorizableWidget> {
@@ -288,7 +288,8 @@ Neumorphic(
 
 class _FlatConcaveConvexWidget extends StatefulWidget {
   @override
-  createState() => _FlatConcaveConvexWidgetState();
+  _FlatConcaveConvexWidgetState createState() =>
+      _FlatConcaveConvexWidgetState();
 }
 
 class _FlatConcaveConvexWidgetState extends State<_FlatConcaveConvexWidget> {
@@ -395,7 +396,7 @@ Neumorphic(
 
 class _EmbossWidget extends StatefulWidget {
   @override
-  createState() => _EmbossWidgetState();
+  _EmbossWidgetState createState() => _EmbossWidgetState();
 }
 
 class _EmbossWidgetState extends State<_EmbossWidget> {
@@ -460,7 +461,7 @@ Neumorphic(
 
 class _DrawAboveWidget extends StatefulWidget {
   @override
-  createState() => _DrawAboveWidgetState();
+  _DrawAboveWidgetState createState() => _DrawAboveWidgetState();
 }
 
 class _DrawAboveWidgetState extends State<_DrawAboveWidget> {

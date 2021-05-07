@@ -28,7 +28,7 @@ class ClockSample extends StatelessWidget {
 
 class _ClockFirstPage extends StatefulWidget {
   @override
-  createState() => _ClockFirstPageState();
+  _ClockFirstPageState createState() => _ClockFirstPageState();
 }
 
 class _ClockFirstPageState extends State<_ClockFirstPage> {

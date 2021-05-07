@@ -9,7 +9,7 @@ class CheckboxWidgetPage extends StatefulWidget {
   CheckboxWidgetPage({Key key}) : super(key: key);
 
   @override
-  createState() => _WidgetPageState();
+  _WidgetPageState createState() => _WidgetPageState();
 }
 
 class _WidgetPageState extends State<CheckboxWidgetPage> {
@@ -30,7 +30,7 @@ class _WidgetPageState extends State<CheckboxWidgetPage> {
 
 class _Page extends StatefulWidget {
   @override
-  createState() => _PageState();
+  _PageState createState() => _PageState();
 }
 
 class _PageState extends State<_Page> {
@@ -66,7 +66,7 @@ class _PageState extends State<_Page> {
 
 class _DefaultWidget extends StatefulWidget {
   @override
-  createState() => _DefaultWidgetState();
+  _DefaultWidgetState createState() => _DefaultWidgetState();
 }
 
 class _DefaultWidgetState extends State<_DefaultWidget> {
@@ -144,7 +144,7 @@ NeumorphicCheckbox(
 
 class _ColorWidget extends StatefulWidget {
   @override
-  createState() => _ColorWidgetState();
+  _ColorWidgetState createState() => _ColorWidgetState();
 }
 
 class _ColorWidgetState extends State<_ColorWidget> {
@@ -239,7 +239,7 @@ NeumorphicCheckbox(
 
 class _EnabledDisabledWidget extends StatefulWidget {
   @override
-  createState() => _EnabledDisabledWidgetState();
+  _EnabledDisabledWidgetState createState() => _EnabledDisabledWidgetState();
 }
 
 class _EnabledDisabledWidgetState extends State<_EnabledDisabledWidget> {

@@ -33,7 +33,7 @@ class GalaxySample extends StatelessWidget {
 
 class _Page extends StatefulWidget {
   @override
-  createState() => _PageState();
+  _PageState createState() => _PageState();
 }
 
 class _PageState extends State<_Page> {

@@ -9,7 +9,7 @@ class SwitchWidgetPage extends StatefulWidget {
   SwitchWidgetPage({Key key}) : super(key: key);
 
   @override
-  createState() => _WidgetPageState();
+  _WidgetPageState createState() => _WidgetPageState();
 }
 
 class _WidgetPageState extends State<SwitchWidgetPage> {
@@ -30,7 +30,7 @@ class _WidgetPageState extends State<SwitchWidgetPage> {
 
 class _Page extends StatefulWidget {
   @override
-  createState() => _PageState();
+  _PageState createState() => _PageState();
 }
 
 class _PageState extends State<_Page> {
@@ -68,7 +68,7 @@ class _PageState extends State<_Page> {
 
 class _DefaultWidget extends StatefulWidget {
   @override
-  createState() => _DefaultWidgetState();
+  State createState() => _DefaultWidgetState();
 }
 
 class _DefaultWidgetState extends State<_DefaultWidget> {
@@ -135,7 +135,7 @@ NeumorphicSwitch(
 
 class _FlatConcaveConvexWidget extends StatefulWidget {
   @override
-  createState() => _FlatConcaveConvexWidgetState();
+  State createState() => _FlatConcaveConvexWidgetState();
 }
 
 class _FlatConcaveConvexWidgetState extends State<_FlatConcaveConvexWidget> {
@@ -254,7 +254,7 @@ NeumorphicSwitch(
 
 class _ColorizableWidget extends StatefulWidget {
   @override
-  createState() => _ColorizableWidgetState();
+  State createState() => _ColorizableWidgetState();
 }
 
 class _ColorizableWidgetState extends State<_ColorizableWidget> {
@@ -325,7 +325,7 @@ NeumorphicSwitch(
 
 class ColorizableThumbSwitch extends StatefulWidget {
   @override
-  createState() => _ColorizableThumbSwitchState();
+  State createState() => _ColorizableThumbSwitchState();
 }
 
 class _ColorizableThumbSwitchState extends State<ColorizableThumbSwitch> {
@@ -413,7 +413,7 @@ NeumorphicSwitch(
 
 class _EnabledDisabledWidget extends StatefulWidget {
   @override
-  createState() => _EnabledDisabledWidgetState();
+  State createState() => _EnabledDisabledWidgetState();
 }
 
 class _EnabledDisabledWidgetState extends State<_EnabledDisabledWidget> {

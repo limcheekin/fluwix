@@ -8,7 +8,7 @@ class RadioButtonWidgetPage extends StatefulWidget {
   RadioButtonWidgetPage({Key key}) : super(key: key);
 
   @override
-  createState() => _WidgetPageState();
+  _WidgetPageState createState() => _WidgetPageState();
 }
 
 class _WidgetPageState extends State<RadioButtonWidgetPage> {
@@ -29,7 +29,7 @@ class _WidgetPageState extends State<RadioButtonWidgetPage> {
 
 class _Page extends StatefulWidget {
   @override
-  createState() => _PageState();
+  _PageState createState() => _PageState();
 }
 
 class _PageState extends State<_Page> {
@@ -65,7 +65,7 @@ class _PageState extends State<_Page> {
 
 class _DefaultWidget extends StatefulWidget {
   @override
-  createState() => _DefaultWidgetState();
+  State createState() => _DefaultWidgetState();
 }
 
 class _DefaultWidgetState extends State<_DefaultWidget> {
@@ -156,7 +156,7 @@ NeumorphicRadio(
 
 class CircleRadios extends StatefulWidget {
   @override
-  createState() => _CircleRadiosState();
+  State createState() => _CircleRadiosState();
 }
 
 class _CircleRadiosState extends State<CircleRadios> {
@@ -252,7 +252,7 @@ NeumorphicRadio(
 
 class _EnabledDisabledWidget extends StatefulWidget {
   @override
-  createState() => _EnabledDisabledWidgetState();
+  State createState() => _EnabledDisabledWidgetState();
 }
 
 class _EnabledDisabledWidgetState extends State<_EnabledDisabledWidget> {

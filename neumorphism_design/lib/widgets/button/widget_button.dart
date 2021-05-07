@@ -9,7 +9,7 @@ class ButtonWidgetPage extends StatefulWidget {
   ButtonWidgetPage({Key key}) : super(key: key);
 
   @override
-  createState() => _WidgetPageState();
+  _WidgetPageState createState() => _WidgetPageState();
 }
 
 class _WidgetPageState extends State<ButtonWidgetPage> {
@@ -30,7 +30,7 @@ class _WidgetPageState extends State<ButtonWidgetPage> {
 
 class _Page extends StatefulWidget {
   @override
-  createState() => _PageState();
+  _PageState createState() => _PageState();
 }
 
 class _PageState extends State<_Page> {
@@ -70,7 +70,7 @@ class _PageState extends State<_Page> {
 
 class _DefaultWidget extends StatefulWidget {
   @override
-  createState() => _DefaultWidgetState();
+  _DefaultWidgetState createState() => _DefaultWidgetState();
 }
 
 class _DefaultWidgetState extends State<_DefaultWidget> {
@@ -120,7 +120,7 @@ NeumorphicButton(
 
 class _CircleWidget extends StatefulWidget {
   @override
-  createState() => _CircleWidgetState();
+  _CircleWidgetState createState() => _CircleWidgetState();
 }
 
 class _CircleWidgetState extends State<_CircleWidget> {
@@ -176,7 +176,7 @@ NeumorphicButton(
 
 class _MinDistanceWidget extends StatefulWidget {
   @override
-  createState() => _MinDistanceWidgetState();
+  _MinDistanceWidgetState createState() => _MinDistanceWidgetState();
 }
 
 class _MinDistanceWidgetState extends State<_MinDistanceWidget> {
@@ -234,7 +234,7 @@ NeumorphicButton(
 
 class _ColorizableWidget extends StatefulWidget {
   @override
-  createState() => _ColorizableWidgetState();
+  _ColorizableWidgetState createState() => _ColorizableWidgetState();
 }
 
 class _ColorizableWidgetState extends State<_ColorizableWidget> {
@@ -296,7 +296,7 @@ NeumorphicButton(
 
 class _EnabledDisabledWidget extends StatefulWidget {
   @override
-  createState() => _EnabledDisabledWidgetState();
+  _EnabledDisabledWidgetState createState() => _EnabledDisabledWidgetState();
 }
 
 class _EnabledDisabledWidgetState extends State<_EnabledDisabledWidget> {
@@ -357,7 +357,7 @@ NeumorphicButton(
 
 class _DurationWidget extends StatefulWidget {
   @override
-  createState() => _DurationWidgetState();
+  _DurationWidgetState createState() => _DurationWidgetState();
 }
 
 class _DurationWidgetState extends State<_DurationWidget> {
@@ -413,7 +413,8 @@ NeumorphicButton(
 
 class _FlatConcaveConvexWidget extends StatefulWidget {
   @override
-  createState() => _FlatConcaveConvexWidgetState();
+  _FlatConcaveConvexWidgetState createState() =>
+      _FlatConcaveConvexWidgetState();
 }
 
 class _FlatConcaveConvexWidgetState extends State<_FlatConcaveConvexWidget> {

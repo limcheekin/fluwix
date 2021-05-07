@@ -6,7 +6,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class TeslaSample extends StatefulWidget {
   @override
-  createState() => _TeslaSampleState();
+  _TeslaSampleState createState() => _TeslaSampleState();
 }
 
 class _TeslaSampleState extends State<TeslaSample> {

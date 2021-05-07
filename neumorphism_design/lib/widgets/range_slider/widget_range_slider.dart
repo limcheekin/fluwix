@@ -9,7 +9,7 @@ class RangeSliderWidgetPage extends StatefulWidget {
   RangeSliderWidgetPage({Key key}) : super(key: key);
 
   @override
-  createState() => _RangeWidgetPageState();
+  State createState() => _RangeWidgetPageState();
 }
 
 class _RangeWidgetPageState extends State<RangeSliderWidgetPage> {
@@ -30,7 +30,7 @@ class _RangeWidgetPageState extends State<RangeSliderWidgetPage> {
 
 class _Page extends StatefulWidget {
   @override
-  createState() => _PageState();
+  _PageState createState() => _PageState();
 }
 
 class _PageState extends State<_Page> {
@@ -65,7 +65,7 @@ class _PageState extends State<_Page> {
 
 class _DefaultWidget extends StatefulWidget {
   @override
-  createState() => _DefaultWidgetState();
+  State createState() => _DefaultWidgetState();
 }
 
 class _DefaultWidgetState extends State<_DefaultWidget> {
@@ -149,7 +149,7 @@ class _DefaultWidgetState extends State<_DefaultWidget> {
 
 class _ColorWidget extends StatefulWidget {
   @override
-  createState() => _ColorWidgetState();
+  State createState() => _ColorWidgetState();
 }
 
 class _ColorWidgetState extends State<_ColorWidget> {

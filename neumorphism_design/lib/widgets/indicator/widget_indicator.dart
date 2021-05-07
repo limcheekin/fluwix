@@ -11,7 +11,7 @@ class IndicatorWidgetPage extends StatefulWidget {
   IndicatorWidgetPage({Key key}) : super(key: key);
 
   @override
-  createState() => _WidgetPageState();
+  _WidgetPageState createState() => _WidgetPageState();
 }
 
 class _WidgetPageState extends State<IndicatorWidgetPage> {
@@ -32,7 +32,7 @@ class _WidgetPageState extends State<IndicatorWidgetPage> {
 
 class _Page extends StatefulWidget {
   @override
-  createState() => _PageState();
+  _PageState createState() => _PageState();
 }
 
 class _PageState extends State<_Page> {
@@ -70,7 +70,7 @@ class _PageState extends State<_Page> {
 
 class _DefaultWidget extends StatefulWidget {
   @override
-  createState() => _DefaultWidgetState();
+  _DefaultWidgetState createState() => _DefaultWidgetState();
 }
 
 class _DefaultWidgetState extends State<_DefaultWidget> {
@@ -127,7 +127,7 @@ NeumorphicIndicator(
 
 class _DefaultOrientationWidget extends StatefulWidget {
   @override
-  createState() => _DefaultOrientationWidgetState();
+  State createState() => _DefaultOrientationWidgetState();
 }
 
 class _DefaultOrientationWidgetState extends State<_DefaultOrientationWidget> {
@@ -177,7 +177,7 @@ NeumorphicIndicator(
 
 class _ColorWidget extends StatefulWidget {
   @override
-  createState() => _ColorWidgetState();
+  State createState() => _ColorWidgetState();
 }
 
 class _ColorWidgetState extends State<_ColorWidget> {
@@ -264,7 +264,7 @@ NeumorphicIndicator(
 
 class _DurationWidget extends StatefulWidget {
   @override
-  createState() => _DurationWidgetState();
+  State createState() => _DurationWidgetState();
 }
 
 class _DurationWidgetState extends State<_DurationWidget> {
@@ -323,7 +323,7 @@ NeumorphicIndicator(
 
 class _CurveWidget extends StatefulWidget {
   @override
-  createState() => _CurveWidgetState();
+  State createState() => _CurveWidgetState();
 }
 
 class _CurveWidgetState extends State<_CurveWidget> {

@@ -9,7 +9,7 @@ class IndeterminateProgressWidgetPage extends StatefulWidget {
   IndeterminateProgressWidgetPage({Key key}) : super(key: key);
 
   @override
-  createState() => _WidgetPageState();
+  _WidgetPageState createState() => _WidgetPageState();
 }
 
 class _WidgetPageState extends State<IndeterminateProgressWidgetPage> {
@@ -30,7 +30,7 @@ class _WidgetPageState extends State<IndeterminateProgressWidgetPage> {
 
 class _Page extends StatefulWidget {
   @override
-  createState() => _PageState();
+  _PageState createState() => _PageState();
 }
 
 class _PageState extends State<_Page> {
@@ -69,7 +69,7 @@ class _PageState extends State<_Page> {
 
 class _DefaultWidget extends StatefulWidget {
   @override
-  createState() => _DefaultWidgetState();
+  _DefaultWidgetState createState() => _DefaultWidgetState();
 }
 
 class _DefaultWidgetState extends State<_DefaultWidget> {
@@ -113,7 +113,7 @@ Expanded(
 
 class _ColorWidget extends StatefulWidget {
   @override
-  createState() => _ColorWidgetState();
+  State createState() => _ColorWidgetState();
 }
 
 class _ColorWidgetState extends State<_ColorWidget> {
@@ -199,7 +199,7 @@ Expanded(
 
 class _SizedWidget extends StatefulWidget {
   @override
-  createState() => _SizedWidgetState();
+  State createState() => _SizedWidgetState();
 }
 
 class _SizedWidgetState extends State<_SizedWidget> {
@@ -253,7 +253,7 @@ Expanded(
 
 class _DurationWidget extends StatefulWidget {
   @override
-  createState() => _DurationWidgetState();
+  State createState() => _DurationWidgetState();
 }
 
 class _DurationWidgetState extends State<_DurationWidget> {
@@ -307,7 +307,7 @@ Expanded(
 
 class _ReversedWidget extends StatefulWidget {
   @override
-  createState() => _ReversedWidgetState();
+  State createState() => _ReversedWidgetState();
 }
 
 class _ReversedWidgetState extends State<_ReversedWidget> {
@@ -355,7 +355,7 @@ Expanded(
 
 class _CurveWidget extends StatefulWidget {
   @override
-  createState() => _CurveWidgetState();
+  State createState() => _CurveWidgetState();
 }
 
 class _CurveWidgetState extends State<_CurveWidget> {

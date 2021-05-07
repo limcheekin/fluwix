@@ -3,7 +3,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class ButtonSample extends StatefulWidget {
   @override
-  createState() => _ButtonSampleState();
+  _ButtonSampleState createState() => _ButtonSampleState();
 }
 
 class _ButtonSampleState extends State<ButtonSample> {
@@ -29,7 +29,7 @@ class _ButtonSampleState extends State<ButtonSample> {
 
 class _Page extends StatefulWidget {
   @override
-  createState() => __PageState();
+  __PageState createState() => __PageState();
 }
 
 class __PageState extends State<_Page> {

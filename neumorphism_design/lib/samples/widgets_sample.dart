@@ -5,7 +5,7 @@ class WidgetsSample extends StatefulWidget {
   WidgetsSample({Key key}) : super(key: key);
 
   @override
-  createState() => _ContainersListPageState();
+  _ContainersListPageState createState() => _ContainersListPageState();
 }
 
 class _ContainersListPageState extends State<WidgetsSample> {

@@ -7,7 +7,7 @@ class IconWidgetPage extends StatefulWidget {
   IconWidgetPage({Key key}) : super(key: key);
 
   @override
-  createState() => _WidgetPageState();
+  _WidgetPageState createState() => _WidgetPageState();
 }
 
 class _WidgetPageState extends State<IconWidgetPage> {
@@ -28,7 +28,7 @@ class _WidgetPageState extends State<IconWidgetPage> {
 
 class _Page extends StatefulWidget {
   @override
-  createState() => _PageState();
+  _PageState createState() => _PageState();
 }
 
 class _PageState extends State<_Page> {

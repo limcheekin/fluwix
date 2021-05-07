@@ -3,7 +3,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class CalculatorSample extends StatefulWidget {
   @override
-  createState() => _CalculatorSampleState();
+  _CalculatorSampleState createState() => _CalculatorSampleState();
 }
 
 final Color _calcTextColor = Color(0xFF484848);
