@@ -111,13 +111,14 @@ Expanded(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         _buildWidget(context),
-        FlatButton(
-            child: Text('Update'),
-            onPressed: () {
-              setState(() {
-                percent = Random().nextDouble();
-              });
-            }),
+        TextButton(
+          onPressed: () {
+            setState(() {
+              percent = Random().nextDouble();
+            });
+          },
+          child: Text('Update'),
+        ),
         _buildCode(context),
       ],
     );
@@ -327,13 +328,14 @@ Expanded(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         _buildWidget(context),
-        FlatButton(
-            child: Text('Update'),
-            onPressed: () {
-              setState(() {
-                percent = Random().nextDouble();
-              });
-            }),
+        TextButton(
+          onPressed: () {
+            setState(() {
+              percent = Random().nextDouble();
+            });
+          },
+          child: Text('Update'),
+        ),
         _buildCode(context),
       ],
     );
@@ -389,13 +391,14 @@ Expanded(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         _buildWidget(context),
-        FlatButton(
-            child: Text('Update'),
-            onPressed: () {
-              setState(() {
-                percent = Random().nextDouble();
-              });
-            }),
+        TextButton(
+          onPressed: () {
+            setState(() {
+              percent = Random().nextDouble();
+            });
+          },
+          child: Text('Update'),
+        ),
         _buildCode(context),
       ],
     );

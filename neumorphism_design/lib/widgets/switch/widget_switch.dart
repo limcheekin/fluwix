@@ -110,7 +110,7 @@ NeumorphicSwitch(
             },
           ),
           SizedBox(width: 12),
-          FlatButton(
+          TextButton(
               onPressed: () {
                 setState(() {
                   isEnabled = !isEnabled;

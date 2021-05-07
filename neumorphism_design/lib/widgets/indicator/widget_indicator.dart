@@ -102,13 +102,14 @@ NeumorphicIndicator(
             percent: percent,
           ),
           SizedBox(width: 12),
-          FlatButton(
-              child: Text('Update'),
-              onPressed: () {
-                setState(() {
-                  percent = Random().nextDouble();
-                });
-              }),
+          TextButton(
+            onPressed: () {
+              setState(() {
+                percent = Random().nextDouble();
+              });
+            },
+            child: Text('Update'),
+          ),
         ],
       ),
     );
@@ -301,13 +302,14 @@ NeumorphicIndicator(
             duration: Duration(seconds: 1),
           ),
           SizedBox(width: 12),
-          FlatButton(
-              child: Text('Update'),
-              onPressed: () {
-                setState(() {
-                  percent = Random().nextDouble();
-                });
-              }),
+          TextButton(
+            onPressed: () {
+              setState(() {
+                percent = Random().nextDouble();
+              });
+            },
+            child: Text('Update'),
+          ),
         ],
       ),
     );
@@ -360,13 +362,14 @@ NeumorphicIndicator(
               percent: percent,
               curve: Curves.bounceOut),
           SizedBox(width: 12),
-          FlatButton(
-              child: Text('Update'),
-              onPressed: () {
-                setState(() {
-                  percent = Random().nextDouble();
-                });
-              }),
+          TextButton(
+            onPressed: () {
+              setState(() {
+                percent = Random().nextDouble();
+              });
+            },
+            child: Text('Update'),
+          ),
         ],
       ),
     );
