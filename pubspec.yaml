@@ -48,7 +48,9 @@ dependencies:
   percent_indicator_showcase:
     path: percent_indicator_showcase
   glassmorphism_design:
-    path: glassmorphism_design    
+    path: glassmorphism_design
+  neumorphism_design:
+    path: neumorphism_design      
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +81,6 @@ scripts:
   convert_mp4_to_gif: ./gifify.sh recording.mp4
   web: 
     - flutter build web
-    - python -m http.server 8000 &
+    - cd build/web;python -m http.server 8000 &
     - google-chrome http://localhost:8000
 

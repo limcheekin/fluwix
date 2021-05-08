@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:glassmorphism_design/glassmorphism_design_screen.dart';
 import 'package:nested_list/nested_list_screen.dart';
+import 'package:neumorphism_design/neumorphism_design_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:percent_indicator_showcase/percent_indicator_showcase_screen.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -61,6 +62,8 @@ class AppModule extends Module {
         child: (_, __) => PercentIndicatorShowcaseScreen()),
     ChildRoute('/glassmorphism_design',
         child: (_, __) => GlassmorphismDesignScreen()),
+    ChildRoute('/neumorphism_design',
+        child: (_, __) => NeumorphismDesignScreen()),
   ].reversed);
 }
 
