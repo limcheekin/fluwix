@@ -81,6 +81,6 @@ scripts:
   convert_mp4_to_gif: ./gifify.sh recording.mp4
   web: 
     - flutter build web
-    - python -m http.server 8000 &
+    - cd build/web;python -m http.server 8000 &
     - google-chrome http://localhost:8000
 
