@@ -67,6 +67,7 @@ class __PageContentState extends State<_PageContent> {
                 Icons.arrow_back,
                 color: Colors.grey,
               ),
+              isBack: true,
             ),
           ),
         ),
@@ -86,7 +87,7 @@ class __PageContentState extends State<_PageContent> {
     );
   }
 
-  Widget _bumpButton(Widget child) {
+  Widget _bumpButton(Widget child, {bool isBack = false}) {
     return Neumorphic(
       drawSurfaceAboveChild: false,
       style: NeumorphicStyle(
@@ -97,7 +98,11 @@ class __PageContentState extends State<_PageContent> {
         shape: NeumorphicShape.concave,
       ),
       child: NeumorphicButton(
-          onPressed: () {},
+          onPressed: () {
+            if (isBack) {
+              Navigator.of(context).pop();
+            }
+          },
           margin: EdgeInsets.all(3),
           padding: EdgeInsets.all(14.0),
           style: NeumorphicStyle(
