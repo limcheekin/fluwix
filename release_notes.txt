@@ -1,1 +1,1 @@
-Showcase the Glassmorphism package by Ritick Saha (RitickSaha)
+Showcase the flutter_neumorphic package by Idean.com
