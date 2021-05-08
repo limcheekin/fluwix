@@ -10,7 +10,7 @@ class ModuleNameScreen extends StatelessWidget {
   // repository = 'flutter_material_showcase';
   // branch = 'master';
   static const owner = 'limcheekin';
-  static const repository = 'flutter-widgets-explorer';
+  static const repository = 'fluwix';
   static const branch = 'module_name';
 
   @override
@@ -23,7 +23,7 @@ class ModuleNameScreen extends StatelessWidget {
       ref: branch,
       // $branch/ prefix is not needed for external GitHub repo
       // Please refer to the following sample code:
-      // https://github.com/limcheekin/flutter-widgets-explorer/blob/main/material_design_showcase/lib/material_design_showcase_screen.dart
+      // https://github.com/limcheekin/fluwix/blob/main/material_design_showcase/lib/material_design_showcase_screen.dart
       readMe: '$branch/README.md',
       codePaths: [
         '$branch/pubspec.yaml',

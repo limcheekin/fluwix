@@ -1,6 +1,6 @@
-# Flutter Widgets Explorer [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+# Fluwix (formerly Flutter Widgets Explorer) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-The Flutter Widgets Explorer is created to learn and showcase your Flutter Widgets in one application.
+The Fluwix is a Flutter showcases platform on the mobile apps and web.
 
 <a href='https://play.google.com/store/apps/details?id=com.vobject.flutter.widgets.explorer&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="50%"/></a>
 
@@ -13,7 +13,7 @@ After select a showcase, the selected showcase details will show on next screen.
 
 ![Main Listing Screen](images/thumbnail.png "Main Listing Screen")
 
-Each showcase will be coded in it's own branch and module, can have it's own readme or license file, please see [Steps To Showcase Your Widgets](showcase_view/SHOWCASE_YOUR_WIDGETS.md) for more information.
+Each showcase will be coded in it's own branch and module, can have it's own readme or license file, please see [Steps To Add Your Showcase](showcase_view/SHOWCASE_YOUR_WIDGETS.md) for more information.
 
 ## Branches:
 
@@ -22,7 +22,7 @@ Each showcase will be coded in it's own branch and module, can have it's own rea
 <td width="33.3%">
 <a href="intro.md" target="_blank">
 <img alt="Main Screen" src="images/thumbnail.png" height="384px" width="216px" />
-</br><strong>base</strong>: Basic skeleton of the Flutter Widgets Explorer project. If you would like to create similar project, you can start here!
+</br><strong>base</strong>: Basic skeleton of the Fluwix project. If you would like to create similar project, you can start here!
 </a> 
 </td>
 <td width="33.3%">

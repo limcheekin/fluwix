@@ -1,11 +1,11 @@
 {
-    "name": "Flutter Widgets Explorer",
-    "short_name": "Flutter Widgets Explorer",
+    "name": "Fluwix",
+    "short_name": "Fluwix",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Flutter Widgets Explorer: Learn and showcase your Flutter Widgets in one application.",
+    "description": "Fluwix - Flutter showcases",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

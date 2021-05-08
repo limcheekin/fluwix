@@ -29,5 +29,5 @@ flutter:
 
   module:
     androidX: true
-    androidPackage: com.example.module_name
-    iosBundleIdentifier: com.example.moduleName
+    androidPackage: com.fluwix.module_name
+    iosBundleIdentifier: com.fluwix.moduleName

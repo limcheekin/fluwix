@@ -1,4 +1,4 @@
-name: Deploy Flutter Web
+name: Deploy Fluwix.com
 
 on:
   push:

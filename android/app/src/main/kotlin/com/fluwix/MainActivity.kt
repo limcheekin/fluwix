@@ -1,4 +1,4 @@
-package com.vobject.flutter.widgets.explorer
+package com.fluwix
 
 import io.flutter.embedding.android.FlutterActivity
 

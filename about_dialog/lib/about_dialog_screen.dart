@@ -1,3 +1,4 @@
+import 'package:common_ui/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:showcase_view/showcase_view.dart';
@@ -35,7 +36,7 @@ class AboutDialogWidget extends StatelessWidget {
     final aboutBoxChildren = <Widget>[
       SizedBox(height: 24),
       Text(
-        'Learn and showcase Flutter Widgets in one application.',
+        APP_SUBTITLE,
         style: textStyle,
       ),
     ];
