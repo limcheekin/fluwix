@@ -147,6 +147,10 @@ Each showcase will be coded in it's own branch and module, can have it's own rea
 </a> 
 </td>
 <td width="33.3%">
+<a href="settings_ui_showcase/README.md" target="_blank">
+<img alt="Settings UI Showcase Screen" src="settings_ui_showcase/images/thumbnail.png" height="384px" width="216px" />
+</br><strong>settings_ui_showcase</strong>: Create native settings for Flutter app in minutes.
+</a> 
 </td>
 <td width="33.3%">
 </td>

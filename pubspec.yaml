@@ -50,7 +50,9 @@ dependencies:
   glassmorphism_design:
     path: glassmorphism_design
   neumorphism_design:
-    path: neumorphism_design      
+    path: neumorphism_design
+  settings_ui_showcase:
+    path: settings_ui_showcase        
 
 dev_dependencies:
   flutter_test:
