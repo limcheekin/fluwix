@@ -1,1 +1,1 @@
-Showcase the flutter_neumorphic package by Idean.com
+Showcase the settings_ui package by Yako.io
