@@ -457,6 +457,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.1"
+  search_bar:
+    dependency: "direct main"
+    description:
+      path: search_bar
+      relative: true
+    source: path
+    version: "1.0.0+1"
   settings_ui:
     dependency: transitive
     description:

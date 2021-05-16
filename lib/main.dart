@@ -24,6 +24,7 @@ import 'package:syntax_view/syntax_view_screen.dart';
 import 'package:url_launcher_showcase/url_launcher_showcase_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:common_ui/constants.dart';
+import 'package:search_bar/search_bar_screen.dart';
 import 'string.dart';
 
 final AppModule appModule = AppModule();
@@ -67,6 +68,7 @@ class AppModule extends Module {
         child: (_, __) => NeumorphismDesignScreen()),
     ChildRoute('/settings_ui_showcase',
         child: (_, __) => SettingsUiShowcaseScreen()),
+    ChildRoute('/search_bar', child: (_, __) => SearchBarScreen()),
   ].reversed);
 }
 
