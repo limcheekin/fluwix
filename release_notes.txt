@@ -1,1 +1,1 @@
-Showcase the settings_ui package by Yako.io
+Showcase the material_floating_search_bar package by ResoCoder.com
