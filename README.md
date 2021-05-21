@@ -153,6 +153,10 @@ Each showcase will be coded in it's own branch and module, can have it's own rea
 </a> 
 </td>
 <td width="33.3%">
+<a href="search_bar/README.md" target="_blank">
+<img alt="Search Bar Showcase Screen" src="search_bar/images/thumbnail.png" height="384px" width="216px" />
+</br><strong>search_bar</strong>: An expandable floating search bar similar to the one Google used in their own apps.
+</a> 
 </td>
 </tr>
 <table>

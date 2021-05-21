@@ -1,6 +1,6 @@
 # search_bar
 
-A new flutter module project.
+Please see the [README](https://github.com/ResoCoder/flutter-search-bar-tutorial/blob/master/README.md) of the origin GitHub repo.
 
 ## Getting Started
 
