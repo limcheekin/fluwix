@@ -6,6 +6,7 @@ import 'package:neumorphism_design/neumorphism_design_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:percent_indicator_showcase/percent_indicator_showcase_screen.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:rich_text_editor/rich_text_editor_screen.dart';
 import 'package:settings_ui_showcase/settings_ui_showcase_screen.dart';
 import 'package:showcase_view/showcase_screen.dart';
 import 'package:source_code_view/source_code_view_screen.dart';
@@ -69,6 +70,7 @@ class AppModule extends Module {
     ChildRoute('/settings_ui_showcase',
         child: (_, __) => SettingsUiShowcaseScreen()),
     ChildRoute('/search_bar', child: (_, __) => SearchBarScreen()),
+    ChildRoute('/rich_text_editor', child: (_, __) => RichTextEditorScreen()),
   ].reversed);
 }
 

@@ -54,7 +54,9 @@ dependencies:
   settings_ui_showcase:
     path: settings_ui_showcase
   search_bar:
-    path: search_bar          
+    path: search_bar
+  rich_text_editor: 
+    path: rich_text_editor            
 
 dev_dependencies:
   flutter_test:
