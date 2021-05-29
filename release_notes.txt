@@ -1,1 +1,1 @@
-Showcase the material_floating_search_bar package by ResoCoder.com
+Showcase the flutter_quill package by Xin Yao from BulletJournal.us
