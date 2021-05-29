@@ -159,6 +159,18 @@ Each showcase will be coded in it's own branch and module, can have it's own rea
 </a> 
 </td>
 </tr>
+<tr valign="top">
+<td width="33.3%">
+<a href="rich_text_editor/README.md" target="_blank">
+<img alt="Rich Text Editor Screen" src="rich_text_editor/images/thumbnail.png" height="384px" width="216px" />
+</br><strong>rich_text_editor</strong>: FlutterQuill: A rich text editor for Flutter.
+</a> 
+</td>
+<td width="33.3%">
+</td>
+<td width="33.3%">
+</td>
+</tr>
 <table>
 
 ## General References

@@ -1,6 +1,6 @@
 # rich_text_editor
 
-A new flutter module project.
+Please see the [README](https://github.com/singerdmx/flutter-quill/blob/master/README.md) of the [flutter_quill](https://pub.dev/packages/flutter_quill) package.
 
 ## Getting Started
 
