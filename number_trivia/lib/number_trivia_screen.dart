@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:showcase_view/showcase_view.dart';
 
 class NumberTriviaScreen extends StatelessWidget {
-  const NumberTriviaScreen({Key key}) : super(key: key);
+  const NumberTriviaScreen({Key? key}) : super(key: key);
 
   // Configure the properties for external GitHub repo, for example:
   // https://github.com/miquelbeltran/flutter_material_showcase
@@ -34,7 +34,7 @@ class NumberTriviaScreen extends StatelessWidget {
 }
 
 class NumberTriviaWidget extends StatelessWidget {
-  const NumberTriviaWidget({Key key}) : super(key: key);
+  const NumberTriviaWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

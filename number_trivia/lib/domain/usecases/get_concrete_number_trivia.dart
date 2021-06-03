@@ -1,34 +1,43 @@
-import 'package:dartz/dartz.dart';
-import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
+import 'dart:async';
 
-import '../../../../common/error/failure.dart';
-import '../../../../common/usecases/usecase.dart';
+import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
+import 'package:number_trivia/common/presentation/input_converter.dart';
+
 import '../entities/number_trivia.dart';
 import '../repositories/number_trivia_repository.dart';
 
 class GetConcreteNumberTrivia extends UseCase<NumberTrivia, Params> {
   final NumberTriviaRepository repository;
+  final InputConverter inputConverter;
 
-  GetConcreteNumberTrivia(this.repository);
+  GetConcreteNumberTrivia(this.repository, this.inputConverter);
 
   @override
-  Future<Either<Failure, NumberTrivia>> call([Params params]) async {
-    await super.call(params);
-    return await repository.getConcreteNumberTrivia(params.number);
+  Future<Stream<NumberTrivia>> buildUseCaseStream(Params? params) async {
+    final controller = StreamController<NumberTrivia>();
+    try {
+      final number = inputConverter.stringToUnsignedInteger(params!.number);
+      final numberTrivia = await repository.getConcreteNumberTrivia(number);
+      // Adding it triggers the .onNext() in the `Observer`
+      controller.add(numberTrivia);
+      logger.finest('GetConcreteNumberTrivia successful.');
+      await controller.close();
+    } catch (e) {
+      logger.severe('GetConcreteNumberTrivia unsuccessful.');
+      // Trigger .onError
+      controller.addError(e);
+    }
+    return controller.stream;
   }
 }
 
-class Params extends Equatable {
-  final int number;
+class Params {
+  final String number;
 
-  Params({@required this.number});
+  Params({required this.number});
 
   @override
   String toString() {
     return 'GetConcreteNumberTrivia params: $number';
   }
-
-  @override
-  List<Object> get props => [number];
 }

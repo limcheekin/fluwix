@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:number_trivia/presentation/pages/number_trivia_controller.dart';
 
-import '../bloc/number_trivia_bloc.dart';
+import '../../dependencies.dart';
 
 class TriviaControls extends StatefulWidget {
   const TriviaControls({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -14,7 +14,7 @@ class TriviaControls extends StatefulWidget {
 
 class _TriviaControlsState extends State<TriviaControls> {
   final controller = TextEditingController();
-  String inputStr;
+  String inputStr = '';
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,6 @@ class _TriviaControlsState extends State<TriviaControls> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   primary: Theme.of(context).accentColor,
-                  //textStyle: const TextStyle(fontSize: 20),
                 ),
                 onPressed: dispatchConcrete,
                 child: Text('Search'),
@@ -62,12 +61,11 @@ class _TriviaControlsState extends State<TriviaControls> {
 
   void dispatchConcrete() {
     controller.clear();
-    BlocProvider.of<NumberTriviaBloc>(context)
-        .add(GetTriviaForConcreteNumber(inputStr));
+    sl<NumberTriviaController>().getTriviaForConcreteNumber(inputStr);
   }
 
   void dispatchRandom() {
     controller.clear();
-    BlocProvider.of<NumberTriviaBloc>(context).add(GetTriviaForRandomNumber());
+    sl<NumberTriviaController>().getTriviaForRandomNumber();
   }
 }
