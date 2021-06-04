@@ -35,23 +35,25 @@ class _NumberTriviaViewState
           children: <Widget>[
             SizedBox(height: 10),
             ControlledWidgetBuilder<NumberTriviaController>(
-                builder: (context, controller) {
-              if (controller.errorMessage == null &&
-                  controller.numberTrivia == null) {
-                return MessageDisplay(
-                  message: 'Start searching!',
-                );
-              } else if (controller.numberTrivia != null) {
-                return TriviaDisplay(
-                  numberTrivia: controller.numberTrivia!,
-                );
-              } else if (controller.errorMessage != null) {
-                return MessageDisplay(
-                  message: controller.errorMessage!,
-                );
-              }
-              return LoadingWidget();
-            }),
+              builder: (context, controller) {
+                switch (controller.status) {
+                  case EStatus.none:
+                    return MessageDisplay(
+                      message: 'Start searching!',
+                    );
+                  case EStatus.loaded:
+                    return TriviaDisplay(
+                      numberTrivia: controller.numberTrivia!,
+                    );
+                  case EStatus.error:
+                    return MessageDisplay(
+                      message: controller.errorMessage!,
+                    );
+                  default:
+                    return LoadingWidget();
+                }
+              },
+            ),
             SizedBox(height: 20),
             // Bottom half
             TriviaControls()

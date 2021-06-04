@@ -21,7 +21,7 @@ class GetConcreteNumberTrivia extends UseCase<NumberTrivia, Params> {
       // Adding it triggers the .onNext() in the `Observer`
       controller.add(numberTrivia);
       logger.finest('GetConcreteNumberTrivia successful.');
-      await controller.close();
+      controller.close();
     } catch (e) {
       logger.severe('GetConcreteNumberTrivia unsuccessful.');
       // Trigger .onError

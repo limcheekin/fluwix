@@ -7,18 +7,22 @@ class NumberTriviaController extends Controller {
   final NumberTriviaPresenter numberTriviaPresenter;
   NumberTrivia? _numberTrivia;
   String? _errorMessage;
+  // ignore: prefer_final_fields
+  EStatus _status = EStatus.none;
 
   NumberTriviaController(this.numberTriviaPresenter);
 
   NumberTrivia? get numberTrivia => _numberTrivia;
   String? get errorMessage => _errorMessage;
+  EStatus get status => _status;
 
   @override
   void initListeners() {
     numberTriviaPresenter.getNumberTriviaOnNext = (NumberTrivia numberTrivia) {
-      logger.fine(numberTrivia.toString());
+      logger.fine('getNumberTriviaOnNext $numberTrivia');
       _numberTrivia = numberTrivia;
       _errorMessage = null;
+      _status = EStatus.loaded;
       refreshUI();
     };
 
@@ -28,18 +32,25 @@ class NumberTriviaController extends Controller {
 
     // On error, show a snackbar, remove the user, and refresh the UI
     numberTriviaPresenter.getNumberTriviaOnError = (e) {
-      logger.shout('Could not retrieve NumberTrivia: ${e.message}');
+      logger.severe('Could not retrieve NumberTrivia: ${e.message}');
+      _status = EStatus.error;
       _errorMessage = e.message;
       _numberTrivia = null;
       refreshUI(); // Refreshes the UI manually
     };
   }
 
-  void getTriviaForConcreteNumber(String input) =>
-      numberTriviaPresenter.getTriviaForConcreteNumber(input);
+  void getTriviaForConcreteNumber(String input) {
+    _status = EStatus.loading;
+    refreshUI();
+    numberTriviaPresenter.getTriviaForConcreteNumber(input);
+  }
 
-  void getTriviaForRandomNumber() =>
-      numberTriviaPresenter.getTriviaForRandomNumber();
+  void getTriviaForRandomNumber() {
+    _status = EStatus.loading;
+    refreshUI();
+    numberTriviaPresenter.getTriviaForRandomNumber();
+  }
 
   @override
   void onDisposed() {
@@ -47,4 +58,11 @@ class NumberTriviaController extends Controller {
     numberTriviaPresenter.dispose();
     super.onDisposed();
   }
+}
+
+enum EStatus {
+  none,
+  loading,
+  loaded,
+  error,
 }

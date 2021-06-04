@@ -18,7 +18,7 @@ class GetRandomNumberTrivia extends UseCase<NumberTrivia, void> {
       // Adding it triggers the .onNext() in the `Observer`
       controller.add(numberTrivia);
       logger.finest('GetRandomNumberTrivia successful.');
-      await controller.close();
+      controller.close();
     } catch (e) {
       logger.severe('GetRandomNumberTrivia unsuccessful.');
       // Trigger .onError

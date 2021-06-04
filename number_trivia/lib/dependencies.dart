@@ -19,7 +19,7 @@ final sl = GetIt.instance;
 Future<void> init() async {
   //! Features - Number Trivia
   // Controller & Presenter
-  sl.registerFactory(
+  sl.registerLazySingleton(
     () => NumberTriviaController(
       sl(),
     ),

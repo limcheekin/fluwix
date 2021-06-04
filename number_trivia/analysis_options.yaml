@@ -1,5 +1,9 @@
 include: package:pedantic/analysis_options.yaml
 
+linter:
+  rules:
+    unawaited_futures: false
+
 analyzer:
   exclude:
     - "**/*.g.dart"
