@@ -1,19 +1,15 @@
 import 'package:dartz/dartz.dart';
 import 'package:mockito/mockito.dart';
 import 'package:number_trivia/domain/entities/number_trivia.dart';
-import 'package:number_trivia/domain/repositories/number_trivia_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:number_trivia/domain/usecases/get_random_number_trivia.dart';
-
-class MockNumberTriviaRepository extends Mock
-    implements NumberTriviaRepository {}
+import 'get_concrete_number_trivia_test.mocks.dart';
 
 void main() {
-  GetRandomNumberTrivia usecase;
-  MockNumberTriviaRepository mockRepository;
+  GetRandomNumberTrivia? usecase;
+  final mockRepository = MockNumberTriviaRepository();
 
   setUp(() {
-    mockRepository = MockNumberTriviaRepository();
     usecase = GetRandomNumberTrivia(mockRepository);
   });
 
@@ -28,7 +24,7 @@ void main() {
 
       // execute
       // As random number doesn't require any parameters, we pass in NoParams.
-      final result = await usecase();
+      final result = await usecase!();
 
       // verify
       expect(result, Right(tNumberTrivia));

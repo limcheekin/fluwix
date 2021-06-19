@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 
 import '../../../../common/error/failure.dart';
 import '../../../../common/presentation/input_converter.dart';
@@ -26,15 +25,10 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
 
   NumberTriviaBloc({
     // Changed the name of the constructor parameter (cannot use 'this.')
-    @required GetConcreteNumberTrivia concrete,
-    @required GetRandomNumberTrivia random,
-    @required this.inputConverter,
-    // Asserts are how you can make sure that a passed in argument is not null.
-    // We omit this elsewhere for the sake of brevity.
-  })  : assert(concrete != null),
-        assert(random != null),
-        assert(inputConverter != null),
-        getConcreteNumberTrivia = concrete,
+    required GetConcreteNumberTrivia concrete,
+    required GetRandomNumberTrivia random,
+    required this.inputConverter,
+  })  : getConcreteNumberTrivia = concrete,
         getRandomNumberTrivia = random,
         super(Empty());
 

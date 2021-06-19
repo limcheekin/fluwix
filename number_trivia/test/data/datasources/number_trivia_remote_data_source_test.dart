@@ -1,21 +1,23 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:matcher/matcher.dart';
 import 'package:number_trivia/common/error/exception.dart';
 import 'package:number_trivia/data/datasources/number_trivia_remote_data_source.dart';
-import 'package:number_trivia/data/models/number_trivia_model.dart';
+import 'package:number_trivia/domain/entities/number_trivia.dart';
 
 import '../../fixtures/fixture_reader.dart';
+import 'number_trivia_remote_data_source_test.mocks.dart';
 
-class MockHttpClient extends Mock implements http.Client {}
-
+@GenerateMocks([http.Client])
 void main() {
-  NumberTriviaRemoteDataSourceImpl dataSource;
-  MockHttpClient mockHttpClient;
+  NumberTriviaRemoteDataSourceImpl? dataSource;
+  final mockHttpClient = MockClient();
 
   setUp(() {
-    mockHttpClient = MockHttpClient();
     dataSource = NumberTriviaRemoteDataSourceImpl(client: mockHttpClient);
   });
 
@@ -31,7 +33,8 @@ void main() {
     );
   }
 
-  final tNumberTriviaModel = NumberTriviaModel.fromJson(fixture('trivia.json'));
+  final tNumberTrivia =
+      NumberTrivia.fromJson(json.decode(fixture('trivia.json')));
 
   group('getConcreteNumberTrivia', () {
     final tNumber = 1;
@@ -44,7 +47,7 @@ void main() {
           (_) async => http.Response(fixture('trivia.json'), 200),
         );
         // act
-        dataSource.getConcreteNumberTrivia(tNumber);
+        dataSource!.getConcreteNumberTrivia(tNumber);
         // assert
         verify(mockHttpClient.get(
           Uri.parse('http://numbersapi.com/$tNumber'),
@@ -58,9 +61,9 @@ void main() {
         // arrange
         setUpMockHttpClientSuccess200();
         // act
-        final result = await dataSource.getConcreteNumberTrivia(tNumber);
+        final result = await dataSource!.getConcreteNumberTrivia(tNumber);
         // assert
-        expect(result, equals(tNumberTriviaModel));
+        expect(result, equals(tNumberTrivia));
       },
     );
     test(
@@ -69,7 +72,7 @@ void main() {
         // arrange
         setUpMockHttpClientFailure404();
         // act
-        final call = dataSource.getConcreteNumberTrivia;
+        final call = dataSource!.getConcreteNumberTrivia;
         // assert
         expect(() => call(tNumber), throwsA(TypeMatcher<ServerException>()));
       },
@@ -83,7 +86,7 @@ void main() {
         //arrange
         setUpMockHttpClientSuccess200();
         // act
-        dataSource.getRandomNumberTrivia();
+        dataSource!.getRandomNumberTrivia();
         // assert
         verify(mockHttpClient.get(
           Uri.parse('http://numbersapi.com/random'),
@@ -98,9 +101,9 @@ void main() {
         // arrange
         setUpMockHttpClientSuccess200();
         // act
-        final result = await dataSource.getRandomNumberTrivia();
+        final result = await dataSource!.getRandomNumberTrivia();
         // assert
-        expect(result, equals(tNumberTriviaModel));
+        expect(result, equals(tNumberTrivia));
       },
     );
 
@@ -110,7 +113,7 @@ void main() {
         // arrange
         setUpMockHttpClientFailure404();
         // act
-        final call = dataSource.getRandomNumberTrivia;
+        final call = dataSource!.getRandomNumberTrivia;
         // assert
         expect(() => call(), throwsA(TypeMatcher<ServerException>()));
       },

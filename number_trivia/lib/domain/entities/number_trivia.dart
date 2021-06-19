@@ -1,15 +1,15 @@
-import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class NumberTrivia extends Equatable {
-  final String text;
-  final int number;
+part 'number_trivia.freezed.dart';
+part 'number_trivia.g.dart';
 
-  NumberTrivia({
-    @required this.text,
-    @required this.number,
-  });
+@freezed
+class NumberTrivia with _$NumberTrivia {
+  factory NumberTrivia({
+    required String text,
+    required int number,
+  }) = _NumberTrivia;
 
-  @override
-  List<Object> get props => [text, number];
+  factory NumberTrivia.fromJson(Map<String, dynamic> json) =>
+      _$NumberTriviaFromJson(json);
 }

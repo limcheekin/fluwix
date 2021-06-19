@@ -6,8 +6,7 @@ import '../error/failure.dart';
 // Parameters have to be put into a container object so that they can be
 // included in this abstract base class method definition.
 abstract class UseCase<Type, Params> {
-  Future<Either<Failure, Type>> call([Params params]) {
-    print(params);
+  Future<Either<Failure, Type>>? call([Params? params]) {
     return null;
   }
 }
@@ -16,5 +15,5 @@ abstract class UseCase<Type, Params> {
 // doesn't accept any parameters.
 class NoParams extends Equatable {
   @override
-  List<Object> get props => null;
+  List<Object> get props => [];
 }

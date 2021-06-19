@@ -6,7 +6,7 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -19,11 +19,13 @@ dependencies:
   # Value equality
   equatable: ^2.0.2
   # Functional programming thingies
-  dartz: ^0.9.1
+  dartz: ^0.10.0-nullsafety.2
   # Remote API
-  data_connection_checker: ^0.3.4
+  connectivity_plus: ^1.0.1
   # Local cache
   shared_preferences: ^2.0.5
+  # Code generator for unions/pattern-matching/copy/toJson/fromJson 
+  freezed_annotation:
 
   common_ui:
     path: ../common_ui
@@ -33,9 +35,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  mockito: ^5.0.8
+  mockito: ^5.0.10
   bloc_test: ^8.0.0
   pedantic:
+  build_runner:
+  freezed:
+  json_serializable:
 
 flutter:
   uses-material-design: true

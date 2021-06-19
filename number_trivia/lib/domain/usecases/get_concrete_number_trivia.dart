@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
 
 import '../../../../common/error/failure.dart';
 import '../../../../common/usecases/usecase.dart';
@@ -13,16 +12,16 @@ class GetConcreteNumberTrivia extends UseCase<NumberTrivia, Params> {
   GetConcreteNumberTrivia(this.repository);
 
   @override
-  Future<Either<Failure, NumberTrivia>> call([Params params]) async {
+  Future<Either<Failure, NumberTrivia>> call([Params? params]) async {
     await super.call(params);
-    return await repository.getConcreteNumberTrivia(params.number);
+    return await repository.getConcreteNumberTrivia(params!.number);
   }
 }
 
 class Params extends Equatable {
   final int number;
 
-  Params({@required this.number});
+  Params({required this.number});
 
   @override
   String toString() {

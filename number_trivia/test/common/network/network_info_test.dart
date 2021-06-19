@@ -1,35 +1,33 @@
-import 'package:data_connection_checker/data_connection_checker.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:number_trivia/common/network/network_info.dart';
+import 'network_info_test.mocks.dart';
 
-class MockDataConnectionChecker extends Mock implements DataConnectionChecker {}
-
+@GenerateMocks([Connectivity])
 void main() {
-  NetworkInfoImpl networkInfo;
-  MockDataConnectionChecker mockDataConnectionChecker;
+  NetworkInfoImpl? networkInfo;
+  final mockConnectivity = MockConnectivity();
 
   setUp(() {
-    mockDataConnectionChecker = MockDataConnectionChecker();
-    networkInfo = NetworkInfoImpl(mockDataConnectionChecker);
+    networkInfo = NetworkInfoImpl(mockConnectivity);
   });
 
   group('isConnected', () {
     test(
-      'should forward the call to DataConnectionChecker.hasConnection',
+      'should forward the call to Connectivity.checkConnectivity',
       () async {
         // arrange
-        final tHasConnectionFuture = Future.value(true);
+        final tHasConnectionFuture = true;
 
-        when(mockDataConnectionChecker.hasConnection)
-            .thenAnswer((_) => tHasConnectionFuture);
+        when(mockConnectivity.checkConnectivity())
+            .thenAnswer((_) => Future.value(ConnectivityResult.mobile));
         // act
-        // NOTICE: We're NOT awaiting the result
-        final result = networkInfo.isConnected;
+        final result = await networkInfo!.isConnected;
+
         // assert
-        verify(mockDataConnectionChecker.hasConnection);
-        // Utilizing Dart's default referential equality.
-        // Only references to the same object are equal.
+        verify(mockConnectivity.checkConnectivity());
         expect(result, tHasConnectionFuture);
       },
     );

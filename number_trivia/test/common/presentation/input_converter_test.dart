@@ -3,11 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:number_trivia/common/presentation/input_converter.dart';
 
 void main() {
-  InputConverter inputConverter;
-
-  setUp(() {
-    inputConverter = InputConverter();
-  });
+  final inputConverter = InputConverter();
 
   group('stringToUnsignedInt', () {
     test(
