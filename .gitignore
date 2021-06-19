@@ -46,3 +46,8 @@ android/**/.classpath
 android/**/.settings
 
 .vscode/
+
+# generated files
+*.freezed.dart
+*.g.dart
+*.mocks.dart
