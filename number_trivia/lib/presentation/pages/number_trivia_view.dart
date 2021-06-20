@@ -18,9 +18,6 @@ class _NumberTriviaViewState
   Widget get view {
     return Scaffold(
       key: globalKey,
-      appBar: AppBar(
-        title: Text('Number Trivia'),
-      ),
       body: SingleChildScrollView(
         child: buildBody(context),
       ),
