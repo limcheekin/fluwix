@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:number_trivia/presentation/pages/number_trivia_controller.dart';
-
-import '../../dependencies.dart';
 
 class TriviaControls extends StatefulWidget {
   const TriviaControls({
@@ -39,9 +38,6 @@ class _TriviaControlsState extends State<TriviaControls> {
           children: <Widget>[
             Expanded(
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Theme.of(context).accentColor,
-                ),
                 onPressed: dispatchConcrete,
                 child: Text('Search'),
               ),
@@ -49,6 +45,9 @@ class _TriviaControlsState extends State<TriviaControls> {
             SizedBox(width: 10),
             Expanded(
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.grey,
+                ),
                 onPressed: dispatchRandom,
                 child: Text('Get random trivia'),
               ),
@@ -61,11 +60,17 @@ class _TriviaControlsState extends State<TriviaControls> {
 
   void dispatchConcrete() {
     controller.clear();
-    sl<NumberTriviaController>().getTriviaForConcreteNumber(inputStr);
+    final numberTriviaController =
+        FlutterCleanArchitecture.getController<NumberTriviaController>(context,
+            listen: false);
+    numberTriviaController.getTriviaForConcreteNumber(inputStr);
   }
 
   void dispatchRandom() {
     controller.clear();
-    sl<NumberTriviaController>().getTriviaForRandomNumber();
+    final numberTriviaController =
+        FlutterCleanArchitecture.getController<NumberTriviaController>(context,
+            listen: false);
+    numberTriviaController.getTriviaForRandomNumber();
   }
 }

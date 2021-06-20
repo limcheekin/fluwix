@@ -16,10 +16,10 @@ import 'domain/usecases/get_random_number_trivia.dart';
 
 final sl = GetIt.instance;
 
-Future<void> init() async {
+void init() {
   //! Features - Number Trivia
   // Controller & Presenter
-  sl.registerLazySingleton(
+  sl.registerFactory(
     () => NumberTriviaController(
       sl(),
     ),
@@ -56,8 +56,7 @@ Future<void> init() async {
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
 
   //! External
-  final sharedPreferences = await SharedPreferences.getInstance();
-  sl.registerLazySingleton(() => sharedPreferences);
+  sl.registerSingletonAsync(() async => SharedPreferences.getInstance());
   sl.registerLazySingleton(() => http.Client());
   sl.registerLazySingleton(() => Connectivity());
 }
