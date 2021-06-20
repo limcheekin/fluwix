@@ -19,16 +19,15 @@ class NumberTriviaRemoteDataSourceImpl implements NumberTriviaRemoteDataSource {
 
   @override
   Future<NumberTrivia> getConcreteNumberTrivia(int number) =>
-      _getTriviaFromUrl('http://numbersapi.com/$number');
+      _getTriviaFromUrl('http://numbersapi.com/$number?json&fragment');
 
   @override
   Future<NumberTrivia> getRandomNumberTrivia() =>
-      _getTriviaFromUrl('http://numbersapi.com/random');
+      _getTriviaFromUrl('http://numbersapi.com/random?json&fragment');
 
   Future<NumberTrivia> _getTriviaFromUrl(String url) async {
     final response = await client.get(
       Uri.parse(url),
-      headers: {'Content-Type': 'application/json'},
     );
 
     if (response.statusCode == 200) {
