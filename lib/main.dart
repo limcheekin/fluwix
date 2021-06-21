@@ -26,11 +26,14 @@ import 'package:url_launcher_showcase/url_launcher_showcase_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:common_ui/constants.dart';
 import 'package:search_bar/search_bar_screen.dart';
+import 'package:number_trivia/number_trivia_screen.dart';
+import 'package:number_trivia/dependencies.dart' as numberTriviaDi;
 import 'string.dart';
 
 final AppModule appModule = AppModule();
 void main() {
   setPathUrlStrategy();
+  numberTriviaDi.init();
   runApp(ModularApp(module: appModule, child: AppWidget()));
 }
 
@@ -71,6 +74,7 @@ class AppModule extends Module {
         child: (_, __) => SettingsUiShowcaseScreen()),
     ChildRoute('/search_bar', child: (_, __) => SearchBarScreen()),
     ChildRoute('/rich_text_editor', child: (_, __) => RichTextEditorScreen()),
+    ChildRoute('/number_trivia', child: (_, __) => NumberTriviaScreen()),
   ].reversed);
 }
 

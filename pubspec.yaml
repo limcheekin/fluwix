@@ -57,6 +57,8 @@ dependencies:
     path: search_bar
   rich_text_editor: 
     path: rich_text_editor            
+  number_trivia:
+    path: number_trivia            
 
 dev_dependencies:
   flutter_test:

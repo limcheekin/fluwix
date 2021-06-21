@@ -47,3 +47,9 @@ android/**/.settings
 android/settings_aar.gradle
 
 .vscode/
+.VSCodeCounter/
+
+# generated files
+*.freezed.dart
+*.g.dart
+*.mocks.dart
