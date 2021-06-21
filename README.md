@@ -167,6 +167,10 @@ Each showcase will be coded in it's own branch and module, can have it's own rea
 </a> 
 </td>
 <td width="33.3%">
+<a href="number_trivia/README.md" target="_blank">
+<img alt="Number Trivia Screen" src="number_trivia/images/thumbnail.png" height="384px" width="216px" />
+</a>
+</br><strong>number_trivia</strong>: Flutter App Architecture with <a href="https://github.com/limcheekin/fluwix/tree/number_trivia_flutter_bloc/number_trivia" target="_blank">flutter_bloc</a> or <a href="https://github.com/limcheekin/fluwix/tree/number_trivia_flutter_clean_architecture/number_trivia" target="_blank">flutter_clean_architecture</a>.
 </td>
 <td width="33.3%">
 </td>
