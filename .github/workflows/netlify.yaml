@@ -13,7 +13,7 @@ jobs:
     - uses: subosito/flutter-action@v1
       with:
         channel: stable
-    - run: flutter build web
+    - run: chmod +x generate.sh;./generate.sh;flutter build web
 
     - name: Deploy to Netlify
       uses: nwtgck/actions-netlify@v1.1
