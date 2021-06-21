@@ -15,7 +15,7 @@ import 'presentation/bloc/number_trivia_bloc.dart';
 
 final sl = GetIt.instance;
 
-Future<void> init() async {
+void init() {
   //! Features - Number Trivia
   // Bloc
   sl.registerFactory(
@@ -53,8 +53,7 @@ Future<void> init() async {
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
 
   //! External
-  final sharedPreferences = await SharedPreferences.getInstance();
-  sl.registerLazySingleton(() => sharedPreferences);
+  sl.registerSingletonAsync(() async => SharedPreferences.getInstance());
   sl.registerLazySingleton(() => http.Client());
   sl.registerLazySingleton(() => Connectivity());
 }
