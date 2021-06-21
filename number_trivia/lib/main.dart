@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'dependencies.dart' as di;
 import 'presentation/pages/number_trivia_page.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  di.init();
+  await di.init();
   runApp(MyApp());
 }
 
