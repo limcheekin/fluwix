@@ -7,7 +7,7 @@ The number trivia module showcases Flutter App Architecture using the [flutter_c
 
 ## Code Metrics
 ### Code
-Directory: fluwix/number_trivia/lib
+__Directory: fluwix/number_trivia/lib__
 
 #### Directories
 | path | files | code | comment | blank | total |
@@ -28,7 +28,7 @@ Directory: fluwix/number_trivia/lib
 | presentation/widgets | 5 | 146 | 0 | 20 | 166 |
 
 ### Test
-Directory: fluwix/number_trivia/test
+__Directory: fluwix/number_trivia/test__
 
 #### Languages
 | language | files | code | comment | blank | total |
