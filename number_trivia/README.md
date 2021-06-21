@@ -8,8 +8,7 @@ The number trivia module showcases Flutter App Architecture using the [flutter_b
 The codes here considered the latest code of the [Flutter TDD Clean Architecture Course](https://resocoder.com/2019/08/27/flutter-tdd-clean-architecture-course-1-explanation-project-structure/) with the following changes:
  - Dependencies updated to the latest version and null safety support.
  - Replaced [data_connection_checker](https://pub.dev/packages/data_connection_checker) package to [connectivity_plus](https://pub.dev/packages/connectivity_plus) as it doesn't support null safety.
- - Added [freezed](https://pub.dev/packages/freezed) package to generate toString/toJson/fromJson
-![Number Trivia image](https://github.com/limcheekin/fluwix/raw/main/number_trivia/images/thumbnail.png "Number Trivia image")
+ - Added [freezed](https://pub.dev/packages/freezed) package to generate toString/toJson/fromJson.
 
 ## Code Metrics
 ### Code
