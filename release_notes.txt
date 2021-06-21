@@ -1,1 +1,2 @@
-Showcase the flutter_quill package by Xin Yao from BulletJournal.us
+Showcase the Flutter App Architecture with Number Trivia
+Removed Scroll Bar for Web
