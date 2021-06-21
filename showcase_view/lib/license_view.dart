@@ -30,13 +30,10 @@ class _LicenseViewState extends AbstractGithubViewState<LicenseView> {
   @override
   Widget buildWidget(BuildContext context, String responseBody) {
     return Expanded(
-      child: Scrollbar(
-        isAlwaysShown: kIsWeb,
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Text(responseBody),
-          ),
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Text(responseBody),
         ),
       ),
     );

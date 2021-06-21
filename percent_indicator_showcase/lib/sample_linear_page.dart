@@ -26,214 +26,211 @@ class _SampleLinearPageState extends State<SampleLinearPage> {
     final maxWidth = MediaQuery.of(context).size.width - spaceWidth;
 
     return Center(
-      child: Scrollbar(
-        isAlwaysShown: kIsWeb,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton.icon(
-                icon: Icon(Icons.stop, size: 16),
-                label: Text('Stop Animation'),
-                onPressed: () {
-                  setState(() {
-                    isRunning = false;
-                  });
-                },
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton.icon(
+              icon: Icon(Icons.stop, size: 16),
+              label: Text('Stop Animation'),
+              onPressed: () {
+                setState(() {
+                  isRunning = false;
+                });
+              },
+            ),
+            Padding(
+              padding: EdgeInsets.all(15.0),
+              child: LinearPercentIndicator(
+                width: maxWidth,
+                animation: isRunning,
+                lineHeight: 20.0,
+                animationDuration: 3000,
+                percent: 0.5,
+                animateFromLastPercent: true,
+                center: Text('50.0%'),
+                linearStrokeCap: LinearStrokeCap.butt,
+                progressColor: Colors.red,
+                widgetIndicator: RotatedBox(
+                    quarterTurns: 1,
+                    child: Icon(Icons.airplanemode_active, size: 50)),
               ),
-              Padding(
-                padding: EdgeInsets.all(15.0),
-                child: LinearPercentIndicator(
-                  width: maxWidth,
-                  animation: isRunning,
-                  lineHeight: 20.0,
-                  animationDuration: 3000,
-                  percent: 0.5,
-                  animateFromLastPercent: true,
-                  center: Text('50.0%'),
-                  linearStrokeCap: LinearStrokeCap.butt,
-                  progressColor: Colors.red,
-                  widgetIndicator: RotatedBox(
-                      quarterTurns: 1,
-                      child: Icon(Icons.airplanemode_active, size: 50)),
+            ),
+            Padding(
+              padding: EdgeInsets.all(15.0),
+              child: LinearPercentIndicator(
+                width: maxWidth,
+                lineHeight: 20.0,
+                animationDuration: 3000,
+                percent: 0.5,
+                animateFromLastPercent: true,
+                center: Text('50.0%'),
+                linearStrokeCap: LinearStrokeCap.butt,
+                linearGradient: LinearGradient(
+                  colors: <Color>[Color(0xffB07BE6), Color(0xff5BA2E0)],
+                ),
+                linearGradientBackgroundColor: LinearGradient(
+                  colors: <Color>[Color(0xffe5d6fa), Color(0xffc8dff8)],
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.all(15.0),
+            ),
+            Padding(
+              padding: EdgeInsets.all(15.0),
+              child: FittedBox(
                 child: LinearPercentIndicator(
-                  width: maxWidth,
-                  lineHeight: 20.0,
-                  animationDuration: 3000,
-                  percent: 0.5,
-                  animateFromLastPercent: true,
-                  center: Text('50.0%'),
-                  linearStrokeCap: LinearStrokeCap.butt,
+                  width: 140.0,
+                  fillColor: Colors.green,
                   linearGradient: LinearGradient(
-                    colors: <Color>[Color(0xffB07BE6), Color(0xff5BA2E0)],
+                    colors: [Colors.red, Colors.blue],
                   ),
-                  linearGradientBackgroundColor: LinearGradient(
-                    colors: <Color>[Color(0xffe5d6fa), Color(0xffc8dff8)],
+                  lineHeight: 14.0,
+                  percent: 0.7,
+                  center: Text(
+                    '70.0%',
+                    style: TextStyle(fontSize: 12.0),
                   ),
+                  trailing: Icon(Icons.mood),
+                  linearStrokeCap: LinearStrokeCap.roundAll,
+                  backgroundColor: Colors.grey,
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.all(15.0),
-                child: FittedBox(
-                  child: LinearPercentIndicator(
-                    width: 140.0,
-                    fillColor: Colors.green,
-                    linearGradient: LinearGradient(
-                      colors: [Colors.red, Colors.blue],
-                    ),
-                    lineHeight: 14.0,
-                    percent: 0.7,
-                    center: Text(
-                      '70.0%',
-                      style: TextStyle(fontSize: 12.0),
-                    ),
-                    trailing: Icon(Icons.mood),
-                    linearStrokeCap: LinearStrokeCap.roundAll,
-                    backgroundColor: Colors.grey,
+            ),
+            Padding(
+              padding: EdgeInsets.all(15.0),
+              child: FittedBox(
+                child: LinearPercentIndicator(
+                  width: 140.0,
+                  fillColor: Colors.green,
+                  lineHeight: 14.0,
+                  percent: 0.5,
+                  center: Text(
+                    '50.0%',
+                    style: TextStyle(fontSize: 12.0),
                   ),
+                  trailing: Icon(Icons.mood),
+                  linearStrokeCap: LinearStrokeCap.roundAll,
+                  backgroundColor: Colors.grey,
+                  progressColor: Colors.blue,
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.all(15.0),
-                child: FittedBox(
-                  child: LinearPercentIndicator(
-                    width: 140.0,
-                    fillColor: Colors.green,
-                    lineHeight: 14.0,
+            ),
+            Padding(
+              padding: EdgeInsets.all(15.0),
+              child: LinearPercentIndicator(
+                animation: true,
+                animationDuration: 500,
+                lineHeight: 20.0,
+                leading: Expanded(
+                  child: Text('left content'),
+                ),
+                trailing: Expanded(
+                    child: Text(
+                  'right content',
+                  textAlign: TextAlign.end,
+                )),
+                percent: 0.2,
+                center: Text('20.0%'),
+                linearStrokeCap: LinearStrokeCap.butt,
+                progressColor: Colors.red,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(15.0),
+              child: LinearPercentIndicator(
+                width: maxWidth,
+                animation: true,
+                lineHeight: 20.0,
+                animationDuration: 2000,
+                percent: 0.9,
+                animateFromLastPercent: true,
+                center: Text('90.0%'),
+                linearStrokeCap: LinearStrokeCap.roundAll,
+                progressColor: Colors.greenAccent,
+                maskFilter: MaskFilter.blur(BlurStyle.solid, 3),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(15.0),
+              child: LinearPercentIndicator(
+                width: maxWidth,
+                animation: true,
+                lineHeight: 20.0,
+                animationDuration: 2500,
+                percent: 0.8,
+                center: Text('80.0%'),
+                linearStrokeCap: LinearStrokeCap.roundAll,
+                progressColor: Colors.green,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(15.0),
+              child: LinearPercentIndicator(
+                animation: true,
+                lineHeight: 20.0,
+                animationDuration: 2500,
+                percent: 0.55,
+                center: Text('55.0%'),
+                linearStrokeCap: LinearStrokeCap.roundAll,
+                progressColor: Colors.green,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(15.0),
+              child: Column(
+                children: <Widget>[
+                  LinearPercentIndicator(
+                    width: 100.0,
+                    lineHeight: 8.0,
+                    percent: 0.2,
+                    progressColor: Colors.red,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  LinearPercentIndicator(
+                    width: 100.0,
+                    lineHeight: 8.0,
                     percent: 0.5,
-                    center: Text(
-                      '50.0%',
-                      style: TextStyle(fontSize: 12.0),
-                    ),
-                    trailing: Icon(Icons.mood),
-                    linearStrokeCap: LinearStrokeCap.roundAll,
-                    backgroundColor: Colors.grey,
+                    progressColor: Colors.orange,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  LinearPercentIndicator(
+                    width: 100.0,
+                    lineHeight: 8.0,
+                    percent: 0.9,
                     progressColor: Colors.blue,
                   ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(15.0),
-                child: LinearPercentIndicator(
-                  animation: true,
-                  animationDuration: 500,
-                  lineHeight: 20.0,
-                  leading: Expanded(
-                    child: Text('left content'),
+                  SizedBox(
+                    height: 10,
                   ),
-                  trailing: Expanded(
-                      child: Text(
-                    'right content',
-                    textAlign: TextAlign.end,
-                  )),
-                  percent: 0.2,
-                  center: Text('20.0%'),
-                  linearStrokeCap: LinearStrokeCap.butt,
-                  progressColor: Colors.red,
-                ),
+                  LinearPercentIndicator(
+                    width: 100.0,
+                    lineHeight: 8.0,
+                    percent: 1.0,
+                    progressColor: Colors.lightBlueAccent,
+                    restartAnimation: true,
+                    animation: true,
+                  )
+                ],
               ),
-              Padding(
-                padding: EdgeInsets.all(15.0),
-                child: LinearPercentIndicator(
-                  width: maxWidth,
-                  animation: true,
-                  lineHeight: 20.0,
-                  animationDuration: 2000,
-                  percent: 0.9,
-                  animateFromLastPercent: true,
-                  center: Text('90.0%'),
-                  linearStrokeCap: LinearStrokeCap.roundAll,
-                  progressColor: Colors.greenAccent,
-                  maskFilter: MaskFilter.blur(BlurStyle.solid, 3),
-                ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(15),
+              child: LinearPercentIndicator(
+                lineHeight: 20,
+                center: Text('50%'),
+                progressColor: Colors.blueAccent,
+                percent: .5,
+                animation: true,
+                animationDuration: 5000,
+                onAnimationEnd: () =>
+                    setState(() => state = 'End Animation at 50%'),
               ),
-              Padding(
-                padding: EdgeInsets.all(15.0),
-                child: LinearPercentIndicator(
-                  width: maxWidth,
-                  animation: true,
-                  lineHeight: 20.0,
-                  animationDuration: 2500,
-                  percent: 0.8,
-                  center: Text('80.0%'),
-                  linearStrokeCap: LinearStrokeCap.roundAll,
-                  progressColor: Colors.green,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(15.0),
-                child: LinearPercentIndicator(
-                  animation: true,
-                  lineHeight: 20.0,
-                  animationDuration: 2500,
-                  percent: 0.55,
-                  center: Text('55.0%'),
-                  linearStrokeCap: LinearStrokeCap.roundAll,
-                  progressColor: Colors.green,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(15.0),
-                child: Column(
-                  children: <Widget>[
-                    LinearPercentIndicator(
-                      width: 100.0,
-                      lineHeight: 8.0,
-                      percent: 0.2,
-                      progressColor: Colors.red,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    LinearPercentIndicator(
-                      width: 100.0,
-                      lineHeight: 8.0,
-                      percent: 0.5,
-                      progressColor: Colors.orange,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    LinearPercentIndicator(
-                      width: 100.0,
-                      lineHeight: 8.0,
-                      percent: 0.9,
-                      progressColor: Colors.blue,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    LinearPercentIndicator(
-                      width: 100.0,
-                      lineHeight: 8.0,
-                      percent: 1.0,
-                      progressColor: Colors.lightBlueAccent,
-                      restartAnimation: true,
-                      animation: true,
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(15),
-                child: LinearPercentIndicator(
-                  lineHeight: 20,
-                  center: Text('50%'),
-                  progressColor: Colors.blueAccent,
-                  percent: .5,
-                  animation: true,
-                  animationDuration: 5000,
-                  onAnimationEnd: () =>
-                      setState(() => state = 'End Animation at 50%'),
-                ),
-              ),
-              Text(state),
-            ],
-          ),
+            ),
+            Text(state),
+          ],
         ),
       ),
     );

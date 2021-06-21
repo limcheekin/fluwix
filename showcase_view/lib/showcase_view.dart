@@ -79,15 +79,12 @@ class ShowcaseView extends StatelessWidget {
           path: readMe,
         ),
       if (showCode)
-        Scrollbar(
-          isAlwaysShown: kIsWeb,
-          child: SingleChildScrollView(
-            child: SourceCodeView(
-              owner: owner,
-              repository: repository,
-              ref: ref,
-              paths: codePaths,
-            ),
+        SingleChildScrollView(
+          child: SourceCodeView(
+            owner: owner,
+            repository: repository,
+            ref: ref,
+            paths: codePaths,
           ),
         ),
       if (showLicense)

@@ -34,13 +34,10 @@ class _ReadMeViewState extends AbstractGithubViewState<ReadMeView> {
   @override
   Widget buildWidget(BuildContext context, String responseBody) {
     return Expanded(
-      child: Scrollbar(
-        isAlwaysShown: kIsWeb,
-        child: Markdown(
-          data: _addCorsProxyToImageUrls(responseBody),
-          selectable: true,
-          onTapLink: _onTapLink,
-        ),
+      child: Markdown(
+        data: _addCorsProxyToImageUrls(responseBody),
+        selectable: true,
+        onTapLink: _onTapLink,
       ),
     );
   }

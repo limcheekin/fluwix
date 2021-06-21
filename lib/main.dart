@@ -194,26 +194,23 @@ class _WideLayoutState extends State<WideLayout> {
         children: [
           SizedBox(
             width: LEFT_NAVIGATION_PANEL_WIDTH,
-            child: Scrollbar(
-              isAlwaysShown: kIsWeb,
-              child: ListView.builder(
-                itemCount: appModule.routes.length - 1,
-                itemBuilder: (BuildContext context, int index) {
-                  final routerName = appModule.routes[index].routerName;
-                  return ListTile(
-                    title: Text(routerName.substring(1).toTitleCase()),
-                    selected: index == _selectedIndex,
-                    trailing: index == _selectedIndex
-                        ? Icon(Icons.keyboard_arrow_right)
-                        : null,
-                    onTap: () {
-                      setState(() {
-                        _selectedIndex = index;
-                      });
-                    },
-                  );
-                },
-              ),
+            child: ListView.builder(
+              itemCount: appModule.routes.length - 1,
+              itemBuilder: (BuildContext context, int index) {
+                final routerName = appModule.routes[index].routerName;
+                return ListTile(
+                  title: Text(routerName.substring(1).toTitleCase()),
+                  selected: index == _selectedIndex,
+                  trailing: index == _selectedIndex
+                      ? Icon(Icons.keyboard_arrow_right)
+                      : null,
+                  onTap: () {
+                    setState(() {
+                      _selectedIndex = index;
+                    });
+                  },
+                );
+              },
             ),
           ),
           Expanded(
