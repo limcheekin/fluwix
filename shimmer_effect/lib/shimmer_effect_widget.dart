@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -7,37 +6,33 @@ class ShimmerEffectWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return kIsWeb
-        ? Center(
-            child: Text('Shimmer Effect is not supported in Flutter Web!'),
-          )
-        : DefaultTabController(
-            length: 2,
-            child: Column(
+    return DefaultTabController(
+      length: 2,
+      child: Column(
+        children: [
+          TabBar(
+            labelColor: Colors.blue,
+            unselectedLabelColor: Colors.black,
+            tabs: [
+              Tab(
+                text: 'Loading List',
+              ),
+              Tab(
+                text: 'Slide To Unlock',
+              ),
+            ],
+          ),
+          Expanded(
+            child: TabBarView(
               children: [
-                TabBar(
-                  labelColor: Colors.blue,
-                  unselectedLabelColor: Colors.black,
-                  tabs: [
-                    Tab(
-                      text: 'Loading List',
-                    ),
-                    Tab(
-                      text: 'Slide To Unlock',
-                    ),
-                  ],
-                ),
-                Expanded(
-                  child: TabBarView(
-                    children: [
-                      LoadingListPage(),
-                      SlideToUnlockPage(),
-                    ],
-                  ),
-                ),
+                LoadingListPage(),
+                SlideToUnlockPage(),
               ],
             ),
-          );
+          ),
+        ],
+      ),
+    );
   }
 }
 
