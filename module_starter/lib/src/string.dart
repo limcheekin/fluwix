@@ -8,8 +8,6 @@ extension StringExtension on String {
   }) {
     final text = this;
 
-    if (text == null) throw ArgumentError('string: $text');
-
     if (text.isEmpty) return text;
 
     return text
