@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "265761888148",
+    "project_id": "fluwix-com",
+    "storage_bucket": "fluwix-com.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265761888148:android:a25bb77722a5771590e181",
+        "android_client_info": {
+          "package_name": "com.fluwix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265761888148-srvk33dis6mkn6ip36b25posu5j8sqs8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOGYpLZMrHhtCq56FRc8SWviOsxPtavrQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265761888148-srvk33dis6mkn6ip36b25posu5j8sqs8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
