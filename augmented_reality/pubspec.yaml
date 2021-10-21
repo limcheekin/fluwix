@@ -1,0 +1,43 @@
+name: augmented_reality
+description: Augmented Reality module.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  ar_flutter_plugin: ^0.5.1
+  firebase_core: ^1.6.0
+  cloud_firestore: ^2.5.3
+  geoflutterfire: ^3.0.1
+  path_provider: ^2.0.3
+  flutter_archive: ^4.0.1
+  common_ui:
+    path: ../common_ui
+  showcase_view:
+    path: ../showcase_view  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  flutter_lints:
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+  #  - assets/images/triangle.png
+  #  - assets/models/Chicken_01/
+
+  module:
+    androidX: true
+    androidPackage: com.fluwix.augmented_reality
+    iosBundleIdentifier: com.fluwix.augmentedReality
