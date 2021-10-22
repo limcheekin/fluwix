@@ -48,39 +48,45 @@ class AugmentedRealityWidget extends StatelessWidget {
       Example(
           'Debug Options',
           'Visualize feature points, planes and world coordinate system',
-          () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => DebugOptionsWidget()))),
+          () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const DebugOptionsWidget()))),
       Example(
           'Local & Online Objects',
           'Place 3D objects from Flutter assets and the web into the scene',
           () => Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => LocalAndWebObjectsWidget()))),
+                  builder: (context) => const LocalAndWebObjectsWidget()))),
       Example(
           'Anchors & Objects on Planes',
           'Place 3D objects on detected planes using anchors',
           () => Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => ObjectsOnPlanesWidget()))),
+                  builder: (context) => const ObjectsOnPlanesWidget()))),
       Example(
           'Screenshots',
           'Place 3D objects on planes and take screenshots',
-          () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => ScreenshotWidget()))),
+          () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const ScreenshotWidget()))),
       Example(
           'Cloud Anchors',
           'Place and retrieve 3D objects using the Google Cloud Anchor API',
-          () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => CloudAnchorWidget()))),
+          () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const CloudAnchorWidget()))),
       Example(
           'External Model Management',
           'Similar to Cloud Anchors example, but uses external database to choose from available 3D models',
           () => Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => ExternalModelManagementWidget())))
+                  builder: (context) => const ExternalModelManagementWidget())))
     ];
     return ListView(
       children:

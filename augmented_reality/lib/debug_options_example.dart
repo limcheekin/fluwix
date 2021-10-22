@@ -7,19 +7,19 @@ import 'package:ar_flutter_plugin/ar_flutter_plugin.dart';
 import 'package:ar_flutter_plugin/datatypes/config_planedetection.dart';
 
 class DebugOptionsWidget extends StatefulWidget {
-  DebugOptionsWidget({Key key}) : super(key: key);
+  const DebugOptionsWidget({Key? key}) : super(key: key);
   @override
   _DebugOptionsWidgetState createState() => _DebugOptionsWidgetState();
 }
 
 class _DebugOptionsWidgetState extends State<DebugOptionsWidget> {
-  ARSessionManager arSessionManager;
-  ARObjectManager arObjectManager;
+  late ARSessionManager arSessionManager;
+  late ARObjectManager arObjectManager;
   bool _showFeaturePoints = false;
   bool _showPlanes = false;
   bool _showWorldOrigin = false;
-  String _planeTexturePath = "assets/images/triangle.png";
-  bool _handleTaps = false;
+  final String _planeTexturePath = "assets/images/triangle.png";
+  final bool _handleTaps = false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +27,7 @@ class _DebugOptionsWidgetState extends State<DebugOptionsWidget> {
         appBar: AppBar(
           title: const Text('Debug Options'),
         ),
-        body: Container(
-            child: Stack(children: [
+        body: Stack(children: [
           ARView(
             onARViewCreated: onARViewCreated,
             planeDetectionConfig: PlaneDetectionConfig.horizontalAndVertical,
@@ -38,7 +37,7 @@ class _DebugOptionsWidgetState extends State<DebugOptionsWidget> {
             alignment: FractionalOffset.bottomRight,
             child: Container(
               width: MediaQuery.of(context).size.width * 0.5,
-              color: Color(0xFFFFFFF).withOpacity(0.5),
+              color: const Color(0xFFFFFFFF).withOpacity(0.5),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisSize: MainAxisSize.min,
@@ -77,7 +76,7 @@ class _DebugOptionsWidgetState extends State<DebugOptionsWidget> {
               ),
             ),
           ),
-        ])));
+        ]));
   }
 
   void onARViewCreated(
@@ -99,11 +98,11 @@ class _DebugOptionsWidgetState extends State<DebugOptionsWidget> {
   }
 
   void updateSessionSettings() {
-    this.arSessionManager.onInitialize(
-          showFeaturePoints: _showFeaturePoints,
-          showPlanes: _showPlanes,
-          customPlaneTexturePath: _planeTexturePath,
-          showWorldOrigin: _showWorldOrigin,
-        );
+    arSessionManager.onInitialize(
+      showFeaturePoints: _showFeaturePoints,
+      showPlanes: _showPlanes,
+      customPlaneTexturePath: _planeTexturePath,
+      showWorldOrigin: _showWorldOrigin,
+    );
   }
 }
