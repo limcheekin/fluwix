@@ -4,7 +4,7 @@ import 'home.dart';
 
 /// The main gallery app widget.
 class ChartsScreen extends StatefulWidget {
-  ChartsScreen({Key key}) : super(key: key);
+  ChartsScreen({Key? key}) : super(key: key);
 
   @override
   ChartsScreenState createState() => new ChartsScreenState();
