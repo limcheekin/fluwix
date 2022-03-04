@@ -51,16 +51,13 @@ class Home extends StatelessWidget {
   final legendsGalleries = legends.buildGallery();
 
   Home(
-      {Key key,
-      this.showPerformanceOverlay,
-      this.onShowPerformanceOverlayChanged})
-      : super(key: key) {
-    assert(onShowPerformanceOverlayChanged != null);
-  }
+      {Key? key,
+      this.showPerformanceOverlay = false,
+      required this.onShowPerformanceOverlayChanged})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var route = ModalRoute.of(context).settings.name;
     var galleries = <Widget>[];
 
     galleries.addAll(
@@ -109,20 +106,9 @@ class Home extends StatelessWidget {
 
     return new Scaffold(
       drawer: new GalleryDrawer(
-          parentRoute: route,
           showPerformanceOverlay: showPerformanceOverlay,
           onShowPerformanceOverlayChanged: onShowPerformanceOverlayChanged),
-      appBar: new AppBar(
-        title: new Text(defaultConfig.appName),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.close),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      ),
+      appBar: new AppBar(title: new Text(defaultConfig.appName)),
       body: new ListView(padding: kMaterialListPadding, children: galleries),
     );
   }

@@ -17,7 +17,6 @@ import 'dart:math';
 // EXCLUDE_FROM_GALLERY_DOCS_END
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 
 /// This is just a simple line chart with a behavior that adds slider controls.
@@ -33,10 +32,10 @@ import 'package:flutter/scheduler.dart';
 /// [Slider.moveSliderToDomain] can be called to programmatically position the
 /// slider. This is useful for synchronizing the slider with external elements.
 class SliderLine extends StatefulWidget {
-  final List<charts.Series> seriesList;
+  final List<charts.Series<dynamic, num>> seriesList;
   final bool animate;
 
-  SliderLine(this.seriesList, {this.animate});
+  SliderLine(this.seriesList, {this.animate = false});
 
   /// Creates a [LineChart] with sample data and no transition.
   factory SliderLine.withSampleData() {
@@ -103,9 +102,9 @@ class SliderLine extends StatefulWidget {
 }
 
 class _SliderCallbackState extends State<SliderLine> {
-  num _sliderDomainValue;
-  String _sliderDragState;
-  Point<int> _sliderPosition;
+  num? _sliderDomainValue;
+  String? _sliderDragState;
+  Point<int>? _sliderPosition;
 
   // Handles callbacks when the user drags the slider.
   _onSliderChange(Point<int> point, dynamic domain, String roleId,
@@ -119,7 +118,7 @@ class _SliderCallbackState extends State<SliderLine> {
       });
     }
 
-    SchedulerBinding.instance.addPostFrameCallback(rebuild);
+    SchedulerBinding.instance!.addPostFrameCallback(rebuild);
   }
 
   @override
@@ -175,7 +174,7 @@ class _SliderCallbackState extends State<SliderLine> {
       children.add(new Padding(
           padding: new EdgeInsets.only(top: 5.0),
           child: new Text(
-              'Slider position: ${_sliderPosition.x}, ${_sliderPosition.y}')));
+              'Slider position: ${_sliderPosition!.x}, ${_sliderPosition!.y}')));
     }
     if (_sliderDragState != null) {
       children.add(new Padding(

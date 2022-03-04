@@ -15,7 +15,7 @@ import 'i18n/i18n_gallery.dart' as i18n show buildGallery;
 import 'legends/legends_gallery.dart' as legends show buildGallery;
 
 class ChartsGalleryScreen extends StatelessWidget {
-  const ChartsGalleryScreen({Key key}) : super(key: key);
+  const ChartsGalleryScreen({Key? key}) : super(key: key);
 
   static const owner = 'google';
   static const repository = 'charts';
@@ -40,7 +40,7 @@ class ChartsGalleryScreen extends StatelessWidget {
 }
 
 class ChartsGalleryWidget extends StatelessWidget {
-  ChartsGalleryWidget({Key key}) : super(key: key);
+  ChartsGalleryWidget({Key? key}) : super(key: key);
   final a11yGalleries = a11y.buildGallery();
   final barGalleries = bar.buildGallery();
   final timeSeriesGalleries = time_series.buildGallery();
