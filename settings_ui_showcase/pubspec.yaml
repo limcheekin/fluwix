@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  settings_ui: ^1.0.0
+  settings_ui: ^2.0.2
   common_ui:
     path: ../common_ui
   showcase_view:
