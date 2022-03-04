@@ -173,7 +173,7 @@ class ChartDataTableWidget extends StatelessWidget {
     final quarterFormat = DateFormat('MMM yy');
     final numberFormat = NumberFormat('###,###,###,###');
     var year = quarterResults[0].financialYearEnd.year;
-    var dataRowColor = Colors.transparent;
+    Color? dataRowColor = Colors.transparent;
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: DataTable(
