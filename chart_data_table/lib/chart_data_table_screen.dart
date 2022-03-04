@@ -4,7 +4,7 @@ import 'package:showcase_view/showcase_view.dart';
 import 'chart_data_table_widget.dart';
 
 class ChartDataTableScreen extends StatelessWidget {
-  const ChartDataTableScreen({Key key}) : super(key: key);
+  const ChartDataTableScreen({Key? key}) : super(key: key);
 
   static const owner = 'limcheekin';
   static const repository = 'fluwix';
