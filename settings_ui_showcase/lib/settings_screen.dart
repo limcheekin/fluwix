@@ -14,18 +14,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return buildSettingsList();
+    return Scaffold(
+      appBar: AppBar(title: Text('Settings UI')),
+      body: buildSettingsList(),
+    );
   }
 
   Widget buildSettingsList() {
     return SettingsList(
       sections: [
         SettingsSection(
-          title: 'Common',
+          title: Text('Common'),
           tiles: [
             SettingsTile(
-              title: 'Language',
-              subtitle: 'English',
+              title: Text('Language'),
+              value: Text('English'),
               leading: Icon(Icons.language),
               onPressed: (context) {
                 Navigator.of(context).push(MaterialPageRoute(
@@ -33,28 +36,50 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ));
               },
             ),
+            CustomSettingsTile(
+              child: Container(
+                color: Color(0xFFEFEFF4),
+                padding: EdgeInsetsDirectional.only(
+                  start: 14,
+                  top: 12,
+                  bottom: 30,
+                  end: 14,
+                ),
+                child: Text(
+                  'You can setup the language you want',
+                  style: TextStyle(
+                    color: Colors.grey.shade700,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 13.5,
+                    letterSpacing: -0.5,
+                  ),
+                ),
+              ),
+            ),
             SettingsTile(
-              title: 'Environment',
-              subtitle: 'Production',
+              title: Text('Environment'),
+              value: Text('Production'),
               leading: Icon(Icons.cloud_queue),
             ),
           ],
         ),
         SettingsSection(
-          title: 'Account',
+          title: Text('Account'),
           tiles: [
-            SettingsTile(title: 'Phone number', leading: Icon(Icons.phone)),
-            SettingsTile(title: 'Email', leading: Icon(Icons.email)),
-            SettingsTile(title: 'Sign out', leading: Icon(Icons.exit_to_app)),
+            SettingsTile(
+                title: Text('Phone number'), leading: Icon(Icons.phone)),
+            SettingsTile(title: Text('Email'), leading: Icon(Icons.email)),
+            SettingsTile(
+                title: Text('Sign out'), leading: Icon(Icons.exit_to_app)),
           ],
         ),
         SettingsSection(
-          title: 'Security',
+          title: Text('Security'),
           tiles: [
             SettingsTile.switchTile(
-              title: 'Lock app in background',
+              title: Text('Lock app in background'),
               leading: Icon(Icons.phonelink_lock),
-              switchValue: lockInBackground,
+              initialValue: lockInBackground,
               onToggle: (bool value) {
                 setState(() {
                   lockInBackground = value;
@@ -63,43 +88,46 @@ class _SettingsScreenState extends State<SettingsScreen> {
               },
             ),
             SettingsTile.switchTile(
-                title: 'Use fingerprint',
-                subtitle: 'Allow application to access stored fingerprint IDs.',
-                leading: Icon(Icons.fingerprint),
-                onToggle: (bool value) {},
-                switchValue: false),
+              title: Text('Use fingerprint'),
+              description:
+                  Text('Allow application to access stored fingerprint IDs.'),
+              leading: Icon(Icons.fingerprint),
+              onToggle: (bool value) {},
+              initialValue: false,
+            ),
             SettingsTile.switchTile(
-              title: 'Change password',
+              title: Text('Change password'),
               leading: Icon(Icons.lock),
-              switchValue: true,
+              initialValue: true,
               onToggle: (bool value) {},
             ),
             SettingsTile.switchTile(
-              title: 'Enable Notifications',
+              title: Text('Enable Notifications'),
               enabled: notificationsEnabled,
               leading: Icon(Icons.notifications_active),
-              switchValue: true,
+              initialValue: true,
               onToggle: (value) {},
             ),
           ],
         ),
         SettingsSection(
-          title: 'Misc',
+          title: Text('Misc'),
           tiles: [
             SettingsTile(
-                title: 'Terms of Service', leading: Icon(Icons.description)),
+                title: Text('Terms of Service'),
+                leading: Icon(Icons.description)),
             SettingsTile(
-                title: 'Open source licenses',
+                title: Text('Open source licenses'),
                 leading: Icon(Icons.collections_bookmark)),
           ],
         ),
-        CustomSection(
+        CustomSettingsSection(
           child: Column(
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 22, bottom: 8),
                 child: Image.asset(
-                  'packages/settings_ui_showcase/assets/settings.png',
+                  'assets/settings.png',
                   height: 50,
                   width: 50,
                   color: Color(0xFF777777),

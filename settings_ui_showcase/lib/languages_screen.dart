@@ -17,28 +17,28 @@ class _LanguagesScreenState extends State<LanguagesScreen> {
         sections: [
           SettingsSection(tiles: [
             SettingsTile(
-              title: 'English',
+              title: Text('English'),
               trailing: trailingWidget(0),
               onPressed: (BuildContext context) {
                 changeLanguage(0);
               },
             ),
             SettingsTile(
-              title: 'Spanish',
+              title: Text('Spanish'),
               trailing: trailingWidget(1),
               onPressed: (BuildContext context) {
                 changeLanguage(1);
               },
             ),
             SettingsTile(
-              title: 'Chinese',
+              title: Text('Chinese'),
               trailing: trailingWidget(2),
               onPressed: (BuildContext context) {
                 changeLanguage(2);
               },
             ),
             SettingsTile(
-              title: 'German',
+              title: Text('German'),
               trailing: trailingWidget(3),
               onPressed: (BuildContext context) {
                 changeLanguage(3);
