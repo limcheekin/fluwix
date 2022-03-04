@@ -19,6 +19,9 @@ dependencies:
   showcase_view:
     path: ../showcase_view
 
+dependency_overrides:
+  intl: ^0.17.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
