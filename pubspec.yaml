@@ -15,6 +15,7 @@ dependencies:
   flutter_modular: ^3.0.2+1
   responsive_builder: ^0.4.1
   url_strategy: ^0.2.0
+  flutter_native_splash: ^2.0.5
   nested_list:
     path: nested_list
   tab_buttons:
@@ -64,7 +65,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.9.0
-  flutter_native_splash: ^1.0.1
   module_starter:
     path: module_starter
 
@@ -78,9 +78,8 @@ flutter_icons:
 
 flutter_native_splash:
   color: "#ffffff"
-  image: dev_assets/images/icon_white_bg.png
+  image: dev_assets/images/icon512x512.png
   color_dark: "#000000"
-  image_dark: dev_assets/images/icon_black_bg.png
   fullscreen: true
 
 flutter:

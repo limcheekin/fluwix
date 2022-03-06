@@ -385,12 +385,12 @@ packages:
     source: hosted
     version: "0.0.2"
   flutter_native_splash:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: flutter_native_splash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.3.3"
+    version: "2.0.5"
   flutter_neumorphic:
     dependency: transitive
     description:

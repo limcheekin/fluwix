@@ -28,13 +28,17 @@ import 'package:common_ui/constants.dart';
 import 'package:search_bar/search_bar_screen.dart';
 import 'package:number_trivia/number_trivia_screen.dart';
 import 'package:number_trivia/dependencies.dart' as numberTriviaDi;
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'string.dart';
 
 final AppModule appModule = AppModule();
 void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   setPathUrlStrategy();
   numberTriviaDi.init();
   runApp(ModularApp(module: appModule, child: AppWidget()));
+  FlutterNativeSplash.remove();
 }
 
 class AppModule extends Module {
