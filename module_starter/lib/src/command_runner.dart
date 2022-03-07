@@ -44,22 +44,22 @@ class CommandRunner {
       final templateDirectory = '$workingDirectoryPath/module_starter/template';
 
       await _copyPasteFileContent(
-        '$templateDirectory/pubspec.yaml',
+        '$templateDirectory/pubspec.tpl',
         '$moduleDirectory/pubspec.yaml',
       );
 
       await _copyPasteFileContent(
-        '$templateDirectory/analysis_options.yaml',
+        '$templateDirectory/analysis_options.tpl',
         '$moduleDirectory/analysis_options.yaml',
       );
 
       await _copyPasteFileContent(
-        '$templateDirectory/main.dart',
+        '$templateDirectory/main.tpl',
         '$moduleDirectory/lib/main.dart',
       );
 
       await _copyPasteFileContent(
-        '$templateDirectory/module_name_screen.dart',
+        '$templateDirectory/module_name_screen.tpl',
         '$moduleDirectory/lib/${module_name}_screen.dart',
       );
 
