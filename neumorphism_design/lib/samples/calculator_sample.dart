@@ -65,9 +65,11 @@ class WidgetCalcButton extends StatelessWidget {
   }
 
   Color _backgroundColor(BuildContext context) {
-    return button.backgroundAccent
-        ? NeumorphicTheme.accentColor(context)
-        : null;
+    if (button.backgroundAccent) {
+      return NeumorphicTheme.accentColor(context);
+    } else {
+      return Colors.transparent;
+    }
   }
 
   @override
@@ -99,7 +101,7 @@ class _TopScreenWidget extends StatelessWidget {
     return Neumorphic(
       style: NeumorphicStyle(
         boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
-        depth: -1 * NeumorphicTheme.of(context).current.depth,
+        depth: -1 * NeumorphicTheme.of(context)!.current!.depth,
       ),
       child: FractionallySizedBox(
         widthFactor: 1,
@@ -202,7 +204,7 @@ class __PageContentState extends State<_PageContent> {
                 onPressed: () {
                   setState(() {
                     NeumorphicTheme.of(context)
-                        .updateCurrentTheme(NeumorphicThemeData(
+                        ?.updateCurrentTheme(NeumorphicThemeData(
                       depth: 1,
                       intensity: 0.5,
                       accentColor: Colors.cyan,
@@ -217,7 +219,7 @@ class __PageContentState extends State<_PageContent> {
                 onPressed: () {
                   setState(() {
                     NeumorphicTheme.of(context)
-                        .updateCurrentTheme(NeumorphicThemeData(
+                        ?.updateCurrentTheme(NeumorphicThemeData(
                       depth: 8,
                       intensity: 0.3,
                       accentColor: Colors.greenAccent,

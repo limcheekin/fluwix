@@ -6,7 +6,7 @@ import 'back_button.dart';
 
 class TopBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-  final List<Widget> actions;
+  final List<Widget>? actions;
 
   static const double kToolbarHeight = 110.0;
 

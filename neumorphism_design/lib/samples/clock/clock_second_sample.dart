@@ -230,8 +230,8 @@ class Alarm {
   final String label;
 
   const Alarm({
-    @required this.enabled,
-    @required this.time,
-    @required this.label,
+    required this.enabled,
+    required this.time,
+    required this.label,
   });
 }

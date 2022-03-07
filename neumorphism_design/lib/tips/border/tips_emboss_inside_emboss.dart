@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class TipsRecursiveeEmbossPage extends StatefulWidget {
-  TipsRecursiveeEmbossPage({Key key}) : super(key: key);
+  TipsRecursiveeEmbossPage({Key? key}) : super(key: key);
 
   @override
   _WidgetPageState createState() => _WidgetPageState();
@@ -88,14 +88,16 @@ class _EmbossmbossWidgetState extends State<_EmbossmbossWidget> {
   }
 
   Widget _generateEmbosss(
-      {int number, Widget child, bool reverseEachPair = false}) {
+      {required int number,
+      required Widget child,
+      bool reverseEachPair = false}) {
     var element = child;
     for (var i = 0; i < number; ++i) {
       element = Neumorphic(
         padding: EdgeInsets.all(20),
         style: NeumorphicStyle(
           boxShape: NeumorphicBoxShape.circle(),
-          depth: -(NeumorphicTheme.depth(context).abs()), //force negative
+          depth: -(NeumorphicTheme.depth(context)?.abs())!, //force negative
           oppositeShadowLightSource: (reverseEachPair && i % 2 == 0),
         ),
         child: element,

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class SliderWidgetPage extends StatefulWidget {
-  SliderWidgetPage({Key key}) : super(key: key);
+  SliderWidgetPage({Key? key}) : super(key: key);
 
   @override
   _WidgetPageState createState() => _WidgetPageState();

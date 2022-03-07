@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class ButtonWidgetPage extends StatefulWidget {
-  ButtonWidgetPage({Key key}) : super(key: key);
+  ButtonWidgetPage({Key? key}) : super(key: key);
 
   @override
   _WidgetPageState createState() => _WidgetPageState();

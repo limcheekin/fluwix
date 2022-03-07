@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class SwitchWidgetPage extends StatefulWidget {
-  SwitchWidgetPage({Key key}) : super(key: key);
+  SwitchWidgetPage({Key? key}) : super(key: key);
 
   @override
   _WidgetPageState createState() => _WidgetPageState();

@@ -4,7 +4,7 @@ import 'package:showcase_view/showcase_view.dart';
 import 'neumorphism_design_widget.dart';
 
 class NeumorphismDesignScreen extends StatelessWidget {
-  const NeumorphismDesignScreen({Key key}) : super(key: key);
+  const NeumorphismDesignScreen({Key? key}) : super(key: key);
 
   static const owner = 'Idean';
   static const repository = 'Flutter-Neumorphic';

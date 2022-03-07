@@ -92,7 +92,7 @@ class __PageState extends State<_Page> {
     if (theme.isUsingDark) {
       return theme.current.accentColor;
     } else {
-      return null;
+      return Colors.transparent;
     }
   }
 }

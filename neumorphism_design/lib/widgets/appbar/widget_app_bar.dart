@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class AppBarWidgetPage extends StatelessWidget {
-  AppBarWidgetPage({Key key}) : super(key: key);
+  AppBarWidgetPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -152,7 +152,7 @@ class FirstThemeContent extends StatelessWidget {
 class _MyDrawer extends StatelessWidget {
   final bool isLead;
 
-  const _MyDrawer({Key key, this.isLead = true}) : super(key: key);
+  const _MyDrawer({Key? key, this.isLead = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

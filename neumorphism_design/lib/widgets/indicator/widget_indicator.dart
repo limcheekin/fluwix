@@ -8,7 +8,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'dart:math' show Random;
 
 class IndicatorWidgetPage extends StatefulWidget {
-  IndicatorWidgetPage({Key key}) : super(key: key);
+  IndicatorWidgetPage({Key? key}) : super(key: key);
 
   @override
   _WidgetPageState createState() => _WidgetPageState();
