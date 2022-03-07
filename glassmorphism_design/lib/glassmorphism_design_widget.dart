@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
-import 'dart:ui';
 
 final String likes = '67',
     gotpoints = '130',
     popularity = '83',
     totalPoints = '130',
     details = 'A Flutter Glassmorphic UI package',
-    pac = 'glassmorphism: ^2.0.1',
-    date = 'Apr 30, 2021';
+    pac = 'glassmorphism: ^3.0.0',
+    date = 'Mar 7, 2022';
 
 class GlassmorphismDesignWidget extends StatefulWidget {
-  GlassmorphismDesignWidget({Key key, this.title}) : super(key: key);
-  final String title;
+  GlassmorphismDesignWidget({Key? key}) : super(key: key);
 
   @override
   _GlassmorphismDesignWidgetState createState() =>
@@ -345,7 +343,7 @@ Widget GlassCard(var context) {
 
 class Body2 extends StatelessWidget {
   const Body2({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
