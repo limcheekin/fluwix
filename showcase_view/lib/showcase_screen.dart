@@ -4,10 +4,10 @@ import 'showcase_view.dart';
 
 class ShowcaseScreen extends StatelessWidget {
   static const owner = 'limcheekin';
-  static const repository = 'flutter-widgets-explorer';
+  static const repository = 'fluwix';
   static const branch = 'showcase_view';
 
-  const ShowcaseScreen({Key key}) : super(key: key);
+  const ShowcaseScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

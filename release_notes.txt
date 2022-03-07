@@ -1,2 +1,2 @@
-Updated to flutter_modular navigation,
-Start migration to modules and integrating Showcase View.
+Web released to fluwix.com,
+Added Material Design Showcase.
