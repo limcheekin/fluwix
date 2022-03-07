@@ -5,7 +5,7 @@ import 'sample_circular_page.dart';
 import 'sample_linear_page.dart';
 
 class PercentIndicatorShowcaseScreen extends StatelessWidget {
-  const PercentIndicatorShowcaseScreen({Key key}) : super(key: key);
+  const PercentIndicatorShowcaseScreen({Key? key}) : super(key: key);
 
   static const owner = 'diegoveloper';
   static const repository = 'flutter_percent_indicator';
@@ -30,7 +30,7 @@ class PercentIndicatorShowcaseScreen extends StatelessWidget {
 }
 
 class PercentIndicatorShowcaseWidget extends StatelessWidget {
-  const PercentIndicatorShowcaseWidget({Key key}) : super(key: key);
+  const PercentIndicatorShowcaseWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
