@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
@@ -19,30 +21,30 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
   ];
 
   // The filtered & ordered history that's accessed from the UI
-  List<String> filteredSearchHistory;
+  List<String> filteredSearchHistory = List.empty();
 
   // The currently searched-for term
-  String selectedTerm;
+  String selectedTerm = '';
 
-  FloatingSearchBarController controller;
+  FloatingSearchBarController? controller;
 
   @override
   void initState() {
     super.initState();
     controller = FloatingSearchBarController();
-    filteredSearchHistory = filterSearchTerms(filter: null);
+    filteredSearchHistory = filterSearchTerms(filter: '');
   }
 
   @override
   void dispose() {
-    controller.dispose();
+    controller?.dispose();
     super.dispose();
   }
 
   List<String> filterSearchTerms({
-    @required String filter,
+    required String filter,
   }) {
-    if (filter != null && filter.isNotEmpty) {
+    if (filter.isNotEmpty) {
       // Reversed because we want the last added items to appear first in the UI
       return _searchHistory.reversed
           .where((term) => term.startsWith(filter))
@@ -63,12 +65,12 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
       _searchHistory.removeRange(0, _searchHistory.length - historyLength);
     }
     // Changes in _searchHistory mean that we have to update the filteredSearchHistory
-    filteredSearchHistory = filterSearchTerms(filter: null);
+    filteredSearchHistory = filterSearchTerms(filter: '');
   }
 
   void deleteSearchTerm(String term) {
     _searchHistory.removeWhere((t) => t == term);
-    filteredSearchHistory = filterSearchTerms(filter: null);
+    filteredSearchHistory = filterSearchTerms(filter: '');
   }
 
   void putSearchTermFirst(String term) {
@@ -89,7 +91,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
         transition: CircularFloatingSearchBarTransition(),
         physics: BouncingScrollPhysics(),
         title: Text(
-          selectedTerm ?? 'The Search App',
+          selectedTerm.isEmpty ? 'The Search App' : selectedTerm,
           style: Theme.of(context).textTheme.headline6,
         ),
         hint: 'Search and find out...',
@@ -106,7 +108,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
             addSearchTerm(query);
             selectedTerm = query;
           });
-          controller.close();
+          controller?.close();
         },
         builder: (context, transition) {
           return ClipRRect(
@@ -117,7 +119,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
               child: Builder(
                 builder: (context) {
                   if (filteredSearchHistory.isEmpty &&
-                      controller.query.isEmpty) {
+                      controller?.query == null) {
                     return Container(
                       height: 56,
                       width: double.infinity,
@@ -131,14 +133,14 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
                     );
                   } else if (filteredSearchHistory.isEmpty) {
                     return ListTile(
-                      title: Text(controller.query),
+                      title: Text(controller!.query),
                       leading: const Icon(Icons.search),
                       onTap: () {
                         setState(() {
-                          addSearchTerm(controller.query);
-                          selectedTerm = controller.query;
+                          addSearchTerm(controller!.query);
+                          selectedTerm = controller!.query;
                         });
-                        controller.close();
+                        controller?.close();
                       },
                     );
                   } else {
@@ -166,7 +168,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
                                   putSearchTermFirst(term);
                                   selectedTerm = term;
                                 });
-                                controller.close();
+                                controller?.close();
                               },
                             ),
                           )
@@ -187,8 +189,8 @@ class SearchResultsListView extends StatelessWidget {
   final String searchTerm;
 
   const SearchResultsListView({
-    Key key,
-    @required this.searchTerm,
+    Key? key,
+    required this.searchTerm,
   }) : super(key: key);
 
   @override

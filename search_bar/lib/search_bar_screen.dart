@@ -3,7 +3,7 @@ import 'search_bar_widget.dart';
 import 'package:showcase_view/showcase_view.dart';
 
 class SearchBarScreen extends StatelessWidget {
-  const SearchBarScreen({Key key}) : super(key: key);
+  const SearchBarScreen({Key? key}) : super(key: key);
 
   static const owner = 'ResoCoder';
   static const repository = 'flutter-search-bar-tutorial';
