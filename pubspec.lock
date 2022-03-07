@@ -2,12 +2,19 @@
 # See https://dart.dev/tools/pub/glossary#lockfile
 packages:
   animate_icons:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: animate_icons
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  animated_icons:
+    dependency: "direct main"
+    description:
+      path: animated_icons
+      relative: true
+    source: path
+    version: "1.0.0+1"
   archive:
     dependency: transitive
     description:
