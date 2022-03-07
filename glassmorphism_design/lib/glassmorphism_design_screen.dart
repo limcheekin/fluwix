@@ -4,7 +4,7 @@ import 'package:showcase_view/showcase_view.dart';
 import 'glassmorphism_design_widget.dart';
 
 class GlassmorphismDesignScreen extends StatelessWidget {
-  const GlassmorphismDesignScreen({Key key}) : super(key: key);
+  const GlassmorphismDesignScreen({Key? key}) : super(key: key);
 
   static const owner = 'RitickSaha';
   static const repository = 'glassmorphism';
