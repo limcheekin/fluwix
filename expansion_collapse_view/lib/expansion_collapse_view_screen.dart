@@ -5,7 +5,7 @@ import 'expansion_panel_screen.dart';
 import 'expansion_tile_screen.dart';
 
 class ExpansionCollapseViewScreen extends StatelessWidget {
-  const ExpansionCollapseViewScreen({Key key}) : super(key: key);
+  const ExpansionCollapseViewScreen({Key? key}) : super(key: key);
 
   static const owner = 'limcheekin';
   static const repository = 'fluwix';
@@ -31,7 +31,7 @@ class ExpansionCollapseViewScreen extends StatelessWidget {
 }
 
 class ExpansionCollapseViewWidget extends StatelessWidget {
-  const ExpansionCollapseViewWidget({Key key}) : super(key: key);
+  const ExpansionCollapseViewWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

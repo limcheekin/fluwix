@@ -75,5 +75,10 @@ class ExpansionPanelItem {
   final String title;
   final Widget content;
   final Icon leading;
-  ExpansionPanelItem({this.isExpanded, this.title, this.content, this.leading});
+  ExpansionPanelItem({
+    required this.isExpanded,
+    required this.title,
+    required this.content,
+    required this.leading,
+  });
 }
