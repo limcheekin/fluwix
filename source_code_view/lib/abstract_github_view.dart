@@ -95,21 +95,22 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
                         target: kIsWeb
                             ? LinkTarget.blank
                             : LinkTarget.defaultTarget,
-                        builder:
-                            (BuildContext context, FollowLink followLink) =>
-                                TextButton(
-                          onPressed: followLink,
-                          child: Text(
-                            linkText,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              decoration: TextDecoration.underline,
+                        builder: (BuildContext context,
+                            Future<void> Function()? followLink) {
+                          return TextButton(
+                            onPressed: followLink,
+                            child: Text(
+                              linkText,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                decoration: TextDecoration.underline,
+                              ),
                             ),
-                          ),
-                        ),
+                          );
+                        },
                       ),
                     ),
                   ),
@@ -229,8 +230,8 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
 
   Widget _buildShimmer(String linkText) {
     return Shimmer.fromColors(
-      baseColor: Colors.grey[300],
-      highlightColor: Colors.grey[100],
+      baseColor: Colors.grey[300]!,
+      highlightColor: Colors.grey[100]!,
       child: Column(
         children: [
           Row(
