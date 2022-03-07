@@ -4,7 +4,7 @@ import 'package:showcase_view/showcase_view.dart';
 import 'syntax_view_widget.dart';
 
 class SyntaxViewScreen extends StatelessWidget {
-  const SyntaxViewScreen({Key key}) : super(key: key);
+  const SyntaxViewScreen({Key? key}) : super(key: key);
 
   static const owner = 'limcheekin';
   static const repository = 'flutter-widgets-explorer';

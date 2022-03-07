@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:showcase_view/showcase_view.dart';
 
 class AnimatedIconsScreen extends StatelessWidget {
-  const AnimatedIconsScreen({Key key}) : super(key: key);
+  const AnimatedIconsScreen({Key? key}) : super(key: key);
 
   static const owner = 'limcheekin';
-  static const repository = 'flutter-widgets-explorer';
+  static const repository = 'fluwix';
   static const branch = 'animated_icons';
 
   @override
@@ -27,19 +27,14 @@ class AnimatedIconsScreen extends StatelessWidget {
 }
 
 class AnimatedIconsWidget extends StatefulWidget {
-  const AnimatedIconsWidget({Key key}) : super(key: key);
+  const AnimatedIconsWidget({Key? key}) : super(key: key);
 
   @override
   _AnimatedIconsWidgetState createState() => _AnimatedIconsWidgetState();
 }
 
 class _AnimatedIconsWidgetState extends State<AnimatedIconsWidget> {
-  AnimateIconController _controller;
-  @override
-  void initState() {
-    _controller = AnimateIconController();
-    super.initState();
-  }
+  final AnimateIconController _controller = AnimateIconController();
 
   @override
   Widget build(BuildContext context) {

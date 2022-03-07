@@ -14,17 +14,8 @@ dependencies:
 
   flutter_modular: ^3.0.2+1
   responsive_builder: ^0.4.1
-  url_strategy: ^0.2.0
   nested_list:
     path: nested_list
-  tab_buttons:
-    path: tab_buttons
-  stock_chart:
-    path: stock_chart  
-  source_code_view:
-    path: source_code_view
-  showcase_view:
-    path: showcase_view
   material_design_showcase:
     path: material_design_showcase
   about_dialog:
