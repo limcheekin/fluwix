@@ -25,21 +25,21 @@ class ShowcaseView extends StatelessWidget {
   static const GITHUB_URL = 'https://github.com/';
 
   const ShowcaseView({
-    @required this.title,
-    @required this.widget,
-    @required this.owner,
-    @required this.repository,
-    @required this.ref,
+    required this.title,
+    required this.widget,
+    required this.owner,
+    required this.repository,
+    required this.ref,
     this.fromRouteName = '/',
     this.showReadMe = true,
     this.readMe = 'README.md',
     this.showCode = true,
-    this.codePaths,
+    this.codePaths = const [],
     this.showLicense = true,
     this.license = 'LICENSE',
-    this.additionalTabs,
-    this.additionalTabBarViews,
-    Key key,
+    this.additionalTabs = const [],
+    this.additionalTabBarViews = const [],
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -62,7 +62,7 @@ class ShowcaseView extends StatelessWidget {
         ),
     ];
 
-    if (additionalTabs != null && additionalTabs.isNotEmpty) {
+    if (additionalTabs.isNotEmpty) {
       tabs.addAll(additionalTabs);
     }
 
@@ -96,7 +96,7 @@ class ShowcaseView extends StatelessWidget {
         ),
     ];
 
-    if (additionalTabBarViews != null && additionalTabBarViews.isNotEmpty) {
+    if (additionalTabBarViews.isNotEmpty) {
       tabBarViews.addAll(additionalTabBarViews);
     }
 
@@ -151,7 +151,7 @@ class ShowcaseView extends StatelessWidget {
                             ? LinkTarget.blank
                             : LinkTarget.defaultTarget,
                         builder:
-                            (BuildContext context, FollowLink followLink) =>
+                            (BuildContext context, Future<void> Function()? followLink) =>
                                 Row(
                           children: [
                             Text(

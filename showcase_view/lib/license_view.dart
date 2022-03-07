@@ -5,13 +5,13 @@ import 'package:source_code_view/multiple_requests_http_client.dart';
 
 class LicenseView extends AbstractGithubView {
   const LicenseView({
-    @required String owner,
-    @required String repository,
-    @required String ref,
-    @required String path,
-    MultipleRequestsHttpClient client,
+    required String owner,
+    required String repository,
+    required String ref,
+    required String path,
+    MultipleRequestsHttpClient? client,
     bool wantKeepAlive = true,
-    Key key,
+    Key? key,
   }) : super(
           owner: owner,
           repository: repository,
