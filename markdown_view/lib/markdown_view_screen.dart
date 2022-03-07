@@ -4,7 +4,7 @@ import 'package:showcase_view/showcase_view.dart';
 import 'markdown_view_widget.dart';
 
 class MarkdownViewScreen extends StatelessWidget {
-  const MarkdownViewScreen({Key key}) : super(key: key);
+  const MarkdownViewScreen({Key? key}) : super(key: key);
 
   static const owner = 'limcheekin';
   static const repository = 'fluwix';
