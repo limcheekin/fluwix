@@ -3,7 +3,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:showcase_view/showcase_view.dart';
 
 class AboutDialogScreen extends StatelessWidget {
-  const AboutDialogScreen({Key key}) : super(key: key);
+  const AboutDialogScreen({Key? key}) : super(key: key);
 
   static const owner = 'limcheekin';
   static const repository = 'fluwix';
@@ -27,7 +27,7 @@ class AboutDialogScreen extends StatelessWidget {
 }
 
 class AboutDialogWidget extends StatelessWidget {
-  const AboutDialogWidget({Key key}) : super(key: key);
+  const AboutDialogWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,7 @@ class AboutDialogWidget extends StatelessWidget {
                     showAboutDialog(
                       context: context,
                       applicationIcon: Logo(),
-                      applicationName: packageInfo.appName,
+                      applicationName: packageInfo!.appName,
                       applicationVersion: packageInfo.version,
                       applicationLegalese:
                           '\u{a9} ${DateTime.now().year} Lim Chee Kin',
@@ -65,7 +65,7 @@ class AboutDialogWidget extends StatelessWidget {
                 AboutListTile(
                   icon: Icon(Icons.info),
                   applicationIcon: Logo(),
-                  applicationName: packageInfo.appName,
+                  applicationName: packageInfo!.appName,
                   applicationVersion: packageInfo.version,
                   applicationLegalese:
                       '\u{a9} ${DateTime.now().year} Lim Chee Kin',
@@ -80,7 +80,7 @@ class AboutDialogWidget extends StatelessWidget {
 }
 
 class Logo extends StatelessWidget {
-  const Logo({Key key}) : super(key: key);
+  const Logo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
