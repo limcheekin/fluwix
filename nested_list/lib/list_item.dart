@@ -6,7 +6,7 @@ import 'content_card.dart';
 import 'horizontal_list.dart';
 
 class ListItem extends StatefulWidget {
-  const ListItem(this.nestedListData, this.index, {Key key}) : super(key: key);
+  const ListItem(this.nestedListData, this.index, {Key? key}) : super(key: key);
 
   final nestedListData;
   final index;
@@ -24,7 +24,7 @@ class _ListItemState extends State<ListItem> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.nestedListData[widget.index]['size'] == null
+    return widget.nestedListData[widget.index]['size'] == Null
         ? ContentCard(
             widget.nestedListData[widget.index]['data'][0],
             Random().nextInt(3) + 3,

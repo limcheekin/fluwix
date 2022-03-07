@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'content_card.dart';
 
 class HorizontalList extends StatelessWidget {
-  HorizontalList(this.size, this.listData, {Key key}) : super(key: key);
+  HorizontalList(this.size, this.listData, {Key? key}) : super(key: key);
   final size;
   final listData;
 

@@ -5,7 +5,7 @@ class ContentCard extends StatelessWidget {
     this.listData,
     this.numberOfRows,
     this.setSizeFn, {
-    Key key,
+    Key? key,
   }) : super(key: key);
   final listData;
   final numberOfRows;
