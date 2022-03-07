@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class IndeterminateProgressWidgetPage extends StatefulWidget {
-  IndeterminateProgressWidgetPage({Key key}) : super(key: key);
+  IndeterminateProgressWidgetPage({Key? key}) : super(key: key);
 
   @override
   _WidgetPageState createState() => _WidgetPageState();

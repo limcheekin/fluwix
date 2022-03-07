@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class ToggleWidgetPage extends StatefulWidget {
-  ToggleWidgetPage({Key key}) : super(key: key);
+  ToggleWidgetPage({Key? key}) : super(key: key);
 
   @override
   _WidgetPageState createState() => _WidgetPageState();

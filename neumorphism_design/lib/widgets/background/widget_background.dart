@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class BackgroundWidgetPage extends StatefulWidget {
-  BackgroundWidgetPage({Key key}) : super(key: key);
+  BackgroundWidgetPage({Key? key}) : super(key: key);
 
   @override
   _WidgetPageState createState() => _WidgetPageState();

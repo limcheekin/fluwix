@@ -30,7 +30,7 @@ class _Page extends StatefulWidget {
 class __PageState extends State<_Page> {
   LightSource lightSource = LightSource.topLeft;
   NeumorphicShape shape = NeumorphicShape.flat;
-  NeumorphicBoxShape boxShape;
+  NeumorphicBoxShape? boxShape;
   double depth = 5;
   double intensity = 0.5;
   double surfaceIntensity = 0.5;
@@ -248,7 +248,7 @@ class __PageState extends State<_Page> {
         return childCustomizer();
         break;
     }
-    return null;
+    return SizedBox.shrink();
   }
 
   Widget styleCustomizer() {
@@ -302,7 +302,7 @@ class __PageState extends State<_Page> {
           onColorChanged: (color) {
             setState(() {
               NeumorphicTheme.of(context)
-                  .updateCurrentTheme(NeumorphicThemeData(baseColor: color));
+                  ?.updateCurrentTheme(NeumorphicThemeData(baseColor: color));
             });
           },
           color: NeumorphicTheme.baseColor(context),
@@ -463,7 +463,7 @@ class __PageState extends State<_Page> {
             value: haveNeumorphicChild,
             onChanged: (value) {
               setState(() {
-                haveNeumorphicChild = value;
+                haveNeumorphicChild = value!;
               });
             },
           ),
@@ -489,7 +489,7 @@ class __PageState extends State<_Page> {
             value: drawAboveChild,
             onChanged: (value) {
               setState(() {
-                drawAboveChild = value;
+                drawAboveChild = value!;
               });
             },
           ),
@@ -515,7 +515,7 @@ class __PageState extends State<_Page> {
             value: childOppositeLightsourceChild,
             onChanged: (value) {
               setState(() {
-                childOppositeLightsourceChild = value;
+                childOppositeLightsourceChild = value!;
               });
             },
           ),
@@ -561,7 +561,7 @@ class __PageState extends State<_Page> {
   }
 
   Widget cornerRadiusSelector() {
-    if (boxShape.isRoundRect || boxShape.isBeveled) {
+    if (boxShape!.isRoundRect || boxShape!.isBeveled) {
       return Row(
         children: <Widget>[
           Padding(
@@ -576,11 +576,11 @@ class __PageState extends State<_Page> {
               onChanged: (value) {
                 setState(() {
                   cornerRadius = value;
-                  if (boxShape.isRoundRect) {
+                  if (boxShape!.isRoundRect) {
                     boxShape = NeumorphicBoxShape.roundRect(
                         BorderRadius.circular(cornerRadius));
                   }
-                  if (boxShape.isBeveled) {
+                  if (boxShape!.isBeveled) {
                     boxShape = NeumorphicBoxShape.beveled(
                         BorderRadius.circular(cornerRadius));
                   }
@@ -675,7 +675,7 @@ class __PageState extends State<_Page> {
                   ),
                 ),
                 backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                  (_) => boxShape.isRoundRect
+                  (_) => boxShape!.isRoundRect
                       ? buttonActiveColor
                       : buttonInnactiveColor,
                 ),
@@ -689,7 +689,7 @@ class __PageState extends State<_Page> {
               child: Text(
                 'Rect',
                 style: TextStyle(
-                    color: boxShape.isRoundRect
+                    color: boxShape!.isRoundRect
                         ? textActiveColor
                         : textInactiveColor),
               ),
@@ -708,7 +708,7 @@ class __PageState extends State<_Page> {
                   ),
                 ),
                 backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                  (_) => boxShape.isBeveled
+                  (_) => boxShape!.isBeveled
                       ? buttonActiveColor
                       : buttonInnactiveColor,
                 ),
@@ -722,7 +722,7 @@ class __PageState extends State<_Page> {
               child: Text(
                 'Beveled',
                 style: TextStyle(
-                    color: boxShape.isBeveled
+                    color: boxShape!.isBeveled
                         ? textActiveColor
                         : textInactiveColor),
               ),
@@ -741,7 +741,7 @@ class __PageState extends State<_Page> {
                   ),
                 ),
                 backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                  (_) => boxShape.isCircle
+                  (_) => boxShape!.isCircle
                       ? buttonActiveColor
                       : buttonInnactiveColor,
                 ),
@@ -754,7 +754,7 @@ class __PageState extends State<_Page> {
               child: Text(
                 'Circle',
                 style: TextStyle(
-                    color: boxShape.isCircle
+                    color: boxShape!.isCircle
                         ? textActiveColor
                         : textInactiveColor),
               ),
@@ -773,7 +773,7 @@ class __PageState extends State<_Page> {
                   ),
                 ),
                 backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                  (_) => boxShape.isStadium
+                  (_) => boxShape!.isStadium
                       ? buttonActiveColor
                       : buttonInnactiveColor,
                 ),
@@ -786,7 +786,7 @@ class __PageState extends State<_Page> {
               child: Text(
                 'Stadium',
                 style: TextStyle(
-                    color: boxShape.isStadium
+                    color: boxShape!.isStadium
                         ? textActiveColor
                         : textInactiveColor),
               ),
@@ -805,7 +805,7 @@ class __PageState extends State<_Page> {
                   ),
                 ),
                 backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                  (_) => boxShape.isCustomPath
+                  (_) => boxShape!.isCustomPath
                       ? buttonActiveColor
                       : buttonInnactiveColor,
                 ),
@@ -819,7 +819,7 @@ class __PageState extends State<_Page> {
               child: Text(
                 'Custom',
                 style: TextStyle(
-                    color: boxShape.isCustomPath
+                    color: boxShape!.isCustomPath
                         ? textActiveColor
                         : textInactiveColor),
               ),

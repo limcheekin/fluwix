@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class CheckboxWidgetPage extends StatefulWidget {
-  CheckboxWidgetPage({Key key}) : super(key: key);
+  CheckboxWidgetPage({Key? key}) : super(key: key);
 
   @override
   _WidgetPageState createState() => _WidgetPageState();

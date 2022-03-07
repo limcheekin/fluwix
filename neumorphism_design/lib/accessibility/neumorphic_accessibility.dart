@@ -41,8 +41,8 @@ class __PageState extends State<_Page> {
   double height = 150.0;
   double width = 150.0;
 
-  Color borderColor;
-  double borderWidth;
+  Color? borderColor;
+  double? borderWidth;
 
   static final minWidth = 50.0;
   static final maxWidth = 200.0;
@@ -251,7 +251,7 @@ class __PageState extends State<_Page> {
         return borderCustomizer();
         break;
     }
-    return null;
+    return SizedBox.shrink();
   }
 
   Widget styleCustomizer() {
@@ -301,7 +301,7 @@ class __PageState extends State<_Page> {
           onColorChanged: (color) {
             setState(() {
               NeumorphicTheme.of(context)
-                  .updateCurrentTheme(NeumorphicThemeData(baseColor: color));
+                  ?.updateCurrentTheme(NeumorphicThemeData(baseColor: color));
             });
           },
           color: NeumorphicTheme.baseColor(context),
@@ -326,7 +326,7 @@ class __PageState extends State<_Page> {
               borderColor = color;
             });
           },
-          color: borderColor,
+          color: borderColor!,
         ),
       ],
     );
@@ -404,7 +404,7 @@ class __PageState extends State<_Page> {
           child: Slider(
             min: 0,
             max: 10,
-            value: borderWidth,
+            value: borderWidth!,
             onChanged: (value) {
               setState(() {
                 borderWidth = value;
@@ -414,7 +414,7 @@ class __PageState extends State<_Page> {
         ),
         Padding(
           padding: EdgeInsets.only(right: 12),
-          child: Text(borderWidth.floor().toString()),
+          child: Text(borderWidth!.floor().toString()),
         ),
       ],
     );

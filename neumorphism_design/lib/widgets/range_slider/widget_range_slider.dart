@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class RangeSliderWidgetPage extends StatefulWidget {
-  RangeSliderWidgetPage({Key key}) : super(key: key);
+  RangeSliderWidgetPage({Key? key}) : super(key: key);
 
   @override
   State createState() => _RangeWidgetPageState();

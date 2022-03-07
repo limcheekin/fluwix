@@ -18,7 +18,7 @@ import 'slider/widget_slider.dart';
 import 'switch/widget_switch.dart';
 
 class WidgetsHome extends StatelessWidget {
-  Widget _buildButton({String text, VoidCallback onClick}) {
+  Widget _buildButton({required String text, required VoidCallback onClick}) {
     return NeumorphicButton(
       margin: EdgeInsets.only(bottom: 12),
       padding: EdgeInsets.symmetric(

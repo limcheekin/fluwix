@@ -10,7 +10,7 @@ import 'tips/tips_home.dart';
 import 'widgets/widgets_home.dart';
 
 class FullSampleHomePage extends StatelessWidget {
-  Widget _buildButton({String text, VoidCallback onClick}) {
+  Widget _buildButton({required String text, required VoidCallback onClick}) {
     return NeumorphicButton(
       margin: EdgeInsets.only(bottom: 12),
       padding: EdgeInsets.symmetric(

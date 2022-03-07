@@ -6,7 +6,7 @@ import 'border/tips_border.dart';
 import 'border/tips_emboss_inside_emboss.dart';
 
 class TipsHome extends StatelessWidget {
-  Widget _buildButton({String text, VoidCallback onClick}) {
+  Widget _buildButton({required String text, required VoidCallback onClick}) {
     return NeumorphicButton(
       margin: EdgeInsets.only(bottom: 12),
       padding: EdgeInsets.symmetric(

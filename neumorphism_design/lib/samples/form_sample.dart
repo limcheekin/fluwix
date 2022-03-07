@@ -35,7 +35,7 @@ class __PageState extends State<_Page> {
   String firstName = '';
   String lastName = '';
   double age = 12;
-  Gender gender;
+  Gender gender = Gender.NON_BINARY;
   Set<String> rides = {};
 
   @override
@@ -181,7 +181,7 @@ class _AgeField extends StatelessWidget {
   final double age;
   final ValueChanged<double> onChanged;
 
-  _AgeField({@required this.age, this.onChanged});
+  _AgeField({required this.age, required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -230,14 +230,15 @@ class _TextField extends StatefulWidget {
 
   final ValueChanged<String> onChanged;
 
-  _TextField({@required this.label, @required this.hint, this.onChanged});
+  _TextField(
+      {required this.label, required this.hint, required this.onChanged});
 
   @override
   __TextFieldState createState() => __TextFieldState();
 }
 
 class __TextFieldState extends State<_TextField> {
-  TextEditingController _controller;
+  TextEditingController? _controller;
 
   @override
   void initState() {
@@ -280,11 +281,11 @@ class __TextFieldState extends State<_TextField> {
 
 class _GenderField extends StatelessWidget {
   final Gender gender;
-  final ValueChanged<Gender> onChanged;
+  final ValueChanged<Object?> onChanged;
 
   const _GenderField({
-    @required this.gender,
-    @required this.onChanged,
+    required this.gender,
+    required this.onChanged,
   });
 
   @override
