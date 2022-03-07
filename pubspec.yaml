@@ -15,7 +15,7 @@ dependencies:
   flutter_modular: ^3.0.2+1
   responsive_builder: ^0.4.1
   url_strategy: ^0.2.0
-  flutter_native_splash: ^2.0.5
+  flutter_native_splash: ^2.1.0
   nested_list:
     path: nested_list
   tab_buttons:
