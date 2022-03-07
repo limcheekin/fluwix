@@ -7,15 +7,15 @@ class SourceCodeView extends StatelessWidget {
   final String repository;
   final String ref;
   final List<String> paths;
-  final MultipleRequestsHttpClient client;
+  final MultipleRequestsHttpClient? client;
 
   SourceCodeView({
-    @required this.owner,
-    @required this.repository,
-    @required this.ref,
-    @required this.paths,
+    required this.owner,
+    required this.repository,
+    required this.ref,
+    required this.paths,
     this.client,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
