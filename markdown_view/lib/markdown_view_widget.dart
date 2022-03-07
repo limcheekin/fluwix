@@ -5,7 +5,7 @@ import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 
 class MarkdownViewWidget extends StatelessWidget {
-  MarkdownViewWidget({Key key}) : super(key: key);
+  MarkdownViewWidget({Key? key}) : super(key: key);
   static const GITHUB_URL =
       'https://api.github.com/repos/limcheekin/flutter-widgets-explorer/contents/intro.md';
 
@@ -27,8 +27,8 @@ class MarkdownViewWidget extends StatelessWidget {
         if (snapshot.hasData) {
           final response = snapshot.data;
           return Markdown(
-            data: response.statusCode == 200
-                ? response.body
+            data: response?.statusCode == 200 && response?.body != null
+                ? response!.body
                 : 'Failed to fetch content from $GITHUB_URL',
           );
         } else if (snapshot.hasError) {
