@@ -4,26 +4,22 @@ import 'showcase_view.dart';
 
 class ShowcaseScreen extends StatelessWidget {
   static const owner = 'limcheekin';
-  static const repository = 'flutter-widgets-explorer';
+  static const repository = 'fluwix';
   static const branch = 'showcase_view';
 
-  const ShowcaseScreen({Key key}) : super(key: key);
+  const ShowcaseScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ShowcaseView(
       title: 'Showcase View',
-      widget: Center(
-        child: Text('This is your widget.'),
-      ),
+      widget: YourWidget(),
       owner: owner,
       repository: repository,
       ref: branch,
       readMe: 'showcase_view/README.md',
       codePaths: [
         'showcase_view/pubspec.yaml',
-        'showcase_view/lib/main.dart',
-        'common_ui/lib/my_module.dart',
         'showcase_view/lib/showcase_screen.dart',
         'showcase_view/lib/showcase_view.dart',
         'showcase_view/lib/read_me_view.dart',
@@ -39,6 +35,15 @@ class ShowcaseScreen extends StatelessWidget {
         Icon(Icons.directions_transit),
         Icon(Icons.directions_bike),
       ],
+    );
+  }
+}
+
+class YourWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('This is your widget.'),
     );
   }
 }

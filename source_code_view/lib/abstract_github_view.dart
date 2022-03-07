@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/link.dart';
@@ -5,6 +6,7 @@ import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'copy_button.dart';
 import 'multiple_requests_http_client.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 // REF: https://stackoverflow.com/questions/50696945/flutter-statefulwidget-state-class-inheritance
 // REF: https://blog.gskinner.com/archives/2020/08/flutter-extending-statet.html
@@ -15,17 +17,17 @@ abstract class AbstractGithubView extends StatefulWidget {
   final String path;
   final bool hasCopyButton;
   final bool wantKeepAlive;
-  final MultipleRequestsHttpClient client;
+  final MultipleRequestsHttpClient? client;
 
   const AbstractGithubView({
-    @required String owner,
-    @required String repository,
-    @required String ref,
-    @required this.path,
-    @required this.wantKeepAlive,
+    required String owner,
+    required String repository,
+    required String ref,
+    required this.path,
+    required this.wantKeepAlive,
     this.hasCopyButton = true,
     this.client,
-    Key key,
+    Key? key,
   })  : apiUrl =
             'https://api.github.com/repos/$owner/$repository/contents/$path?ref=$ref',
         linkUrl = 'https://github.com/$owner/$repository/blob/$ref/$path',
@@ -41,7 +43,10 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
   constructing the FutureBuilder. If the future is created at the same time as the FutureBuilder, 
   then every time the FutureBuilder's parent is rebuilt, the asynchronous task will be restarted.
   */
-  Future<Response> getGithubContent;
+  Future<Response>? getGithubContent;
+  static const GITHUB_HTTP_HEADERS = {
+    'Accept': 'application/vnd.github.v3.raw',
+  };
 
   @override
   void initState() {
@@ -51,18 +56,14 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
 
   Future<Response> _fetchGithubContent() {
     if (widget.client != null) {
-      return widget.client.get(
+      return widget.client!.get(
         Uri.parse(widget.apiUrl),
-        headers: {
-          'Accept': 'application/vnd.github.v3.raw',
-        },
+        headers: GITHUB_HTTP_HEADERS,
       );
     } else {
       return http.get(
         Uri.parse(widget.apiUrl),
-        headers: {
-          'Accept': 'application/vnd.github.v3.raw',
-        },
+        headers: GITHUB_HTTP_HEADERS,
       );
     }
   }
@@ -70,76 +71,92 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Card(
-      elevation: 6.0,
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: FutureBuilder<Response>(
-          future: getGithubContent,
-          builder: (context, snapshot) {
-            final linkText =
-                widget.path.substring(widget.path.lastIndexOf('/') + 1);
-            if (snapshot.connectionState == ConnectionState.done) {
-              if (widget.client != null) {
-                widget.client.close();
-              }
-              final response = snapshot.data;
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+    final contentWidget = FutureBuilder<Response>(
+      future: getGithubContent,
+      builder: (context, snapshot) {
+        final linkText =
+            widget.path.substring(widget.path.lastIndexOf('/') + 1);
+        if (snapshot.connectionState == ConnectionState.done) {
+          if (widget.client != null) {
+            widget.client!.close();
+          }
+          final response = snapshot.data;
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
                 children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        flex: 9,
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Link(
-                            uri: Uri.parse(widget.linkUrl),
-                            builder:
-                                (BuildContext context, FollowLink followLink) =>
-                                    TextButton(
-                              onPressed: followLink,
-                              child: Text(
-                                linkText,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  decoration: TextDecoration.underline,
-                                ),
+                  Expanded(
+                    flex: 9,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Link(
+                        uri: Uri.parse(widget.linkUrl),
+                        target: kIsWeb
+                            ? LinkTarget.blank
+                            : LinkTarget.defaultTarget,
+                        builder: (BuildContext context,
+                            Future<void> Function()? followLink) {
+                          return TextButton(
+                            onPressed: followLink,
+                            child: Text(
+                              linkText,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                decoration: TextDecoration.underline,
                               ),
                             ),
-                          ),
-                        ),
+                          );
+                        },
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: widget.hasCopyButton &&
-                                snapshot.hasData &&
-                                response.statusCode == 200
-                            ? Align(
-                                alignment: Alignment.centerRight,
-                                child: CopyButton(text: response.body))
-                            : SizedBox.shrink(),
-                      ),
-                    ],
+                    ),
                   ),
-                  _buildWidget(context, snapshot)
+                  Expanded(
+                    flex: 1,
+                    child: widget.hasCopyButton &&
+                            snapshot.hasData &&
+                            response!.statusCode == 200
+                        ? Align(
+                            alignment: Alignment.centerRight,
+                            child: CopyButton(text: response.body))
+                        : SizedBox.shrink(),
+                  ),
                 ],
-              );
-            }
-            return buildShimmer(linkText);
-          },
-        ),
-      ),
+              ),
+              _buildWidget(context, snapshot)
+            ],
+          );
+        }
+        return _buildLoadingIndicator(linkText);
+      },
     );
+
+    return getValueForScreenType<bool>(
+      context: context,
+      mobile: true,
+      tablet: false,
+    )
+        ? Card(
+            elevation: 6.0,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: contentWidget,
+            ),
+          )
+        : Container(
+            color: Colors.white,
+            padding: const EdgeInsets.all(20.0),
+            child: contentWidget,
+          );
   }
 
   Widget _buildWidget(BuildContext context, AsyncSnapshot<Response> snapshot) {
     if (snapshot.hasData) {
       final response = snapshot.data;
-      return response.statusCode == 200
+      return response!.statusCode == 200
           ? buildWidget(context, response.body)
           : buildGithubErrorWidget(
               'Failed to fetch content from ${widget.apiUrl}! '
@@ -160,10 +177,61 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
 
   Widget buildWidget(BuildContext context, String responseBody);
 
-  Widget buildShimmer(String linkText) {
+  Widget _buildLoadingIndicator(String linkText) {
+    // REF: https://stackoverflow.com/questions/57937280/how-can-i-detect-if-my-flutter-app-is-running-in-the-web
+    if (kIsWeb) {
+      return Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                flex: 9,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    linkText,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: widget.hasCopyButton
+                    ? Align(
+                        alignment: Alignment.centerRight,
+                        child: Icon(Icons.copy),
+                      )
+                    : SizedBox.shrink(),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 10.0),
+            child: LinearProgressIndicator(),
+          ),
+          Container(
+            height: 100.0,
+            width: double.infinity,
+            color: Colors.grey[300],
+          ),
+        ],
+      );
+    } else {
+      // shimmer effect not working in web yet
+      return _buildShimmer(linkText);
+    }
+  }
+
+  Widget _buildShimmer(String linkText) {
     return Shimmer.fromColors(
-      baseColor: Colors.grey[300],
-      highlightColor: Colors.grey[100],
+      baseColor: Colors.grey[300]!,
+      highlightColor: Colors.grey[100]!,
       child: Column(
         children: [
           Row(

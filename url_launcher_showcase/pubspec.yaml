@@ -1,0 +1,33 @@
+name: url_launcher_showcase
+description: Url Launcher Showcase module.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  url_launcher: ^6.0.3
+  common_ui:
+    path: ../common_ui
+  showcase_view:
+    path: ../showcase_view  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  pedantic:
+
+flutter:
+  uses-material-design: true
+
+  module:
+    androidX: true
+    androidPackage: com.example.url_launcher_showcase
+    iosBundleIdentifier: com.example.urlLauncherShowcase
