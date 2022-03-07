@@ -3,7 +3,7 @@ import 'package:flutter_material_showcase/flutter_material_showcase.dart';
 import 'package:showcase_view/showcase_view.dart';
 
 class MaterialDesignShowcaseScreen extends StatelessWidget {
-  const MaterialDesignShowcaseScreen({Key key}) : super(key: key);
+  const MaterialDesignShowcaseScreen({Key? key}) : super(key: key);
 
   static const owner = 'miquelbeltran';
   static const repository = 'flutter_material_showcase';
@@ -26,7 +26,7 @@ class MaterialDesignShowcaseScreen extends StatelessWidget {
 }
 
 class MaterialDesignShowcaseWidget extends StatelessWidget {
-  const MaterialDesignShowcaseWidget({Key key}) : super(key: key);
+  const MaterialDesignShowcaseWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
