@@ -5,7 +5,7 @@ import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UrlLauncherShowcaseWidget extends StatefulWidget {
-  UrlLauncherShowcaseWidget({Key key}) : super(key: key);
+  UrlLauncherShowcaseWidget({Key? key}) : super(key: key);
 
   @override
   _UrlLauncherShowcaseWidgetState createState() =>
@@ -13,7 +13,7 @@ class UrlLauncherShowcaseWidget extends StatefulWidget {
 }
 
 class _UrlLauncherShowcaseWidgetState extends State<UrlLauncherShowcaseWidget> {
-  Future<void> _launched;
+  Future<void>? _launched;
   String _phone = '';
   String _toLaunch = 'https://www.cylog.org/headers/';
 
@@ -137,7 +137,8 @@ class _UrlLauncherShowcaseWidgetState extends State<UrlLauncherShowcaseWidget> {
               padding: const EdgeInsets.all(16.0),
               child: Link(
                 uri: Uri.parse(_toLaunch),
-                builder: (BuildContext context, FollowLink followLink) =>
+                builder: (BuildContext context,
+                        Future<void> Function()? followLink) =>
                     TextButton(
                   onPressed: followLink,
                   child: Text(
