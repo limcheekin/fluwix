@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ShimmerEffectWidget extends StatelessWidget {
-  const ShimmerEffectWidget({Key key}) : super(key: key);
+  const ShimmerEffectWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +54,8 @@ class _LoadingListPageState extends State<LoadingListPage> {
         children: <Widget>[
           Expanded(
             child: Shimmer.fromColors(
-              baseColor: Colors.grey[300],
-              highlightColor: Colors.grey[100],
+              baseColor: Colors.grey[300]!,
+              highlightColor: Colors.grey[100]!,
               enabled: _enabled,
               child: ListView.builder(
                 itemBuilder: (_, __) => Padding(
@@ -116,7 +116,7 @@ class _LoadingListPageState extends State<LoadingListPage> {
                 },
                 child: Text(
                   _enabled ? 'Stop' : 'Play',
-                  style: Theme.of(context).textTheme.button.copyWith(
+                  style: Theme.of(context).textTheme.button?.copyWith(
                       fontSize: 18.0,
                       color: _enabled ? Colors.redAccent : Colors.green),
                 )),
