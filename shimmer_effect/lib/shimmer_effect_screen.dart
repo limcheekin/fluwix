@@ -3,7 +3,7 @@ import 'package:showcase_view/showcase_view.dart';
 import 'shimmer_effect_widget.dart';
 
 class ShimmerEffectScreen extends StatelessWidget {
-  const ShimmerEffectScreen({Key key}) : super(key: key);
+  const ShimmerEffectScreen({Key? key}) : super(key: key);
 
   static const owner = 'hnvn';
   static const repository = 'flutter_shimmer';
