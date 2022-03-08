@@ -3,7 +3,7 @@ import 'package:showcase_view/showcase_view.dart';
 import 'source_code_view.dart';
 
 class SourceCodeViewScreen extends StatelessWidget {
-  const SourceCodeViewScreen({Key key}) : super(key: key);
+  const SourceCodeViewScreen({Key? key}) : super(key: key);
   static const owner = 'limcheekin';
   static const repository = 'fluwix';
   static const branch = 'source_code_view';

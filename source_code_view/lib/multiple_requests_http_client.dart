@@ -7,7 +7,7 @@ class MultipleRequestsHttpClient {
 
   MultipleRequestsHttpClient();
 
-  Future<Response> get(Uri url, {Map<String, String> headers}) {
+  Future<Response> get(Uri url, {Map<String, String>? headers}) {
     ++requestCount;
     print('get() requestCount $requestCount $url');
     return client.get(url, headers: headers);
