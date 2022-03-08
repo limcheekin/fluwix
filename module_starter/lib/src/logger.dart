@@ -1,4 +1,5 @@
 /// Simple Logging class
+// ignore_for_file: avoid_print
 class Logger {
   /// Simple info log
   static void logInfo(String message, {bool lineBreak = false}) {

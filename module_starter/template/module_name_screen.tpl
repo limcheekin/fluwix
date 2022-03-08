@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:showcase_view/showcase_view.dart';
 
 class ModuleNameScreen extends StatelessWidget {
-  const ModuleNameScreen({Key key}) : super(key: key);
+  const ModuleNameScreen({Key? key}) : super(key: key);
 
   // Configure the properties for external GitHub repo, for example:
   // https://github.com/miquelbeltran/flutter_material_showcase
@@ -34,7 +34,7 @@ class ModuleNameScreen extends StatelessWidget {
 }
 
 class ModuleNameWidget extends StatelessWidget {
-  const ModuleNameWidget({Key key}) : super(key: key);
+  const ModuleNameWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

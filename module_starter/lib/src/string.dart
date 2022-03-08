@@ -1,14 +1,12 @@
 extension StringExtension on String {
-  static const String DEFAULT_SPLIT_DELIMITER = '_';
-  static const String DEFAULT_JOIN_DELIMITER = '';
+  static const String defaultSplitDelimiter = '_';
+  static const String defaultJoinDelimiter = '';
   // REF: https://gist.github.com/filiph/d4e0c0a9efb0f869f984317372f5bee8
   String toPascalCase({
-    String splitDelimiter = DEFAULT_SPLIT_DELIMITER,
-    String joinDelimiter = DEFAULT_JOIN_DELIMITER,
+    String splitDelimiter = defaultSplitDelimiter,
+    String joinDelimiter = defaultJoinDelimiter,
   }) {
     final text = this;
-
-    if (text == null) throw ArgumentError('string: $text');
 
     if (text.isEmpty) return text;
 
