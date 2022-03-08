@@ -28,6 +28,7 @@ import 'package:search_bar/search_bar_screen.dart';
 import 'package:number_trivia/number_trivia_screen.dart';
 import 'package:number_trivia/dependencies.dart' as number_trivia_di;
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter_k_chart/generated/l10n.dart' as k_chart;
 import 'string.dart';
 
 final AppModule appModule = AppModule();
@@ -98,6 +99,9 @@ class AppWidget extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      localizationsDelegates: const [
+        k_chart.S.delegate,
+      ],
     ).modular();
   }
 }
