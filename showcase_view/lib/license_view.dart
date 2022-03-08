@@ -1,16 +1,17 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:source_code_view/abstract_github_view.dart';
 import 'package:source_code_view/multiple_requests_http_client.dart';
 
 class LicenseView extends AbstractGithubView {
   const LicenseView({
-    @required String owner,
-    @required String repository,
-    @required String ref,
-    @required String path,
-    MultipleRequestsHttpClient client,
+    required String owner,
+    required String repository,
+    required String ref,
+    required String path,
+    MultipleRequestsHttpClient? client,
     bool wantKeepAlive = true,
-    Key key,
+    Key? key,
   }) : super(
           owner: owner,
           repository: repository,
@@ -28,6 +29,16 @@ class LicenseView extends AbstractGithubView {
 class _LicenseViewState extends AbstractGithubViewState<LicenseView> {
   @override
   Widget buildWidget(BuildContext context, String responseBody) {
-    return Text(responseBody);
+    return Expanded(
+      child: Scrollbar(
+        isAlwaysShown: kIsWeb,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Text(responseBody),
+          ),
+        ),
+      ),
+    );
   }
 }

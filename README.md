@@ -1,17 +1,19 @@
-# flutter-widgets-explorer
+# Flutter Widgets Explorer [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-The Flutter Widgets Explorer is created to learn, test and demo flutter widgets in one application.
+The Flutter Widgets Explorer is created to learn and showcase your Flutter Widgets in one application.
 
 <a href='https://play.google.com/store/apps/details?id=com.vobject.flutter.widgets.explorer&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="50%"/></a>
 
+Alternatively, you can see it on the web at [fluwix.com](http://fluwix.com).
+
 ## Getting Started
 
-The first screen launched in the app is a list of widget names. 
-After select a widget name, the selected widget details will show on next screen.
-<p> 
-<img alt="Main Screen" src="images/thumbnail.png" height="480px" width="270px" />
-</p>
-Each widget will be coded in separate branch and come with it's own readme file.
+The first screen launched in the app is a list of showcases. 
+After select a showcase, the selected showcase details will show on next screen.
+
+![Main Listing Screen](images/thumbnail.png "Main Listing Screen")
+
+Each showcase will be coded in it's own branch and module, can have it's own readme or license file, please see [Steps To Showcase Your Widgets](showcase_view/SHOWCASE_YOUR_WIDGETS.md) for more information.
 
 ## Branches:
 
@@ -24,84 +26,84 @@ Each widget will be coded in separate branch and come with it's own readme file.
 </a> 
 </td>
 <td width="33.3%">
-<a href="lib/nested_list/README.md" target="_blank">
-<img alt="Nested List Screen" src="images/nested_list/thumbnail.png" height="384px" width="216px" />
+<a href="nested_list/README.md" target="_blank">
+<img alt="Nested List Screen" src="nested_list/images/thumbnail.png" height="384px" width="216px" />
 </br><strong>nested_list</strong>: Nested horizontal list with dynamic content in vertical list items.
 </a> 
 </td>
 <td width="33.3%">
-<a href="lib/tab_buttons/README.md" target="_blank">
-<img alt="Tab Buttons Screen" src="images/tab_buttons/thumbnail.png" height="384px" width="216px"  />
+<a href="tab_buttons/README.md" target="_blank">
+<img alt="Tab Buttons Screen" src="tab_buttons/images/thumbnail.png" height="384px" width="216px"  />
 </br><strong>tab_buttons</strong>: tabbar where each tab indicator is a toggle button.
 </a> 
 </td>
 </tr>
 <tr valign="top">
 <td width="33.3%">
-<a href="lib/stock_chart/README.md" target="_blank">
-<img alt="Stock Chart Screen" src="images/stock_chart/thumbnail.png" height="384px" width="216px" />
+<a href="stock_chart/README.md" target="_blank">
+<img alt="Stock Chart Screen" src="stock_chart/images/thumbnail.png" height="384px" width="216px" />
 </br><strong>stock_chart</strong>: Stock candlestick or line chart with indicators support.
 </a> 
 </td>
 <td width="33.3%">
-<a href="lib/expansion_collapse_view/README.md" target="_blank">
-<img alt="Expansion/Collapse View" src="images/expansion_collapse_view/thumbnail.png" height="384px" width="216px" />
+<a href="expansion_collapse_view/README.md" target="_blank">
+<img alt="Expansion/Collapse View" src="expansion_collapse_view/images/thumbnail.png" height="384px" width="216px" />
 </br><strong>expansion_collapse_view</strong>: Expansion/Collapse view using Flutter built-in widgets.
 </a> 
 </td>
 <td width="33.3%">
-<a href="lib/charts/README.md" target="_blank">
-<img alt="Charts Gallery" src="images/charts/thumbnail.png" height="384px" width="216px" />
-</br><strong>charts</strong>: Charts Gallery show case the data visualization capability of the charts_flutter package.
+<a href="charts_gallery/README.md" target="_blank">
+<img alt="Charts Gallery" src="charts_gallery/images/thumbnail.png" height="384px" width="216px" />
+</br><strong>charts_gallery</strong>: Charts Gallery show case the data visualization capability of the charts_flutter package.
 </a> 
 </td>
 </tr>
 <tr valign="top">
 <td width="33.3%">
-<a href="lib/chart_datatable/README.md" target="_blank">
-<img alt="Chart & Data Table Screen" src="images/chart_datatable/thumbnail.png" height="384px" width="216px" />
-</br><strong>chart_datatable</strong>: Real world quarterly results in combo chart and tabular format.
+<a href="chart_data_table/README.md" target="_blank">
+<img alt="Chart & Data Table Screen" src="chart_data_table/images/thumbnail.png" height="384px" width="216px" />
+</br><strong>chart_data_table</strong>: Real world quarterly results in combo chart and tabular format.
 </a> 
 </td>
 <td width="33.3%">
-<a href="lib/syntax_view/README.md" target="_blank">
-<img alt="Syntax View Screen" src="images/syntax_view/thumbnail.png" height="384px" width="216px" />
+<a href="syntax_view/README.md" target="_blank">
+<img alt="Syntax View Screen" src="syntax_view/images/thumbnail.png" height="384px" width="216px" />
 </br><strong>syntax_view</strong>: View code, copy and paste.
 </a> 
 </td>
 <td width="33.3%">
-<a href="lib/animate_icons/README.md" target="_blank">
-<img alt="Animate Icons Screen" src="images/animate_icons/thumbnail.png" height="384px" width="216px" />
-</br><strong>animate_icons</strong>: Animate any two icons.
+<a href="animated_icons/README.md" target="_blank">
+<img alt="Animated Icons Screen" src="animated_icons/images/thumbnail.png" height="384px" width="216px" />
+</br><strong>animated_icons</strong>: Animate any two icons.
 </a> 
 </td>
 </tr>
 <tr valign="top">
 <td width="33.3%">
-<a href="lib/url_launcher/README.md" target="_blank">
-<img alt="URL Launcher Screen" src="images/url_launcher/thumbnail.png" height="384px" width="216px" />
-</br><strong>url_launcher</strong>: Launch a URL to browse website, make phone call, send Email or SMS.
+<a href="url_launcher_showcase/README.md" target="_blank">
+<img alt="URL Launcher Screen" src="url_launcher_showcase/images/thumbnail.png" height="384px" width="216px" />
+</br><strong>url_launcher_showcase</strong>: Launch a URL to browse website, make phone call, send Email or SMS.
 </a> 
 </td>
 <td width="33.3%">
-<a href="lib/markdown/README.md" target="_blank">
-<img alt="Markdown View Screen" src="images/markdown/thumbnail.png" height="384px" width="216px" />
-</br><strong>markdown</strong>: Display Markdown file from Github repository.
+<a href="markdown_view/README.md" target="_blank">
+<img alt="Markdown View Screen" src="markdown_view/images/thumbnail.png" height="384px" width="216px" />
+</br><strong>markdown_view</strong>: Display Markdown file from Github repository.
 </a> 
 </td>
 </td>
 <td width="33.3%">
-<a href="lib/shimmer/README.md" target="_blank">
-<img alt="Shimmer Effect" src="images/shimmer/thumbnail.png" height="384px" width="216px" />
-</br><strong>shimmer</strong>: Better way to show loading status.
+<a href="shimmer_effect/README.md" target="_blank">
+<img alt="Shimmer Effect" src="shimmer_effect/images/thumbnail.png" height="384px" width="216px" />
+</br><strong>shimmer_effect</strong>: Better way to show loading status.
 </a> 
 </td>
 </tr>
 <tr valign="top">
 <td width="33.3%">
-<a href="lib/about/README.md" target="_blank">
-<img alt="About Screen" src="images/about/thumbnail.png" height="384px" width="216px" />
-</br><strong>about</strong>: About the application and licenses.
+<a href="about_dialog/README.md" target="_blank">
+<img alt="About Dialog Screen" src="about_dialog/images/thumbnail.png" height="384px" width="216px" />
+</br><strong>about_dialog</strong>: About the application and licenses.
 </a> 
 </td>
 <td width="33.3%">
@@ -115,6 +117,14 @@ Each widget will be coded in separate branch and come with it's own readme file.
 <img alt="Showcase View" src="showcase_view/images/thumbnail.png" height="384px" width="216px" />
 </br><strong>showcase_view</strong>: Showcase your widget with read me, codes and license.
 </a>
+</td>
+</tr>
+<tr valign="top">
+<td width="33.3%">
+<a href="material_design_showcase/README.md" target="_blank">
+<img alt="Material Design Showcase Screen" src="material_design_showcase/images/thumbnail.png" height="384px" width="216px" />
+</br><strong>material_design_showcase</strong>: Showcase Material Design components.
+</a> 
 </td>
 </tr>
 <table>

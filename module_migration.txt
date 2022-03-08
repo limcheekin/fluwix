@@ -1,0 +1,11 @@
+1. Fork the flutter-widgets-explorer repo, git clone the repo and git checkout <branch_name>.
+2. git merge showcase_view
+3. Create module with command: flutter pub run module_starter <module_name>
+4. Add module specific dependencies to the pubspec.yaml, used latest version if possible.  
+5. Create an images directory and moved the thumbnail.png and screenshots.gif from images/<name> there.
+6. Moved the README.md to module directory and codes from lib/<name> directory to module's lib directory.
+7. Copy the code of existing _screen.dart and modify to become ModuleNameWidget class of new _screen.dart.
+8. You can safely ignore errors in the project lib/main.dart and project's pubspec.yaml.    
+9. Run "flutter analyze", then fix all problems.      
+10. Test the module by running module's lib/main.dart
+11. If the module is running fine, commit the changes, push it to remote branch and send me pull request.

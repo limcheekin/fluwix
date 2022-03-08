@@ -1,0 +1,25 @@
+name: module_starter
+description: Module Creation CLI.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  pedantic:  
+
+flutter:
+  uses-material-design: true
+
+  module:
+    androidX: true
+    androidPackage: com.example.module_starter
+    iosBundleIdentifier: com.example.moduleStarter

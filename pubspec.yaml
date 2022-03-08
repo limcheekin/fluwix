@@ -1,9 +1,9 @@
 name: flutter_widgets_explorer
-description: Flutter Widgets Explorer project.
+description: Flutter Widgets Explorer - Learn and showcase your Flutter Widgets in one application.
 
 publish_to: "none"
 
-version: 0.3.4
+version: 0.5.0
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -12,28 +12,38 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.0
-  buttons_tabbar: ^1.1.1
-  trading_chart: ^0.1.2
-  http: ^0.13.0
-  charts_flutter: ^0.9.0
-  flutter_syntax_view: ^3.2.2
-  animate_icons: ^1.0.0
-  url_launcher: ^6.0.2
-  flutter_markdown: ^0.6.0
-  shimmer: ^1.1.2
-  package_info_plus: ^1.0.0
-  pubspec_parse: ^1.0.0
-  source_code_view:
-    path: source_code_view
-  showcase_view:
-    path: showcase_view    
+  flutter_modular: ^3.0.2+1
+  responsive_builder: ^0.4.1
+  nested_list:
+    path: nested_list
+  material_design_showcase:
+    path: material_design_showcase
+  about_dialog:
+    path: about_dialog
+  animated_icons:
+    path: animated_icons    
+  chart_data_table:
+    path: chart_data_table    
+  shimmer_effect:
+    path: shimmer_effect
+  expansion_collapse_view:
+    path: expansion_collapse_view   
+  markdown_view:
+    path: markdown_view
+  url_launcher_showcase:
+    path: url_launcher_showcase    
+  syntax_view:
+    path: syntax_view    
+  charts_gallery:
+    path: charts_gallery  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.9.0
   flutter_native_splash: ^1.0.1
+  module_starter:
+    path: module_starter
 
 flutter_icons:
   android: "launcher_icon"
@@ -49,8 +59,9 @@ flutter_native_splash:
 
 flutter:
   uses-material-design: true
-  assets:
-    - assets/chart_datatable/quarterly_result.json
-    - assets/shimmer/images/chevron_right.png
-    - assets/shimmer/images/background.jpg
-    - assets/about/images/logo_bright.png
+
+scripts:
+  record: adb shell screenrecord --size 324x576 /sdcard/recording.mp4
+  pull_recording: adb pull /sdcard/recording.mp4
+  convert_mp4_to_gif: ./gifify.sh recording.mp4
+
