@@ -17,17 +17,17 @@ abstract class AbstractGithubView extends StatefulWidget {
   final String path;
   final bool hasCopyButton;
   final bool wantKeepAlive;
-  final MultipleRequestsHttpClient client;
+  final MultipleRequestsHttpClient? client;
 
   const AbstractGithubView({
-    @required String owner,
-    @required String repository,
-    @required String ref,
-    @required this.path,
-    @required this.wantKeepAlive,
+    required String owner,
+    required String repository,
+    required String ref,
+    required this.path,
+    required this.wantKeepAlive,
     this.hasCopyButton = true,
     this.client,
-    Key key,
+    Key? key,
   })  : apiUrl =
             'https://api.github.com/repos/$owner/$repository/contents/$path?ref=$ref',
         linkUrl = 'https://github.com/$owner/$repository/blob/$ref/$path',
@@ -43,7 +43,7 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
   constructing the FutureBuilder. If the future is created at the same time as the FutureBuilder, 
   then every time the FutureBuilder's parent is rebuilt, the asynchronous task will be restarted.
   */
-  Future<Response> getGithubContent;
+  Future<Response>? getGithubContent;
   static const GITHUB_HTTP_HEADERS = {
     'Accept': 'application/vnd.github.v3.raw',
   };
@@ -56,7 +56,7 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
 
   Future<Response> _fetchGithubContent() {
     if (widget.client != null) {
-      return widget.client.get(
+      return widget.client!.get(
         Uri.parse(widget.apiUrl),
         headers: GITHUB_HTTP_HEADERS,
       );
@@ -78,7 +78,7 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
             widget.path.substring(widget.path.lastIndexOf('/') + 1);
         if (snapshot.connectionState == ConnectionState.done) {
           if (widget.client != null) {
-            widget.client.close();
+            widget.client!.close();
           }
           final response = snapshot.data;
           return Column(
@@ -92,21 +92,25 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
                       alignment: Alignment.centerLeft,
                       child: Link(
                         uri: Uri.parse(widget.linkUrl),
-                        builder:
-                            (BuildContext context, FollowLink followLink) =>
-                                TextButton(
-                          onPressed: followLink,
-                          child: Text(
-                            linkText,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              decoration: TextDecoration.underline,
+                        target: kIsWeb
+                            ? LinkTarget.blank
+                            : LinkTarget.defaultTarget,
+                        builder: (BuildContext context,
+                            Future<void> Function()? followLink) {
+                          return TextButton(
+                            onPressed: followLink,
+                            child: Text(
+                              linkText,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                decoration: TextDecoration.underline,
+                              ),
                             ),
-                          ),
-                        ),
+                          );
+                        },
                       ),
                     ),
                   ),
@@ -114,7 +118,7 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
                     flex: 1,
                     child: widget.hasCopyButton &&
                             snapshot.hasData &&
-                            response.statusCode == 200
+                            response!.statusCode == 200
                         ? Align(
                             alignment: Alignment.centerRight,
                             child: CopyButton(text: response.body))
@@ -152,7 +156,7 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
   Widget _buildWidget(BuildContext context, AsyncSnapshot<Response> snapshot) {
     if (snapshot.hasData) {
       final response = snapshot.data;
-      return response.statusCode == 200
+      return response!.statusCode == 200
           ? buildWidget(context, response.body)
           : buildGithubErrorWidget(
               'Failed to fetch content from ${widget.apiUrl}! '
@@ -226,8 +230,8 @@ abstract class AbstractGithubViewState<T extends AbstractGithubView>
 
   Widget _buildShimmer(String linkText) {
     return Shimmer.fromColors(
-      baseColor: Colors.grey[300],
-      highlightColor: Colors.grey[100],
+      baseColor: Colors.grey[300]!,
+      highlightColor: Colors.grey[100]!,
       child: Column(
         children: [
           Row(
