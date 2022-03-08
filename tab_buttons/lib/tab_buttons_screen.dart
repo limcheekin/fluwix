@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:showcase_view/showcase_view.dart';
 
 class TabButtonsScreen extends StatefulWidget {
-  TabButtonsScreen({Key key}) : super(key: key);
+  TabButtonsScreen({Key? key}) : super(key: key);
 
   @override
   _TabButtonsScreenState createState() => _TabButtonsScreenState();
@@ -32,7 +32,7 @@ class _TabButtonsScreenState extends State<TabButtonsScreen> {
 }
 
 class TabButtonsWidget extends StatelessWidget {
-  const TabButtonsWidget({Key key}) : super(key: key);
+  const TabButtonsWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
