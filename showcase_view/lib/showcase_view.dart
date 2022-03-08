@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
 import 'license_view.dart';
 import 'read_me_view.dart';
 import 'package:source_code_view/source_code_view.dart';
@@ -21,26 +22,24 @@ class ShowcaseView extends StatelessWidget {
   final bool showLicense;
   final List<Tab> additionalTabs;
   final List<Widget> additionalTabBarViews;
-  static const bool PINNED = true;
-  static const bool SNAP = false;
-  static const bool FLOATING = false;
+  static const GITHUB_URL = 'https://github.com/';
 
   const ShowcaseView({
-    @required this.title,
-    @required this.widget,
-    @required this.owner,
-    @required this.repository,
-    @required this.ref,
+    required this.title,
+    required this.widget,
+    required this.owner,
+    required this.repository,
+    required this.ref,
     this.fromRouteName = '/',
     this.showReadMe = true,
     this.readMe = 'README.md',
     this.showCode = true,
-    this.codePaths,
+    this.codePaths = const [],
     this.showLicense = true,
     this.license = 'LICENSE',
-    this.additionalTabs,
-    this.additionalTabBarViews,
-    Key key,
+    this.additionalTabs = const [],
+    this.additionalTabBarViews = const [],
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -63,7 +62,7 @@ class ShowcaseView extends StatelessWidget {
         ),
     ];
 
-    if (additionalTabs != null && additionalTabs.isNotEmpty) {
+    if (additionalTabs.isNotEmpty) {
       tabs.addAll(additionalTabs);
     }
 
@@ -100,7 +99,7 @@ class ShowcaseView extends StatelessWidget {
         ),
     ];
 
-    if (additionalTabBarViews != null && additionalTabBarViews.isNotEmpty) {
+    if (additionalTabBarViews.isNotEmpty) {
       tabBarViews.addAll(additionalTabBarViews);
     }
 
@@ -109,7 +108,8 @@ class ShowcaseView extends StatelessWidget {
       child: getValueForScreenType<bool>(
         context: context,
         mobile: true,
-        tablet: false,
+        tablet: true,
+        desktop: false,
       )
           ? Scaffold(
               appBar: AppBar(
@@ -136,11 +136,49 @@ class ShowcaseView extends StatelessWidget {
                   unselectedLabelColor: Colors.black,
                   tabs: tabs,
                 ),
-                title: Text(
-                  title,
-                  style: TextStyle(
-                    fontSize: 28.0,
-                    color: Colors.black,
+                title: Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: TextStyle(
+                          fontSize: 24.0,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Link(
+                        uri: Uri.parse(GITHUB_URL + owner),
+                        target: kIsWeb
+                            ? LinkTarget.blank
+                            : LinkTarget.defaultTarget,
+                        builder:
+                            (BuildContext context, Future<void> Function()? followLink) =>
+                                Row(
+                          children: [
+                            Text(
+                              'By ',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 13.0,
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: followLink,
+                              child: Text(
+                                owner,
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 13.0,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
                   ),
                 ),
                 backgroundColor: Colors.white,
