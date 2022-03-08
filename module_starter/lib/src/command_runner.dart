@@ -3,6 +3,8 @@ import 'dart:io';
 import 'logger.dart';
 import 'string.dart';
 
+// ignore_for_file: non_constant_identifier_names
+
 class CommandRunner {
   /// Method called on module creation
   void create(List<String> args) async {
