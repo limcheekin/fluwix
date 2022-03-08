@@ -1,0 +1,33 @@
+name: charts_gallery
+description: Charts Gallery module.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  charts_flutter: ^0.10.0
+  common_ui:
+    path: ../common_ui
+  showcase_view:
+    path: ../showcase_view  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  pedantic:
+
+flutter:
+  uses-material-design: true
+
+  module:
+    androidX: true
+    androidPackage: com.example.charts_gallery
+    iosBundleIdentifier: com.example.chartsGallery

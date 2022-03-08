@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 
 class CopyButton extends StatelessWidget {
   final String text;
-  const CopyButton({@required this.text, Key key}) : super(key: key);
+  const CopyButton({required this.text, Key? key}) : super(key: key);
 
   void _saveToClipboard() {
     final data = ClipboardData(text: text);
