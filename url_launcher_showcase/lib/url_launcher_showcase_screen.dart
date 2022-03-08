@@ -4,7 +4,7 @@ import 'package:showcase_view/showcase_view.dart';
 import 'url_launcher_showcase_widget.dart';
 
 class UrlLauncherShowcaseScreen extends StatelessWidget {
-  const UrlLauncherShowcaseScreen({Key key}) : super(key: key);
+  const UrlLauncherShowcaseScreen({Key? key}) : super(key: key);
 
   static const owner = 'limcheekin';
   static const repository = 'fluwix';
