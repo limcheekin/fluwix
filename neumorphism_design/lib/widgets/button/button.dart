@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class ButtonSample extends StatefulWidget {
@@ -52,7 +51,7 @@ class __PageState extends State<_Page> {
               onPressed: () {
                 setState(() {
                   _useDark = !_useDark;
-                  NeumorphicTheme.of(context).themeMode =
+                  NeumorphicTheme.of(context)?.themeMode =
                       _useDark ? ThemeMode.dark : ThemeMode.light;
                 });
               },
@@ -89,8 +88,8 @@ class __PageState extends State<_Page> {
 
   Color _iconsColor() {
     final theme = NeumorphicTheme.of(context);
-    if (theme.isUsingDark) {
-      return theme.current.accentColor;
+    if (theme != null && theme.current != null && theme.isUsingDark) {
+      return theme.current!.accentColor;
     } else {
       return Colors.transparent;
     }

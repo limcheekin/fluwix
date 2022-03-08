@@ -1,17 +1,15 @@
 extension StringExtension on String {
-  static const String DEFAULT_WORD_DELIMITER = '_';
-  static const String SPACE = ' ';
+  static const String defaultWordDelimiter = '_';
+  static const String space = ' ';
   // REF: https://gist.github.com/filiph/d4e0c0a9efb0f869f984317372f5bee8
-  String toTitleCase({String wordDelimiter = DEFAULT_WORD_DELIMITER}) {
+  String toTitleCase({String wordDelimiter = defaultWordDelimiter}) {
     final text = this;
-
-    if (text == null) throw ArgumentError('string: $text');
 
     if (text.isEmpty) return text;
 
     return text
         .split(wordDelimiter)
         .map((word) => word[0].toUpperCase() + word.substring(1).toLowerCase())
-        .join(SPACE);
+        .join(space);
   }
 }

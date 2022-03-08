@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:source_code_view/abstract_github_view.dart';
 import 'package:source_code_view/multiple_requests_http_client.dart';

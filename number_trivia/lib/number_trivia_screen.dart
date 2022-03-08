@@ -22,7 +22,7 @@ class NumberTriviaScreen extends StatelessWidget {
       repository: repository,
       ref: branch,
       readMe: 'number_trivia/README.md',
-      codePaths: [
+      codePaths: const [
         'number_trivia/pubspec.yaml',
         '$srcDir/dependencies.dart',
         '$srcDir/number_trivia_screen.dart',
@@ -43,7 +43,7 @@ class NumberTriviaScreen extends StatelessWidget {
         '$srcDir/common/network/network_info.dart',
         '$srcDir/common/presentation/input_converter.dart',
       ],
-      additionalTabs: [
+      additionalTabs: const [
         Tab(text: 'Test'),
       ],
       additionalTabBarViews: [
@@ -52,7 +52,7 @@ class NumberTriviaScreen extends StatelessWidget {
             owner: owner,
             repository: repository,
             ref: branch,
-            paths: [
+            paths: const [
               '$testDir/fixtures/fixture_reader.dart',
               '$testDir/domain/usecases/get_concrete_number_trivia_test.dart',
               '$testDir/domain/usecases/get_random_number_trivia_test.dart',

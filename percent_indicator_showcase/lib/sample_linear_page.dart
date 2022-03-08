@@ -21,7 +21,7 @@ class _SampleLinearPageState extends State<SampleLinearPage> {
       desktop: false,
     )
         ? 50.0
-        : LEFT_NAVIGATION_PANEL_WIDTH + 50.0;
+        : leftNavigationPanelWidth + 50.0;
     final maxWidth = MediaQuery.of(context).size.width - spaceWidth;
 
     return Center(
@@ -48,7 +48,7 @@ class _SampleLinearPageState extends State<SampleLinearPage> {
                 percent: 0.5,
                 animateFromLastPercent: true,
                 center: Text('50.0%'),
-                linearStrokeCap: LinearStrokeCap.butt,
+                barRadius: const Radius.circular(16),
                 progressColor: Colors.red,
                 widgetIndicator: RotatedBox(
                     quarterTurns: 1,
@@ -64,7 +64,7 @@ class _SampleLinearPageState extends State<SampleLinearPage> {
                 percent: 0.5,
                 animateFromLastPercent: true,
                 center: Text('50.0%'),
-                linearStrokeCap: LinearStrokeCap.butt,
+                barRadius: const Radius.circular(16),
                 linearGradient: LinearGradient(
                   colors: <Color>[Color(0xffB07BE6), Color(0xff5BA2E0)],
                 ),
@@ -89,7 +89,7 @@ class _SampleLinearPageState extends State<SampleLinearPage> {
                     style: TextStyle(fontSize: 12.0),
                   ),
                   trailing: Icon(Icons.mood),
-                  linearStrokeCap: LinearStrokeCap.roundAll,
+                  barRadius: const Radius.circular(16),
                   backgroundColor: Colors.grey,
                 ),
               ),
@@ -107,7 +107,7 @@ class _SampleLinearPageState extends State<SampleLinearPage> {
                     style: TextStyle(fontSize: 12.0),
                   ),
                   trailing: Icon(Icons.mood),
-                  linearStrokeCap: LinearStrokeCap.roundAll,
+                  barRadius: const Radius.circular(16),
                   backgroundColor: Colors.grey,
                   progressColor: Colors.blue,
                 ),
@@ -129,7 +129,7 @@ class _SampleLinearPageState extends State<SampleLinearPage> {
                 )),
                 percent: 0.2,
                 center: Text('20.0%'),
-                linearStrokeCap: LinearStrokeCap.butt,
+                barRadius: const Radius.circular(16),
                 progressColor: Colors.red,
               ),
             ),
@@ -143,7 +143,7 @@ class _SampleLinearPageState extends State<SampleLinearPage> {
                 percent: 0.9,
                 animateFromLastPercent: true,
                 center: Text('90.0%'),
-                linearStrokeCap: LinearStrokeCap.roundAll,
+                barRadius: const Radius.circular(16),
                 progressColor: Colors.greenAccent,
                 maskFilter: MaskFilter.blur(BlurStyle.solid, 3),
               ),
@@ -157,7 +157,7 @@ class _SampleLinearPageState extends State<SampleLinearPage> {
                 animationDuration: 2500,
                 percent: 0.8,
                 center: Text('80.0%'),
-                linearStrokeCap: LinearStrokeCap.roundAll,
+                barRadius: const Radius.circular(16),
                 progressColor: Colors.green,
               ),
             ),
@@ -169,7 +169,7 @@ class _SampleLinearPageState extends State<SampleLinearPage> {
                 animationDuration: 2500,
                 percent: 0.55,
                 center: Text('55.0%'),
-                linearStrokeCap: LinearStrokeCap.roundAll,
+                barRadius: const Radius.circular(16),
                 progressColor: Colors.green,
               ),
             ),

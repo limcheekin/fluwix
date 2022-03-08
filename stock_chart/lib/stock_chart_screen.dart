@@ -4,8 +4,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_k_chart/flutter_k_chart.dart';
-import 'package:flutter_k_chart/generated/l10n.dart' as k_chart;
-import 'package:flutter_k_chart/k_chart_widget.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:showcase_view/showcase_view.dart';
@@ -22,7 +20,7 @@ class StockChartScreen extends StatefulWidget {
 class _StockChartScreenState extends State<StockChartScreen> {
   static const owner = 'gwhcn';
   static const repository = 'flutter_k_chart';
-  static const branch = 'master';  
+  static const branch = 'master';
   List<KLineEntity> datas = [];
   bool showLoading = true;
   MainState _mainState = MainState.MA;
@@ -34,7 +32,9 @@ class _StockChartScreenState extends State<StockChartScreen> {
   void initState() {
     super.initState();
     getData('1day');
-    rootBundle.loadString('packages/stock_chart/assets/depth.json').then((result) {
+    rootBundle
+        .loadString('packages/stock_chart/assets/depth.json')
+        .then((result) {
       final parseJson = json.decode(result);
       Map tick = parseJson['tick'];
       var bids = tick['bids']
@@ -53,7 +53,7 @@ class _StockChartScreenState extends State<StockChartScreen> {
     if (bids == null || asks == null || bids.isEmpty || asks.isEmpty) return;
     _bids = [];
     _asks = [];
-    double amount = 0.0;
+    var amount = 0.0;
     bids.sort((left, right) => left.price.compareTo(right.price));
     //倒序循环 //累加买入委托量
     bids.reversed.forEach((item) {
@@ -116,7 +116,7 @@ class _StockChartScreenState extends State<StockChartScreen> {
         'example/pubspec.yaml',
         'example/lib/main.dart',
       ],
-    );      
+    );
   }
 
   Widget buildButtons() {
@@ -124,29 +124,29 @@ class _StockChartScreenState extends State<StockChartScreen> {
       alignment: WrapAlignment.spaceEvenly,
       spacing: 5,
       children: <Widget>[
-        button("kLine", onPressed: () => isLine = !isLine),
-        button("MA", onPressed: () => _mainState = MainState.MA),
-        button("BOLL", onPressed: () => _mainState = MainState.BOLL),
-        button("隐藏",
+        button('kLine', onPressed: () => isLine = !isLine),
+        button('MA', onPressed: () => _mainState = MainState.MA),
+        button('BOLL', onPressed: () => _mainState = MainState.BOLL),
+        button('隐藏',
             onPressed: () => _mainState =
                 _mainState == MainState.NONE ? MainState.MA : MainState.NONE),
-        button("MACD", onPressed: () => _secondaryState = SecondaryState.MACD),
-        button("KDJ", onPressed: () => _secondaryState = SecondaryState.KDJ),
-        button("RSI", onPressed: () => _secondaryState = SecondaryState.RSI),
-        button("WR", onPressed: () => _secondaryState = SecondaryState.WR),
-        button("隐藏副视图",
+        button('MACD', onPressed: () => _secondaryState = SecondaryState.MACD),
+        button('KDJ', onPressed: () => _secondaryState = SecondaryState.KDJ),
+        button('RSI', onPressed: () => _secondaryState = SecondaryState.RSI),
+        button('WR', onPressed: () => _secondaryState = SecondaryState.WR),
+        button('隐藏副视图',
             onPressed: () => _secondaryState =
                 _secondaryState == SecondaryState.NONE
                     ? SecondaryState.MACD
                     : SecondaryState.NONE),
-        button("update", onPressed: () {
+        button('update', onPressed: () {
           //更新最后一条数据
           datas.last.close += (Random().nextInt(100) - 50).toDouble();
           datas.last.high = max(datas.last.high, datas.last.close);
           datas.last.low = min(datas.last.low, datas.last.close);
           DataUtil.updateLastData(datas);
         }),
-        button("addData", onPressed: () {
+        button('addData', onPressed: () {
           //拷贝一个对象，修改数据
           var kLineEntity = KLineEntity.fromJson(datas.last.toJson());
           kLineEntity.id = kLineEntity.id! + 60 * 60 * 24;
@@ -156,9 +156,10 @@ class _StockChartScreenState extends State<StockChartScreen> {
           datas.last.low = min(datas.last.low, datas.last.close);
           DataUtil.addLastData(datas, kLineEntity);
         }),
-        button("1month", onPressed: () async {
+        button('1month', onPressed: () async {
           //getData('1mon');
-          String result = await rootBundle.loadString('assets/kmon.json');
+          var result = await rootBundle
+              .loadString('packages/stock_chart/assets/kmon.json');
           Map parseJson = json.decode(result);
           List list = parseJson['data'];
           datas = list
@@ -175,8 +176,8 @@ class _StockChartScreenState extends State<StockChartScreen> {
               setState(() {});
               getData('1day');
             },
-            child: Text("1day", style: const TextStyle(color: Colors.black)),
-            style: TextButton.styleFrom(backgroundColor: Colors.blue)),
+            style: TextButton.styleFrom(backgroundColor: Colors.blue),
+            child: Text('1day', style: const TextStyle(color: Colors.black))),
       ],
     );
   }
@@ -189,8 +190,8 @@ class _StockChartScreenState extends State<StockChartScreen> {
             setState(() {});
           }
         },
-        child: Text("$text", style: const TextStyle(color: Colors.black)),
-        style: TextButton.styleFrom(backgroundColor: Colors.blue));
+        style: TextButton.styleFrom(backgroundColor: Colors.blue),
+        child: Text('$text', style: const TextStyle(color: Colors.black)));
   }
 
   void getData(String period) async {
@@ -199,7 +200,8 @@ class _StockChartScreenState extends State<StockChartScreen> {
       result = await getIPAddress('$period');
     } catch (e) {
       print('获取数据失败,获取本地数据');
-      result = await rootBundle.loadString('assets/kline.json');
+      result =
+          await rootBundle.loadString('packages/stock_chart/assets/kline.json');
     } finally {
       Map parseJson = json.decode(result);
       List list = parseJson['data'];
@@ -224,7 +226,7 @@ class _StockChartScreenState extends State<StockChartScreen> {
     if (response.statusCode == 200) {
       result = response.body;
     } else {
-      return Future.error("获取失败");
+      return Future.error('获取失败');
     }
     return result;
   }

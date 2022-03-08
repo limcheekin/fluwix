@@ -36,7 +36,7 @@ class AboutDialogWidget extends StatelessWidget {
     final aboutBoxChildren = <Widget>[
       SizedBox(height: 24),
       Text(
-        APP_SUBTITLE,
+        appSubTitle,
         style: textStyle,
       ),
     ];

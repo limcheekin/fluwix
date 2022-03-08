@@ -5,6 +5,7 @@ import '../../../../dependencies.dart';
 import '../widgets/widgets.dart';
 import 'number_trivia_controller.dart';
 
+// ignore: use_key_in_widget_constructors
 class NumberTriviaView extends View {
   @override
   _NumberTriviaViewState createState() => _NumberTriviaViewState();
@@ -30,12 +31,12 @@ class _NumberTriviaViewState
         padding: const EdgeInsets.all(10),
         child: Column(
           children: <Widget>[
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             ControlledWidgetBuilder<NumberTriviaController>(
               builder: (context, controller) {
                 switch (controller.status) {
                   case EStatus.none:
-                    return MessageDisplay(
+                    return const MessageDisplay(
                       message: 'Start searching!',
                     );
                   case EStatus.loaded:
@@ -47,13 +48,13 @@ class _NumberTriviaViewState
                       message: controller.errorMessage!,
                     );
                   default:
-                    return LoadingWidget();
+                    return const LoadingWidget();
                 }
               },
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Bottom half
-            TriviaControls()
+            const TriviaControls()
           ],
         ),
       ),

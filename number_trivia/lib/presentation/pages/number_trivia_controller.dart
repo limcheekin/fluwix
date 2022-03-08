@@ -56,6 +56,7 @@ class NumberTriviaController extends Controller {
   void onDisposed() {
     // don't forget to dispose of the presenter
     numberTriviaPresenter.dispose();
+    // ignore: invalid_use_of_visible_for_overriding_member
     super.onDisposed();
   }
 }

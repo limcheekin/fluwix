@@ -19,7 +19,7 @@ void main() {
       'should forward the call to Connectivity.checkConnectivity',
       () async {
         // arrange
-        final tHasConnectionFuture = true;
+        const tHasConnectionFuture = true;
 
         when(mockConnectivity.checkConnectivity())
             .thenAnswer((_) => Future.value(ConnectivityResult.mobile));

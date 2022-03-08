@@ -7,7 +7,7 @@ class LoadProgressIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      child: Center(
+      child: const Center(
         child: SizedBox(
           width: 33,
           height: 33,

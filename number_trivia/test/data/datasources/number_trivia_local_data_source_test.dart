@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:matcher/matcher.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:number_trivia/domain/entities/number_trivia.dart';
@@ -32,13 +31,13 @@ void main() {
       () async {
         // arrange
         when(mockSharedPreferences
-                .getString(NumberTriviaLocalDataSource.CACHED_NUMBER_TRIVIA))
+                .getString(NumberTriviaLocalDataSource.cachedNumberTrivia))
             .thenReturn(fixture('trivia_cached.json'));
         // act
         final result = await dataSource!.getLastNumberTrivia();
         // assert
         verify(mockSharedPreferences
-            .getString(NumberTriviaLocalDataSource.CACHED_NUMBER_TRIVIA));
+            .getString(NumberTriviaLocalDataSource.cachedNumberTrivia));
         expect(result, equals(tNumberTrivia));
       },
     );
@@ -46,7 +45,7 @@ void main() {
     test('should throw a CacheException when there is not a cached value', () {
       // arrange
       when(mockSharedPreferences
-              .getString(NumberTriviaLocalDataSource.CACHED_NUMBER_TRIVIA))
+              .getString(NumberTriviaLocalDataSource.cachedNumberTrivia))
           .thenReturn(null);
       // act
       // Not calling the method here, just storing it inside a call variable
@@ -54,7 +53,7 @@ void main() {
       // assert
       // Calling the method happens from a higher-order function passed.
       // This is needed to test if calling a method throws an exception.
-      expect(() => call(), throwsA(TypeMatcher<FileSystemException>()));
+      expect(() => call(), throwsA(const TypeMatcher<FileSystemException>()));
     });
   });
 
@@ -71,7 +70,7 @@ void main() {
       // assert
       final expectedJsonString = json.encode(tNumberTrivia.toJson());
       verify(mockSharedPreferences.setString(
-        NumberTriviaLocalDataSource.CACHED_NUMBER_TRIVIA,
+        NumberTriviaLocalDataSource.cachedNumberTrivia,
         expectedJsonString,
       ));
     });

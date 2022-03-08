@@ -7,16 +7,17 @@ class MyModule extends StatelessWidget {
   const MyModule({
     required this.title,
     required this.home,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: this.title,
+      title: title,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: this.home,
+      home: home,
     );
   }
 }

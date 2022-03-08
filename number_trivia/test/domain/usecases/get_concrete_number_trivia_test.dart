@@ -20,8 +20,8 @@ void main() {
     usecase = GetConcreteNumberTrivia(mockRepository, mockInputConverter);
   });
 
-  final tNumber = 1;
-  final tNumberString = '1';
+  const tNumber = 1;
+  const tNumberString = '1';
   final tNumberTrivia = NumberTrivia(text: 'test', number: 1);
 
   test(

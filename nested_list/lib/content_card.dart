@@ -29,7 +29,7 @@ class ContentCard extends StatelessWidget {
     BuildContext context,
     String text,
     int size,
-    Function setSizeFn,
+    Function? setSizeFn,
   ) {
     final showMoreButton = setSizeFn != null;
     final iconSize = 24.0;

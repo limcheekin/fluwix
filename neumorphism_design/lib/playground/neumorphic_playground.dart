@@ -77,7 +77,7 @@ class __PageState extends State<_Page> {
                     ),
                   ),
                   backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                    (_) => Theme.of(context).accentColor,
+                    (_) => Theme.of(context).colorScheme.secondary,
                   ),
                 ),
                 onPressed: () {
@@ -110,7 +110,7 @@ class __PageState extends State<_Page> {
   int selectedConfiguratorIndex = 0;
 
   Widget _configurators() {
-    final buttonActiveColor = Theme.of(context).accentColor;
+    final buttonActiveColor = Theme.of(context).colorScheme.secondary;
     final buttonInnactiveColor = Colors.white;
 
     final textActiveColor = Colors.white;
@@ -240,13 +240,10 @@ class __PageState extends State<_Page> {
     switch (selectedConfiguratorIndex) {
       case 0:
         return styleCustomizer();
-        break;
       case 1:
         return elementCustomizer();
-        break;
       case 2:
         return childCustomizer();
-        break;
     }
     return SizedBox.shrink();
   }
@@ -654,7 +651,7 @@ class __PageState extends State<_Page> {
   }
 
   Widget boxshapeWidget() {
-    final buttonActiveColor = Theme.of(context).accentColor;
+    final buttonActiveColor = Theme.of(context).colorScheme.secondary;
     final buttonInnactiveColor = Colors.white;
 
     final textActiveColor = Colors.white;
@@ -831,7 +828,7 @@ class __PageState extends State<_Page> {
   }
 
   Widget shapeWidget() {
-    final buttonActiveColor = Theme.of(context).accentColor;
+    final buttonActiveColor = Theme.of(context).colorScheme.secondary;
     final buttonInnactiveColor = Colors.white;
 
     final iconActiveColor = Colors.white;

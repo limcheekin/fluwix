@@ -77,7 +77,6 @@ class FlippedVerticalAxis extends StatelessWidget {
 
   // Known Issue, the bar chart cannot render negative direction bars at this
   // time so the result is an empty chart.
-  // TODO: Remove this comment
   @override
   Widget build(BuildContext context) {
     return new charts.BarChart(

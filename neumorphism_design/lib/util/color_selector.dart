@@ -1,7 +1,4 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 @immutable
@@ -47,7 +44,6 @@ class ColorSelector extends StatelessWidget {
               child: ColorPicker(
                 pickerColor: color,
                 onColorChanged: onColorChanged,
-                showLabel: true,
                 pickerAreaHeightPercent: 0.8,
               ),
             ),

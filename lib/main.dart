@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:glassmorphism_design/glassmorphism_design_screen.dart';
 import 'package:nested_list/nested_list_screen.dart';
@@ -27,7 +26,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:common_ui/constants.dart';
 import 'package:search_bar/search_bar_screen.dart';
 import 'package:number_trivia/number_trivia_screen.dart';
-import 'package:number_trivia/dependencies.dart' as numberTriviaDi;
+import 'package:number_trivia/dependencies.dart' as number_trivia_di;
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'string.dart';
 
@@ -36,8 +35,8 @@ void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   setPathUrlStrategy();
-  numberTriviaDi.init();
-  runApp(ModularApp(module: appModule, child: AppWidget()));
+  number_trivia_di.init();
+  runApp(ModularApp(module: appModule, child: const AppWidget()));
   FlutterNativeSplash.remove();
 }
 
@@ -48,45 +47,53 @@ class AppModule extends Module {
   @override
   final List<ModularRoute> routes = List.from([
     // ChildRoute(Modular.initialRoute, child: (context, args) => HomeScreen()),
-    ChildRoute('/', child: (_, __) => HomeScreen()),
+    ChildRoute('/', child: (_, __) => const HomeScreen()),
     ChildRoute('/nested_list', child: (_, __) => NestedListScreen()),
     ChildRoute('/tab_buttons', child: (_, __) => TabButtonsScreen()),
     ChildRoute('/stock_chart', child: (_, __) => StockChartScreen()),
     ChildRoute('/expansion_collapse_view',
-        child: (_, __) => ExpansionCollapseViewScreen()),
-    ChildRoute('/charts_gallery', child: (_, __) => ChartsGalleryScreen()),
-    ChildRoute('/chart_data_table', child: (_, __) => ChartDataTableScreen()),
-    ChildRoute('/syntax_view', child: (_, __) => SyntaxViewScreen()),
+        child: (_, __) => const ExpansionCollapseViewScreen()),
+    ChildRoute('/charts_gallery',
+        child: (_, __) => const ChartsGalleryScreen()),
+    ChildRoute('/chart_data_table',
+        child: (_, __) => const ChartDataTableScreen()),
+    ChildRoute('/syntax_view', child: (_, __) => const SyntaxViewScreen()),
 
-    ChildRoute('/animated_icons', child: (_, __) => AnimatedIconsScreen()),
+    ChildRoute('/animated_icons',
+        child: (_, __) => const AnimatedIconsScreen()),
     ChildRoute('/url_launcher_showcase',
-        child: (_, __) => UrlLauncherShowcaseScreen()),
-    ChildRoute('/markdown_view', child: (_, __) => MarkdownViewScreen()),
-    ChildRoute('/shimmer_effect', child: (_, __) => ShimmerEffectScreen()),
-    ChildRoute('/about_dialog', child: (_, __) => AboutDialogScreen()),
-    ChildRoute('/source_code_view', child: (_, __) => SourceCodeViewScreen()),
-    ChildRoute('/showcase_view', child: (_, __) => ShowcaseScreen()),
+        child: (_, __) => const UrlLauncherShowcaseScreen()),
+    ChildRoute('/markdown_view', child: (_, __) => const MarkdownViewScreen()),
+    ChildRoute('/shimmer_effect',
+        child: (_, __) => const ShimmerEffectScreen()),
+    ChildRoute('/about_dialog', child: (_, __) => const AboutDialogScreen()),
+    ChildRoute('/source_code_view',
+        child: (_, __) => const SourceCodeViewScreen()),
+    ChildRoute('/showcase_view', child: (_, __) => const ShowcaseScreen()),
     ChildRoute('/material_design_showcase',
-        child: (_, __) => MaterialDesignShowcaseScreen()),
+        child: (_, __) => const MaterialDesignShowcaseScreen()),
     ChildRoute('/percent_indicator_showcase',
-        child: (_, __) => PercentIndicatorShowcaseScreen()),
+        child: (_, __) => const PercentIndicatorShowcaseScreen()),
     ChildRoute('/glassmorphism_design',
-        child: (_, __) => GlassmorphismDesignScreen()),
+        child: (_, __) => const GlassmorphismDesignScreen()),
     ChildRoute('/neumorphism_design',
-        child: (_, __) => NeumorphismDesignScreen()),
+        child: (_, __) => const NeumorphismDesignScreen()),
     ChildRoute('/settings_ui_showcase',
-        child: (_, __) => SettingsUiShowcaseScreen()),
-    ChildRoute('/search_bar', child: (_, __) => SearchBarScreen()),
-    ChildRoute('/rich_text_editor', child: (_, __) => RichTextEditorScreen()),
-    ChildRoute('/number_trivia', child: (_, __) => NumberTriviaScreen()),
+        child: (_, __) => const SettingsUiShowcaseScreen()),
+    ChildRoute('/search_bar', child: (_, __) => const SearchBarScreen()),
+    ChildRoute('/rich_text_editor',
+        child: (_, __) => const RichTextEditorScreen()),
+    ChildRoute('/number_trivia', child: (_, __) => const NumberTriviaScreen()),
   ].reversed);
 }
 
 class AppWidget extends StatelessWidget {
+  const AppWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: APP_TITLE,
+      title: appTitle,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -96,6 +103,8 @@ class AppWidget extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final appBar = _buildAppBar(context);
@@ -108,15 +117,15 @@ class HomeScreen extends StatelessWidget {
 
   AppBar _buildAppBar(BuildContext context) {
     final aboutBoxChildren = <Widget>[
-      SizedBox(height: 24),
+      const SizedBox(height: 24),
       Text(
-        APP_SUBTITLE,
+        appSubTitle,
         style: Theme.of(context).textTheme.bodyText2,
       ),
     ];
 
     return AppBar(
-      title: Text(APP_TITLE),
+      title: const Text(appTitle),
       actions: [
         FutureBuilder<PackageInfo>(
           future: PackageInfo.fromPlatform(),
@@ -124,11 +133,11 @@ class HomeScreen extends StatelessWidget {
             if (snapshot.hasData) {
               final packageInfo = snapshot.data;
               return IconButton(
-                icon: Icon(Icons.info_outline),
+                icon: const Icon(Icons.info_outline),
                 onPressed: () {
                   showAboutDialog(
                     context: context,
-                    applicationIcon: Logo(),
+                    applicationIcon: const Logo(),
                     applicationName: packageInfo.appName,
                     applicationVersion: packageInfo.version,
                     applicationLegalese:
@@ -138,7 +147,7 @@ class HomeScreen extends StatelessWidget {
                 },
               );
             }
-            return SizedBox.shrink();
+            return const SizedBox.shrink();
           },
         ),
       ],
@@ -149,8 +158,8 @@ class HomeScreen extends StatelessWidget {
 class NarrowLayout extends StatelessWidget {
   final AppBar appBar;
   const NarrowLayout({
-    @required this.appBar,
-    Key key,
+    required this.appBar,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -162,10 +171,10 @@ class NarrowLayout extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           final routerName = appModule.routes[index].routerName;
           return Card(
-            margin: EdgeInsets.fromLTRB(8, 4, 8, 4),
+            margin: const EdgeInsets.fromLTRB(8, 4, 8, 4),
             child: ListTile(
               title: Text(routerName.substring(1).toTitleCase()),
-              trailing: Icon(Icons.keyboard_arrow_right),
+              trailing: const Icon(Icons.keyboard_arrow_right),
               onTap: () => Modular.to.navigate(routerName),
             ),
           );
@@ -178,8 +187,8 @@ class NarrowLayout extends StatelessWidget {
 class WideLayout extends StatefulWidget {
   final AppBar appBar;
   const WideLayout({
-    @required this.appBar,
-    Key key,
+    required this.appBar,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -187,7 +196,7 @@ class WideLayout extends StatefulWidget {
 }
 
 class _WideLayoutState extends State<WideLayout> {
-  static const CORS_PROXY = 'https://cors.bridged.cc/';
+  static const corsProxy = 'https://cors.bridged.cc/';
   int _selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
@@ -197,7 +206,7 @@ class _WideLayoutState extends State<WideLayout> {
       body: Row(
         children: [
           SizedBox(
-            width: LEFT_NAVIGATION_PANEL_WIDTH,
+            width: leftNavigationPanelWidth,
             child: ListView.builder(
               itemCount: appModule.routes.length - 1,
               itemBuilder: (BuildContext context, int index) {
@@ -206,7 +215,7 @@ class _WideLayoutState extends State<WideLayout> {
                   title: Text(routerName.substring(1).toTitleCase()),
                   selected: index == _selectedIndex,
                   trailing: index == _selectedIndex
-                      ? Icon(Icons.keyboard_arrow_right)
+                      ? const Icon(Icons.keyboard_arrow_right)
                       : null,
                   onTap: () {
                     setState(() {
@@ -223,15 +232,15 @@ class _WideLayoutState extends State<WideLayout> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.network(
-                        CORS_PROXY +
+                        corsProxy +
                             'https://flutter-widgets-explorer.netlify.app/images/welcome.png',
                         width: 633.0,
                         height: 475.0,
                       ),
                       RichText(
                         textAlign: TextAlign.center,
-                        text: TextSpan(
-                          text: 'Welcome to Fluwix!\n' + APP_SUBTITLE,
+                        text: const TextSpan(
+                          text: 'Welcome to Fluwix!\n' + appSubTitle,
                           style: TextStyle(fontSize: 28.0),
                           children: <TextSpan>[
                             TextSpan(
@@ -243,7 +252,8 @@ class _WideLayoutState extends State<WideLayout> {
                       ),
                     ],
                   )
-                : appModule.routes[_selectedIndex].child(context, null),
+                : appModule.routes[_selectedIndex].child!(
+                    context, ModularArguments.empty()),
           ),
         ],
       ),

@@ -51,7 +51,7 @@ void main() {
   }
 
   group('getConcreteNumberTrivia', () {
-    final tNumber = 1;
+    const tNumber = 1;
     final tNumberTrivia = NumberTrivia(number: tNumber, text: 'test trivia');
 
     test(
@@ -102,11 +102,12 @@ void main() {
         () {
           // arrange
           when(mockRemoteDataSource.getConcreteNumberTrivia(tNumber))
-              .thenThrow(HttpException(''));
+              .thenThrow(const HttpException(''));
           // act
           final call = repository!.getConcreteNumberTrivia;
           // assert
-          expect(() => call(tNumber), throwsA(TypeMatcher<HttpException>()));
+          expect(
+              () => call(tNumber), throwsA(const TypeMatcher<HttpException>()));
         },
       );
     });
@@ -131,12 +132,12 @@ void main() {
         () {
           // arrange
           when(mockLocalDataSource.getLastNumberTrivia())
-              .thenThrow(FileSystemException());
+              .thenThrow(const FileSystemException());
           // act
           final call = repository!.getConcreteNumberTrivia;
           // assert
-          expect(
-              () => call(tNumber), throwsA(TypeMatcher<FileSystemException>()));
+          expect(() => call(tNumber),
+              throwsA(const TypeMatcher<FileSystemException>()));
         },
       );
     });
@@ -193,11 +194,11 @@ void main() {
         () {
           // arrange
           when(mockRemoteDataSource.getRandomNumberTrivia())
-              .thenThrow(HttpException(''));
+              .thenThrow(const HttpException(''));
           // act
           final call = repository!.getRandomNumberTrivia;
           // assert
-          expect(() => call(), throwsA(TypeMatcher<HttpException>()));
+          expect(() => call(), throwsA(const TypeMatcher<HttpException>()));
         },
       );
     });
@@ -222,11 +223,12 @@ void main() {
         () {
           // arrange
           when(mockLocalDataSource.getLastNumberTrivia())
-              .thenThrow(FileSystemException());
+              .thenThrow(const FileSystemException());
           // act
           final call = repository!.getRandomNumberTrivia;
           // assert
-          expect(() => call(), throwsA(TypeMatcher<FileSystemException>()));
+          expect(
+              () => call(), throwsA(const TypeMatcher<FileSystemException>()));
         },
       );
     });

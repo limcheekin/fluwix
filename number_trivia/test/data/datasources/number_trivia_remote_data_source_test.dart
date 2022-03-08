@@ -5,7 +5,6 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:matcher/matcher.dart';
 import 'package:number_trivia/data/datasources/number_trivia_remote_data_source.dart';
 import 'package:number_trivia/domain/entities/number_trivia.dart';
 
@@ -37,7 +36,7 @@ void main() {
       NumberTrivia.fromJson(json.decode(fixture('trivia.json')));
 
   group('getConcreteNumberTrivia', () {
-    final tNumber = 1;
+    const tNumber = 1;
 
     test(
       'should preform a GET request on a URL with number being the endpoint and with application/json header',
@@ -73,7 +72,8 @@ void main() {
         // act
         final call = dataSource!.getConcreteNumberTrivia;
         // assert
-        expect(() => call(tNumber), throwsA(TypeMatcher<HttpException>()));
+        expect(
+            () => call(tNumber), throwsA(const TypeMatcher<HttpException>()));
       },
     );
   });
@@ -113,7 +113,7 @@ void main() {
         // act
         final call = dataSource!.getRandomNumberTrivia;
         // assert
-        expect(() => call(), throwsA(TypeMatcher<HttpException>()));
+        expect(() => call(), throwsA(const TypeMatcher<HttpException>()));
       },
     );
   });

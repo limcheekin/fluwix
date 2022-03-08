@@ -7,10 +7,12 @@ import 'presentation/pages/number_trivia_view.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   di.init();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     FlutterCleanArchitecture.debugModeOn();
@@ -18,7 +20,9 @@ class MyApp extends StatelessWidget {
       title: 'Number Trivia',
       theme: ThemeData(
         primaryColor: Colors.green.shade800,
-        accentColor: Colors.green.shade600,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          secondary: Colors.green.shade600,
+        ),
       ),
       home: NumberTriviaView(),
     );
