@@ -4,7 +4,7 @@ import 'package:showcase_view/showcase_view.dart';
 import 'settings_screen.dart';
 
 class SettingsUiShowcaseScreen extends StatelessWidget {
-  const SettingsUiShowcaseScreen({Key key}) : super(key: key);
+  const SettingsUiShowcaseScreen({Key? key}) : super(key: key);
 
   static const owner = 'yako-dev';
   static const repository = 'flutter-settings-ui';
