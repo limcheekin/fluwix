@@ -3,7 +3,7 @@ description: Fluwix - Flutter showcase platform on the mobile apps and web.
 
 publish_to: "none"
 
-version: 0.5.8
+version: 0.6.0
 
 environment:
   sdk: ">=2.16.1 <3.0.0"
@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
 
   flutter_modular: ^3.0.2+1
-  responsive_builder: ^0.4.1
+  responsive_builder: ^0.4.2
   url_strategy: ^0.2.0
   flutter_native_splash: ^2.1.0
   nested_list:

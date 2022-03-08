@@ -1,1 +1,1 @@
-Upgraded dependencies and updated code to work with Flutter 2.10.
+Migrated to null-safety and upgraded module dependencies.
