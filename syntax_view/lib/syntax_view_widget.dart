@@ -94,7 +94,7 @@ var result = fibonacci(20);
       syntaxTheme: SyntaxTheme.vscodeDark(),
       withZoom: true,
       withLinesCount: true,
-      expanded: false,
+      expanded: true,
     ),
     'vscodeLight': SyntaxView(
         code: code,

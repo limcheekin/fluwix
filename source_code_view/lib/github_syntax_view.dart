@@ -55,7 +55,7 @@ class _GithubSyntaxViewState extends AbstractGithubViewState<GithubSyntaxView> {
       syntaxTheme: widget.syntaxTheme,
       withZoom: true,
       withLinesCount: true,
-      expanded: false,
+      expanded: true,
     );
   }
 }
