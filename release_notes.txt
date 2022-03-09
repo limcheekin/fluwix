@@ -1,1 +1,1 @@
-Fixed stock chart is not loaded.
+Added Wallet Connect Showcase.
