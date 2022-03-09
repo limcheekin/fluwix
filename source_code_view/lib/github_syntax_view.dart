@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_syntax_view/flutter_syntax_view.dart';
 import 'abstract_github_view.dart';
@@ -49,13 +51,19 @@ class GithubSyntaxView extends AbstractGithubView {
 class _GithubSyntaxViewState extends AbstractGithubViewState<GithubSyntaxView> {
   @override
   Widget buildWidget(BuildContext context, String responseBody) {
-    return SyntaxView(
-      code: responseBody,
-      syntax: widget.syntax!,
-      syntaxTheme: widget.syntaxTheme,
-      withZoom: true,
-      withLinesCount: true,
-      expanded: true,
+    final numberOfLines = LineSplitter().convert(responseBody).length;
+    final fontSize = Theme.of(context).textTheme.bodyText1!.fontSize;
+
+    return SizedBox(
+      height: numberOfLines * fontSize!,
+      child: SyntaxView(
+        code: responseBody,
+        syntax: widget.syntax!,
+        syntaxTheme: widget.syntaxTheme,
+        withZoom: true,
+        withLinesCount: true,
+        expanded: true,
+      ),
     );
   }
 }
