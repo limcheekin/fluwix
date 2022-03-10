@@ -11,15 +11,16 @@ import 'eth_conversions.dart';
 import 'qr_scan_view.dart';
 import 'package:web3dart/crypto.dart';
 import 'package:web3dart/web3dart.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+
+import 'web_view.dart';
 
 // ignore_for_file: todo
-class WalletConnectShowcaseWidget extends StatefulWidget {
-  const WalletConnectShowcaseWidget({Key? key}) : super(key: key);
+class WalletConnectWebShowcaseWidget extends StatefulWidget {
+  const WalletConnectWebShowcaseWidget({Key? key}) : super(key: key);
 
   @override
-  _WalletConnectShowcaseWidgetState createState() =>
-      _WalletConnectShowcaseWidgetState();
+  _WalletConnectWebShowcaseWidgetState createState() =>
+      _WalletConnectWebShowcaseWidgetState();
 }
 
 const maticRpcUri =
@@ -33,8 +34,8 @@ enum MenuItems {
   clearCache,
 }
 
-class _WalletConnectShowcaseWidgetState
-    extends State<WalletConnectShowcaseWidget> {
+class _WalletConnectWebShowcaseWidgetState
+    extends State<WalletConnectWebShowcaseWidget> {
   late WCClient _wcClient;
   late SharedPreferences _prefs;
   late WebViewController _webViewController;
@@ -69,7 +70,6 @@ class _WalletConnectShowcaseWidgetState
     privateKey = '';
     _textEditingController = TextEditingController();
     _prefs = await SharedPreferences.getInstance();
-    WebView.platform = AndroidWebView();
   }
 
   @override
@@ -169,7 +169,6 @@ class _WalletConnectShowcaseWidgetState
         Expanded(
           child: WebView(
             initialUrl: 'https://example.walletconnect.org',
-            javascriptMode: JavascriptMode.unrestricted,
             onWebViewCreated: (controller) {
               _webViewController = controller;
             },
