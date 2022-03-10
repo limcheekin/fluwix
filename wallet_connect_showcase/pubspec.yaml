@@ -10,12 +10,13 @@ environment:
 
 dependencies:
   flutter:
-    sdk: flutter
+    sdk: flutter 
 
   scan: ^1.6.0
   web3dart: ^2.3.5
   shared_preferences: ^2.0.13
-  flutter_inappwebview: ^5.3.2
+  webview_flutter: ^3.0.1
+  webview_flutter_web: ^0.1.0+1
   eth_sig_util: ^0.0.7
   wallet_connect: ^1.0.2
   common_ui:
