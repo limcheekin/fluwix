@@ -1,1 +1,1 @@
-Added Wallet Connect Showcase.
+Fixed WebView of the Wallet Connect Showcase.
