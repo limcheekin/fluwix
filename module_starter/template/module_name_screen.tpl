@@ -15,7 +15,7 @@ class ModuleNameScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShowcaseView(
+    return const ShowcaseView(
       title: 'Module Name',
       widget: ModuleNameWidget(),
       owner: owner,
