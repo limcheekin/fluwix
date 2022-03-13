@@ -1,0 +1,46 @@
+{
+  "name": "",
+  "css_prefix_text": "",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "c3fd8648f20d8b2f864853c4af99089c",
+      "css": "ethereum",
+      "code": 62510,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "b18c7abdf3c6eb66ebeb08c193ff0d60",
+      "css": "gem",
+      "code": 62373,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "42941d03774cff4f146f6be9396497b2",
+      "css": "skull",
+      "code": 62796,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "71f905d8fda639701b4127de4b0bab67",
+      "css": "key",
+      "code": 61572,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "8edaefd94639c91605b18d3183eb5b12",
+      "css": "coins",
+      "code": 62750,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "dd6c6b221a1088ff8a9b9cd32d0b3dd5",
+      "css": "check",
+      "code": 59392,
+      "src": "fontawesome"
+    }
+  ]
+}
