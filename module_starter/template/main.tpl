@@ -4,7 +4,7 @@ import 'module_name_screen.dart';
 
 void main() {
   runApp(
-    MyModule(
+    const MyModule(
       title: 'Module Name',
       home: ModuleNameScreen(),
     ),
