@@ -28,6 +28,7 @@ import 'package:search_bar/search_bar_screen.dart';
 import 'package:number_trivia/number_trivia_screen.dart';
 import 'package:number_trivia/dependencies.dart' as number_trivia_di;
 import 'package:wallet_connect_showcase/wallet_connect_showcase_screen.dart';
+import 'package:slider_captcha_showcase/slider_captcha_showcase_screen.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_k_chart/generated/l10n.dart' as k_chart;
 import 'string.dart';
@@ -88,6 +89,8 @@ class AppModule extends Module {
     ChildRoute('/number_trivia', child: (_, __) => const NumberTriviaScreen()),
     ChildRoute('/wallet_connect_showcase',
         child: (_, __) => const WalletConnectShowcaseScreen()),
+    ChildRoute('/slider_captcha_showcase',
+        child: (_, __) => const SliderCaptchaShowcaseScreen()),
   ].reversed);
 }
 

@@ -61,7 +61,9 @@ dependencies:
   number_trivia:
     path: number_trivia
   wallet_connect_showcase:
-    path: wallet_connect_showcase              
+    path: wallet_connect_showcase
+  slider_captcha_showcase:
+    path: slider_captcha_showcase        
 
 dev_dependencies:
   flutter_test:
