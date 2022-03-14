@@ -1,1 +1,1 @@
-Fixed WebView of the Wallet Connect Showcase.
+Added the Slider Captcha Showcase.
