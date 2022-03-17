@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
@@ -30,21 +28,24 @@ class ReadMeView extends AbstractGithubView {
 }
 
 class _ReadMeViewState extends AbstractGithubViewState<ReadMeView> {
-  static const CORS_PROXY = 'https://cors.bridged.cc/';
   @override
   Widget buildWidget(BuildContext context, String responseBody) {
     return Expanded(
-      child: Markdown(
-        data: _addCorsProxyToImageUrls(responseBody),
-        selectable: true,
-        onTapLink: _onTapLink,
+      child: Scrollbar(
+        isAlwaysShown: kIsWeb,
+        child: Markdown(
+          data: responseBody,
+          selectable: true,
+          onTapLink: _onTapLink,
+        ),
       ),
     );
   }
 
-  String _addCorsProxyToImageUrls(String responseBody) {
+  /*String _addCorsProxyToImageUrls(String responseBody) {
     if (!kIsWeb) return responseBody;
 
+    final CORS_PROXY = 'https://cors.bridged.cc/';
     final lines = LineSplitter.split(responseBody);
     var body = '';
     final exp = RegExp(
@@ -61,7 +62,7 @@ class _ReadMeViewState extends AbstractGithubViewState<ReadMeView> {
       body += '$line\n';
     });
     return body;
-  }
+  }*/
 
   void _onTapLink(String text, String? href, String title) {
     print('text $text');
