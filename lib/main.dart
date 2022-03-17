@@ -206,7 +206,6 @@ class WideLayout extends StatefulWidget {
 }
 
 class _WideLayoutState extends State<WideLayout> {
-  static const corsProxy = 'https://cors.bridged.cc/';
   int _selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
@@ -242,8 +241,7 @@ class _WideLayoutState extends State<WideLayout> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.network(
-                        corsProxy +
-                            'https://flutter-widgets-explorer.netlify.app/images/welcome.png',
+                        'https://flutter-widgets-explorer.netlify.app/images/welcome.png',
                         width: 633.0,
                         height: 475.0,
                       ),
@@ -251,7 +249,10 @@ class _WideLayoutState extends State<WideLayout> {
                         textAlign: TextAlign.center,
                         text: const TextSpan(
                           text: 'Welcome to Fluwix!\n' + appSubTitle,
-                          style: TextStyle(fontSize: 28.0),
+                          style: TextStyle(
+                            fontSize: 28.0,
+                            color: Colors.black87,
+                          ),
                           children: <TextSpan>[
                             TextSpan(
                               text: '\n\nPlease select a showcase on the left',
