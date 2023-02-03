@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:slider_captcha/self.dart';
+import 'package:slider_captcha/slider_capchar.dart';
 
 class SliderCaptchaShowcaseWidget extends StatefulWidget {
   const SliderCaptchaShowcaseWidget({Key? key}) : super(key: key);
@@ -11,6 +11,8 @@ class SliderCaptchaShowcaseWidget extends StatefulWidget {
 
 class _SliderCaptchaShowcaseWidgetState
     extends State<SliderCaptchaShowcaseWidget> {
+  final SliderController controller = SliderController();
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -55,7 +57,15 @@ class _SliderCaptchaShowcaseWidgetState
                   fit: BoxFit.fitWidth,
                   package: 'slider_captcha_showcase',
                 ),
-                onSuccess: () => showMyDialog(context),
+                onConfirm: (value) async {
+                  debugPrint(value.toString());
+                  showMyDialog(context);
+                  return await Future.delayed(const Duration(seconds: 1)).then(
+                    (value) {
+                      controller.create.call();
+                    },
+                  );
+                },
               ),
             ),
           );

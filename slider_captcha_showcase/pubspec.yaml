@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  slider_captcha: ^0.0.7
+  slider_captcha: ^0.1.9
   common_ui:
     path: ../common_ui
   showcase_view:
