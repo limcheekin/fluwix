@@ -188,7 +188,7 @@ class _MaterialShowcaseState extends State<MaterialShowcase> {
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: RaisedButton(
+            child: ElevatedButton(
               onPressed: () {},
               child: const Text('Raised Button'),
             ),
@@ -197,7 +197,7 @@ class _MaterialShowcaseState extends State<MaterialShowcase> {
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: FlatButton(
+            child: TextButton(
               onPressed: () {},
               child: const Text('Flat Button'),
             ),
