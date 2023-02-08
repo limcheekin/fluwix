@@ -182,7 +182,7 @@ class _WalletConnectWebShowcaseWidgetState
       WebViewController controller, BuildContext context) async {
     await controller.clearCache();
     // ignore: deprecated_member_use
-    Scaffold.of(context).showSnackBar(const SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
       content: Text('Cache cleared.'),
     ));
   }
@@ -447,8 +447,8 @@ class _WalletConnectWebShowcaseWidgetState
       final Map<String, dynamic> resMap = jsonDecode(res.body);
       final abi = ContractAbi.fromJson(resMap['result'], '');
       final contract = DeployedContract(
-          abi, EthereumAddress.fromHex(ethereumTransaction.to));
-      final dataBytes = hexToBytes(ethereumTransaction.data);
+          abi, EthereumAddress.fromHex(ethereumTransaction.to!));
+      final dataBytes = hexToBytes(ethereumTransaction.data!);
       final funcBytes = dataBytes.take(4).toList();
       debugPrint("funcBytes $funcBytes");
       final maibiFunctions = contract.functions
@@ -518,7 +518,7 @@ class _WalletConnectWebShowcaseWidgetState
                   ),
                   const SizedBox(height: 8.0),
                   Text(
-                    ethereumTransaction.to,
+                    ethereumTransaction.to!,
                     style: const TextStyle(fontSize: 16.0),
                   ),
                 ],
@@ -607,7 +607,7 @@ class _WalletConnectWebShowcaseWidgetState
                   ),
                   children: [
                     Text(
-                      ethereumTransaction.data,
+                      ethereumTransaction.data!,
                       style: const TextStyle(fontSize: 16.0),
                     ),
                   ],
@@ -619,7 +619,7 @@ class _WalletConnectWebShowcaseWidgetState
                 Expanded(
                   child: TextButton(
                     style: TextButton.styleFrom(
-                      primary: Colors.white,
+                      foregroundColor: Colors.white,
                       backgroundColor: Theme.of(context).colorScheme.secondary,
                     ),
                     onPressed: onConfirm,
@@ -630,7 +630,7 @@ class _WalletConnectWebShowcaseWidgetState
                 Expanded(
                   child: TextButton(
                     style: TextButton.styleFrom(
-                      primary: Colors.white,
+                      foregroundColor: Colors.white,
                       backgroundColor: Theme.of(context).colorScheme.secondary,
                     ),
                     onPressed: onReject,
@@ -770,7 +770,7 @@ class _WalletConnectWebShowcaseWidgetState
   Transaction _wcEthTxToWeb3Tx(WCEthereumTransaction ethereumTransaction) {
     return Transaction(
       from: EthereumAddress.fromHex(ethereumTransaction.from),
-      to: EthereumAddress.fromHex(ethereumTransaction.to),
+      to: EthereumAddress.fromHex(ethereumTransaction.to!),
       maxGas: ethereumTransaction.gasLimit != null
           ? int.tryParse(ethereumTransaction.gasLimit!)
           : null,
@@ -778,7 +778,7 @@ class _WalletConnectWebShowcaseWidgetState
           ? EtherAmount.inWei(BigInt.parse(ethereumTransaction.gasPrice!))
           : null,
       value: EtherAmount.inWei(BigInt.parse(ethereumTransaction.value ?? '0')),
-      data: hexToBytes(ethereumTransaction.data),
+      data: hexToBytes(ethereumTransaction.data!),
       nonce: ethereumTransaction.nonce != null
           ? int.tryParse(ethereumTransaction.nonce!)
           : null,
