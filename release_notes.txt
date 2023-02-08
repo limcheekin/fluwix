@@ -1,2 +1,2 @@
-Updated the Slider Captcha Showcase, Rich Text Editor, Material Design Showcase and Wallet Connect Showcase to compile with Flutter 3.7.1.
+Updated the Slider Captcha Showcase, Rich Text Editor, Material Design Showcase, Wallet Connect Showcase and Number Trivia to compile with Flutter 3.7.1.
 Enabled Material 3.
