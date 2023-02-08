@@ -31,12 +31,13 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  mockito: ^5.0.10  
+  mockito: ^5.3.2  
   flutter_lints:
   build_runner:
   freezed:
   json_serializable:
   analyzer: ^3.3.1
+  file: ^6.1.4
 
 flutter:
   uses-material-design: true
