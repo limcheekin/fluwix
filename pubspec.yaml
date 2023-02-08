@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_modular: ^5.0.3
+  flutter_modular: ^3.4.1+1
   responsive_builder: ^0.4.2
   url_strategy: ^0.2.0
   flutter_native_splash: ^2.1.0
