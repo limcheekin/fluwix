@@ -36,7 +36,7 @@ dev_dependencies:
   build_runner:
   freezed:
   json_serializable:
-  analyzer: ^3.3.1
+  analyzer:
   file: ^6.1.4
 
 flutter:
