@@ -57,8 +57,8 @@ class _DemoScaffoldState extends State<DemoScaffold> {
 
   Future<void> _loadFromAssets() async {
     try {
-      final result =
-          await rootBundle.loadString('assets/${widget.documentFilename}');
+      final result = await rootBundle.loadString(
+          'packages/rich_text_editor/assets/${widget.documentFilename}');
       final doc = Document.fromJson(jsonDecode(result));
       setState(() {
         _controller = QuillController(
