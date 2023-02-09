@@ -30,6 +30,7 @@ import 'package:number_trivia/dependencies.dart' as number_trivia_di;
 import 'package:wallet_connect_showcase/wallet_connect_showcase_screen.dart';
 import 'package:slider_captcha_showcase/slider_captcha_showcase_screen.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:adaptive_scaffold/adaptive_scaffold_screen.dart';
 import 'package:flutter_k_chart/generated/l10n.dart' as k_chart;
 import 'string.dart';
 
@@ -91,6 +92,8 @@ class AppModule extends Module {
         child: (_, __) => const WalletConnectShowcaseScreen()),
     ChildRoute('/slider_captcha_showcase',
         child: (_, __) => const SliderCaptchaShowcaseScreen()),
+    ChildRoute('/adaptive_scaffold',
+        child: (_, __) => const AdaptiveScaffoldScreen()),
   ].reversed);
 }
 

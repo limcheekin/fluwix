@@ -63,7 +63,9 @@ dependencies:
   wallet_connect_showcase:
     path: wallet_connect_showcase
   slider_captcha_showcase:
-    path: slider_captcha_showcase        
+    path: slider_captcha_showcase
+  adaptive_scaffold:
+    path: adaptive_scaffold
 
 dev_dependencies:
   flutter_test:
