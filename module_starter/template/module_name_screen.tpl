@@ -38,6 +38,6 @@ class ModuleNameWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('Replace this with your Module Name widget');
+    return const Text('Replace this with your Module Name widget');
   }
 }

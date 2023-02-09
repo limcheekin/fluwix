@@ -65,6 +65,11 @@ class CommandRunner {
         '$moduleDirectory/lib/${module_name}_screen.dart',
       );
 
+      await _copyPasteFileContent(
+        '$templateDirectory/widget_test.tpl',
+        '$moduleDirectory/test/widget_test.dart',
+      );
+
       final ModuleName = module_name.toPascalCase();
       final Module_Name = module_name.toPascalCase(joinDelimiter: ' ');
       final moduleName =
@@ -117,6 +122,18 @@ class CommandRunner {
       );
       await _changeAllInFile(
         '$moduleDirectory/lib/${module_name}_screen.dart',
+        'ModuleName',
+        ModuleName,
+      );
+
+      Logger.logInfo('Update $module_name/test/widget_test.dart');
+      await _changeAllInFile(
+        '$moduleDirectory/test/widget_test.dart',
+        'module_name',
+        module_name,
+      );
+      await _changeAllInFile(
+        '$moduleDirectory/test/widget_test.dart',
         'ModuleName',
         ModuleName,
       );
