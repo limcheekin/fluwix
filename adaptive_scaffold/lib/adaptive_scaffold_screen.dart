@@ -11,9 +11,9 @@ class AdaptiveScaffoldScreen extends StatelessWidget {
   // owner = 'miquelbeltran';
   // repository = 'flutter_material_showcase';
   // branch = 'master';
-  static const owner = 'limcheekin';
-  static const repository = 'fluwix';
-  static const branch = 'adaptive_scaffold';
+  static const owner = 'flutter';
+  static const repository = 'packages';
+  static const branch = 'main';
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +26,12 @@ class AdaptiveScaffoldScreen extends StatelessWidget {
       // $branch/ prefix is not needed for external GitHub repo
       // Please refer to the following sample code:
       // https://github.com/limcheekin/fluwix/blob/main/material_design_showcase/lib/material_design_showcase_screen.dart
-      readMe: '$branch/README.md',
+      readMe: 'packages/flutter_adaptive_scaffold/README.md',
       codePaths: [
-        '$branch/pubspec.yaml',
-        '$branch/lib/adaptive_scaffold_screen.dart',
+        'packages/flutter_adaptive_scaffold/example/pubspec.yaml',
+        'packages/flutter_adaptive_scaffold/example/lib/main.dart',
       ],
+      license: 'packages/flutter_adaptive_scaffold/LICENSE',
     );
   }
 }

@@ -150,9 +150,9 @@ class ShowcaseView extends StatelessWidget {
                         target: kIsWeb
                             ? LinkTarget.blank
                             : LinkTarget.defaultTarget,
-                        builder:
-                            (BuildContext context, Future<void> Function()? followLink) =>
-                                Row(
+                        builder: (BuildContext context,
+                                Future<void> Function()? followLink) =>
+                            Row(
                           children: [
                             Text(
                               'By ',

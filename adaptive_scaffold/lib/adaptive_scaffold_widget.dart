@@ -472,7 +472,8 @@ class _ItemList extends StatelessWidget {
                   child: CircleAvatar(
                     radius: 18,
                     child: Image.asset(
-                      'packages/adaptive_scaffold/assets/images/plum.png',
+                      package: 'adaptive_scaffold',
+                      'assets/images/plum.png',
                       width: 100,
                       height: 100,
                       fit: BoxFit.cover,
@@ -532,8 +533,14 @@ class _ItemListTile extends StatelessWidget {
         // simply show the details on the secondaryBody.
         selectCard(_allItems.indexOf(item));
         if (!Breakpoints.mediumAndUp.isActive(context)) {
-          Navigator.of(context).pushNamed(_ExtractRouteArguments.routeName,
-              arguments: _ScreenArguments(item: item, selectCard: selectCard));
+          //Navigator.of(context).pushNamed(_ExtractRouteArguments.routeName,
+          //    arguments: _ScreenArguments(item: item, selectCard: selectCard));
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) =>
+                  _RouteDetailView(item: item, selectCard: selectCard),
+            ),
+          );
         } else {
           selectCard(_allItems.indexOf(item));
         }
@@ -557,6 +564,7 @@ class _ItemListTile extends StatelessWidget {
                   leading: CircleAvatar(
                     radius: 18,
                     child: Image.asset(
+                      package: 'adaptive_scaffold',
                       email.image,
                       width: 100,
                       height: 100,
@@ -600,7 +608,10 @@ class _ItemListTile extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: (email.bodyImage != '')
-                      ? Image.asset(email.bodyImage)
+                      ? Image.asset(
+                          package: 'adaptive_scaffold',
+                          email.bodyImage,
+                        )
                       : Container(),
                 ),
               ],
@@ -753,6 +764,7 @@ class _EmailTile extends StatelessWidget {
                   CircleAvatar(
                     radius: 18,
                     child: Image.asset(
+                      package: 'adaptive_scaffold',
                       senderIcon,
                       width: 100,
                       height: 100,
@@ -797,8 +809,12 @@ class _EmailTile extends StatelessWidget {
               const SizedBox(height: 9),
               SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  child:
-                      (bodyImage != '') ? Image.asset(bodyImage) : Container()),
+                  child: (bodyImage != '')
+                      ? Image.asset(
+                          package: 'adaptive_scaffold',
+                          bodyImage,
+                        )
+                      : Container()),
               const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -858,6 +874,7 @@ class _EmailTile extends StatelessWidget {
   }
 }
 
+/*
 // The ScreenArguments used to pass arguments to the RouteDetailView as a named
 // route.
 class _ScreenArguments {
@@ -882,7 +899,7 @@ class _ExtractRouteArguments extends StatelessWidget {
     return _RouteDetailView(item: args.item, selectCard: args.selectCard);
   }
 }
-
+*/
 class _RouteDetailView extends StatelessWidget {
   const _RouteDetailView({
     required this.item,
@@ -901,8 +918,7 @@ class _RouteDetailView extends StatelessWidget {
             alignment: Alignment.topLeft,
             child: TextButton(
               onPressed: () {
-                Navigator.popUntil(context,
-                    (Route<dynamic> route) => route.settings.name == '/');
+                Navigator.pop(context);
                 selectCard(null);
               },
               child: const Icon(Icons.arrow_back),
@@ -961,7 +977,7 @@ const List<_Item> _allItems = <_Item>[
       _Email(
         sender: 'So Duri',
         recipients: 'me, Ziad and Lily',
-        image: 'packages/adaptive_scaffold/assets/images/strawberry.png',
+        image: 'assets/images/strawberry.png',
         time: '20 min',
         body:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec gravida tellus, vel scelerisque nisi. Mauris egestas, augue nec dictum tempus, diam sapien luctus odio, a posuere sem neque at nulla. Vivamus pulvinar nisi et dapibus dapibus. Donec euismod pellentesque ultrices. Vivamus quis condimentum metus, in venenatis lorem. Proin suscipit tincidunt eleifend. Praesent a nisi ac ipsum sodales gravida.',
@@ -970,7 +986,7 @@ const List<_Item> _allItems = <_Item>[
       _Email(
           sender: 'Me',
           recipients: 'me, Ziad, and Lily',
-          image: 'packages/adaptive_scaffold/assets/images/plum.png',
+          image: 'assets/images/plum.png',
           time: '4 min',
           body:
               'Donec non mollis nulla, in varius mi. Ut id lorem eget felis lobortis tincidunt. Curabitur facilisis ex vitae tristique efficitur. Aenean eget augue finibus, tempor eros vitae, tempor neque. In sed pellentesque elit. Donec lacus lacus, malesuada in tincidunt sit amet, condimentum vel enim. Cras dapibus erat quis nisl hendrerit, vel pretium turpis condimentum. ',
@@ -978,7 +994,7 @@ const List<_Item> _allItems = <_Item>[
       _Email(
           sender: 'Ziad Aouad',
           recipients: 'me, Ziad and Lily',
-          image: 'packages/adaptive_scaffold/assets/images/mushroom.png',
+          image: 'assets/images/mushroom.png',
           time: '2 min',
           body:
               'Duis sit amet nibh a diam placerat aliquam nec ac mi. Aenean hendrerit efficitur tellus, non pharetra eros posuere sit amet. Maecenas interdum lacinia eleifend. Nam efficitur tellus et dolor vestibulum, non dictum quam iaculis. Aenean id nulla ut erat placerat feugiat. Mauris in quam metus. Aliquam erat volutpat.',
@@ -993,8 +1009,8 @@ const List<_Item> _allItems = <_Item>[
         time: '2 hours',
         body:
             'Curabitur tincidunt purus at vulputate mattis. Nam lectus urna, varius eget quam in, ultricies ultrices libero. Curabitur rutrum ultricies varius. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec vulputate auctor est, non semper velit eleifend sit amet.',
-        image: 'packages/adaptive_scaffold/assets/images/potato.png',
-        bodyImage: 'packages/adaptive_scaffold/assets/images/avocado.png',
+        image: 'assets/images/potato.png',
+        bodyImage: 'assets/images/avocado.png',
         recipients: '',
       ),
     ],
@@ -1007,7 +1023,7 @@ const List<_Item> _allItems = <_Item>[
         time: '10 min',
         body:
             'Cras egestas ultricies elit, vitae interdum lorem aliquam et. Donec quis arcu a quam tempor rutrum vitae in lectus. Nullam elit nunc, lacinia sed luctus non, mollis id nulla. Morbi luctus turpis sapien, id molestie ante maximus vel. Vivamus sagittis consequat nisl nec placerat.',
-        image: 'packages/adaptive_scaffold/assets/images/habanero.png',
+        image: 'assets/images/habanero.png',
         bodyImage: '',
         recipients: '',
       ),
