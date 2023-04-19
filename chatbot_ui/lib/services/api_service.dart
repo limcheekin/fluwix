@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
 
-
 import '../models/chat_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -26,7 +25,7 @@ class ApiService {
       //Map jsonResponse = json.decode(utf8.decode(response.bodyBytes));
       List<ChatModel> chatList = [
         ChatModel(
-          msg: response.body,
+          msg: utf8.decode(response.bodyBytes),
           chatIndex: 1,
         ),
       ];
