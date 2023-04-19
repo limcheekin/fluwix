@@ -3,7 +3,7 @@ description: Fluwix - Flutter showcase platform on the mobile apps and web.
 
 publish_to: "none"
 
-version: 0.6.6
+version: 0.6.7
 
 environment:
   sdk: ">=2.16.1 <3.0.0"
@@ -21,29 +21,29 @@ dependencies:
   tab_buttons:
     path: tab_buttons
   stock_chart:
-    path: stock_chart  
+    path: stock_chart
   source_code_view:
     path: source_code_view
   showcase_view:
-    path: showcase_view    
+    path: showcase_view
   material_design_showcase:
     path: material_design_showcase
   about_dialog:
     path: about_dialog
   animated_icons:
-    path: animated_icons    
+    path: animated_icons
   chart_data_table:
-    path: chart_data_table    
+    path: chart_data_table
   shimmer_effect:
     path: shimmer_effect
   expansion_collapse_view:
-    path: expansion_collapse_view   
+    path: expansion_collapse_view
   markdown_view:
     path: markdown_view
   url_launcher_showcase:
-    path: url_launcher_showcase    
+    path: url_launcher_showcase
   syntax_view:
-    path: syntax_view    
+    path: syntax_view
   charts_gallery:
     path: charts_gallery
   percent_indicator_showcase:
@@ -56,8 +56,8 @@ dependencies:
     path: settings_ui_showcase
   search_bar:
     path: search_bar
-  rich_text_editor: 
-    path: rich_text_editor            
+  rich_text_editor:
+    path: rich_text_editor
   number_trivia:
     path: number_trivia
   wallet_connect_showcase:
@@ -66,6 +66,8 @@ dependencies:
     path: slider_captcha_showcase
   adaptive_scaffold:
     path: adaptive_scaffold
+  chatbot_ui:
+    path: chatbot_ui
 
 dev_dependencies:
   flutter_test:
@@ -73,8 +75,8 @@ dev_dependencies:
   flutter_launcher_icons: ^0.11.0
   flutter_lints: ^2.0.1
   module_starter:
-    path: module_starter 
-    
+    path: module_starter
+
 flutter_icons:
   android: "launcher_icon"
   ios: true
@@ -93,8 +95,7 @@ scripts:
   record: adb shell screenrecord --size 324x576 /sdcard/recording.mp4
   pull_recording: adb pull /sdcard/recording.mp4
   convert_mp4_to_gif: ./gifify.sh recording.mp4
-  web: 
+  web:
     - flutter build web
     - cd build/web;python -m http.server 8000 &
     - google-chrome http://localhost:8000
-
