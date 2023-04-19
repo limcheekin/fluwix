@@ -1,3 +1,4 @@
+import 'package:chatbot_ui/chatbot_ui_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:glassmorphism_design/glassmorphism_design_screen.dart';
 import 'package:nested_list/nested_list_screen.dart';
@@ -94,6 +95,7 @@ class AppModule extends Module {
         child: (_, __) => const SliderCaptchaShowcaseScreen()),
     ChildRoute('/adaptive_scaffold',
         child: (_, __) => const AdaptiveScaffoldScreen()),
+    ChildRoute('/chatbot_ui', child: (_, __) => const ChatbotUiScreen()),
   ].reversed);
 }
 
