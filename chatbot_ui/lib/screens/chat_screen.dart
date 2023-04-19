@@ -1,4 +1,3 @@
-
 import '../constants/constants.dart';
 import '../providers/chats_provider.dart';
 import '../widgets/chat_widget.dart';
@@ -28,6 +27,14 @@ class _ChatScreenState extends State<ChatScreen> {
     textEditingController = TextEditingController();
     focusNode = FocusNode();
     super.initState();
+    // REF: https://www.flutterbeads.com/call-method-after-build-in-flutter/
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final modelsProvider =
+          Provider.of<ModelsProvider>(context, listen: false);
+      final chatProvider = Provider.of<ChatProvider>(context, listen: false);
+      chatProvider.sendMessageAndGetAnswers(
+          msg: "/start", chosenModelId: modelsProvider.getCurrentModel);
+    });
   }
 
   @override
@@ -43,67 +50,70 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     final modelsProvider = Provider.of<ModelsProvider>(context);
     final chatProvider = Provider.of<ChatProvider>(context);
-    return Column(
-      children: [
-        Flexible(
-          child: ListView.builder(
-              controller: _listScrollController,
-              itemCount: chatProvider.getChatList.length, //chatList.length,
-              itemBuilder: (context, index) {
-                return ChatWidget(
-                  msg: chatProvider
-                      .getChatList[index].msg, // chatList[index].msg,
-                  chatIndex: chatProvider.getChatList[index]
-                      .chatIndex, //chatList[index].chatIndex,
-                  shouldAnimate: chatProvider.getChatList.length - 1 == index,
-                );
-              }),
-        ),
-        if (_isTyping) ...[
-          const SpinKitThreeBounce(
-            color: Colors.white,
-            size: 18,
+    return Scaffold(
+      backgroundColor: scaffoldBackgroundColor,
+      body: Column(
+        children: [
+          Flexible(
+            child: ListView.builder(
+                controller: _listScrollController,
+                itemCount: chatProvider.getChatList.length, //chatList.length,
+                itemBuilder: (context, index) {
+                  return ChatWidget(
+                    msg: chatProvider
+                        .getChatList[index].msg, // chatList[index].msg,
+                    chatIndex: chatProvider.getChatList[index]
+                        .chatIndex, //chatList[index].chatIndex,
+                    shouldAnimate: chatProvider.getChatList.length - 1 == index,
+                  );
+                }),
           ),
-        ],
-        const SizedBox(
-          height: 15,
-        ),
-        Material(
-          color: cardColor,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    focusNode: focusNode,
-                    style: const TextStyle(color: Colors.white),
-                    controller: textEditingController,
-                    onSubmitted: (value) async {
-                      await sendMessageFCT(
-                          modelsProvider: modelsProvider,
-                          chatProvider: chatProvider);
-                    },
-                    decoration: const InputDecoration.collapsed(
-                        hintText: "How can I help you",
-                        hintStyle: TextStyle(color: Colors.grey)),
+          if (_isTyping) ...[
+            const SpinKitThreeBounce(
+              color: Colors.white,
+              size: 18,
+            ),
+          ],
+          const SizedBox(
+            height: 15,
+          ),
+          Material(
+            color: cardColor,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      focusNode: focusNode,
+                      style: const TextStyle(color: Colors.white),
+                      controller: textEditingController,
+                      onSubmitted: (value) async {
+                        await sendMessageFCT(
+                            modelsProvider: modelsProvider,
+                            chatProvider: chatProvider);
+                      },
+                      decoration: const InputDecoration.collapsed(
+                          hintText: "How can I help you",
+                          hintStyle: TextStyle(color: Colors.grey)),
+                    ),
                   ),
-                ),
-                IconButton(
-                    onPressed: () async {
-                      await sendMessageFCT(
-                          modelsProvider: modelsProvider,
-                          chatProvider: chatProvider);
-                    },
-                    icon: const Icon(
-                      Icons.send,
-                      color: Colors.white,
-                    ))
-              ],
+                  IconButton(
+                      onPressed: () async {
+                        await sendMessageFCT(
+                            modelsProvider: modelsProvider,
+                            chatProvider: chatProvider);
+                      },
+                      icon: const Icon(
+                        Icons.send,
+                        color: Colors.white,
+                      ))
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
