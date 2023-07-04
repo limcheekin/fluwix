@@ -15,7 +15,7 @@ dependencies:
   # Service locator
   get_it: ^7.1.3
   # Clean Architecture
-  flutter_clean_architecture: ^5.0.0
+  flutter_clean_architecture: ^5.0.4
   # Remote API
   connectivity_plus: ^1.0.1
   # Local cache
