@@ -10,7 +10,7 @@ class ShimmerEffectWidget extends StatelessWidget {
       length: 2,
       child: Column(
         children: [
-          TabBar(
+          const TabBar(
             labelColor: Colors.blue,
             unselectedLabelColor: Colors.black,
             tabs: [
@@ -25,7 +25,7 @@ class ShimmerEffectWidget extends StatelessWidget {
           Expanded(
             child: TabBarView(
               children: [
-                LoadingListPage(),
+                const LoadingListPage(),
                 SlideToUnlockPage(),
               ],
             ),
@@ -37,11 +37,13 @@ class ShimmerEffectWidget extends StatelessWidget {
 }
 
 class LoadingListPage extends StatefulWidget {
+  const LoadingListPage({Key? key}) : super(key: key);
+
   @override
-  _LoadingListPageState createState() => _LoadingListPageState();
+  LoadingListPageState createState() => LoadingListPageState();
 }
 
-class _LoadingListPageState extends State<LoadingListPage> {
+class LoadingListPageState extends State<LoadingListPage> {
   bool _enabled = true;
 
   @override
@@ -116,7 +118,7 @@ class _LoadingListPageState extends State<LoadingListPage> {
                 },
                 child: Text(
                   _enabled ? 'Stop' : 'Play',
-                  style: Theme.of(context).textTheme.button?.copyWith(
+                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
                       fontSize: 18.0,
                       color: _enabled ? Colors.redAccent : Colors.green),
                 )),
@@ -151,6 +153,8 @@ class SlideToUnlockPage extends StatelessWidget {
     'November',
     'December',
   ];
+
+  SlideToUnlockPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -11,7 +11,7 @@ class ShimmerEffectScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShowcaseView(
+    return const ShowcaseView(
       title: 'Shimmer Effect',
       widget: ShimmerEffectWidget(),
       owner: owner,
