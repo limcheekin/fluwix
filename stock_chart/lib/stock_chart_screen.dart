@@ -4,25 +4,23 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_k_chart/flutter_k_chart.dart';
-import 'package:flutter_k_chart/generated/l10n.dart' as k_chart;
-import 'package:flutter_k_chart/k_chart_widget.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:showcase_view/showcase_view.dart';
 
 class StockChartScreen extends StatefulWidget {
-  StockChartScreen({Key? key, this.title}) : super(key: key);
+  const StockChartScreen({Key? key, this.title}) : super(key: key);
 
   final String? title;
 
   @override
-  _StockChartScreenState createState() => _StockChartScreenState();
+  StockChartScreenState createState() => StockChartScreenState();
 }
 
-class _StockChartScreenState extends State<StockChartScreen> {
+class StockChartScreenState extends State<StockChartScreen> {
   static const owner = 'gwhcn';
   static const repository = 'flutter_k_chart';
-  static const branch = 'master';  
+  static const branch = 'master';
   List<KLineEntity> datas = [];
   bool showLoading = true;
   MainState _mainState = MainState.MA;
@@ -34,7 +32,9 @@ class _StockChartScreenState extends State<StockChartScreen> {
   void initState() {
     super.initState();
     getData('1day');
-    rootBundle.loadString('packages/stock_chart/assets/depth.json').then((result) {
+    rootBundle
+        .loadString('packages/stock_chart/assets/depth.json')
+        .then((result) {
       final parseJson = json.decode(result);
       Map tick = parseJson['tick'];
       var bids = tick['bids']
@@ -56,20 +56,20 @@ class _StockChartScreenState extends State<StockChartScreen> {
     double amount = 0.0;
     bids.sort((left, right) => left.price.compareTo(right.price));
     //倒序循环 //累加买入委托量
-    bids.reversed.forEach((item) {
+    for (var item in bids.reversed) {
       amount += item.amount;
       item.amount = amount;
       _bids.insert(0, item);
-    });
+    }
 
     amount = 0.0;
     asks.sort((left, right) => left.price.compareTo(right.price));
     //循环 //累加买入委托量
-    asks.forEach((item) {
+    for (var item in asks) {
       amount += item.amount;
       item.amount = amount;
       _asks.add(item);
-    });
+    }
     setState(() {});
   }
 
@@ -82,7 +82,7 @@ class _StockChartScreenState extends State<StockChartScreen> {
           Stack(children: <Widget>[
             Container(
               height: 450,
-              margin: EdgeInsets.symmetric(horizontal: 10),
+              margin: const EdgeInsets.symmetric(horizontal: 10),
               width: double.infinity,
               child: KChartWidget(
                 datas,
@@ -98,10 +98,10 @@ class _StockChartScreenState extends State<StockChartScreen> {
                   width: double.infinity,
                   height: 450,
                   alignment: Alignment.center,
-                  child: CircularProgressIndicator()),
+                  child: const CircularProgressIndicator()),
           ]),
           buildButtons(),
-          Container(
+          SizedBox(
             height: 230,
             width: double.infinity,
             child: DepthChart(_bids, _asks),
@@ -112,11 +112,11 @@ class _StockChartScreenState extends State<StockChartScreen> {
       repository: repository,
       ref: branch,
       readMe: 'README.md',
-      codePaths: [
+      codePaths: const [
         'example/pubspec.yaml',
         'example/lib/main.dart',
       ],
-    );      
+    );
   }
 
   Widget buildButtons() {
@@ -175,8 +175,8 @@ class _StockChartScreenState extends State<StockChartScreen> {
               setState(() {});
               getData('1day');
             },
-            child: Text("1day", style: const TextStyle(color: Colors.black)),
-            style: TextButton.styleFrom(backgroundColor: Colors.blue)),
+            style: TextButton.styleFrom(backgroundColor: Colors.blue),
+            child: const Text("1day", style: TextStyle(color: Colors.black))),
       ],
     );
   }
@@ -189,16 +189,16 @@ class _StockChartScreenState extends State<StockChartScreen> {
             setState(() {});
           }
         },
-        child: Text("$text", style: const TextStyle(color: Colors.black)),
-        style: TextButton.styleFrom(backgroundColor: Colors.blue));
+        style: TextButton.styleFrom(backgroundColor: Colors.blue),
+        child: Text(text, style: const TextStyle(color: Colors.black)));
   }
 
   void getData(String period) async {
     late String result;
     try {
-      result = await getIPAddress('$period');
+      result = await getIPAddress(period);
     } catch (e) {
-      print('获取数据失败,获取本地数据');
+      debugPrint('获取数据失败,获取本地数据');
       result = await rootBundle.loadString('assets/kline.json');
     } finally {
       Map parseJson = json.decode(result);
@@ -220,7 +220,8 @@ class _StockChartScreenState extends State<StockChartScreen> {
     var url =
         'https://api.huobi.br.com/market/history/kline?period=${period ?? '1day'}&size=300&symbol=btcusdt';
     String result;
-    var response = await http.get(Uri.parse(url)).timeout(Duration(seconds: 7));
+    var response =
+        await http.get(Uri.parse(url)).timeout(const Duration(seconds: 7));
     if (response.statusCode == 200) {
       result = response.body;
     } else {

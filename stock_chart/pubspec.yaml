@@ -12,7 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_k_chart: ^0.2.0
+  flutter_k_chart:
+    path: ../flutter_k_chart
   http: ^0.13.4
   common_ui:
     path: ../common_ui
@@ -23,7 +24,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  pedantic:
+  flutter_lints:
 
 flutter:
   uses-material-design: true
