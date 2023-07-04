@@ -4,7 +4,7 @@ import 'shimmer_effect_screen.dart';
 
 void main() {
   runApp(
-    MyModule(
+    const MyModule(
       title: 'Shimmer Effect',
       home: ShimmerEffectScreen(),
     ),
