@@ -11,7 +11,7 @@ class AboutDialogScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShowcaseView(
+    return const ShowcaseView(
       title: 'About Dialog',
       widget: AboutDialogWidget(),
       owner: owner,
@@ -31,9 +31,9 @@ class AboutDialogWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = Theme.of(context).textTheme.bodyText2;
+    final textStyle = Theme.of(context).textTheme.bodyMedium;
     final aboutBoxChildren = <Widget>[
-      SizedBox(height: 24),
+      const SizedBox(height: 24),
       Text(
         'Learn and showcase Flutter Widgets in one application.',
         style: textStyle,
@@ -48,12 +48,12 @@ class AboutDialogWidget extends StatelessWidget {
             return ListView(
               children: [
                 ListTile(
-                  leading: Icon(Icons.info_outline),
-                  title: Text('About (Custom)'),
+                  leading: const Icon(Icons.info_outline),
+                  title: const Text('About (Custom)'),
                   onTap: () {
                     showAboutDialog(
                       context: context,
-                      applicationIcon: Logo(),
+                      applicationIcon: const Logo(),
                       applicationName: packageInfo!.appName,
                       applicationVersion: packageInfo.version,
                       applicationLegalese:
@@ -63,8 +63,8 @@ class AboutDialogWidget extends StatelessWidget {
                   },
                 ),
                 AboutListTile(
-                  icon: Icon(Icons.info),
-                  applicationIcon: Logo(),
+                  icon: const Icon(Icons.info),
+                  applicationIcon: const Logo(),
                   applicationName: packageInfo!.appName,
                   applicationVersion: packageInfo.version,
                   applicationLegalese:
@@ -74,7 +74,7 @@ class AboutDialogWidget extends StatelessWidget {
               ],
             );
           }
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         });
   }
 }

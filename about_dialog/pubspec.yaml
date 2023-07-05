@@ -12,17 +12,17 @@ dependencies:
   flutter:
     sdk: flutter
 
-  package_info_plus: ^1.4.0
+  package_info_plus: ^4.0.2
   common_ui:
     path: ../common_ui
   showcase_view:
-    path: ../showcase_view  
+    path: ../showcase_view
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  
-  pedantic:
+
+  flutter_lints:
 
 flutter:
   uses-material-design: true
