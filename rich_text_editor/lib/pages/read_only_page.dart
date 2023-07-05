@@ -8,6 +8,8 @@ import '../universal_ui/universal_ui.dart';
 import '../widgets/demo_scaffold.dart';
 
 class ReadOnlyPage extends StatefulWidget {
+  const ReadOnlyPage({Key? key}) : super(key: key);
+
   @override
   _ReadOnlyPageState createState() => _ReadOnlyPageState();
 }

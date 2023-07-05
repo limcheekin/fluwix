@@ -57,8 +57,8 @@ class _DemoScaffoldState extends State<DemoScaffold> {
 
   Future<void> _loadFromAssets() async {
     try {
-      final result = await rootBundle.loadString(
-          'packages/rich_text_editor/assets/${widget.documentFilename}');
+      final result =
+          await rootBundle.loadString('assets/${widget.documentFilename}');
       final doc = Document.fromJson(jsonDecode(result));
       setState(() {
         _controller = QuillController(
@@ -103,16 +103,22 @@ class _DemoScaffoldState extends State<DemoScaffold> {
     }
     return Scaffold(
       key: _scaffoldKey,
-      appBar: _loading || !widget.showToolbar
-          ? null
-          : AppBar(
-              elevation: 0,
-              backgroundColor: Theme.of(context).canvasColor,
-              centerTitle: false,
-              titleSpacing: 0,
-              title: toolbar,
-              actions: actions,
-            ),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Theme.of(context).canvasColor,
+        centerTitle: false,
+        titleSpacing: 0,
+        leading: IconButton(
+          icon: Icon(
+            Icons.chevron_left,
+            color: Colors.grey.shade800,
+            size: 18,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: _loading || !widget.showToolbar ? null : toolbar,
+        actions: actions,
+      ),
       floatingActionButton: widget.floatingActionButton,
       body: _loading
           ? const Center(child: Text('Loading...'))
