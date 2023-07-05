@@ -270,10 +270,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_modular
-      sha256: "99c17516bd5308a8229705fcee3d6f111e21f1db40065da45a22c5c94a68702d"
+      sha256: "3f8042edd366838282fb29035a67902d134501ee7e38a5f893696695c5534cfb"
       url: "https://pub.dev"
     source: hosted
-    version: "4.5.0"
+    version: "3.4.1+1"
   flutter_modular_annotations:
     dependency: transitive
     description:
@@ -492,22 +492,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
-  modular_core:
-    dependency: transitive
-    description:
-      name: modular_core
-      sha256: "506847e85af35f56c66427c886f1b580989888f0a4e66393dd4066c8c2a4e215"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.2.1"
-  modular_interfaces:
-    dependency: transitive
-    description:
-      name: modular_interfaces
-      sha256: ed10198f86e73dff23c857ef1bde43237c1bd6f4679b606a6b462a38789f3851
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.4"
   nested:
     dependency: transitive
     description:

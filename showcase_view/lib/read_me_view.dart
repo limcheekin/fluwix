@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
@@ -9,13 +7,13 @@ import 'package:url_launcher/url_launcher.dart';
 
 class ReadMeView extends AbstractGithubView {
   const ReadMeView({
-    @required String owner,
-    @required String repository,
-    @required String ref,
-    @required String path,
-    MultipleRequestsHttpClient client,
+    required String owner,
+    required String repository,
+    required String ref,
+    required String path,
+    MultipleRequestsHttpClient? client,
     bool wantKeepAlive = true,
-    Key key,
+    Key? key,
   }) : super(
           owner: owner,
           repository: repository,
@@ -30,14 +28,13 @@ class ReadMeView extends AbstractGithubView {
 }
 
 class _ReadMeViewState extends AbstractGithubViewState<ReadMeView> {
-  static const CORS_PROXY = 'https://cors.bridged.cc/';
   @override
   Widget buildWidget(BuildContext context, String responseBody) {
     return Expanded(
       child: Scrollbar(
         isAlwaysShown: kIsWeb,
         child: Markdown(
-          data: _addCorsProxyToImageUrls(responseBody),
+          data: responseBody,
           selectable: true,
           onTapLink: _onTapLink,
         ),
@@ -45,9 +42,10 @@ class _ReadMeViewState extends AbstractGithubViewState<ReadMeView> {
     );
   }
 
-  String _addCorsProxyToImageUrls(String responseBody) {
+  /*String _addCorsProxyToImageUrls(String responseBody) {
     if (!kIsWeb) return responseBody;
 
+    final CORS_PROXY = 'https://cors.bridged.cc/';
     final lines = LineSplitter.split(responseBody);
     var body = '';
     final exp = RegExp(
@@ -64,16 +62,16 @@ class _ReadMeViewState extends AbstractGithubViewState<ReadMeView> {
       body += '$line\n';
     });
     return body;
-  }
+  }*/
 
-  void _onTapLink(String text, String href, String title) {
+  void _onTapLink(String text, String? href, String title) {
     print('text $text');
     print('href $href');
     _launchInBrowser(href);
   }
 
-  Future<void> _launchInBrowser(String url) async {
-    if (await canLaunch(url)) {
+  Future<void> _launchInBrowser(String? url) async {
+    if (url != null && await canLaunch(url)) {
       await launch(
         url,
         forceSafariVC: false,
