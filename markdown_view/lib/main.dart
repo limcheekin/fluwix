@@ -4,7 +4,7 @@ import 'markdown_view_screen.dart';
 
 void main() {
   runApp(
-    MyModule(
+    const MyModule(
       title: 'Markdown View',
       home: MarkdownViewScreen(),
     ),

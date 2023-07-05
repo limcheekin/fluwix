@@ -12,7 +12,7 @@ class MarkdownViewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShowcaseView(
+    return const ShowcaseView(
       title: 'Markdown View',
       widget: MarkdownViewWidget(),
       owner: owner,
