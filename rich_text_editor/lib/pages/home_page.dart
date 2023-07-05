@@ -50,8 +50,8 @@ class HomePageState extends State<HomePage> {
   Future<void> _loadFromAssets() async {
     try {
       final result = await rootBundle.loadString(isDesktop()
-          ? 'assets/sample_data_nomedia.json'
-          : 'assets/sample_data.json');
+          ? 'packages/rich_text_editor/assets/sample_data_nomedia.json'
+          : 'packages/rich_text_editor/assets/sample_data.json');
       final doc = Document.fromJson(jsonDecode(result));
       setState(() {
         _controller = QuillController(
