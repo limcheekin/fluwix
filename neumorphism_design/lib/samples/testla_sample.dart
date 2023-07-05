@@ -1,6 +1,8 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class TeslaSample extends StatefulWidget {
+  const TeslaSample({Key? key}) : super(key: key);
+
   @override
   _TeslaSampleState createState() => _TeslaSampleState();
 }
@@ -9,7 +11,7 @@ class _TeslaSampleState extends State<TeslaSample> {
   @override
   Widget build(BuildContext context) {
     return NeumorphicTheme(
-      theme: NeumorphicThemeData(
+      theme: const NeumorphicThemeData(
         baseColor: Color(0xFF30353B),
         intensity: 0.3,
         accentColor: Color(0xFF0F95E6),
@@ -34,7 +36,7 @@ class __PageContentState extends State<_PageContent> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           gradient: LinearGradient(colors: [
         Color(0xFF373C43),
         Color(0xFF17181C),
@@ -57,9 +59,9 @@ class __PageContentState extends State<_PageContent> {
         Align(
           alignment: Alignment.centerLeft,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
             child: _bumpButton(
-              Icon(
+              const Icon(
                 Icons.arrow_back,
                 color: Colors.grey,
               ),
@@ -70,9 +72,9 @@ class __PageContentState extends State<_PageContent> {
         Align(
           alignment: Alignment.centerRight,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
             child: _bumpButton(
-              Icon(
+              const Icon(
                 Icons.settings,
                 color: Colors.grey,
               ),
@@ -86,7 +88,7 @@ class __PageContentState extends State<_PageContent> {
   Widget _bumpButton(Widget child, {bool isBack = false}) {
     return Neumorphic(
       drawSurfaceAboveChild: false,
-      style: NeumorphicStyle(
+      style: const NeumorphicStyle(
         color: Color(0xFF2D3238),
         depth: 8,
         boxShape: NeumorphicBoxShape.circle(),
@@ -99,9 +101,9 @@ class __PageContentState extends State<_PageContent> {
               Navigator.of(context).pop();
             }
           },
-          margin: EdgeInsets.all(3),
-          padding: EdgeInsets.all(14.0),
-          style: NeumorphicStyle(
+          margin: const EdgeInsets.all(3),
+          padding: const EdgeInsets.all(14.0),
+          style: const NeumorphicStyle(
             boxShape: NeumorphicBoxShape.circle(),
             color: Color(0xFF212528),
             depth: 0,
@@ -112,7 +114,7 @@ class __PageContentState extends State<_PageContent> {
   }
 
   Widget _buildTitle(BuildContext context) {
-    return Column(
+    return const Column(
       children: <Widget>[
         Text(
           'Tesla',
@@ -135,7 +137,7 @@ class __PageContentState extends State<_PageContent> {
   Widget _buildCenterContent(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Row(
+        const Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -158,7 +160,7 @@ class __PageContentState extends State<_PageContent> {
           child: SizedBox(
             height: 280,
             child: Padding(
-              padding: EdgeInsets.only(top: 35),
+              padding: const EdgeInsets.only(top: 35),
               child: Image.asset(
                 'packages/neumorphism_design/assets/images/tesla_cropped.png',
                 fit: BoxFit.contain,
@@ -172,25 +174,25 @@ class __PageContentState extends State<_PageContent> {
 
   Widget _buildBottomAction(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 18),
+      padding: const EdgeInsets.only(bottom: 18),
       child: Column(
         children: <Widget>[
-          Text(
+          const Text(
             'A/C is turned on',
             style: TextStyle(
               color: Colors.white30,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           NeumorphicButton(
             drawSurfaceAboveChild: false,
             onPressed: () {},
-            padding: EdgeInsets.all(4),
+            padding: const EdgeInsets.all(4),
             style: NeumorphicStyle(
               depth: 10,
-              boxShape: NeumorphicBoxShape.circle(),
+              boxShape: const NeumorphicBoxShape.circle(),
               color: NeumorphicTheme.accentColor(context),
               shape: NeumorphicShape.flat,
             ),
@@ -198,11 +200,11 @@ class __PageContentState extends State<_PageContent> {
               style: NeumorphicStyle(
                 surfaceIntensity: 0.7,
                 depth: 0,
-                boxShape: NeumorphicBoxShape.circle(),
+                boxShape: const NeumorphicBoxShape.circle(),
                 shape: NeumorphicShape.concave,
                 color: NeumorphicTheme.accentColor(context),
               ),
-              child: SizedBox(
+              child: const SizedBox(
                 height: 80,
                 width: 80,
                 child: Icon(
@@ -213,10 +215,10 @@ class __PageContentState extends State<_PageContent> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Text(
+          const Text(
             'Tap to open the car',
             style: TextStyle(
               color: Colors.white,

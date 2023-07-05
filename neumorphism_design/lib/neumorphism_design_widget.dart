@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 import 'accessibility/neumorphic_accessibility.dart';
@@ -8,10 +9,12 @@ import 'tips/tips_home.dart';
 import 'widgets/widgets_home.dart';
 
 class FullSampleHomePage extends StatelessWidget {
+  const FullSampleHomePage({Key? key}) : super(key: key);
+
   Widget _buildButton({required String text, required VoidCallback onClick}) {
     return NeumorphicButton(
-      margin: EdgeInsets.only(bottom: 12),
-      padding: EdgeInsets.symmetric(
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.symmetric(
         vertical: 18,
         horizontal: 24,
       ),
@@ -33,75 +36,78 @@ class FullSampleHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NeumorphicTheme(
-      theme: NeumorphicThemeData(depth: 8),
+      theme: const NeumorphicThemeData(depth: 8),
       child: Scaffold(
         backgroundColor: NeumorphicColors.background,
         body: SafeArea(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  _buildButton(
-                    text: 'Neumorphic Playground',
-                    onClick: () {
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) {
-                        return NeumorphicPlayground();
-                      }));
-                    },
-                  ),
-                  SizedBox(height: 24),
-                  _buildButton(
-                    text: 'Text Playground',
-                    onClick: () {
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) {
-                        return NeumorphicTextPlayground();
-                      }));
-                    },
-                  ),
-                  SizedBox(height: 24),
-                  _buildButton(
-                      text: 'Samples',
+          child: Scrollbar(
+            thumbVisibility: kIsWeb,
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    _buildButton(
+                      text: 'Neumorphic Playground',
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return SamplesHome();
+                          return const NeumorphicPlayground();
                         }));
-                      }),
-                  SizedBox(height: 24),
-                  _buildButton(
-                      text: 'Widgets',
+                      },
+                    ),
+                    const SizedBox(height: 24),
+                    _buildButton(
+                      text: 'Text Playground',
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return WidgetsHome();
+                          return const NeumorphicTextPlayground();
                         }));
-                      }),
-                  SizedBox(height: 24),
-                  _buildButton(
-                      text: 'Tips',
-                      onClick: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) {
-                          return TipsHome();
-                        }));
-                      }),
-                  SizedBox(height: 24),
-                  _buildButton(
-                      text: 'Accessibility',
-                      onClick: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) {
-                          return NeumorphicAccessibility();
-                        }));
-                      }),
-                  SizedBox(height: 12),
-                ],
+                      },
+                    ),
+                    const SizedBox(height: 24),
+                    _buildButton(
+                        text: 'Samples',
+                        onClick: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return const SamplesHome();
+                          }));
+                        }),
+                    const SizedBox(height: 24),
+                    _buildButton(
+                        text: 'Widgets',
+                        onClick: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return const WidgetsHome();
+                          }));
+                        }),
+                    const SizedBox(height: 24),
+                    _buildButton(
+                        text: 'Tips',
+                        onClick: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return const TipsHome();
+                          }));
+                        }),
+                    const SizedBox(height: 24),
+                    _buildButton(
+                        text: 'Accessibility',
+                        onClick: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return const NeumorphicAccessibility();
+                          }));
+                        }),
+                    const SizedBox(height: 12),
+                  ],
+                ),
               ),
             ),
           ),

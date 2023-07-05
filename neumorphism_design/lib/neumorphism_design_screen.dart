@@ -12,7 +12,7 @@ class NeumorphismDesignScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShowcaseView(
+    return const ShowcaseView(
       title: 'Neumorphism Design',
       widget: FullSampleHomePage(),
       owner: owner,
