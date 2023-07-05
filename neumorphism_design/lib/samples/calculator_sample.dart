@@ -1,18 +1,19 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class CalculatorSample extends StatefulWidget {
+  const CalculatorSample({Key? key}) : super(key: key);
+
   @override
   _CalculatorSampleState createState() => _CalculatorSampleState();
 }
 
-final Color _calcTextColor = Color(0xFF484848);
+const Color _calcTextColor = Color(0xFF484848);
 
 class _CalculatorSampleState extends State<CalculatorSample> {
   @override
   Widget build(BuildContext context) {
     return NeumorphicTheme(
-      theme: NeumorphicThemeData(
+      theme: const NeumorphicThemeData(
         baseColor: Color(0xFFF4F5F5),
         intensity: 0.3,
         lightSource: LightSource.topLeft,
@@ -50,7 +51,7 @@ class CalcButton {
 class WidgetCalcButton extends StatelessWidget {
   final CalcButton button;
 
-  WidgetCalcButton(this.button);
+  const WidgetCalcButton(this.button, {Key? key}) : super(key: key);
 
   Color _textColor(BuildContext context) {
     if (button.backgroundAccent) {
@@ -75,12 +76,12 @@ class WidgetCalcButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 14),
+      padding: const EdgeInsets.only(top: 14),
       child: NeumorphicButton(
         onPressed: () {},
         style: NeumorphicStyle(
           surfaceIntensity: 0.15,
-          boxShape: NeumorphicBoxShape.circle(),
+          boxShape: const NeumorphicBoxShape.circle(),
           shape: NeumorphicShape.concave,
           color: _backgroundColor(context),
         ),
@@ -103,10 +104,10 @@ class _TopScreenWidget extends StatelessWidget {
         boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
         depth: -1 * NeumorphicTheme.of(context)!.current!.depth,
       ),
-      child: FractionallySizedBox(
+      child: const FractionallySizedBox(
         widthFactor: 1,
         child: Padding(
-          padding: const EdgeInsets.all(18.0),
+          padding: EdgeInsets.all(18.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -167,12 +168,12 @@ class __PageContentState extends State<_PageContent> {
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                style: NeumorphicStyle(
+                style: const NeumorphicStyle(
                   shape: NeumorphicShape.flat,
                   boxShape: NeumorphicBoxShape.circle(),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(12.0),
                   child: Icon(Icons.navigate_before),
                 ),
               ),
@@ -204,14 +205,14 @@ class __PageContentState extends State<_PageContent> {
                 onPressed: () {
                   setState(() {
                     NeumorphicTheme.of(context)
-                        ?.updateCurrentTheme(NeumorphicThemeData(
+                        ?.updateCurrentTheme(const NeumorphicThemeData(
                       depth: 1,
                       intensity: 0.5,
                       accentColor: Colors.cyan,
                     ));
                   });
                 },
-                child: Text(
+                child: const Text(
                   'style 1',
                 ),
               ),
@@ -219,14 +220,14 @@ class __PageContentState extends State<_PageContent> {
                 onPressed: () {
                   setState(() {
                     NeumorphicTheme.of(context)
-                        ?.updateCurrentTheme(NeumorphicThemeData(
+                        ?.updateCurrentTheme(const NeumorphicThemeData(
                       depth: 8,
                       intensity: 0.3,
                       accentColor: Colors.greenAccent,
                     ));
                   });
                 },
-                child: Text(
+                child: const Text(
                   'style 2',
                 ),
               ),

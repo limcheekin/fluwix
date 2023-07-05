@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class AppBarWidgetPage extends StatelessWidget {
-  AppBarWidgetPage({Key? key}) : super(key: key);
+  const AppBarWidgetPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +22,7 @@ class _FirstThemeWidgetPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return NeumorphicTheme(
       themeMode: ThemeMode.light,
-      theme: NeumorphicThemeData(
+      theme: const NeumorphicThemeData(
         lightSource: LightSource.topLeft,
         accentColor: NeumorphicColors.accent,
         appBarTheme: NeumorphicAppBarThemeData(
@@ -35,7 +33,7 @@ class _FirstThemeWidgetPage extends StatelessWidget {
         depth: 4,
         intensity: 0.9,
       ),
-      child: AppBarPageUsingTheme(),
+      child: const AppBarPageUsingTheme(),
     );
   }
 }
@@ -51,13 +49,13 @@ class _SecondThemeWidgetPage extends StatelessWidget {
         appBarTheme: NeumorphicAppBarThemeData(
           buttonStyle: NeumorphicStyle(
               boxShape: NeumorphicBoxShape.beveled(BorderRadius.circular(12))),
-          textStyle: TextStyle(color: Colors.black54),
-          iconTheme: IconThemeData(color: Colors.black54, size: 30),
+          textStyle: const TextStyle(color: Colors.black54),
+          iconTheme: const IconThemeData(color: Colors.black54, size: 30),
         ),
         depth: 4,
         intensity: 0.9,
       ),
-      child: AppBarPageUsingTheme(),
+      child: const AppBarPageUsingTheme(),
     );
   }
 }
@@ -75,29 +73,31 @@ class _ThirdThemeWidgetPage extends StatelessWidget {
               color: Colors.black54,
               boxShape:
                   NeumorphicBoxShape.roundRect(BorderRadius.circular(12))),
-          textStyle: TextStyle(color: Colors.black54, fontSize: 20),
-          iconTheme: IconThemeData(color: Colors.white, size: 20),
+          textStyle: const TextStyle(color: Colors.black54, fontSize: 20),
+          iconTheme: const IconThemeData(color: Colors.white, size: 20),
         ),
         depth: 4,
         intensity: 0.9,
       ),
-      child: SizedAppBarPageUsingTheme(),
+      child: const SizedAppBarPageUsingTheme(),
     );
   }
 }
 
 class AppBarPageUsingTheme extends StatelessWidget {
+  const AppBarPageUsingTheme({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 100,
       child: Scaffold(
           appBar: NeumorphicAppBar(
-            title: Text('App bar'),
+            title: const Text('App bar'),
             actions: <Widget>[
               NeumorphicButton(
                 onPressed: () {},
-                child: Icon(Icons.add),
+                child: const Icon(Icons.add),
               ),
             ],
           ),
@@ -107,19 +107,21 @@ class AppBarPageUsingTheme extends StatelessWidget {
 }
 
 class SizedAppBarPageUsingTheme extends StatelessWidget {
+  const SizedAppBarPageUsingTheme({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 100,
       child: Scaffold(
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(60.0),
+            preferredSize: const Size.fromHeight(60.0),
             child: NeumorphicAppBar(
-              title: Text('App bar custom size'),
+              title: const Text('App bar custom size'),
               actions: <Widget>[
                 NeumorphicButton(
                   onPressed: () {},
-                  child: Icon(Icons.add),
+                  child: const Icon(Icons.add),
                 ),
               ],
             ),
@@ -130,17 +132,19 @@ class SizedAppBarPageUsingTheme extends StatelessWidget {
 }
 
 class FirstThemeContent extends StatelessWidget {
+  const FirstThemeContent({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 100,
       child: Scaffold(
           appBar: NeumorphicAppBar(
-            title: Text('App bar'),
+            title: const Text('App bar'),
             actions: <Widget>[
               NeumorphicButton(
                 onPressed: () {},
-                child: Icon(Icons.add),
+                child: const Icon(Icons.add),
               ),
             ],
           ),
@@ -162,24 +166,24 @@ class _MyDrawer extends StatelessWidget {
         child: Column(
           children: [
             ConstrainedBox(
-              constraints: BoxConstraints.tightFor(
+              constraints: const BoxConstraints.tightFor(
                   height: NeumorphicAppBar.toolbarHeight),
               child: NeumorphicAppBar(
-                title: Text('Menu'),
+                title: const Text('Menu'),
                 leading:
-                    isLead ? NeumorphicBackButton() : NeumorphicCloseButton(),
+                    isLead ? const NeumorphicBackButton() : const NeumorphicCloseButton(),
                 actions: <Widget>[
                   NeumorphicButton(
                     onPressed: () {},
-                    child: Icon(Icons.style),
+                    child: const Icon(Icons.style),
                   ),
                   isLead
-                      ? NeumorphicCloseButton()
-                      : NeumorphicBackButton(forward: true),
+                      ? const NeumorphicCloseButton()
+                      : const NeumorphicBackButton(forward: true),
                 ],
               ),
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
       ),
@@ -194,7 +198,7 @@ class _CustomIcon extends StatelessWidget {
       height: 300,
       child: NeumorphicTheme(
         themeMode: ThemeMode.light,
-        theme: NeumorphicThemeData(
+        theme: const NeumorphicThemeData(
           lightSource: LightSource.topLeft,
           accentColor: NeumorphicColors.accent,
           appBarTheme: NeumorphicAppBarThemeData(
@@ -215,9 +219,9 @@ class _CustomIcon extends StatelessWidget {
         ),
         child: Scaffold(
           appBar: NeumorphicAppBar(
-            title: Text('Custom icons + drawer'),
+            title: const Text('Custom icons + drawer'),
           ),
-          endDrawer: _MyDrawer(isLead: false),
+          endDrawer: const _MyDrawer(isLead: false),
           body: Container(),
         ),
       ),

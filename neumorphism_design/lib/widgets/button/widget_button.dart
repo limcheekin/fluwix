@@ -2,11 +2,10 @@ import '../../util/Code.dart';
 import '../../util/ThemeConfigurator.dart';
 import '../../util/color_selector.dart';
 import '../../util/top_bar.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class ButtonWidgetPage extends StatefulWidget {
-  ButtonWidgetPage({Key? key}) : super(key: key);
+  const ButtonWidgetPage({Key? key}) : super(key: key);
 
   @override
   _WidgetPageState createState() => _WidgetPageState();
@@ -17,7 +16,7 @@ class _WidgetPageState extends State<ButtonWidgetPage> {
   Widget build(BuildContext context) {
     return NeumorphicTheme(
       themeMode: ThemeMode.light,
-      theme: NeumorphicThemeData(
+      theme: const NeumorphicThemeData(
         lightSource: LightSource.topLeft,
         accentColor: NeumorphicColors.accent,
         depth: 4,
@@ -37,9 +36,9 @@ class _PageState extends State<_Page> {
   @override
   Widget build(BuildContext context) {
     return NeumorphicBackground(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Scaffold(
-        appBar: TopBar(
+        appBar: const TopBar(
           title: 'Button',
           actions: <Widget>[
             ThemeConfigurator(),
@@ -59,7 +58,7 @@ class _PageState extends State<_Page> {
               _EnabledDisabledWidget(),
               _FlatConcaveConvexWidget(),
               _DurationWidget(),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
             ],
           ),
         ),
@@ -75,7 +74,7 @@ class _DefaultWidget extends StatefulWidget {
 
 class _DefaultWidgetState extends State<_DefaultWidget> {
   Widget _buildCode(BuildContext context) {
-    return Code('''
+    return const Code('''
 NeumorphicButton(
      onPressed: () {
         
@@ -87,21 +86,21 @@ NeumorphicButton(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: <Widget>[
           Text(
             'Default',
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           NeumorphicButton(
             onPressed: () {
               setState(() {});
             },
-            child: Text('Click me'),
+            child: const Text('Click me'),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
         ],
       ),
     );
@@ -126,7 +125,7 @@ class _CircleWidget extends StatefulWidget {
 
 class _CircleWidgetState extends State<_CircleWidget> {
   Widget _buildCode(BuildContext context) {
-    return Code('''
+    return const Code('''
 NeumorphicButton(
      boxShape: NeumorphicBoxShape.circle(),
      onPressed: () {
@@ -140,25 +139,25 @@ NeumorphicButton(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: <Widget>[
           Text(
             'Circle',
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           NeumorphicButton(
-            style: NeumorphicStyle(
+            style: const NeumorphicStyle(
               boxShape: NeumorphicBoxShape.circle(),
             ),
             onPressed: () {
               setState(() {});
             },
-            padding: EdgeInsets.all(18.0),
-            child: Icon(Icons.play_arrow),
+            padding: const EdgeInsets.all(18.0),
+            child: const Icon(Icons.play_arrow),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
         ],
       ),
     );
@@ -183,7 +182,7 @@ class _MinDistanceWidget extends StatefulWidget {
 
 class _MinDistanceWidgetState extends State<_MinDistanceWidget> {
   Widget _buildCode(BuildContext context) {
-    return Code('''
+    return const Code('''
 NeumorphicButton(
      boxShape: NeumorphicBoxShape.circle(),
      minDistance: -5.0,
@@ -198,26 +197,26 @@ NeumorphicButton(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: <Widget>[
           Text(
             'MinDistance -5',
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           NeumorphicButton(
             minDistance: -5.0,
-            style: NeumorphicStyle(
+            style: const NeumorphicStyle(
               boxShape: NeumorphicBoxShape.circle(),
             ),
             onPressed: () {
               setState(() {});
             },
-            padding: EdgeInsets.all(18.0),
-            child: Icon(Icons.play_arrow),
+            padding: const EdgeInsets.all(18.0),
+            child: const Icon(Icons.play_arrow),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
         ],
       ),
     );
@@ -244,7 +243,7 @@ class _ColorizableWidgetState extends State<_ColorizableWidget> {
   Color currentColor = Colors.green;
 
   Widget _buildCode(BuildContext context) {
-    return Code('''
+    return const Code('''
 NeumorphicButton(
     onPressed: (){
 
@@ -259,14 +258,14 @@ NeumorphicButton(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: <Widget>[
           Text(
             'Color',
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           ColorSelector(
             color: currentColor,
             onColorChanged: (color) {
@@ -275,11 +274,11 @@ NeumorphicButton(
               });
             },
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           NeumorphicButton(
             onPressed: () {},
             style: NeumorphicStyle(color: currentColor),
-            child: Text('Click me'),
+            child: const Text('Click me'),
           ),
         ],
       ),
@@ -306,30 +305,30 @@ class _EnabledDisabledWidget extends StatefulWidget {
 class _EnabledDisabledWidgetState extends State<_EnabledDisabledWidget> {
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: <Widget>[
           Text(
             'Enabled :',
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           NeumorphicButton(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 18),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 18),
             onPressed: () {
               setState(() {});
             },
-            child: Text('First'),
+            child: const Text('First'),
           ),
-          SizedBox(width: 24),
+          const SizedBox(width: 24),
           Text(
             'Disabled :',
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           NeumorphicButton(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 18),
-            child: Text('Second'),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 18),
+            child: const Text('Second'),
           ),
         ],
       ),
@@ -337,7 +336,7 @@ class _EnabledDisabledWidgetState extends State<_EnabledDisabledWidget> {
   }
 
   Widget _buildCode(BuildContext context) {
-    return Code('''    
+    return const Code('''    
 NeumorphicButton(
      isEnabled: false,
      child: Text('Second'),
@@ -367,7 +366,7 @@ class _DurationWidget extends StatefulWidget {
 
 class _DurationWidgetState extends State<_DurationWidget> {
   Widget _buildCode(BuildContext context) {
-    return Code('''
+    return const Code('''
 NeumorphicButton(
     onPressed: (){
 
@@ -380,10 +379,10 @@ NeumorphicButton(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Column(
         children: <Widget>[
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Row(
             children: <Widget>[
               Text(
@@ -391,13 +390,13 @@ NeumorphicButton(
                 style:
                     TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               NeumorphicButton(
                 onPressed: () {},
-                duration: Duration(seconds: 1),
-                child: Text('Press me all night long'),
+                duration: const Duration(seconds: 1),
+                child: const Text('Press me all night long'),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
             ],
           ),
         ],
@@ -427,7 +426,7 @@ class _FlatConcaveConvexWidgetState extends State<_FlatConcaveConvexWidget> {
   bool isChecked = false;
 
   Widget _buildCode(BuildContext context) {
-    return Code('''
+    return const Code('''
 NeumorphicButton(
     style: NeumorphicStyle(
          shape: NeumorphicShape.flat 
@@ -443,13 +442,13 @@ NeumorphicButton(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Column(
         children: <Widget>[
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Row(
             children: <Widget>[
-              Container(
+              SizedBox(
                 width: 100,
                 child: Text(
                   'Flat',
@@ -457,24 +456,24 @@ NeumorphicButton(
                       color: NeumorphicTheme.defaultTextColor(context)),
                 ),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               NeumorphicButton(
-                style: NeumorphicStyle(
+                style: const NeumorphicStyle(
                   shape: NeumorphicShape.flat,
                   boxShape: NeumorphicBoxShape.circle(),
                 ),
                 onPressed: () {
                   setState(() {});
                 },
-                padding: EdgeInsets.all(18.0),
-                child: Icon(Icons.play_arrow),
+                padding: const EdgeInsets.all(18.0),
+                child: const Icon(Icons.play_arrow),
               ),
             ],
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Row(
             children: <Widget>[
-              Container(
+              SizedBox(
                 width: 100,
                 child: Text(
                   'Concave',
@@ -482,24 +481,24 @@ NeumorphicButton(
                       color: NeumorphicTheme.defaultTextColor(context)),
                 ),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               NeumorphicButton(
-                style: NeumorphicStyle(
+                style: const NeumorphicStyle(
                   shape: NeumorphicShape.concave,
                   boxShape: NeumorphicBoxShape.circle(),
                 ),
                 onPressed: () {
                   setState(() {});
                 },
-                padding: EdgeInsets.all(18.0),
-                child: Icon(Icons.play_arrow),
+                padding: const EdgeInsets.all(18.0),
+                child: const Icon(Icons.play_arrow),
               ),
             ],
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Row(
             children: <Widget>[
-              Container(
+              SizedBox(
                 width: 100,
                 child: Text(
                   'Convex',
@@ -507,16 +506,16 @@ NeumorphicButton(
                       color: NeumorphicTheme.defaultTextColor(context)),
                 ),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               NeumorphicButton(
-                style: NeumorphicStyle(
+                style: const NeumorphicStyle(
                     shape: NeumorphicShape.convex,
                     boxShape: NeumorphicBoxShape.circle()),
                 onPressed: () {
                   setState(() {});
                 },
-                padding: EdgeInsets.all(18.0),
-                child: Icon(Icons.play_arrow),
+                padding: const EdgeInsets.all(18.0),
+                child: const Icon(Icons.play_arrow),
               ),
             ],
           ),

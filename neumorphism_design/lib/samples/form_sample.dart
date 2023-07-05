@@ -1,13 +1,14 @@
 import '../util/ThemeConfigurator.dart';
 import '../util/top_bar.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class FormSample extends StatelessWidget {
+  const FormSample({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return NeumorphicTheme(
-      theme: NeumorphicThemeData(
+      theme: const NeumorphicThemeData(
         defaultTextColor: Color(0xFF3E3E3E),
         accentColor: Colors.grey,
         variantColor: Colors.black38,
@@ -46,23 +47,23 @@ class __PageState extends State<_Page> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(left: 12, right: 12, top: 10),
-              child: TopBar(
+              margin: const EdgeInsets.only(left: 12, right: 12, top: 10),
+              child: const TopBar(
                 actions: <Widget>[
                   ThemeConfigurator(),
                 ],
               ),
             ),
             Neumorphic(
-              margin: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               style: NeumorphicStyle(
                 boxShape:
                     NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
               ),
               child: Column(
                 children: <Widget>[
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Align(
@@ -70,15 +71,15 @@ class __PageState extends State<_Page> {
                     child: NeumorphicButton(
                       onPressed: _isButtonEnabled() ? () {} : null,
                       padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                      child: Text(
+                          const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                      child: const Text(
                         'Sign Up',
                         style: TextStyle(fontWeight: FontWeight.w800),
                       ),
                     ),
                   ),
                   _AvatarField(),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   _TextField(
@@ -90,7 +91,7 @@ class __PageState extends State<_Page> {
                       });
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   _TextField(
@@ -102,7 +103,7 @@ class __PageState extends State<_Page> {
                       });
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   _AgeField(
@@ -113,7 +114,7 @@ class __PageState extends State<_Page> {
                       });
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   _GenderField(
@@ -124,7 +125,7 @@ class __PageState extends State<_Page> {
                       });
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   /*
@@ -140,7 +141,7 @@ class __PageState extends State<_Page> {
                     height: 28,
                   ),
                    */
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                 ],
@@ -162,9 +163,9 @@ class _AvatarField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Neumorphic(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         style: NeumorphicStyle(
-          boxShape: NeumorphicBoxShape.circle(),
+          boxShape: const NeumorphicBoxShape.circle(),
           depth: NeumorphicTheme.embossDepth(context),
         ),
         child: Icon(
@@ -181,7 +182,7 @@ class _AgeField extends StatelessWidget {
   final double age;
   final ValueChanged<double> onChanged;
 
-  _AgeField({required this.age, required this.onChanged});
+  const _AgeField({required this.age, required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -214,7 +215,7 @@ class _AgeField extends StatelessWidget {
               ),
             ),
             Text('${age.floor()}'),
-            SizedBox(
+            const SizedBox(
               width: 18,
             )
           ],
@@ -230,7 +231,7 @@ class _TextField extends StatefulWidget {
 
   final ValueChanged<String> onChanged;
 
-  _TextField(
+  const _TextField(
       {required this.label, required this.hint, required this.onChanged});
 
   @override
@@ -262,12 +263,12 @@ class __TextFieldState extends State<_TextField> {
           ),
         ),
         Neumorphic(
-          margin: EdgeInsets.only(left: 8, right: 8, top: 2, bottom: 4),
+          margin: const EdgeInsets.only(left: 8, right: 8, top: 2, bottom: 4),
           style: NeumorphicStyle(
             depth: NeumorphicTheme.embossDepth(context),
-            boxShape: NeumorphicBoxShape.stadium(),
+            boxShape: const NeumorphicBoxShape.stadium(),
           ),
-          padding: EdgeInsets.symmetric(vertical: 14, horizontal: 18),
+          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 18),
           child: TextField(
             onChanged: widget.onChanged,
             controller: _controller,
@@ -305,40 +306,40 @@ class _GenderField extends StatelessWidget {
         ),
         Row(
           children: <Widget>[
-            SizedBox(width: 12),
+            const SizedBox(width: 12),
             NeumorphicRadio(
               groupValue: gender,
-              padding: EdgeInsets.all(20),
-              style: NeumorphicRadioStyle(
+              padding: const EdgeInsets.all(20),
+              style: const NeumorphicRadioStyle(
                 boxShape: NeumorphicBoxShape.circle(),
               ),
               value: Gender.MALE,
               onChanged: (value) => onChanged(value),
-              child: Icon(Icons.account_box),
+              child: const Icon(Icons.account_box),
             ),
-            SizedBox(width: 12),
+            const SizedBox(width: 12),
             NeumorphicRadio(
               groupValue: gender,
-              padding: EdgeInsets.all(20),
-              style: NeumorphicRadioStyle(
+              padding: const EdgeInsets.all(20),
+              style: const NeumorphicRadioStyle(
                 boxShape: NeumorphicBoxShape.circle(),
               ),
               value: Gender.FEMALE,
               onChanged: (value) => onChanged(value),
-              child: Icon(Icons.pregnant_woman),
+              child: const Icon(Icons.pregnant_woman),
             ),
-            SizedBox(width: 12),
+            const SizedBox(width: 12),
             NeumorphicRadio(
               groupValue: gender,
-              padding: EdgeInsets.all(20),
-              style: NeumorphicRadioStyle(
+              padding: const EdgeInsets.all(20),
+              style: const NeumorphicRadioStyle(
                 boxShape: NeumorphicBoxShape.circle(),
               ),
               value: Gender.NON_BINARY,
               onChanged: (value) => onChanged(value),
-              child: Icon(Icons.supervised_user_circle),
+              child: const Icon(Icons.supervised_user_circle),
             ),
-            SizedBox(
+            const SizedBox(
               width: 18,
             )
           ],

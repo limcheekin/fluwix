@@ -4,7 +4,7 @@ import 'neumorphism_design_screen.dart';
 
 void main() {
   runApp(
-    MyModule(
+    const MyModule(
       title: 'Neumorphism Design',
       home: NeumorphismDesignScreen(),
     ),

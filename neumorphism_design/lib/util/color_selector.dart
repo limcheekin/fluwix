@@ -1,7 +1,5 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 @immutable
@@ -12,10 +10,10 @@ class ColorSelector extends StatelessWidget {
   final double width;
 
   const ColorSelector(
-      {this.height = 40,
+      {Key? key, this.height = 40,
       this.width = 40,
       required this.color,
-      required this.onColorChanged});
+      required this.onColorChanged}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

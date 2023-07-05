@@ -12,18 +12,19 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_neumorphic: ^3.2.0
+  flutter_neumorphic:
+    path: ../flutter_neumorphic
   flutter_colorpicker: ^1.0.3
   common_ui:
     path: ../common_ui
   showcase_view:
-    path: ../showcase_view  
+    path: ../showcase_view
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  
-  pedantic:
+
+  flutter_lints:
 
 flutter:
   uses-material-design: true
@@ -33,7 +34,7 @@ flutter:
     - family: Samsung
       fonts:
         - asset: fonts/SamsungSans-Bold.ttf
-        
+
   module:
     androidX: true
     androidPackage: com.example.neumorphism_design
