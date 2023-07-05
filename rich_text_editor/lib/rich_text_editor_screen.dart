@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import './pages/read_only_page.dart';
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:showcase_view/showcase_view.dart';
 
 class RichTextEditorScreen extends StatelessWidget {
@@ -12,7 +11,7 @@ class RichTextEditorScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShowcaseView(
+    return const ShowcaseView(
       title: 'Rich Text Editor',
       widget: ReadOnlyPage(),
       owner: owner,
