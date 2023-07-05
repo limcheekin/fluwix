@@ -5,8 +5,8 @@ import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 
 class MarkdownViewWidget extends StatelessWidget {
-  MarkdownViewWidget({Key? key}) : super(key: key);
-  static const GITHUB_URL =
+  const MarkdownViewWidget({Key? key}) : super(key: key);
+  static const githubUrl =
       'https://api.github.com/repos/limcheekin/flutter-widgets-explorer/contents/intro.md';
 
   // REF: https://flutter.dev/docs/cookbook/networking/fetch-data#5-display-the-data
@@ -22,20 +22,20 @@ class MarkdownViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<Response>(
-      future: _fetchGithubContent(GITHUB_URL),
+      future: _fetchGithubContent(githubUrl),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           final response = snapshot.data;
           return Markdown(
             data: response?.statusCode == 200 && response?.body != null
                 ? response!.body
-                : 'Failed to fetch content from $GITHUB_URL',
+                : 'Failed to fetch content from $githubUrl',
           );
         } else if (snapshot.hasError) {
           return Text('${snapshot.error}');
         }
         // By default, show a loading spinner.
-        return LoadProgressIndicator();
+        return const LoadProgressIndicator();
       },
     );
   }
