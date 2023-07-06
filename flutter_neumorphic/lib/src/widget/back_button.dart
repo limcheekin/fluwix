@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class NeumorphicBackButton extends StatelessWidget {
@@ -23,8 +21,8 @@ class NeumorphicBackButton extends StatelessWidget {
       style: style,
       padding: padding,
       tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-      child: forward ? nThemeIcons.forwardIcon : nThemeIcons.backIcon,
       onPressed: onPressed ?? () => Navigator.maybePop(context),
+      child: forward ? nThemeIcons.forwardIcon : nThemeIcons.backIcon,
     );
   }
 }

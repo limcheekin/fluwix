@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/widgets.dart';
 
@@ -199,7 +198,7 @@ class _NeumorphicIndicatorState extends State<NeumorphicIndicator>
       child: Neumorphic(
         padding: EdgeInsets.zero,
         style: NeumorphicStyle(
-          boxShape: NeumorphicBoxShape.stadium(),
+          boxShape: const NeumorphicBoxShape.stadium(),
           lightSource: widget.style.lightSource ?? theme.lightSource,
           disableDepth: widget.style.disableDepth,
           depth: widget.style.depth,
@@ -225,7 +224,7 @@ class _NeumorphicIndicatorState extends State<NeumorphicIndicator>
                   padding: widget.padding,
                   child: Neumorphic(
                     style: NeumorphicStyle(
-                      boxShape: NeumorphicBoxShape.stadium(),
+                      boxShape: const NeumorphicBoxShape.stadium(),
                       lightSource:
                           widget.style.lightSource ?? theme.lightSource,
                     ),

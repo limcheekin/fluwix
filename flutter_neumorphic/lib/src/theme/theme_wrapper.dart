@@ -52,10 +52,10 @@ class ThemeWrapper {
     NeumorphicThemeData? darkTheme,
     ThemeMode? currentTheme,
   }) {
-    return new ThemeWrapper(
+    return ThemeWrapper(
       theme: theme ?? this.theme,
       darkTheme: darkTheme ?? this.darkTheme,
-      themeMode: currentTheme ?? this.themeMode,
+      themeMode: currentTheme ?? themeMode,
     );
   }
 }

@@ -18,7 +18,7 @@ Shader getGradientShader(
       NeumorphicColors.gradientShaderWhiteColor(
           intensity: currentIntensity * (2 / 5)),
     ],
-    stops: [
+    stops: const [
       0,
       0.75, //was 1 but set to 0.75 to be less dark
     ],

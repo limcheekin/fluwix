@@ -326,9 +326,9 @@ class _EnabledDisabledWidgetState extends State<_EnabledDisabledWidget> {
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
           const SizedBox(width: 12),
-          NeumorphicButton(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 18),
-            child: const Text('Second'),
+          const NeumorphicButton(
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 18),
+            child: Text('Second'),
           ),
         ],
       ),

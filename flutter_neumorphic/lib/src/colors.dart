@@ -35,7 +35,7 @@ class NeumorphicColors {
 
   static const Color defaultTextColor = Color(0xFF000000);
 
-  NeumorphicColors._();
+  const NeumorphicColors._();
 
   static Color decorationWhiteColor(Color color, {required double intensity}) {
     // intensity act on opacity;
@@ -86,7 +86,7 @@ class NeumorphicColors {
   static Color _applyPercentageOnOpacity(
       {required Color maxColor, required double percent}) {
     final maxOpacity = maxColor.opacity;
-    final maxIntensity = Neumorphic.MAX_INTENSITY;
+    const maxIntensity = Neumorphic.MAX_INTENSITY;
     final newOpacity = percent * maxOpacity / maxIntensity;
     final newColor =
         maxColor.withOpacity(newOpacity); //<-- intensity act on opacity;

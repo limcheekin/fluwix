@@ -9,7 +9,7 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
   MainState state;
   bool isLine;
 
-  double _contentPadding = 12.0;
+  final double _contentPadding = 12.0;
 
   MainRenderer(Rect mainRect, double maxValue, double minValue,
       double topPadding, this.state, this.isLine, double scaleX)
@@ -24,7 +24,7 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
     var newDiff = chartRect.height / newScaleY; //高/新比例=新的差
     var value = (newDiff - diff) / 2; //新差-差/2=y轴需要扩大的值
     if (newDiff > diff) {
-      this.scaleY = newScaleY;
+      scaleY = newScaleY;
       this.maxValue += value;
       this.minValue -= value;
     }
@@ -110,14 +110,14 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
         getY(curPrice), curX, getY(curPrice));
 
 //    //画阴影
-    mLineFillShader ??= LinearGradient(
+    mLineFillShader ??= const LinearGradient(
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
       tileMode: TileMode.clamp,
       colors: ChartColors.kLineShadowColor,
     ).createShader(Rect.fromLTRB(
         chartRect.left, chartRect.top, chartRect.right, chartRect.bottom));
-    mLineFillPaint..shader = mLineFillShader;
+    mLineFillPaint.shader = mLineFillShader;
 
     mLineFillPath ??= Path();
 
@@ -214,7 +214,7 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
         position = (gridRows - i) * rowSpace;
       }
       var value = position / scaleY + minValue;
-      TextSpan span = TextSpan(text: "${format(value)}", style: textStyle);
+      TextSpan span = TextSpan(text: format(value), style: textStyle);
       TextPainter tp =
           TextPainter(text: span, textDirection: TextDirection.ltr);
       tp.layout();

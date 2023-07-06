@@ -20,9 +20,9 @@ class AppBarWidgetPage extends StatelessWidget {
 class _FirstThemeWidgetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return NeumorphicTheme(
+    return const NeumorphicTheme(
       themeMode: ThemeMode.light,
-      theme: const NeumorphicThemeData(
+      theme: NeumorphicThemeData(
         lightSource: LightSource.topLeft,
         accentColor: NeumorphicColors.accent,
         appBarTheme: NeumorphicAppBarThemeData(
@@ -33,7 +33,7 @@ class _FirstThemeWidgetPage extends StatelessWidget {
         depth: 4,
         intensity: 0.9,
       ),
-      child: const AppBarPageUsingTheme(),
+      child: AppBarPageUsingTheme(),
     );
   }
 }
@@ -218,8 +218,8 @@ class _CustomIcon extends StatelessWidget {
           intensity: 0.5,
         ),
         child: Scaffold(
-          appBar: NeumorphicAppBar(
-            title: const Text('Custom icons + drawer'),
+          appBar: const NeumorphicAppBar(
+            title: Text('Custom icons + drawer'),
           ),
           endDrawer: const _MyDrawer(isLead: false),
           body: Container(),

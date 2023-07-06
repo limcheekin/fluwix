@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import '../entity/macd_entity.dart';
@@ -27,25 +26,30 @@ class SecondaryRenderer extends BaseChartRenderer<MACDEntity> {
         drawMACD(curPoint, canvas, curX, lastPoint, lastX);
         break;
       case SecondaryState.KDJ:
-        if (lastPoint.k != 0)
+        if (lastPoint.k != 0) {
           drawLine(lastPoint.k!, curPoint.k!, canvas, lastX, curX,
               ChartColors.kColor);
-        if (lastPoint.d != 0)
+        }
+        if (lastPoint.d != 0) {
           drawLine(lastPoint.d!, curPoint.d!, canvas, lastX, curX,
               ChartColors.dColor);
-        if (lastPoint.j != 0)
+        }
+        if (lastPoint.j != 0) {
           drawLine(lastPoint.j!, curPoint.j!, canvas, lastX, curX,
               ChartColors.jColor);
+        }
         break;
       case SecondaryState.RSI:
-        if (lastPoint.rsi != 0)
+        if (lastPoint.rsi != 0) {
           drawLine(lastPoint.rsi!, curPoint.rsi!, canvas, lastX, curX,
               ChartColors.rsiColor);
+        }
         break;
       case SecondaryState.WR:
-        if (lastPoint.r != 0)
+        if (lastPoint.r != 0) {
           drawLine(lastPoint.r!, curPoint.r!, canvas, lastX, curX,
               ChartColors.rsiColor);
+        }
         break;
       default:
         break;
@@ -143,11 +147,11 @@ class SecondaryRenderer extends BaseChartRenderer<MACDEntity> {
   @override
   void drawRightText(canvas, textStyle, int gridRows) {
     TextPainter maxTp = TextPainter(
-        text: TextSpan(text: "${format(maxValue)}", style: textStyle),
+        text: TextSpan(text: format(maxValue), style: textStyle),
         textDirection: TextDirection.ltr);
     maxTp.layout();
     TextPainter minTp = TextPainter(
-        text: TextSpan(text: "${format(minValue)}", style: textStyle),
+        text: TextSpan(text: format(minValue), style: textStyle),
         textDirection: TextDirection.ltr);
     minTp.layout();
 

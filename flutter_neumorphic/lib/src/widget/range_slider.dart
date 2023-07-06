@@ -1,12 +1,7 @@
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-import 'container.dart';
-import 'progress.dart';
-
-typedef void NeumorphicRangeSliderLowListener(double percent);
-typedef void NeumorphicRangeSliderHighListener(double percent);
+typedef NeumorphicRangeSliderLowListener = void Function(double percent);
+typedef NeumorphicRangeSliderHighListener = void Function(double percent);
 
 /// A style to customize the [NeumorphicSlider]
 ///
@@ -125,7 +120,7 @@ class NeumorphicRangeSlider extends StatefulWidget {
   final Function(ActiveThumb)? onPanEnded;
   final Widget? thumb;
 
-  NeumorphicRangeSlider({
+  const NeumorphicRangeSlider({
     Key? key,
     this.style = const RangeSliderStyle(),
     this.min = 0,
@@ -139,7 +134,7 @@ class NeumorphicRangeSlider extends StatefulWidget {
     this.onPanEnded,
     this.sliderHeight,
     this.thumb,
-  });
+  }) : super(key: key);
 
   double get percentLow => (((valueLow.clamp(min, max)) - min) / ((max - min)));
 
@@ -164,7 +159,7 @@ class _NeumorphicRangeSliderState extends State<NeumorphicRangeSlider> {
   Widget _widget(BuildContext context, BoxConstraints constraints) {
     double thumbSize = widget.height * 1.5;
 
-    Function panUpdate = (DragUpdateDetails details) {
+    panUpdate(DragUpdateDetails details) {
       final tapPos = details.localPosition;
       final newPercent = tapPos.dx / constraints.maxWidth;
       final newValue = ((widget.min + (widget.max - widget.min) * newPercent))
@@ -194,7 +189,7 @@ class _NeumorphicRangeSliderState extends State<NeumorphicRangeSlider> {
           }
           break;
       }
-    };
+    }
 
     return Stack(
       alignment: Alignment.center,
@@ -270,11 +265,11 @@ class _NeumorphicRangeSliderState extends State<NeumorphicRangeSlider> {
             accent: widget.style.accent ?? theme.accentColor,
             variant: widget.style.variant ?? theme.variantColor,
           )),
-      new Positioned.fill(
-        child: new LayoutBuilder(
+      Positioned.fill(
+        child: LayoutBuilder(
           builder: (context, constraints) {
-            return new Padding(
-              padding: new EdgeInsets.only(
+            return Padding(
+              padding: EdgeInsets.only(
                   left: constraints.biggest.width * widget.percentLow,
                   right: constraints.biggest.width * (1 - widget.percentHigh)),
               child: Container(
@@ -304,7 +299,7 @@ class _NeumorphicRangeSliderState extends State<NeumorphicRangeSlider> {
         shape: NeumorphicShape.concave,
         color: color ?? theme.accentColor,
         border: widget.style.thumbBorder,
-        boxShape: NeumorphicBoxShape.circle(),
+        boxShape: const NeumorphicBoxShape.circle(),
         lightSource: widget.style.lightSource ?? theme.lightSource,
       ),
       child: SizedBox(

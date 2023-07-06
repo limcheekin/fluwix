@@ -17,14 +17,14 @@ class LightSource {
 
   Offset get offset => Offset(dx, dy);
 
-  static const top = const LightSource(0, -1);
-  static const topLeft = const LightSource(-1, -1);
-  static const topRight = const LightSource(1, -1);
-  static const bottom = const LightSource(0, 1);
-  static const bottomLeft = const LightSource(-1, 1);
-  static const bottomRight = const LightSource(1, 1);
-  static const left = const LightSource(-1, 0);
-  static const right = const LightSource(1, 0);
+  static const top = LightSource(0, -1);
+  static const topLeft = LightSource(-1, -1);
+  static const topRight = LightSource(1, -1);
+  static const bottom = LightSource(0, 1);
+  static const bottomLeft = LightSource(-1, 1);
+  static const bottomRight = LightSource(1, 1);
+  static const left = LightSource(-1, 0);
+  static const right = LightSource(1, 0);
 
   @override
   bool operator ==(Object other) =>

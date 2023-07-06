@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
 import '../../flutter_neumorphic.dart';
-import 'inherited_neumorphic_theme.dart';
-import 'theme.dart';
-import 'theme_wrapper.dart';
 
 export 'inherited_neumorphic_theme.dart';
 export 'theme.dart';
@@ -49,13 +43,13 @@ class NeumorphicTheme extends StatefulWidget {
   final Widget child;
   final ThemeMode themeMode;
 
-  NeumorphicTheme({
+  const NeumorphicTheme({
     Key? key,
     required this.child,
     this.theme = neumorphicDefaultTheme,
     this.darkTheme = neumorphicDefaultDarkTheme,
     this.themeMode = ThemeMode.system,
-  });
+  }) : super(key: key);
 
   @override
   _NeumorphicThemeState createState() => _NeumorphicThemeState();

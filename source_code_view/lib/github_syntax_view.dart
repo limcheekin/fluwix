@@ -52,7 +52,7 @@ class _GithubSyntaxViewState extends AbstractGithubViewState<GithubSyntaxView> {
   @override
   Widget buildWidget(BuildContext context, String responseBody) {
     final numberOfLines = LineSplitter().convert(responseBody).length;
-    final fontSize = Theme.of(context).textTheme.bodyText1!.fontSize;
+    final fontSize = Theme.of(context).textTheme.bodyLarge!.fontSize;
 
     return SizedBox(
       height: numberOfLines * fontSize!,

@@ -1,12 +1,13 @@
 import 'package:example/lib/top_bar.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class ClockAlarmPage extends StatelessWidget {
+  const ClockAlarmPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return NeumorphicTheme(
-      theme: NeumorphicThemeData(
+      theme: const NeumorphicThemeData(
           defaultTextColor: Color(0xFF303E57),
           accentColor: Color(0xFF7B79FC),
           variantColor: Colors.black38,
@@ -31,22 +32,22 @@ class _Page extends StatefulWidget {
 
 class _ClockPageState extends State<_Page> {
   final List<Alarm> items = [
-    Alarm(
+    const Alarm(
       enabled: true,
       time: "8:30 AM",
       label: "Awake !",
     ),
-    Alarm(
+    const Alarm(
       enabled: false,
       time: "8:45 AM",
       label: "Wake up !",
     ),
-    Alarm(
+    const Alarm(
       enabled: false,
       time: "9:00 AM",
       label: "Hurry up !",
     ),
-    Alarm(
+    const Alarm(
       enabled: false,
       time: "2:00 AM",
       label: "Lunchtime",
@@ -64,7 +65,7 @@ class _ClockPageState extends State<_Page> {
             child: TopBar(),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Stack(
               children: <Widget>[
                 Align(
@@ -74,7 +75,7 @@ class _ClockPageState extends State<_Page> {
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 28,
-                      shadows: [
+                      shadows: const [
                         Shadow(
                             color: Colors.black38,
                             offset: Offset(1.0, 1.0),
@@ -94,15 +95,15 @@ class _ClockPageState extends State<_Page> {
                           BorderRadius.circular(8)),
                     ),
                     child: NeumorphicButton(
-                      padding: EdgeInsets.all(12.0),
-                      child: Icon(
-                        Icons.add,
-                        color: Color(0xFFC1CDE5),
-                      ),
+                      padding: const EdgeInsets.all(12.0),
                       style: NeumorphicStyle(
                         depth: -1,
                         boxShape: NeumorphicBoxShape.roundRect(
                             BorderRadius.circular(8)),
+                      ),
+                      child: const Icon(
+                        Icons.add,
+                        color: Color(0xFFC1CDE5),
                       ),
                     ),
                   ),
@@ -110,14 +111,14 @@ class _ClockPageState extends State<_Page> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           _Divider(),
           Expanded(
             child: ListView.builder(
               itemBuilder: (context, index) {
-                return AlarmCell(this.items[index]);
+                return AlarmCell(items[index]);
               },
               itemCount: items.length,
             ),
@@ -131,7 +132,7 @@ class _ClockPageState extends State<_Page> {
 class AlarmCell extends StatelessWidget {
   final Alarm alarm;
 
-  AlarmCell(this.alarm);
+  const AlarmCell(this.alarm, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -151,7 +152,7 @@ class AlarmCell extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
                         fontSize: 36,
-                        shadows: [
+                        shadows: const [
                           Shadow(
                               color: Colors.black38,
                               offset: Offset(1.0, 1.0),
@@ -160,7 +161,7 @@ class AlarmCell extends StatelessWidget {
                         color: NeumorphicTheme.defaultTextColor(context),
                       ),
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Text(
                       alarm.label,
                       style: TextStyle(
@@ -178,15 +179,15 @@ class AlarmCell extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(right: 20),
+                      padding: const EdgeInsets.only(right: 20),
                       child: Neumorphic(
-                        style: NeumorphicStyle(
+                        style: const NeumorphicStyle(
                           depth: 8,
                           intensity: 0.5,
                           boxShape: NeumorphicBoxShape.stadium(),
                         ),
                         child: NeumorphicSwitch(
-                          style: NeumorphicSwitchStyle(
+                          style: const NeumorphicSwitchStyle(
                               inactiveTrackColor: Color(0xffC1CDE5)),
                           height: 30,
                           value: alarm.enabled,
@@ -208,7 +209,7 @@ class AlarmCell extends StatelessWidget {
 class _Divider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FractionallySizedBox(
+    return const FractionallySizedBox(
       widthFactor: 1,
       child: Neumorphic(
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),

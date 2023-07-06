@@ -29,14 +29,14 @@ class NeumorphicFloatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: this.mini ? _kMiniSizeConstraints : _kSizeConstraints,
+      constraints: mini ? _kMiniSizeConstraints : _kSizeConstraints,
       child: NeumorphicButton(
-        padding: EdgeInsets.all(0),
-        onPressed: this.onPressed,
-        tooltip: this.tooltip,
-        style: this.style ??
+        padding: const EdgeInsets.all(0),
+        onPressed: onPressed,
+        tooltip: tooltip,
+        style: style ??
             NeumorphicTheme.currentTheme(context).appBarTheme.buttonStyle,
-        child: this.child,
+        child: child,
       ),
     );
   }

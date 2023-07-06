@@ -176,14 +176,14 @@ class __PageContentState extends State<_PageContent> {
                                     width: 30,
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 18),
+                                const Padding(
+                                  padding: EdgeInsets.only(left: 18),
                                   child: Neumorphic(
-                                    style: const NeumorphicStyle(
+                                    style: NeumorphicStyle(
                                         shape: NeumorphicShape.convex,
                                         boxShape: NeumorphicBoxShape.circle(),
                                         depth: 10),
-                                    child: const SizedBox(
+                                    child: SizedBox(
                                       height: 30,
                                       width: 30,
                                     ),

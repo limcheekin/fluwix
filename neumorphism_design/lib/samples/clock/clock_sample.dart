@@ -157,12 +157,12 @@ class NeumorphicClock extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 //the click center
-                Neumorphic(
-                  style: const NeumorphicStyle(
+                const Neumorphic(
+                  style: NeumorphicStyle(
                     depth: -1,
                     boxShape: NeumorphicBoxShape.circle(),
                   ),
-                  margin: const EdgeInsets.all(65),
+                  margin: EdgeInsets.all(65),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -258,12 +258,12 @@ class NeumorphicClock extends StatelessWidget {
   }
 
   Widget _createDot(BuildContext context) {
-    return Neumorphic(
-      style: const NeumorphicStyle(
+    return const Neumorphic(
+      style: NeumorphicStyle(
         depth: -10,
         boxShape: NeumorphicBoxShape.circle(),
       ),
-      child: const SizedBox(
+      child: SizedBox(
         height: 10,
         width: 10,
       ),

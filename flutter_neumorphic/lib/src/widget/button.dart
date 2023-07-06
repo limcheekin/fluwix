@@ -1,13 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import '../theme/neumorphic_theme.dart';
-import '../widget/app_bar.dart';
 import 'animation/animated_scale.dart' as animationScale;
-import 'container.dart';
 
-typedef void NeumorphicButtonClickListener();
+typedef NeumorphicButtonClickListener = void Function();
 
 /// A Neumorphic Button
 ///
@@ -59,7 +54,7 @@ class NeumorphicButton extends StatefulWidget {
   final bool provideHapticFeedback;
   final String? tooltip;
 
-  NeumorphicButton({
+  const NeumorphicButton({
     Key? key,
     this.padding,
     this.margin = EdgeInsets.zero,
@@ -92,7 +87,7 @@ class _NeumorphicButtonState extends State<NeumorphicButton> {
     final appBarPresent = NeumorphicAppBarTheme.of(context) != null;
 
     final theme = NeumorphicTheme.currentTheme(context);
-    this.initialStyle = widget.style ??
+    initialStyle = widget.style ??
         (appBarPresent
             ? theme.appBarTheme.buttonStyle
             : (theme.buttonStyle ?? const NeumorphicStyle()));
@@ -217,7 +212,7 @@ class _NeumorphicButtonState extends State<NeumorphicButton> {
 
   double _getDepth() {
     if (widget.isEnabled) {
-      return this.depth;
+      return depth;
     } else {
       return 0;
     }
@@ -230,7 +225,7 @@ class _NeumorphicButtonState extends State<NeumorphicButton> {
           ? NeumorphicButton.PRESSED_SCALE
           : NeumorphicButton.UNPRESSED_SCALE;
     } else {
-      return this.pressed
+      return pressed
           ? NeumorphicButton.PRESSED_SCALE
           : NeumorphicButton.UNPRESSED_SCALE;
     }

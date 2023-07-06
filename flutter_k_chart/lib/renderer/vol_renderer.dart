@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import '../entity/volume_entity.dart';
@@ -61,7 +60,7 @@ class VolRenderer extends BaseChartRenderer<VolumeEntity> {
 
   @override
   void drawRightText(canvas, textStyle, int gridRows) {
-    TextSpan span = TextSpan(text: "${NumberUtil.volFormat(maxValue)}", style: textStyle);
+    TextSpan span = TextSpan(text: NumberUtil.volFormat(maxValue), style: textStyle);
     TextPainter tp = TextPainter(text: span, textDirection: TextDirection.ltr);
     tp.layout();
     tp.paint(canvas, Offset(chartRect.width - tp.width, chartRect.top - topPadding));

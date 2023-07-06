@@ -1,10 +1,15 @@
 import '../entity/k_entity.dart';
 
 class KLineEntity extends KEntity {
+  @override
   late double open;
+  @override
   late double high;
+  @override
   late double low;
+  @override
   late double close;
+  @override
   late double vol;
   double? amount;
   int? count;
@@ -22,15 +27,15 @@ class KLineEntity extends KEntity {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['open'] = this.open;
-    data['close'] = this.close;
-    data['high'] = this.high;
-    data['low'] = this.low;
-    data['vol'] = this.vol;
-    data['amount'] = this.amount;
-    data['count'] = this.count;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['open'] = open;
+    data['close'] = close;
+    data['high'] = high;
+    data['low'] = low;
+    data['vol'] = vol;
+    data['amount'] = amount;
+    data['count'] = count;
     return data;
   }
 

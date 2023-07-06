@@ -1,10 +1,9 @@
 import 'package:example/lib/ThemeConfigurator.dart';
 import 'package:example/lib/top_bar.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class IconWidgetPage extends StatefulWidget {
-  IconWidgetPage({Key key}) : super(key: key);
+  const IconWidgetPage({Key key}) : super(key: key);
 
   @override
   createState() => _WidgetPageState();
@@ -15,7 +14,7 @@ class _WidgetPageState extends State<IconWidgetPage> {
   Widget build(BuildContext context) {
     return NeumorphicTheme(
       themeMode: ThemeMode.light,
-      theme: NeumorphicThemeData(
+      theme: const NeumorphicThemeData(
         lightSource: LightSource.topLeft,
         accentColor: NeumorphicColors.accent,
         depth: 4,
@@ -35,7 +34,7 @@ class _PageState extends State<_Page> {
   @override
   Widget build(BuildContext context) {
     return NeumorphicBackground(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Scaffold(
         appBar: TopBar(
           title: "Icons",
@@ -46,7 +45,7 @@ class _PageState extends State<_Page> {
         backgroundColor: Colors.transparent,
         body: GridView.builder(
           gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+              const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
           itemCount: icons.length,
           itemBuilder: (context, index) {
             return Padding(
@@ -54,7 +53,7 @@ class _PageState extends State<_Page> {
               child: NeumorphicIcon(
                 icons[index],
                 size: 80,
-                style: NeumorphicStyle(
+                style: const NeumorphicStyle(
                     //shape: NeumorphicShape.convex,
                     //surfaceIntensity: 1.0
                     ),
@@ -741,7 +740,7 @@ class _PageState extends State<_Page> {
     Icons.picture_in_picture,
     Icons.picture_in_picture_alt,
     Icons.pie_chart,
-    Icons.pie_chart_outlined,
+    Icons.pie_chart_outline,
     Icons.pin_drop,
     Icons.place,
     Icons.play_arrow,

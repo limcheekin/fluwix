@@ -55,7 +55,7 @@ class AppModule extends Module {
     ChildRoute('/', child: (_, __) => const HomeScreen()),
     ChildRoute('/nested_list', child: (_, __) => NestedListScreen()),
     ChildRoute('/tab_buttons', child: (_, __) => TabButtonsScreen()),
-    ChildRoute('/stock_chart', child: (_, __) => StockChartScreen()),
+    ChildRoute('/stock_chart', child: (_, __) => const StockChartScreen()),
     ChildRoute('/expansion_collapse_view',
         child: (_, __) => const ExpansionCollapseViewScreen()),
     ChildRoute('/charts_gallery',
@@ -136,7 +136,7 @@ class HomeScreen extends StatelessWidget {
       const SizedBox(height: 24),
       Text(
         appSubTitle,
-        style: Theme.of(context).textTheme.bodyText2,
+        style: Theme.of(context).textTheme.bodyMedium,
       ),
     ];
 
@@ -254,7 +254,7 @@ class _WideLayoutState extends State<WideLayout> {
                       RichText(
                         textAlign: TextAlign.center,
                         text: const TextSpan(
-                          text: 'Welcome to Fluwix!\n' + appSubTitle,
+                          text: 'Welcome to Fluwix!\n$appSubTitle',
                           style: TextStyle(
                             fontSize: 28.0,
                             color: Colors.black87,

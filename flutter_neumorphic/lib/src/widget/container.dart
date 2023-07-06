@@ -36,7 +36,7 @@ export '../theme/neumorphic_theme.dart';
 ///
 @immutable
 class Neumorphic extends StatelessWidget {
-  static const DEFAULT_DURATION = const Duration(milliseconds: 100);
+  static const DEFAULT_DURATION = Duration(milliseconds: 100);
   static const DEFAULT_CURVE = Curves.linear;
 
   static const double MIN_DEPTH = -20.0;
@@ -59,7 +59,7 @@ class Neumorphic extends StatelessWidget {
   final bool
       drawSurfaceAboveChild; //if true => boxDecoration & foreground decoration, else => boxDecoration does all the work
 
-  Neumorphic({
+  const Neumorphic({
     Key? key,
     this.child,
     this.duration = Neumorphic.DEFAULT_DURATION,
@@ -74,19 +74,19 @@ class Neumorphic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = NeumorphicTheme.currentTheme(context);
-    final NeumorphicStyle style = (this.style ?? NeumorphicStyle())
+    final NeumorphicStyle style = (this.style ?? const NeumorphicStyle())
         .copyWithThemeIfNull(theme)
         .applyDisableDepth();
 
     return _NeumorphicContainer(
-      padding: this.padding,
-      textStyle: this.textStyle,
-      drawSurfaceAboveChild: this.drawSurfaceAboveChild,
-      duration: this.duration,
+      padding: padding,
+      textStyle: textStyle,
+      drawSurfaceAboveChild: drawSurfaceAboveChild,
+      duration: duration,
       style: style,
-      curve: this.curve,
-      margin: this.margin,
-      child: this.child,
+      curve: curve,
+      margin: margin,
+      child: child,
     );
   }
 }
@@ -101,7 +101,7 @@ class _NeumorphicContainer extends StatelessWidget {
   final bool drawSurfaceAboveChild;
   final EdgeInsets padding;
 
-  _NeumorphicContainer({
+  const _NeumorphicContainer({
     Key? key,
     this.child,
     this.textStyle,
@@ -115,34 +115,34 @@ class _NeumorphicContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final shape = this.style.boxShape ?? NeumorphicBoxShape.rect();
+    final shape = style.boxShape ?? const NeumorphicBoxShape.rect();
 
     return DefaultTextStyle(
-      style: this.textStyle ?? material.Theme.of(context).textTheme.bodyText2!,
+      style: textStyle ?? material.Theme.of(context).textTheme.bodyMedium!,
       child: AnimatedContainer(
-        margin: this.margin,
-        duration: this.duration,
-        curve: this.curve,
-        child: NeumorphicBoxShapeClipper(
-          shape: shape,
-          child: Padding(
-            padding: this.padding,
-            child: this.child,
-          ),
-        ),
+        margin: margin,
+        duration: duration,
+        curve: curve,
         foregroundDecoration: NeumorphicDecoration(
           isForeground: true,
           renderingByPath: shape.customShapePathProvider.oneGradientPerPath,
-          splitBackgroundForeground: this.drawSurfaceAboveChild,
-          style: this.style,
+          splitBackgroundForeground: drawSurfaceAboveChild,
+          style: style,
           shape: shape,
         ),
         decoration: NeumorphicDecoration(
           isForeground: false,
           renderingByPath: shape.customShapePathProvider.oneGradientPerPath,
-          splitBackgroundForeground: this.drawSurfaceAboveChild,
-          style: this.style,
+          splitBackgroundForeground: drawSurfaceAboveChild,
+          style: style,
           shape: shape,
+        ),
+        child: NeumorphicBoxShapeClipper(
+          shape: shape,
+          child: Padding(
+            padding: padding,
+            child: child,
+          ),
         ),
       ),
     );

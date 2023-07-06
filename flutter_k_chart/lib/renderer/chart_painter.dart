@@ -175,7 +175,7 @@ class ChartPainter extends BaseChartPainter {
     if (translateXtoX(getX(index)) < mWidth / 2) {
       isLeft = false;
       x = 1;
-      Path path = new Path();
+      Path path = Path();
       path.moveTo(x, y - r);
       path.lineTo(x, y + r);
       path.lineTo(textWidth + 2 * w1, y + r);
@@ -188,7 +188,7 @@ class ChartPainter extends BaseChartPainter {
     } else {
       isLeft = true;
       x = mWidth - textWidth - 1 - 2 * w1 - w2;
-      Path path = new Path();
+      Path path = Path();
       path.moveTo(x, y);
       path.lineTo(x + w2, y + r);
       path.lineTo(mWidth - 2, y + r);

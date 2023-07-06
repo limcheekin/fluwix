@@ -2,13 +2,15 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 import 'main_home.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return NeumorphicApp(
+    return const NeumorphicApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       themeMode: ThemeMode.light,
@@ -28,12 +30,13 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({Key key}) : super(key: key);
+  const MyHomePage({Key key}) : super(key: key);
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: NeumorphicFloatingActionButton(
-        child: Icon(Icons.add, size: 30),
+        child: const Icon(Icons.add, size: 30),
         onPressed: () {},
       ),
       backgroundColor: NeumorphicTheme.baseColor(context),
@@ -45,7 +48,7 @@ class MyHomePage extends StatelessWidget {
               onPressed: () {
                 print("onClick");
               },
-              style: NeumorphicStyle(
+              style: const NeumorphicStyle(
                 shape: NeumorphicShape.flat,
                 boxShape: NeumorphicBoxShape.circle(),
               ),
@@ -56,7 +59,7 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             NeumorphicButton(
-                margin: EdgeInsets.only(top: 12),
+                margin: const EdgeInsets.only(top: 12),
                 onPressed: () {
                   NeumorphicTheme.of(context).themeMode =
                       NeumorphicTheme.isUsingDark(context)
@@ -74,11 +77,11 @@ class MyHomePage extends StatelessWidget {
                   style: TextStyle(color: _textColor(context)),
                 )),
             NeumorphicButton(
-                margin: EdgeInsets.only(top: 12),
+                margin: const EdgeInsets.only(top: 12),
                 onPressed: () {
                   Navigator.of(context)
                       .pushReplacement(MaterialPageRoute(builder: (context) {
-                    return FullSampleHomePage();
+                    return const FullSampleHomePage();
                   }));
                 },
                 style: NeumorphicStyle(

@@ -2,11 +2,10 @@ import 'package:example/lib/Code.dart';
 import 'package:example/lib/ThemeConfigurator.dart';
 import 'package:example/lib/color_selector.dart';
 import 'package:example/lib/top_bar.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class SliderWidgetPage extends StatefulWidget {
-  SliderWidgetPage({Key key}) : super(key: key);
+  const SliderWidgetPage({Key key}) : super(key: key);
 
   @override
   createState() => _WidgetPageState();
@@ -17,7 +16,7 @@ class _WidgetPageState extends State<SliderWidgetPage> {
   Widget build(BuildContext context) {
     return NeumorphicTheme(
       themeMode: ThemeMode.light,
-      theme: NeumorphicThemeData(
+      theme: const NeumorphicThemeData(
         lightSource: LightSource.topLeft,
         accentColor: NeumorphicColors.accent,
         depth: 4,
@@ -37,7 +36,7 @@ class _PageState extends State<_Page> {
   @override
   Widget build(BuildContext context) {
     return NeumorphicBackground(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Scaffold(
         appBar: TopBar(
           title: "Slider",
@@ -54,7 +53,7 @@ class _PageState extends State<_Page> {
             children: [
               _DefaultWidget(),
               _ColorWidget(),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
             ],
           ),
         ),
@@ -92,14 +91,14 @@ Expanded(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: <Widget>[
           Text(
             "Default",
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           Expanded(
             child: NeumorphicSlider(
               value: age,
@@ -112,7 +111,7 @@ Expanded(
               },
             ),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           Text(
             "${age.round()}",
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
@@ -122,6 +121,7 @@ Expanded(
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -169,12 +169,12 @@ Expanded(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Column(
         children: <Widget>[
           Row(
             children: <Widget>[
-              Text("Accent : "),
+              const Text("Accent : "),
               ColorSelector(
                 onColorChanged: (color) {
                   setState(() {
@@ -183,8 +183,8 @@ Expanded(
                 },
                 color: accent,
               ),
-              SizedBox(width: 12),
-              Text("Variant : "),
+              const SizedBox(width: 12),
+              const Text("Variant : "),
               ColorSelector(
                 onColorChanged: (color) {
                   setState(() {
@@ -195,7 +195,7 @@ Expanded(
               ),
             ],
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Row(
             children: <Widget>[
               Text(
@@ -203,7 +203,7 @@ Expanded(
                 style:
                     TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               Expanded(
                 child: NeumorphicSlider(
                   style: SliderStyle(
@@ -220,7 +220,7 @@ Expanded(
                   },
                 ),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               Text(
                 "${age.round()}",
                 style:
@@ -233,6 +233,7 @@ Expanded(
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

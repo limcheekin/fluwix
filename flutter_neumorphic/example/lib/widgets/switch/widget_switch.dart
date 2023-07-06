@@ -2,11 +2,10 @@ import 'package:example/lib/Code.dart';
 import 'package:example/lib/ThemeConfigurator.dart';
 import 'package:example/lib/color_selector.dart';
 import 'package:example/lib/top_bar.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class SwitchWidgetPage extends StatefulWidget {
-  SwitchWidgetPage({Key key}) : super(key: key);
+  const SwitchWidgetPage({Key key}) : super(key: key);
 
   @override
   createState() => _WidgetPageState();
@@ -17,7 +16,7 @@ class _WidgetPageState extends State<SwitchWidgetPage> {
   Widget build(BuildContext context) {
     return NeumorphicTheme(
       themeMode: ThemeMode.light,
-      theme: NeumorphicThemeData(
+      theme: const NeumorphicThemeData(
         lightSource: LightSource.topLeft,
         accentColor: NeumorphicColors.accent,
         depth: 4,
@@ -37,7 +36,7 @@ class _PageState extends State<_Page> {
   @override
   Widget build(BuildContext context) {
     return NeumorphicBackground(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Scaffold(
         appBar: TopBar(
           title: "Switch",
@@ -54,10 +53,10 @@ class _PageState extends State<_Page> {
             children: [
               _DefaultWidget(),
               _ColorizableWidget(),
-              ColorizableThumbSwitch(),
+              const ColorizableThumbSwitch(),
               _FlatConcaveConvexWidget(),
               _EnabledDisabledWidget(),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
             ],
           ),
         ),
@@ -92,14 +91,14 @@ NeumorphicSwitch(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: <Widget>[
           Text(
             "Default",
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           NeumorphicSwitch(
             isEnabled: isEnabled,
             value: isChecked,
@@ -109,7 +108,7 @@ NeumorphicSwitch(
               });
             },
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           FlatButton(
               onPressed: () {
                 setState(() {
@@ -122,6 +121,7 @@ NeumorphicSwitch(
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -162,13 +162,13 @@ NeumorphicSwitch(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Column(
         children: <Widget>[
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Row(
             children: <Widget>[
-              Container(
+              SizedBox(
                 width: 100,
                 child: Text(
                   "Flat",
@@ -176,9 +176,9 @@ NeumorphicSwitch(
                       color: NeumorphicTheme.defaultTextColor(context)),
                 ),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               NeumorphicSwitch(
-                style: NeumorphicSwitchStyle(thumbShape: NeumorphicShape.flat),
+                style: const NeumorphicSwitchStyle(thumbShape: NeumorphicShape.flat),
                 value: isChecked,
                 onChanged: (value) {
                   setState(() {
@@ -188,10 +188,10 @@ NeumorphicSwitch(
               )
             ],
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Row(
             children: <Widget>[
-              Container(
+              SizedBox(
                 width: 100,
                 child: Text(
                   "Concave",
@@ -199,10 +199,10 @@ NeumorphicSwitch(
                       color: NeumorphicTheme.defaultTextColor(context)),
                 ),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               NeumorphicSwitch(
                 style:
-                    NeumorphicSwitchStyle(thumbShape: NeumorphicShape.concave),
+                    const NeumorphicSwitchStyle(thumbShape: NeumorphicShape.concave),
                 value: isChecked,
                 onChanged: (value) {
                   setState(() {
@@ -212,10 +212,10 @@ NeumorphicSwitch(
               ),
             ],
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Row(
             children: <Widget>[
-              Container(
+              SizedBox(
                 width: 100,
                 child: Text(
                   "Convex",
@@ -223,10 +223,10 @@ NeumorphicSwitch(
                       color: NeumorphicTheme.defaultTextColor(context)),
                 ),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               NeumorphicSwitch(
                 style:
-                    NeumorphicSwitchStyle(thumbShape: NeumorphicShape.convex),
+                    const NeumorphicSwitchStyle(thumbShape: NeumorphicShape.convex),
                 value: isChecked,
                 onChanged: (value) {
                   setState(() {
@@ -241,6 +241,7 @@ NeumorphicSwitch(
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -281,14 +282,14 @@ NeumorphicSwitch(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: <Widget>[
           Text(
             "Color",
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           ColorSelector(
             color: currentColor,
             onColorChanged: (color) {
@@ -297,7 +298,7 @@ NeumorphicSwitch(
               });
             },
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           NeumorphicSwitch(
             value: isChecked,
             style: NeumorphicSwitchStyle(activeTrackColor: currentColor),
@@ -312,6 +313,7 @@ NeumorphicSwitch(
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -324,6 +326,8 @@ NeumorphicSwitch(
 }
 
 class ColorizableThumbSwitch extends StatefulWidget {
+  const ColorizableThumbSwitch({Key? key}) : super(key: key);
+
   @override
   createState() => _ColorizableThumbSwitchState();
 }
@@ -354,14 +358,14 @@ NeumorphicSwitch(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: <Widget>[
           Text(
             "Track",
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           ColorSelector(
             color: trackColor,
             onColorChanged: (color) {
@@ -370,12 +374,12 @@ NeumorphicSwitch(
               });
             },
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           Text(
             "Thumb",
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           ColorSelector(
             color: thumbColor,
             onColorChanged: (color) {
@@ -384,7 +388,7 @@ NeumorphicSwitch(
               });
             },
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           NeumorphicSwitch(
             value: isChecked,
             style: NeumorphicSwitchStyle(
@@ -400,6 +404,7 @@ NeumorphicSwitch(
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -438,13 +443,13 @@ NeumorphicSwitch(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Column(
         children: <Widget>[
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Row(
             children: <Widget>[
-              Container(
+              SizedBox(
                 width: 100,
                 child: Text(
                   "Enabled",
@@ -452,10 +457,10 @@ NeumorphicSwitch(
                       color: NeumorphicTheme.defaultTextColor(context)),
                 ),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               NeumorphicSwitch(
                 style:
-                    NeumorphicSwitchStyle(thumbShape: NeumorphicShape.concave),
+                    const NeumorphicSwitchStyle(thumbShape: NeumorphicShape.concave),
                 value: isChecked1,
                 onChanged: (value) {
                   setState(() {
@@ -465,10 +470,10 @@ NeumorphicSwitch(
               ),
             ],
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Row(
             children: <Widget>[
-              Container(
+              SizedBox(
                 width: 100,
                 child: Text(
                   "Disabled",
@@ -476,11 +481,11 @@ NeumorphicSwitch(
                       color: NeumorphicTheme.defaultTextColor(context)),
                 ),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               NeumorphicSwitch(
                 isEnabled: false,
                 style:
-                    NeumorphicSwitchStyle(thumbShape: NeumorphicShape.convex),
+                    const NeumorphicSwitchStyle(thumbShape: NeumorphicShape.convex),
                 value: isChecked2,
                 onChanged: (value) {
                   setState(() {
@@ -495,6 +500,7 @@ NeumorphicSwitch(
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

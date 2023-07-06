@@ -6,6 +6,8 @@ import '../widgets/widgets.dart';
 import 'number_trivia_controller.dart';
 
 class NumberTriviaView extends fca.View {
+  NumberTriviaView({Key? key}) : super(key: key);
+
   @override
   _NumberTriviaViewState createState() => _NumberTriviaViewState();
 }
@@ -30,7 +32,7 @@ class _NumberTriviaViewState
         padding: const EdgeInsets.all(10),
         child: Column(
           children: <Widget>[
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             fca.ControlledWidgetBuilder<NumberTriviaController>(
               builder: (context, controller) {
                 switch (controller.status) {

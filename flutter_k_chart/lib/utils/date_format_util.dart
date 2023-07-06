@@ -311,7 +311,7 @@ String _digits(int value, int length) {
   return ret;
 }
 
-const List<String> monthShort = const <String>[
+const List<String> monthShort = <String>[
   'Jan',
   'Feb',
   'Mar',
@@ -326,7 +326,7 @@ const List<String> monthShort = const <String>[
   'Dec'
 ];
 
-const List<String> monthLong = const <String>[
+const List<String> monthLong = <String>[
   'January',
   'February',
   'March',
@@ -341,7 +341,7 @@ const List<String> monthLong = const <String>[
   'December'
 ];
 
-const List<String> dayShort = const [
+const List<String> dayShort = [
   'Mon',
   'Tue',
   'Wed',
@@ -351,7 +351,7 @@ const List<String> dayShort = const [
   'Sun'
 ];
 
-const List<String> dayLong = const [
+const List<String> dayLong = [
   'Monday',
   'Tuesday',
   'Wednesday',

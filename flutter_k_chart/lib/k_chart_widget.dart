@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/physics.dart';
 import 'package:flutter_k_chart/generated/l10n.dart';
 import 'chart_style.dart';
 import 'entity/info_window_entity.dart';
@@ -22,13 +21,13 @@ class KChartWidget extends StatefulWidget {
   final bool isLine;
 
   KChartWidget(
-    this.datas, {
+    this.datas, {Key? key, 
     this.mainState = MainState.MA,
     this.volState = VolState.VOL,
     this.secondaryState = SecondaryState.MACD,
     this.isLine = false,
     int fractionDigits = 2,
-  }) {
+  }) : super(key: key) {
     NumberUtil.fractionDigits = fractionDigits;
   }
 
@@ -132,11 +131,11 @@ class _KChartWidgetState extends State<KChartWidget>
         // isDrag = false;
         final Tolerance tolerance = Tolerance(
           velocity:
-              1.0 / (0.050 * WidgetsBinding.instance!.window.devicePixelRatio),
+              1.0 / (0.050 * WidgetsBinding.instance.window.devicePixelRatio),
           // logical pixels per second
           distance: 1.0 /
               WidgetsBinding
-                  .instance!.window.devicePixelRatio, // logical pixels
+                  .instance.window.devicePixelRatio, // logical pixels
         );
         if (details.primaryVelocity == null) return;
         ClampingScrollSimulation simulation = ClampingScrollSimulation(
@@ -266,12 +265,13 @@ class _KChartWidgetState extends State<KChartWidget>
 
   Widget _buildItem(String info, String infoName) {
     Color color = Colors.white;
-    if (info.startsWith("+"))
+    if (info.startsWith("+")) {
       color = Colors.green;
-    else if (info.startsWith("-"))
+    } else if (info.startsWith("-")) {
       color = Colors.red;
-    else
+    } else {
       color = Colors.white;
+    }
     return Container(
       constraints: const BoxConstraints(
           minWidth: 95, maxWidth: 110, maxHeight: 14.0, minHeight: 14.0),
@@ -280,10 +280,10 @@ class _KChartWidgetState extends State<KChartWidget>
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Text("$infoName",
-              style: TextStyle(
+          Text(infoName,
+              style: const TextStyle(
                   color: Colors.white, fontSize: ChartStyle.defaultTextSize)),
-          SizedBox(width: 5),
+          const SizedBox(width: 5),
           Text(info,
               style: TextStyle(
                   color: color, fontSize: ChartStyle.defaultTextSize)),

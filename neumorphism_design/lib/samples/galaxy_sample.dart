@@ -53,13 +53,13 @@ class _PageState extends State<_Page> {
       style: NeumorphicStyle(
         boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(8)),
       ),
-      child: Neumorphic(
-        style: const NeumorphicStyle(
+      child: const Neumorphic(
+        style: NeumorphicStyle(
           depth: -1,
           oppositeShadowLightSource: true,
         ),
-        padding: const EdgeInsets.all(2),
-        child: const SizedBox(
+        padding: EdgeInsets.all(2),
+        child: SizedBox(
           width: 40,
           height: 60,
         ),
@@ -77,13 +77,13 @@ class _PageState extends State<_Page> {
             lightSource: LightSource.topLeft,
             boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(8)),
           ),
-          child: Neumorphic(
-            style: const NeumorphicStyle(
+          child: const Neumorphic(
+            style: NeumorphicStyle(
               depth: -1,
               oppositeShadowLightSource: true,
               lightSource: LightSource.topLeft,
             ),
-            child: const SizedBox(
+            child: SizedBox(
               width: 50,
               height: 50,
             ),

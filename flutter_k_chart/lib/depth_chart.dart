@@ -7,7 +7,7 @@ import 'entity/depth_entity.dart';
 class DepthChart extends StatefulWidget {
   final List<DepthEntity> bids, asks;
 
-  DepthChart(this.bids, this.asks);
+  const DepthChart(this.bids, this.asks, {Key? key}) : super(key: key);
 
   @override
   _DepthChartState createState() => _DepthChartState();
@@ -37,7 +37,7 @@ class _DepthChartState extends State<DepthChart> {
         }
       },
       child: CustomPaint(
-        size: Size(double.infinity, double.infinity),
+        size: const Size(double.infinity, double.infinity),
         painter: DepthChartPainter(
             widget.bids, widget.asks, pressOffset, isLongPress),
       ),
@@ -328,7 +328,7 @@ class DepthChartPainter extends CustomPainter {
 
   getTextPainter(String text, [Color color = Colors.white]) => TextPainter(
       text:
-          TextSpan(text: "$text", style: TextStyle(color: color, fontSize: 10)),
+          TextSpan(text: text, style: TextStyle(color: color, fontSize: 10)),
       textDirection: TextDirection.ltr);
 
   double getBottomTextY(double textHeight) =>
