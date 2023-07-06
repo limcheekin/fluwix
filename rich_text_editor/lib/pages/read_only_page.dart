@@ -22,9 +22,8 @@ class _ReadOnlyPageState extends State<ReadOnlyPage> {
   @override
   Widget build(BuildContext context) {
     return DemoScaffold(
-      documentFilename: isDesktop()
-          ? 'assets/sample_data_nomedia.json'
-          : 'sample_data_nomedia.json',
+      documentFilename:
+          isDesktop() ? 'sample_data_nomedia.json' : 'sample_data_nomedia.json',
       builder: _buildContent,
       showToolbar: _edit == true,
       floatingActionButton: FloatingActionButton.extended(
