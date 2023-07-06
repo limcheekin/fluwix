@@ -2,13 +2,12 @@ import '../../util/Code.dart';
 import '../../util/ThemeConfigurator.dart';
 import '../../util/color_selector.dart';
 import '../../util/top_bar.dart';
-
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 import 'dart:math' show Random;
 
 class IndicatorWidgetPage extends StatefulWidget {
-  IndicatorWidgetPage({Key? key}) : super(key: key);
+  const IndicatorWidgetPage({Key? key}) : super(key: key);
 
   @override
   _WidgetPageState createState() => _WidgetPageState();
@@ -19,7 +18,7 @@ class _WidgetPageState extends State<IndicatorWidgetPage> {
   Widget build(BuildContext context) {
     return NeumorphicTheme(
       themeMode: ThemeMode.light,
-      theme: NeumorphicThemeData(
+      theme: const NeumorphicThemeData(
         lightSource: LightSource.topLeft,
         accentColor: NeumorphicColors.accent,
         depth: 4,
@@ -39,9 +38,9 @@ class _PageState extends State<_Page> {
   @override
   Widget build(BuildContext context) {
     return NeumorphicBackground(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Scaffold(
-        appBar: TopBar(
+        appBar: const TopBar(
           title: 'Indicator',
           actions: <Widget>[
             ThemeConfigurator(),
@@ -59,7 +58,7 @@ class _PageState extends State<_Page> {
               _DurationWidget(),
               _ColorWidget(),
               _CurveWidget(),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
             ],
           ),
         ),
@@ -77,7 +76,7 @@ class _DefaultWidgetState extends State<_DefaultWidget> {
   double percent = 0.6;
 
   Widget _buildCode(BuildContext context) {
-    return Code('''
+    return const Code('''
 NeumorphicIndicator(
     height: 100,
     width: 20,
@@ -88,27 +87,27 @@ NeumorphicIndicator(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: <Widget>[
           Text(
             'Default',
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           NeumorphicIndicator(
             height: 100,
             width: 20,
             percent: percent,
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           TextButton(
             onPressed: () {
               setState(() {
                 percent = Random().nextDouble();
               });
             },
-            child: Text('Update'),
+            child: const Text('Update'),
           ),
         ],
       ),
@@ -134,7 +133,7 @@ class _DefaultOrientationWidget extends StatefulWidget {
 
 class _DefaultOrientationWidgetState extends State<_DefaultOrientationWidget> {
   Widget _buildCode(BuildContext context) {
-    return Code('''
+    return const Code('''
 NeumorphicIndicator(
      width: 150,
      height: 15,
@@ -146,21 +145,21 @@ NeumorphicIndicator(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: <Widget>[
           Text(
             'Orientation\nHorizontal',
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
-          SizedBox(width: 12),
-          NeumorphicIndicator(
+          const SizedBox(width: 12),
+          const NeumorphicIndicator(
             width: 150,
             height: 15,
             orientation: NeumorphicIndicatorOrientation.horizontal,
             percent: 0.7,
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
         ],
       ),
     );
@@ -185,7 +184,7 @@ class _ColorWidget extends StatefulWidget {
 
 class _ColorWidgetState extends State<_ColorWidget> {
   Widget _buildCode(BuildContext context) {
-    return Code('''
+    return const Code('''
 NeumorphicIndicator(
       width: 150,
       height: 15,
@@ -204,12 +203,12 @@ NeumorphicIndicator(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Column(
         children: <Widget>[
           Row(
             children: <Widget>[
-              Text('Accent : '),
+              const Text('Accent : '),
               ColorSelector(
                 onColorChanged: (color) {
                   setState(() {
@@ -218,8 +217,8 @@ NeumorphicIndicator(
                 },
                 color: accent,
               ),
-              SizedBox(width: 12),
-              Text('Variant : '),
+              const SizedBox(width: 12),
+              const Text('Variant : '),
               ColorSelector(
                 onColorChanged: (color) {
                   setState(() {
@@ -230,7 +229,7 @@ NeumorphicIndicator(
               ),
             ],
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Row(
             children: <Widget>[
               Text(
@@ -238,7 +237,7 @@ NeumorphicIndicator(
                 style:
                     TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               NeumorphicIndicator(
                 width: 150,
                 height: 15,
@@ -246,7 +245,7 @@ NeumorphicIndicator(
                 percent: 0.7,
                 style: IndicatorStyle(variant: variant, accent: accent),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
             ],
           ),
         ],
@@ -275,7 +274,7 @@ class _DurationWidgetState extends State<_DurationWidget> {
   double percent = 0.3;
 
   Widget _buildCode(BuildContext context) {
-    return Code('''
+    return const Code('''
 NeumorphicIndicator(
     height: 100,
     width: 20,
@@ -287,28 +286,28 @@ NeumorphicIndicator(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: <Widget>[
           Text(
             'Duration',
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           NeumorphicIndicator(
             height: 100,
             width: 20,
             percent: percent,
-            duration: Duration(seconds: 1),
+            duration: const Duration(seconds: 1),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           TextButton(
             onPressed: () {
               setState(() {
                 percent = Random().nextDouble();
               });
             },
-            child: Text('Update'),
+            child: const Text('Update'),
           ),
         ],
       ),
@@ -336,7 +335,7 @@ class _CurveWidgetState extends State<_CurveWidget> {
   double percent = 0.3;
 
   Widget _buildCode(BuildContext context) {
-    return Code('''
+    return const Code('''
 NeumorphicIndicator(
     height: 100,
     width: 20,
@@ -348,27 +347,27 @@ NeumorphicIndicator(
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: <Widget>[
           Text(
             'Curve',
             style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           NeumorphicIndicator(
               height: 100,
               width: 20,
               percent: percent,
               curve: Curves.bounceOut),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           TextButton(
             onPressed: () {
               setState(() {
                 percent = Random().nextDouble();
               });
             },
-            child: Text('Update'),
+            child: const Text('Update'),
           ),
         ],
       ),

@@ -203,10 +203,10 @@ class _WalletConnectShowcaseWidgetState
   }
 
   _connectToPreviousSession() {
-    final _sessionSaved = _prefs.getString('session');
-    debugPrint('_sessionSaved $_sessionSaved');
-    _sessionStore = _sessionSaved != null
-        ? WCSessionStore.fromJson(jsonDecode(_sessionSaved))
+    final sessionSaved = _prefs.getString('session');
+    debugPrint('_sessionSaved $sessionSaved');
+    _sessionStore = sessionSaved != null
+        ? WCSessionStore.fromJson(jsonDecode(sessionSaved))
         : null;
     if (_sessionStore != null) {
       debugPrint('_sessionStore $_sessionStore');
@@ -258,8 +258,7 @@ class _WalletConnectShowcaseWidgetState
                 Expanded(
                   child: TextButton(
                     style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      backgroundColor: Theme.of(context).colorScheme.secondary,
+                      foregroundColor: Colors.white, backgroundColor: Theme.of(context).colorScheme.secondary,
                     ),
                     onPressed: () async {
                       _wcClient.approveSession(
@@ -279,8 +278,7 @@ class _WalletConnectShowcaseWidgetState
                 Expanded(
                   child: TextButton(
                     style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      backgroundColor: Theme.of(context).colorScheme.secondary,
+                      foregroundColor: Colors.white, backgroundColor: Theme.of(context).colorScheme.secondary,
                     ),
                     onPressed: () {
                       _wcClient.rejectSession();
@@ -316,8 +314,7 @@ class _WalletConnectShowcaseWidgetState
               children: [
                 TextButton(
                   style: TextButton.styleFrom(
-                    primary: Colors.white,
-                    backgroundColor: Theme.of(context).colorScheme.secondary,
+                    foregroundColor: Colors.white, backgroundColor: Theme.of(context).colorScheme.secondary,
                   ),
                   onPressed: () {
                     Navigator.pop(context);
@@ -357,8 +354,7 @@ class _WalletConnectShowcaseWidgetState
               children: [
                 TextButton(
                   style: TextButton.styleFrom(
-                    primary: Colors.white,
-                    backgroundColor: Theme.of(context).colorScheme.secondary,
+                    foregroundColor: Colors.white, backgroundColor: Theme.of(context).colorScheme.secondary,
                   ),
                   onPressed: () {
                     Navigator.pop(context);
@@ -620,8 +616,7 @@ class _WalletConnectShowcaseWidgetState
                 Expanded(
                   child: TextButton(
                     style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      backgroundColor: Theme.of(context).colorScheme.secondary,
+                      foregroundColor: Colors.white, backgroundColor: Theme.of(context).colorScheme.secondary,
                     ),
                     onPressed: onConfirm,
                     child: const Text('CONFIRM'),
@@ -631,8 +626,7 @@ class _WalletConnectShowcaseWidgetState
                 Expanded(
                   child: TextButton(
                     style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      backgroundColor: Theme.of(context).colorScheme.secondary,
+                      foregroundColor: Colors.white, backgroundColor: Theme.of(context).colorScheme.secondary,
                     ),
                     onPressed: onReject,
                     child: const Text('REJECT'),
@@ -716,8 +710,7 @@ class _WalletConnectShowcaseWidgetState
                 Expanded(
                   child: TextButton(
                     style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      backgroundColor: Theme.of(context).colorScheme.secondary,
+                      foregroundColor: Colors.white, backgroundColor: Theme.of(context).colorScheme.secondary,
                     ),
                     onPressed: () async {
                       String signedDataHex;
@@ -750,8 +743,7 @@ class _WalletConnectShowcaseWidgetState
                 Expanded(
                   child: TextButton(
                     style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      backgroundColor: Theme.of(context).colorScheme.secondary,
+                      foregroundColor: Colors.white, backgroundColor: Theme.of(context).colorScheme.secondary,
                     ),
                     onPressed: () {
                       _wcClient.rejectRequest(id: id);

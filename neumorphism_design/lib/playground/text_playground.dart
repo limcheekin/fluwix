@@ -2,6 +2,8 @@ import '../util/color_selector.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class NeumorphicTextPlayground extends StatefulWidget {
+  const NeumorphicTextPlayground({Key? key}) : super(key: key);
+
   @override
   _NeumorphicPlaygroundState createState() => _NeumorphicPlaygroundState();
 }
@@ -11,7 +13,7 @@ class _NeumorphicPlaygroundState extends State<NeumorphicTextPlayground> {
   Widget build(BuildContext context) {
     return NeumorphicTheme(
       themeMode: ThemeMode.light,
-      theme: NeumorphicThemeData(
+      theme: const NeumorphicThemeData(
         baseColor: Color(0xffDDDDDD),
         lightSource: LightSource.topLeft,
         depth: 6,
@@ -103,7 +105,7 @@ class __PageState extends State<_Page> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text(
+                    child: const Text(
                       'back',
                       style: TextStyle(color: Colors.white),
                     ),
@@ -133,13 +135,13 @@ class __PageState extends State<_Page> {
 
   Widget _configurators() {
     final buttonActiveColor = Theme.of(context).colorScheme.secondary;
-    final buttonInnactiveColor = Colors.white;
+    const buttonInnactiveColor = Colors.white;
 
-    final textActiveColor = Colors.white;
+    const textActiveColor = Colors.white;
     final textInactiveColor = Colors.black.withOpacity(0.3);
 
     return Card(
-      margin: EdgeInsets.all(8),
+      margin: const EdgeInsets.all(8),
       elevation: 12,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       color: Colors.grey[300],
@@ -231,7 +233,7 @@ class __PageState extends State<_Page> {
       case 1:
         return elementCustomizer();
     }
-    return SizedBox.shrink();
+    return const SizedBox.shrink();
   }
 
   Widget styleCustomizer() {
@@ -260,9 +262,9 @@ class __PageState extends State<_Page> {
 
   Widget shapeWidget() {
     final buttonActiveColor = Theme.of(context).colorScheme.secondary;
-    final buttonInnactiveColor = Colors.white;
+    const buttonInnactiveColor = Colors.white;
 
-    final iconActiveColor = Colors.white;
+    const iconActiveColor = Colors.white;
     final iconInactiveColor = Colors.black.withOpacity(0.3);
 
     return Row(
@@ -363,11 +365,11 @@ class __PageState extends State<_Page> {
   Widget colorPicker() {
     return Row(
       children: <Widget>[
-        SizedBox(
+        const SizedBox(
           width: 12,
         ),
-        Text('Color '),
-        SizedBox(
+        const Text('Color '),
+        const SizedBox(
           width: 4,
         ),
         ColorSelector(
@@ -386,7 +388,7 @@ class __PageState extends State<_Page> {
   Widget depthSelector() {
     return Row(
       children: <Widget>[
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 12),
           child: Text('Depth'),
         ),
@@ -403,7 +405,7 @@ class __PageState extends State<_Page> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(right: 12),
+          padding: const EdgeInsets.only(right: 12),
           child: Text(depth.floor().toString()),
         ),
       ],
@@ -413,7 +415,7 @@ class __PageState extends State<_Page> {
   Widget fontSizeSelector() {
     return Row(
       children: <Widget>[
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 12),
           child: Text('FontSize'),
         ),
@@ -430,7 +432,7 @@ class __PageState extends State<_Page> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(right: 12),
+          padding: const EdgeInsets.only(right: 12),
           child: Text(fontSize.floor().toString()),
         ),
       ],
@@ -440,17 +442,17 @@ class __PageState extends State<_Page> {
   Widget textSelector() {
     return Row(
       children: <Widget>[
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 12),
           child: Text('Text'),
         ),
-        SizedBox(
+        const SizedBox(
           width: 12,
         ),
         Expanded(
           child: TextField(
             controller: _textController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               border: OutlineInputBorder(),
             ),
             onChanged: (s) {
@@ -465,7 +467,7 @@ class __PageState extends State<_Page> {
   Widget intensitySelector() {
     return Row(
       children: <Widget>[
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 12),
           child: Text('Intensity'),
         ),
@@ -482,7 +484,7 @@ class __PageState extends State<_Page> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(right: 12),
+          padding: const EdgeInsets.only(right: 12),
           child: Text(((intensity * 100).floor() / 100).toString()),
         ),
       ],
@@ -516,7 +518,7 @@ class __PageState extends State<_Page> {
   Widget fontWeightSelector() {
     return Row(
       children: <Widget>[
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 12),
           child: Text('FontWeight'),
         ),
@@ -533,7 +535,7 @@ class __PageState extends State<_Page> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(right: 12),
+          padding: const EdgeInsets.only(right: 12),
           child: Text(((fontWeight * 100).floor() / 100).toString()),
         ),
       ],
@@ -543,7 +545,7 @@ class __PageState extends State<_Page> {
   Widget surfaceIntensitySelector() {
     return Row(
       children: <Widget>[
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 12),
           child: Text('SurfaceIntensity'),
         ),
@@ -560,7 +562,7 @@ class __PageState extends State<_Page> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(right: 12),
+          padding: const EdgeInsets.only(right: 12),
           child: Text(((surfaceIntensity * 100).floor() / 100).toString()),
         ),
       ],

@@ -4,7 +4,7 @@ import 'about_dialog_screen.dart';
 
 void main() {
   runApp(
-    MyModule(
+    const MyModule(
       title: 'About Dialog',
       home: AboutDialogScreen(),
     ),

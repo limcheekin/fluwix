@@ -1,7 +1,7 @@
 // ignore_for_file: unnecessary_null_comparison
 
 import 'package:flutter/material.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
+import 'package:material_floating_search_bar_2/material_floating_search_bar_2.dart';
 
 class SearchBarWidget extends StatefulWidget {
   @override
@@ -92,7 +92,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
         physics: BouncingScrollPhysics(),
         title: Text(
           selectedTerm.isEmpty ? 'The Search App' : selectedTerm,
-          style: Theme.of(context).textTheme.headline6,
+          style: Theme.of(context).textTheme.titleLarge,
         ),
         hint: 'Search and find out...',
         actions: [
@@ -128,7 +128,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
                         'Start searching',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.caption,
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                     );
                   } else if (filteredSearchHistory.isEmpty) {
@@ -206,7 +206,7 @@ class SearchResultsListView extends StatelessWidget {
             ),
             Text(
               'Start searching',
-              style: Theme.of(context).textTheme.headline5,
+              style: Theme.of(context).textTheme.headlineSmall,
             )
           ],
         ),

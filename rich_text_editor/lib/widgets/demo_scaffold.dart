@@ -103,16 +103,14 @@ class _DemoScaffoldState extends State<DemoScaffold> {
     }
     return Scaffold(
       key: _scaffoldKey,
-      appBar: _loading || !widget.showToolbar
-          ? null
-          : AppBar(
-              elevation: 0,
-              backgroundColor: Theme.of(context).canvasColor,
-              centerTitle: false,
-              titleSpacing: 0,
-              title: toolbar,
-              actions: actions,
-            ),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Theme.of(context).canvasColor,
+        centerTitle: false,
+        titleSpacing: 0,
+        title: _loading || !widget.showToolbar ? null : toolbar,
+        actions: actions,
+      ),
       floatingActionButton: widget.floatingActionButton,
       body: _loading
           ? const Center(child: Text('Loading...'))

@@ -4,7 +4,7 @@ import 'rich_text_editor_screen.dart';
 
 void main() {
   runApp(
-    MyModule(
+    const MyModule(
       title: 'Rich Text Editor',
       home: RichTextEditorScreen(),
     ),

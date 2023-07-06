@@ -1,1 +1,1 @@
-Added the Adaptive Scaffold Showcase
+Updated Shimmer Effect, Stock Chart, Number Trivia, Rich Text Editor, About Dialog, Neumorphism Design, Search Bar and Markdown View Showcase

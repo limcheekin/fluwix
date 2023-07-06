@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
-
+import 'package:flutter_clean_architecture/flutter_clean_architecture.dart'
+    as fca;
 import '../../../../dependencies.dart';
 import '../widgets/widgets.dart';
 import 'number_trivia_controller.dart';
 
-// ignore: use_key_in_widget_constructors
-class NumberTriviaView extends View {
+class NumberTriviaView extends fca.View {
+  NumberTriviaView({Key? key}) : super(key: key);
+
   @override
   _NumberTriviaViewState createState() => _NumberTriviaViewState();
 }
 
 class _NumberTriviaViewState
-    extends ViewState<NumberTriviaView, NumberTriviaController> {
+    extends fca.ViewState<NumberTriviaView, NumberTriviaController> {
   _NumberTriviaViewState() : super(sl<NumberTriviaController>());
 
   @override
@@ -32,7 +33,7 @@ class _NumberTriviaViewState
         child: Column(
           children: <Widget>[
             const SizedBox(height: 10),
-            ControlledWidgetBuilder<NumberTriviaController>(
+            fca.ControlledWidgetBuilder<NumberTriviaController>(
               builder: (context, controller) {
                 switch (controller.status) {
                   case EStatus.none:

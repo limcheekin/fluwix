@@ -1,3 +1,4 @@
+import 'package:chatbot_ui/chatbot_ui_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:glassmorphism_design/glassmorphism_design_screen.dart';
 import 'package:nested_list/nested_list_screen.dart';
@@ -54,7 +55,7 @@ class AppModule extends Module {
     ChildRoute('/', child: (_, __) => const HomeScreen()),
     ChildRoute('/nested_list', child: (_, __) => NestedListScreen()),
     ChildRoute('/tab_buttons', child: (_, __) => TabButtonsScreen()),
-    ChildRoute('/stock_chart', child: (_, __) => StockChartScreen()),
+    ChildRoute('/stock_chart', child: (_, __) => const StockChartScreen()),
     ChildRoute('/expansion_collapse_view',
         child: (_, __) => const ExpansionCollapseViewScreen()),
     ChildRoute('/charts_gallery',
@@ -94,6 +95,7 @@ class AppModule extends Module {
         child: (_, __) => const SliderCaptchaShowcaseScreen()),
     ChildRoute('/adaptive_scaffold',
         child: (_, __) => const AdaptiveScaffoldScreen()),
+    ChildRoute('/chatbot_ui', child: (_, __) => const ChatbotUiScreen()),
   ].reversed);
 }
 
@@ -134,7 +136,7 @@ class HomeScreen extends StatelessWidget {
       const SizedBox(height: 24),
       Text(
         appSubTitle,
-        style: Theme.of(context).textTheme.bodyText2,
+        style: Theme.of(context).textTheme.bodyMedium,
       ),
     ];
 
@@ -252,7 +254,7 @@ class _WideLayoutState extends State<WideLayout> {
                       RichText(
                         textAlign: TextAlign.center,
                         text: const TextSpan(
-                          text: 'Welcome to Fluwix!\n' + appSubTitle,
+                          text: 'Welcome to Fluwix!\n$appSubTitle',
                           style: TextStyle(
                             fontSize: 28.0,
                             color: Colors.black87,

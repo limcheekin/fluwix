@@ -27,14 +27,14 @@ class _SliderCaptchaShowcaseWidgetState
     showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(
-            title: const Icon(
+          return const AlertDialog(
+            title: Icon(
               Icons.check_circle_outline,
               color: Colors.green,
             ),
             content: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text('Authentication successful!'),
               ],
             ),

@@ -32,7 +32,7 @@ class _ReadMeViewState extends AbstractGithubViewState<ReadMeView> {
   Widget buildWidget(BuildContext context, String responseBody) {
     return Expanded(
       child: Scrollbar(
-        isAlwaysShown: kIsWeb,
+        thumbVisibility: kIsWeb,
         child: Markdown(
           data: responseBody,
           selectable: true,

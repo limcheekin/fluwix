@@ -9,29 +9,29 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: subosito/flutter-action@v2
-      with:
-        channel: stable
-    - run: flutter --version
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: flutter --version
 
-    - name: Generate Codes
-      run: pwd;chmod +x generate.sh;./generate.sh
+      - name: Generate Codes
+        run: pwd;chmod +x generate.sh;./generate.sh
 
-    - name: Flutter Build
-      run: flutter build web --web-renderer html --release
+      - name: Flutter Build
+        run: flutter build web --web-renderer html --release
 
-    - name: Deploy to Netlify
-      uses: nwtgck/actions-netlify@v1.1
-      with:
-        publish-dir: './build/web'
-        production-branch: main
-        github-token: ${{ secrets.MY_GITHUB_TOKEN }}
-        deploy-message: "Deploy from GitHub Actions"
-        enable-pull-request-comment: false
-        enable-commit-comment: true
-        overwrites-pull-request-comment: true
-      env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      timeout-minutes: 1
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2.0
+        with:
+          publish-dir: "./build/web"
+          production-branch: main
+          github-token: ${{ secrets.MY_GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1

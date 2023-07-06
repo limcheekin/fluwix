@@ -1,7 +1,6 @@
 import '../util/top_bar.dart';
 import 'appbar/widget_app_bar.dart';
 import 'toggle/widget_toggle.dart';
-
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 import 'background/widget_background.dart';
@@ -18,10 +17,12 @@ import 'slider/widget_slider.dart';
 import 'switch/widget_switch.dart';
 
 class WidgetsHome extends StatelessWidget {
+  const WidgetsHome({Key? key}) : super(key: key);
+
   Widget _buildButton({required String text, required VoidCallback onClick}) {
     return NeumorphicButton(
-      margin: EdgeInsets.only(bottom: 12),
-      padding: EdgeInsets.symmetric(
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.symmetric(
         vertical: 18,
         horizontal: 24,
       ),
@@ -39,7 +40,7 @@ class WidgetsHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NeumorphicTheme(
-      theme: NeumorphicThemeData(depth: 8),
+      theme: const NeumorphicThemeData(depth: 8),
       child: Scaffold(
         backgroundColor: NeumorphicColors.background,
         body: SafeArea(
@@ -51,13 +52,13 @@ class WidgetsHome extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  TopBar(title: 'Widgets'),
+                  const TopBar(title: 'Widgets'),
                   _buildButton(
                       text: 'Container',
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return ContainerWidgetPage();
+                          return const ContainerWidgetPage();
                         }));
                       }),
                   _buildButton(
@@ -65,7 +66,7 @@ class WidgetsHome extends StatelessWidget {
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return AppBarWidgetPage();
+                          return const AppBarWidgetPage();
                         }));
                       }),
                   _buildButton(
@@ -73,7 +74,7 @@ class WidgetsHome extends StatelessWidget {
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return ButtonWidgetPage();
+                          return const ButtonWidgetPage();
                         }));
                       }),
                   _buildButton(
@@ -81,7 +82,7 @@ class WidgetsHome extends StatelessWidget {
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return IconWidgetPage();
+                          return const IconWidgetPage();
                         }));
                       }),
                   _buildButton(
@@ -89,7 +90,7 @@ class WidgetsHome extends StatelessWidget {
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return RadioButtonWidgetPage();
+                          return const RadioButtonWidgetPage();
                         }));
                       }),
                   _buildButton(
@@ -97,7 +98,7 @@ class WidgetsHome extends StatelessWidget {
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return CheckboxWidgetPage();
+                          return const CheckboxWidgetPage();
                         }));
                       }),
                   _buildButton(
@@ -105,7 +106,7 @@ class WidgetsHome extends StatelessWidget {
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return SwitchWidgetPage();
+                          return const SwitchWidgetPage();
                         }));
                       }),
                   _buildButton(
@@ -113,7 +114,7 @@ class WidgetsHome extends StatelessWidget {
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return ToggleWidgetPage();
+                          return const ToggleWidgetPage();
                         }));
                       }),
                   _buildButton(
@@ -121,7 +122,7 @@ class WidgetsHome extends StatelessWidget {
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return SliderWidgetPage();
+                          return const SliderWidgetPage();
                         }));
                       }),
                   _buildButton(
@@ -129,7 +130,7 @@ class WidgetsHome extends StatelessWidget {
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return RangeSliderWidgetPage();
+                          return const RangeSliderWidgetPage();
                         }));
                       }),
                   _buildButton(
@@ -137,7 +138,7 @@ class WidgetsHome extends StatelessWidget {
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return IndicatorWidgetPage();
+                          return const IndicatorWidgetPage();
                         }));
                       }),
                   _buildButton(
@@ -145,7 +146,7 @@ class WidgetsHome extends StatelessWidget {
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return ProgressWidgetPage();
+                          return const ProgressWidgetPage();
                         }));
                       }),
                   _buildButton(
@@ -153,7 +154,7 @@ class WidgetsHome extends StatelessWidget {
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return IndeterminateProgressWidgetPage();
+                          return const IndeterminateProgressWidgetPage();
                         }));
                       }),
                   _buildButton(
@@ -161,7 +162,7 @@ class WidgetsHome extends StatelessWidget {
                       onClick: () {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
-                          return BackgroundWidgetPage();
+                          return const BackgroundWidgetPage();
                         }));
                       }),
                 ],
