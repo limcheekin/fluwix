@@ -1,1 +1,1 @@
-Updated Shimmer Effect, Stock Chart, Number Trivia, Rich Text Editor, About Dialog, Neumorphism Design, Search Bar and Markdown View Showcase
+Added Shimmer Effect to Chatbot UI and Fixed Rich Text Editor Showcase
