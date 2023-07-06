@@ -1,3 +1,5 @@
+import 'package:chatbot_ui/models/chat_model.dart';
+
 import '../constants/constants.dart';
 import '../providers/chats_provider.dart';
 import '../widgets/chat_widget.dart';
@@ -6,6 +8,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/models_provider.dart';
+import '../widgets/shimmer_chat_widget.dart';
 import '../widgets/text_widget.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -59,13 +62,19 @@ class _ChatScreenState extends State<ChatScreen> {
                 controller: _listScrollController,
                 itemCount: chatProvider.getChatList.length, //chatList.length,
                 itemBuilder: (context, index) {
-                  return ChatWidget(
-                    msg: chatProvider
-                        .getChatList[index].msg, // chatList[index].msg,
-                    chatIndex: chatProvider.getChatList[index]
-                        .chatIndex, //chatList[index].chatIndex,
-                    shouldAnimate: chatProvider.getChatList.length - 1 == index,
-                  );
+                  return chatProvider.getChatList[index].msg !=
+                          ChatModel.loadingMessage
+                      ? ChatWidget(
+                          msg: chatProvider
+                              .getChatList[index].msg, // chatList[index].msg,
+                          chatIndex: chatProvider.getChatList[index]
+                              .chatIndex, //chatList[index].chatIndex,
+                          shouldAnimate:
+                              chatProvider.getChatList.length - 1 == index,
+                        )
+                      : ShimmerChatWidget(
+                          chatIndex: chatProvider.getChatList[index].chatIndex,
+                        );
                 }),
           ),
           if (_isTyping) ...[
@@ -155,6 +164,7 @@ class _ChatScreenState extends State<ChatScreen> {
         _isTyping = true;
         // chatList.add(ChatModel(msg: textEditingController.text, chatIndex: 0));
         chatProvider.addUserMessage(msg: msg);
+        chatProvider.addUserMessage(msg: ChatModel.loadingMessage);
         textEditingController.clear();
         focusNode.unfocus();
       });

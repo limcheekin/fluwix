@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:http/http.dart';
 
 import '../models/chat_model.dart';
 import '../services/api_service.dart';
@@ -16,10 +17,15 @@ class ChatProvider with ChangeNotifier {
 
   Future<void> sendMessageAndGetAnswers(
       {required String msg, required String chosenModelId}) async {
-    chatList.addAll(await ApiService.sendMessage(
+    final response = await ApiService.sendMessage(
       message: msg,
       modelId: chosenModelId,
-    ));
+    );
+    if (chatList.isEmpty) {
+      chatList.add(response);
+    } else {
+      chatList.last = response;
+    }
 
     notifyListeners();
   }
