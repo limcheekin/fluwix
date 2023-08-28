@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 
 class ApiService {
   static const String backendUrl =
-      "https://uhxn2xkeogpo75qszgolc2cffu0hrtcc.lambda-url.ap-southeast-1.on.aws/";
+      "https://uc27krdoeht6u2rtr36q4azwke0huuoa.lambda-url.us-east-1.on.aws/";
 
   // Send message to the backend API
   static Future<ChatModel> sendMessage(
