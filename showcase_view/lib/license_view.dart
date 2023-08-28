@@ -22,10 +22,10 @@ class LicenseView extends AbstractGithubView {
           key: key,
         );
   @override
-  _LicenseViewState createState() => _LicenseViewState();
+  LicenseViewState createState() => LicenseViewState();
 }
 
-class _LicenseViewState extends AbstractGithubViewState<LicenseView> {
+class LicenseViewState extends AbstractGithubViewState<LicenseView> {
   @override
   Widget buildWidget(BuildContext context, String responseBody) {
     return Expanded(
