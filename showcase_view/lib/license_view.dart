@@ -23,15 +23,15 @@ class LicenseView extends AbstractGithubView {
           key: key,
         );
   @override
-  _LicenseViewState createState() => _LicenseViewState();
+  LicenseViewState createState() => LicenseViewState();
 }
 
-class _LicenseViewState extends AbstractGithubViewState<LicenseView> {
+class LicenseViewState extends AbstractGithubViewState<LicenseView> {
   @override
   Widget buildWidget(BuildContext context, String responseBody) {
     return Expanded(
       child: Scrollbar(
-        isAlwaysShown: kIsWeb,
+        thumbVisibility: kIsWeb,
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(20.0),

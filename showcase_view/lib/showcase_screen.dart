@@ -11,7 +11,7 @@ class ShowcaseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShowcaseView(
+    return const ShowcaseView(
       title: 'Showcase View',
       widget: YourWidget(),
       owner: owner,
@@ -40,9 +40,11 @@ class ShowcaseScreen extends StatelessWidget {
 }
 
 class YourWidget extends StatelessWidget {
+  const YourWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('This is your widget.'),
     );
   }

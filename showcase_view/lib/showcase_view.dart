@@ -22,7 +22,7 @@ class ShowcaseView extends StatelessWidget {
   final bool showLicense;
   final List<Tab> additionalTabs;
   final List<Widget> additionalTabBarViews;
-  static const GITHUB_URL = 'https://github.com/';
+  static const githubUrl = 'https://github.com/';
 
   const ShowcaseView({
     required this.title,
@@ -45,19 +45,19 @@ class ShowcaseView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tabs = [
-      Tab(
+      const Tab(
         text: 'Showcase',
       ),
       if (showReadMe)
-        Tab(
+        const Tab(
           text: 'Read Me',
         ),
       if (showCode)
-        Tab(
+        const Tab(
           text: 'Code',
         ),
       if (showLicense)
-        Tab(
+        const Tab(
           text: 'License',
         ),
     ];
@@ -80,7 +80,7 @@ class ShowcaseView extends StatelessWidget {
         ),
       if (showCode)
         Scrollbar(
-          isAlwaysShown: kIsWeb,
+          thumbVisibility: kIsWeb,
           child: SingleChildScrollView(
             child: SourceCodeView(
               owner: owner,
@@ -114,7 +114,7 @@ class ShowcaseView extends StatelessWidget {
           ? Scaffold(
               appBar: AppBar(
                 leading: IconButton(
-                  icon: Icon(Icons.arrow_back),
+                  icon: const Icon(Icons.arrow_back),
                   onPressed: () => Modular.to.navigate(fromRouteName),
                 ),
                 bottom: TabBar(
@@ -143,21 +143,21 @@ class ShowcaseView extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 24.0,
                           color: Colors.black,
                         ),
                       ),
                       Link(
-                        uri: Uri.parse(GITHUB_URL + owner),
+                        uri: Uri.parse(githubUrl + owner),
                         target: kIsWeb
                             ? LinkTarget.blank
                             : LinkTarget.defaultTarget,
-                        builder:
-                            (BuildContext context, Future<void> Function()? followLink) =>
-                                Row(
+                        builder: (BuildContext context,
+                                Future<void> Function()? followLink) =>
+                            Row(
                           children: [
-                            Text(
+                            const Text(
                               'By ',
                               style: TextStyle(
                                 color: Colors.black,
@@ -168,7 +168,7 @@ class ShowcaseView extends StatelessWidget {
                               onPressed: followLink,
                               child: Text(
                                 owner,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.blue,
                                   decoration: TextDecoration.underline,
                                   fontSize: 13.0,
