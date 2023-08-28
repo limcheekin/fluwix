@@ -30,10 +30,12 @@ class ReadMeViewState extends AbstractGithubViewState<ReadMeView> {
   @override
   Widget buildWidget(BuildContext context, String responseBody) {
     return Expanded(
-      child: MarkdownBody(
-        data: responseBody,
-        selectable: true,
-        onTapLink: _onTapLink,
+      child: SingleChildScrollView(
+        child: MarkdownBody(
+          data: responseBody,
+          selectable: true,
+          onTapLink: _onTapLink,
+        ),
       ),
     );
   }
