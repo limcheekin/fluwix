@@ -1,1 +1,1 @@
-Added Shimmer Effect to Chatbot UI and Fixed Rich Text Editor Showcase
+Updated Chatbot UI to show shimmer effect and Fixed ReadMe's Markdown of the Showcase View.
