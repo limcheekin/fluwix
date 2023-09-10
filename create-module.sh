@@ -1,1 +1,1 @@
-flutter pub run module_starter $1
+dart run module_starter $1
