@@ -1,13 +1,16 @@
+import 'package:flutter/foundation.dart';
+
 import 'model.dart';
 
-class ItemListViewModel {
-  final ItemList _itemList;
+class UploadFileListViewModel extends ChangeNotifier {
+  final UploadFileList _uploadFileList;
 
-  ItemListViewModel(this._itemList);
+  UploadFileListViewModel(this._uploadFileList);
 
-  List<String> get items => _itemList.items;
+  List<UploadFile> get items => _uploadFileList.items;
 
-  void addItem(String item) {
-    _itemList.items.add(item);
+  Future<void> addItem() async {
+    await _uploadFileList.add();
+    notifyListeners();
   }
 }

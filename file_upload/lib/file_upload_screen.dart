@@ -45,24 +45,28 @@ class FileUploadWidget extends StatefulWidget {
 }
 
 class _FileUploadWidgetState extends State<FileUploadWidget> {
-  late ItemListViewModel _viewModel;
+  late UploadFileListViewModel _viewModel;
 
   @override
   void initState() {
     super.initState();
-    _viewModel = ItemListViewModel(ItemList());
+    _viewModel = UploadFileListViewModel(UploadFileList());
   }
 
-  void addItem() {
-    _viewModel.addItem('New Item ${_viewModel.items.length}');
-    setState(() {});
+  Future<void> addItem() async {
+    await _viewModel.addItem();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ItemListView(
-        viewModel: _viewModel,
+      body: ListenableBuilder(
+        listenable: _viewModel,
+        builder: (BuildContext context, Widget? child) {
+          return UploadFileListView(
+            viewModel: _viewModel,
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => addItem(),
