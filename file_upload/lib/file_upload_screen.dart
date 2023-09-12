@@ -60,17 +60,55 @@ class _FileUploadWidgetState extends State<FileUploadWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListenableBuilder(
-        listenable: _viewModel,
-        builder: (BuildContext context, Widget? child) {
-          return UploadFileListView(
-            viewModel: _viewModel,
-          );
-        },
+      body: Column(
+        children: [
+          const MessagePanel(
+            message: 'The maximum file size to upload is 1MB.',
+          ),
+          ListenableBuilder(
+            listenable: _viewModel,
+            builder: (BuildContext context, Widget? child) {
+              return Expanded(
+                child: UploadFileListView(
+                  viewModel: _viewModel,
+                ),
+              );
+            },
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => addItem(),
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.upload_file_outlined),
+      ),
+    );
+  }
+}
+
+class MessagePanel extends StatelessWidget {
+  final String message;
+
+  const MessagePanel({super.key, required this.message});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 4.0, // Add a subtle shadow
+      margin: const EdgeInsets.all(8.0),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            const Icon(Icons.info_outline_rounded),
+            const SizedBox(width: 8.0),
+            Text(
+              message,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

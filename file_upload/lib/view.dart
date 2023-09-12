@@ -34,64 +34,67 @@ class UploadFileItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Card(
-          margin: const EdgeInsets.fromLTRB(8, 4, 8, 4),
-          child: Row(
-            children: [
-              Container(
-                color: Colors.yellow,
-                child: FileIcon(
+    return Card(
+      margin: const EdgeInsets.fromLTRB(8, 4, 8, 4),
+      child: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                FileIcon(
                   item.name,
                   size: 64,
                 ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      item.name,
-                      style: const TextStyle(
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        item.name,
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          backgroundColor: Colors.amber),
-                    ),
-                    const SizedBox(
-                        height:
-                            4), // Add some spacing between title and subtitle
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                            "${(item.size / megaBytes).toStringAsFixed(2)} MB"),
-                        ListenableBuilder(
-                          listenable: item,
-                          builder: (BuildContext context, Widget? child) {
-                            return Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                SizedBox(
-                                  width: 130,
-                                  child: UploadProgressIndicator(item),
-                                ),
-                                Text(item.status.name),
-                              ],
-                            );
-                          },
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      const SizedBox(
+                          height:
+                              4), // Add some spacing between title and subtitle
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                              "${(item.size / megaBytes).toStringAsFixed(2)} MB"),
+                          const SizedBox(width: 8),
+                          ListenableBuilder(
+                            listenable: item,
+                            builder: (BuildContext context, Widget? child) {
+                              return Expanded(
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      child: UploadProgressIndicator(item),
+                                    ),
+                                    const SizedBox(width: 8),
+                                    Text(item.status.name),
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        CancelUploadButton(item),
-      ],
+          CancelUploadButton(item),
+        ],
+      ),
     );
   }
 }
