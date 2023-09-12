@@ -59,10 +59,7 @@ class UploadFile extends ChangeNotifier {
   double get processingProgress => _processingProgress;
 
   set processingProgress(double progress) {
-    if (progress == 1.0) {
-      status = UploadFileStatus.completed;
-      dateTime = DateTime.now();
-    } else if (progress > 0.0) {
+    if (progress > 0.0) {
       status = UploadFileStatus.processing;
     }
 
@@ -73,9 +70,13 @@ class UploadFile extends ChangeNotifier {
   void cancel() {
     if (_cancelToken != null && !_cancelToken!.isCancelled) {
       _cancelToken?.cancel();
-      status = UploadFileStatus.cancelled;
-      notifyListeners();
     }
+  }
+
+  void updateStatus(UploadFileStatus newStatus, DateTime newDateTime) {
+    status = newStatus;
+    dateTime = newDateTime;
+    notifyListeners();
   }
 }
 
@@ -88,6 +89,9 @@ class UploadFileService {
     final result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
       allowedExtensions: [
+        'txt',
+        'json',
+        'pdf',
         'jpg',
         'png',
         'mp4',
@@ -147,7 +151,7 @@ class UploadFileService {
       "file": multipartFile,
     });
 
-    final response = await dio.post(
+    dio.post(
       uri.toString(),
       data: formData,
       cancelToken: cancelToken,
@@ -160,8 +164,30 @@ class UploadFileService {
         double progress = count * 0.01;
         file.processingProgress = progress;
       },
-    );
-
-    debugPrint(response.data.toString());
+    ).then((response) {
+      // Handle the response data in here
+      debugPrint(response.data.toString());
+    }).catchError((error) {
+      // Handle the error in here
+      if (error is DioException) {
+        // Here's an example of how you might handle different error types
+        switch (error.type) {
+          case DioExceptionType.cancel:
+            debugPrint("Request to API was cancelled");
+            file.updateStatus(UploadFileStatus.cancelled, DateTime.now());
+            break;
+          default:
+            debugPrint(error.message);
+            file.updateStatus(UploadFileStatus.failed, DateTime.now());
+        }
+      } else {
+        debugPrint(error.message);
+        file.updateStatus(UploadFileStatus.failed, DateTime.now());
+      }
+    }).whenComplete(() {
+      // Any cleanup code goes here
+      debugPrint('Request completed');
+      file.updateStatus(UploadFileStatus.completed, DateTime.now());
+    });
   }
 }
