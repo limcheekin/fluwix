@@ -25,6 +25,7 @@ enum UploadFileStatus {
   processing,
   completed,
   failed,
+  cancelled,
 }
 
 class UploadFile extends ChangeNotifier {
@@ -33,8 +34,10 @@ class UploadFile extends ChangeNotifier {
   final MediaType? contentType;
   final Stream<List<int>> stream;
   UploadFileStatus status = UploadFileStatus.pending;
-  double _uploadProgress = 0;
+  double _uploadingProgress = 0;
+  double _processingProgress = 0;
   DateTime? dateTime;
+  CancelToken? _cancelToken;
 
   UploadFile(
     this.name,
@@ -43,16 +46,36 @@ class UploadFile extends ChangeNotifier {
     this.stream,
   );
 
-  double get uploadProgress => _uploadProgress;
+  double get uploadingProgress => _uploadingProgress;
 
-  set uploadProgress(double progress) {
-    if (status == UploadFileStatus.pending && progress > 0.0) {
+  set uploadingProgress(double progress) {
+    if (progress > 0.0) {
       status = UploadFileStatus.uploading;
-    } else if (status == UploadFileStatus.uploading && progress == 100.0) {
-      status = UploadFileStatus.completed;
     }
-    _uploadProgress = progress;
+    _uploadingProgress = progress;
     notifyListeners();
+  }
+
+  double get processingProgress => _processingProgress;
+
+  set processingProgress(double progress) {
+    if (progress == 1.0) {
+      status = UploadFileStatus.completed;
+      dateTime = DateTime.now();
+    } else if (progress > 0.0) {
+      status = UploadFileStatus.processing;
+    }
+
+    _processingProgress = progress;
+    notifyListeners();
+  }
+
+  void cancel() {
+    if (_cancelToken != null && !_cancelToken!.isCancelled) {
+      _cancelToken?.cancel();
+      status = UploadFileStatus.cancelled;
+      notifyListeners();
+    }
   }
 }
 
@@ -60,6 +83,7 @@ class UploadFileService {
   static final uri = Uri.https(
       'ljplkfhip2rceqhupnjwqc7ysm0pifea.lambda-url.us-east-1.on.aws',
       '/upload');
+  //static final uri = Uri.http('localhost:8000', '/upload');
   Future<UploadFile> pickFile() async {
     final result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
@@ -109,6 +133,8 @@ class UploadFileService {
 
   void upload(UploadFile file) async {
     final dio = Dio();
+    final cancelToken = CancelToken();
+    file._cancelToken = cancelToken;
 
     final multipartFile = MultipartFile.fromStream(
       () => file.stream,
@@ -124,12 +150,15 @@ class UploadFileService {
     final response = await dio.post(
       uri.toString(),
       data: formData,
-      options: Options(responseType: ResponseType.json),
+      cancelToken: cancelToken,
       onSendProgress: (int sent, int total) {
-        //debugPrint('sent: $sent total: $total');
         double progress = sent / total;
-        //debugPrint("Upload progress: $progress");
-        file.uploadProgress = progress;
+        file.uploadingProgress = progress;
+      },
+      onReceiveProgress: (int count, int total) {
+        debugPrint("onReceiveProgress(count: $count, total: $total)");
+        double progress = count * 0.01;
+        file.processingProgress = progress;
       },
     );
 
