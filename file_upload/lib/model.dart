@@ -177,17 +177,24 @@ class UploadFileService {
             file.updateStatus(UploadFileStatus.cancelled, DateTime.now());
             break;
           default:
-            debugPrint(error.message);
-            file.updateStatus(UploadFileStatus.failed, DateTime.now());
+            debugPrint("*** DioException ERROR ${error.message}");
+            // TODO: the error may cause by no response streaming support in AWS Lambda,
+            // Self hosting need not to perform the conditional check
+            if (error.message != null) {
+              file.updateStatus(UploadFileStatus.failed, DateTime.now());
+            }
         }
       } else {
-        debugPrint(error.message);
+        debugPrint("*** Other ERROR ${error.message}");
         file.updateStatus(UploadFileStatus.failed, DateTime.now());
       }
     }).whenComplete(() {
       // Any cleanup code goes here
       debugPrint('Request completed');
-      file.updateStatus(UploadFileStatus.completed, DateTime.now());
+      if (file.status != UploadFileStatus.failed &&
+          file.status != UploadFileStatus.cancelled) {
+        file.updateStatus(UploadFileStatus.completed, DateTime.now());
+      }
     });
   }
 }
