@@ -24,7 +24,18 @@ class _FileUploadWidgetState extends State<FileUploadWidget> {
   }
 
   Future<void> addItem() async {
-    await _viewModel.addItem();
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
+    try {
+      await _viewModel.addItem();
+    } catch (e) {
+      scaffoldMessenger.showSnackBar(
+        SnackBar(
+          content: Text(
+            e.toString(),
+          ),
+        ),
+      );
+    }
   }
 
   @override
