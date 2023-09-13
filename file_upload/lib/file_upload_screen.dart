@@ -60,56 +60,41 @@ class _FileUploadWidgetState extends State<FileUploadWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const MessagePanel(
-            message: 'The maximum file size to upload is 1MB.',
-          ),
-          ListenableBuilder(
-            listenable: _viewModel,
-            builder: (BuildContext context, Widget? child) {
-              return Expanded(
-                child: UploadFileListView(
-                  viewModel: _viewModel,
-                ),
-              );
-            },
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => addItem(),
-        child: const Icon(Icons.upload_file_outlined),
-      ),
-    );
-  }
-}
-
-class MessagePanel extends StatelessWidget {
-  final String message;
-
-  const MessagePanel({super.key, required this.message});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 4.0, // Add a subtle shadow
-      margin: const EdgeInsets.all(8.0),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
+        body: Column(
           children: [
-            const Icon(Icons.info_outline_rounded),
-            const SizedBox(width: 8.0),
-            Text(
-              message,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
+            const MessagePanel(
+              icon: Icon(Icons.info_outline),
+              message: 'The maximum file size to upload is 1MB.',
+            ),
+            ListenableBuilder(
+              listenable: _viewModel,
+              builder: (BuildContext context, Widget? child) {
+                return Expanded(
+                  child: Stack(
+                    children: [
+                      UploadFileListView(
+                        viewModel: _viewModel,
+                      ),
+                      if (_viewModel.items.isEmpty)
+                        UploadFileZone(
+                          icon: const Icon(
+                            Icons.upload,
+                            size: 128,
+                            color: Colors.grey,
+                          ),
+                          message: "Click here to upload file.",
+                          onTap: () => addItem(),
+                        ),
+                    ],
+                  ),
+                );
+              },
             ),
           ],
         ),
-      ),
-    );
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => addItem(),
+          child: const Icon(Icons.upload_file_outlined),
+        ));
   }
 }
