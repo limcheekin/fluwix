@@ -7,10 +7,8 @@ import 'package:file_picker/file_picker.dart';
 import 'package:mime/mime.dart';
 
 class UploadFileList {
-  static int numberOfConcurrentUploads = 1;
   final List<UploadFile> items = [];
   final UploadFileService _uploadFileService = UploadFileService();
-  int uploadIndex = 0;
 
   Future<void> add() async {
     final item = await _uploadFileService.pickFile();
