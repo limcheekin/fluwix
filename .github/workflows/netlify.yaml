@@ -19,7 +19,7 @@ jobs:
         run: pwd;chmod +x generate.sh;./generate.sh
 
       - name: Flutter Build
-        run: flutter build web --web-renderer html --release
+        run: flutter build web --web-renderer html --release --no-tree-shake-icons
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
