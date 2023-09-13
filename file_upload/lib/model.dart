@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:mime/mime.dart';
+import 'constants.dart';
 
 class UploadFileList {
   final List<UploadFile> items = [];
@@ -82,22 +83,10 @@ class UploadFile extends ChangeNotifier {
 }
 
 class UploadFileService {
-  static final uri = Uri.https(
-      'ljplkfhip2rceqhupnjwqc7ysm0pifea.lambda-url.us-east-1.on.aws',
-      '/upload');
-  //static final uri = Uri.http('localhost:8000', '/upload');
   Future<UploadFile?> pickFile() async {
     final result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
-      allowedExtensions: [
-        'txt',
-        'json',
-        'pdf',
-        'jpg',
-        'png',
-        'mp4',
-        'webm',
-      ],
+      allowedExtensions: allowedExtensions.split(","),
       allowMultiple: false,
       withData: false,
       withReadStream: true,
@@ -109,7 +98,7 @@ class UploadFileService {
 
     final file = result.files.first;
     String? mimeType;
-    String fileName = "Unknown";
+    String fileName = unknownFileName;
     if (kIsWeb) {
       // REF: https://github.com/miguelpruivo/flutter_file_picker/wiki/FAQ#q-how-do-i-access-the-path-on-web
       final fileBytes = file.bytes;
@@ -130,7 +119,7 @@ class UploadFileService {
     // REF: https://github.com/miguelpruivo/flutter_file_picker/wiki/FAQ#q-how-do-do-i-use-withreadstream
     final fileReadStream = file.readStream;
     if (fileReadStream == null) {
-      throw Exception('Cannot read file from null stream');
+      throw Exception(fileStreamExceptionMessage);
     }
 
     return UploadFile(fileName, file.size, contentType, fileReadStream);
@@ -153,7 +142,7 @@ class UploadFileService {
     });
 
     dio.post(
-      uri.toString(),
+      backendUrl,
       data: formData,
       cancelToken: cancelToken,
       onSendProgress: (int sent, int total) {

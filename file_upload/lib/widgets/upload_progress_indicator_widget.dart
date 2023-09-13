@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
 import '../model.dart';
 
 class UploadProgressIndicatorWidget extends StatelessWidget {
@@ -12,12 +13,12 @@ class UploadProgressIndicatorWidget extends StatelessWidget {
     if (item.status == UploadFileStatus.uploading) {
       uploadProgressIndicator = LinearProgressIndicator(
         value: item.uploadingProgress,
-        semanticsLabel: 'uploading progress',
+        semanticsLabel: uploadProgressSemanticsLabel,
       );
     } else if (item.status == UploadFileStatus.processing) {
       uploadProgressIndicator = LinearProgressIndicator(
         value: item.processingProgress,
-        semanticsLabel: 'processing progress',
+        semanticsLabel: processProgressSemanticsLabel,
       );
     } else {
       uploadProgressIndicator = const SizedBox.shrink();

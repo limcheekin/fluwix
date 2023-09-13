@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
 import '../model.dart';
 import '../viewmodel.dart';
 import 'message_panel_widget.dart';
@@ -36,7 +37,7 @@ class _FileUploadWidgetState extends State<FileUploadWidget> {
             children: [
               const MessagePanelWidget(
                 icon: Icon(Icons.info_outline),
-                message: 'The maximum file size to upload is 1MB.',
+                message: maximumFileSize,
               ),
               Expanded(
                 child: Stack(
@@ -51,7 +52,7 @@ class _FileUploadWidgetState extends State<FileUploadWidget> {
                           size: 128,
                           color: Colors.grey,
                         ),
-                        message: "Click here to upload file",
+                        message: uploadFileZoneMessage,
                         onTap: () => addItem(),
                       ),
                   ],
