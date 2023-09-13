@@ -64,7 +64,11 @@ class UploadFileItemWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                              "${(item.size / megaBytes).toStringAsFixed(2)} MB"),
+                            "${(item.size / megaBytes).toStringAsFixed(2)} MB",
+                            style: const TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
                           const SizedBox(width: 8),
                           ListenableBuilder(
                             listenable: item,
@@ -78,7 +82,7 @@ class UploadFileItemWidget extends StatelessWidget {
                                       child: UploadProgressIndicator(item),
                                     ),
                                     const SizedBox(width: 8),
-                                    Text(item.status.name),
+                                    UplodFileStatusWidget(item: item),
                                   ],
                                 ),
                               );
@@ -96,6 +100,63 @@ class UploadFileItemWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class UplodFileStatusWidget extends StatelessWidget {
+  const UplodFileStatusWidget({
+    super.key,
+    required this.item,
+  });
+
+  final UploadFile item;
+
+  @override
+  Widget build(BuildContext context) {
+    Color textColor;
+    Widget status;
+    switch (item.status) {
+      case UploadFileStatus.completed:
+        textColor = Colors.green;
+        break;
+      case UploadFileStatus.cancelled:
+        textColor = Colors.yellow;
+        break;
+      case UploadFileStatus.failed:
+        textColor = Colors.red;
+        break;
+      default:
+        textColor = Colors.grey;
+    }
+
+    if (item.status == UploadFileStatus.failed && item.errorMessage != null) {
+      status = Tooltip(
+        message: item.errorMessage,
+        child: Row(
+          children: [
+            Text(
+              item.status.name,
+              style: TextStyle(
+                color: textColor,
+              ),
+            ),
+            Icon(
+              Icons.help_outline,
+              size: 16.0,
+              color: textColor,
+            ),
+          ],
+        ),
+      );
+    } else {
+      status = Text(
+        item.status.name,
+        style: TextStyle(
+          color: textColor,
+        ),
+      );
+    }
+    return status;
   }
 }
 

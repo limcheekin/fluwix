@@ -14,8 +14,10 @@ class UploadFileList {
 
   Future<void> add() async {
     final item = await _uploadFileService.pickFile();
-    items.add(item);
-    _uploadFileService.upload(item);
+    if (item != null) {
+      items.add(item);
+      _uploadFileService.upload(item);
+    }
   }
 }
 
@@ -38,6 +40,7 @@ class UploadFile extends ChangeNotifier {
   double _processingProgress = 0;
   DateTime? dateTime;
   CancelToken? _cancelToken;
+  String? errorMessage;
 
   UploadFile(
     this.name,
@@ -85,7 +88,7 @@ class UploadFileService {
       'ljplkfhip2rceqhupnjwqc7ysm0pifea.lambda-url.us-east-1.on.aws',
       '/upload');
   //static final uri = Uri.http('localhost:8000', '/upload');
-  Future<UploadFile> pickFile() async {
+  Future<UploadFile?> pickFile() async {
     final result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
       allowedExtensions: [
@@ -103,7 +106,7 @@ class UploadFileService {
     );
 
     if (result == null || result.files.isEmpty) {
-      throw Exception('No files picked or file picker was canceled');
+      return null;
     }
 
     final file = result.files.first;
@@ -181,11 +184,13 @@ class UploadFileService {
             // TODO: the error may cause by no response streaming support in AWS Lambda,
             // Self hosting need not to perform the conditional check
             if (error.message != null) {
+              file.errorMessage = error.message;
               file.updateStatus(UploadFileStatus.failed, DateTime.now());
             }
         }
       } else {
         debugPrint("*** Other ERROR ${error.message}");
+        file.errorMessage = error.message;
         file.updateStatus(UploadFileStatus.failed, DateTime.now());
       }
     }).whenComplete(() {
