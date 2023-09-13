@@ -1,1 +1,1 @@
-Updated Chatbot UI to show shimmer effect and Fixed ReadMe's Markdown of the Showcase View.
+Added File Upload showcase.

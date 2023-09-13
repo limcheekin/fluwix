@@ -33,6 +33,7 @@ import 'package:slider_captcha_showcase/slider_captcha_showcase_screen.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:adaptive_scaffold/adaptive_scaffold_screen.dart';
 import 'package:flutter_k_chart/generated/l10n.dart' as k_chart;
+import 'package:file_upload/file_upload_screen.dart';
 import 'string.dart';
 
 final AppModule appModule = AppModule();
@@ -96,6 +97,7 @@ class AppModule extends Module {
     ChildRoute('/adaptive_scaffold',
         child: (_, __) => const AdaptiveScaffoldScreen()),
     ChildRoute('/chatbot_ui', child: (_, __) => const ChatbotUiScreen()),
+    ChildRoute('/file_upload', child: (_, __) => const FileUploadScreen()),
   ].reversed);
 }
 
