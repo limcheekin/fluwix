@@ -5,7 +5,7 @@
 Are you in search of the perfect file upload widget to meet your specific requirements? Look no further! Introducing the File Upload module, a solution born out of the need for a versatile and tailored file uploading tool.
 
 A picture is worth a thousand words:
-![File Upload Screenshots](https://github.com/limcheekin/fluwix/raw/main/file_upload/images/screenshots.jpg "File Upload Screenshots")
+![File Upload Screenshots](https://raw.githubusercontent.com/limcheekin/fluwix/file_upload/file_upload/images/screenshots.jpg "File Upload Screenshots")
 
 The File Upload module offers support for various file upload statuses, ensuring a seamless experience:
 
