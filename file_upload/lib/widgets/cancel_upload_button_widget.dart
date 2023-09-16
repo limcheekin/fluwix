@@ -23,7 +23,7 @@ class CancelUploadButtonWidget extends StatelessWidget {
     Widget cancelUploadButton;
     if (item.status == UploadFileStatus.uploading) {
       cancelUploadButton = IconButton(
-        icon: const Icon(Icons.cancel_outlined),
+        icon: const Icon(Icons.cancel),
         onPressed: () {
           item.cancel();
         },
