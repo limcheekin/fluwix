@@ -1,0 +1,33 @@
+name: web_assembly
+description: Web Assembly module.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.1.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  js: ^0.6.7
+  common_ui:
+    path: ../common_ui
+  showcase_view:
+    path: ../showcase_view
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints:
+
+flutter:
+  uses-material-design: true
+
+  module:
+    androidX: true
+    androidPackage: com.fluwix.web_assembly
+    iosBundleIdentifier: com.fluwix.webAssembly
