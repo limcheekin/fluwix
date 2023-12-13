@@ -1,7 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:showcase_view/showcase_view.dart';
-import 'package:surrealdb_console/surrealdb_console_widget.dart';
+import 'package:surrealdb_console/surrealdb_console_widget_mobile.dart'
+    if (dart.library.html) 'package:surrealdb_console/surrealdb_console_widget_web.dart';
 
 class SurrealdbConsoleScreen extends StatelessWidget {
   const SurrealdbConsoleScreen({Key? key}) : super(key: key);
@@ -19,13 +19,11 @@ class SurrealdbConsoleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ShowcaseView(
       title: 'SurrealDB Console',
-      widget: kIsWeb
-          ? SurrealdbConsoleWidget(
-              endpoint: 'indxdb://test',
-              ns: 'test',
-              db: 'test',
-            )
-          : SurrealdbConsoleWebOnly(),
+      widget: SurrealdbConsoleWidget(
+        endpoint: 'indxdb://test',
+        ns: 'test',
+        db: 'test',
+      ),
       owner: owner,
       repository: repository,
       ref: branch,
@@ -38,17 +36,6 @@ class SurrealdbConsoleScreen extends StatelessWidget {
         '$branch/lib/surrealdb_console_screen.dart',
         '$branch/lib/surrealdb_console_widget.dart',
       ],
-    );
-  }
-}
-
-class SurrealdbConsoleWebOnly extends StatelessWidget {
-  const SurrealdbConsoleWebOnly({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Surrealdb Console is working in web only!'),
     );
   }
 }
