@@ -1,1 +1,2 @@
-Added File Upload showcase.
+Added SurrealDB Console (Web Only)
+Upgraded Rich Text Editor showcase
