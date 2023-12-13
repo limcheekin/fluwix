@@ -14,7 +14,7 @@ dependencies:
 
   flutter_k_chart:
     path: ../flutter_k_chart
-  http: ^0.13.4
+  http: ^1.1.2
   common_ui:
     path: ../common_ui
   showcase_view:
