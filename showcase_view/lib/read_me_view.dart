@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:source_code_view/abstract_github_view.dart';
@@ -24,16 +23,15 @@ class ReadMeView extends AbstractGithubView {
           key: key,
         );
   @override
-  _ReadMeViewState createState() => _ReadMeViewState();
+  ReadMeViewState createState() => ReadMeViewState();
 }
 
-class _ReadMeViewState extends AbstractGithubViewState<ReadMeView> {
+class ReadMeViewState extends AbstractGithubViewState<ReadMeView> {
   @override
   Widget buildWidget(BuildContext context, String responseBody) {
     return Expanded(
-      child: Scrollbar(
-        isAlwaysShown: kIsWeb,
-        child: Markdown(
+      child: SingleChildScrollView(
+        child: MarkdownBody(
           data: responseBody,
           selectable: true,
           onTapLink: _onTapLink,
@@ -65,8 +63,8 @@ class _ReadMeViewState extends AbstractGithubViewState<ReadMeView> {
   }*/
 
   void _onTapLink(String text, String? href, String title) {
-    print('text $text');
-    print('href $href');
+    debugPrint('text $text');
+    debugPrint('href $href');
     _launchInBrowser(href);
   }
 

@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:source_code_view/abstract_github_view.dart';
 import 'package:source_code_view/multiple_requests_http_client.dart';
@@ -23,20 +22,17 @@ class LicenseView extends AbstractGithubView {
           key: key,
         );
   @override
-  _LicenseViewState createState() => _LicenseViewState();
+  LicenseViewState createState() => LicenseViewState();
 }
 
-class _LicenseViewState extends AbstractGithubViewState<LicenseView> {
+class LicenseViewState extends AbstractGithubViewState<LicenseView> {
   @override
   Widget buildWidget(BuildContext context, String responseBody) {
     return Expanded(
-      child: Scrollbar(
-        isAlwaysShown: kIsWeb,
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Text(responseBody),
-          ),
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Text(responseBody),
         ),
       ),
     );

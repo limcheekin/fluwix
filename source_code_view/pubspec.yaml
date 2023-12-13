@@ -16,7 +16,7 @@ dependencies:
   animate_icons: ^2.0.0
   url_launcher: ^6.0.20
   shimmer: ^2.0.0
-  http: ^0.13.4
+  http: ^1.1.2
   responsive_builder:
   common_ui:
     path: ../common_ui
