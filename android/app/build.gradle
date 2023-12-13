@@ -33,6 +33,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     compileSdkVersion 33
+    ndkVersion '21.4.7075529'
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -44,7 +45,7 @@ android {
 
     defaultConfig {
         applicationId "com.fluwix"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
