@@ -11,6 +11,7 @@ import 'package:settings_ui_showcase/settings_ui_showcase_screen.dart';
 import 'package:showcase_view/showcase_screen.dart';
 import 'package:source_code_view/source_code_view_screen.dart';
 import 'package:stock_chart/stock_chart_screen.dart';
+import 'package:surrealdb_console/surrealdb_console_screen.dart';
 import 'package:tab_buttons/tab_buttons_screen.dart';
 import 'package:material_design_showcase/material_design_showcase_screen.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -98,6 +99,8 @@ class AppModule extends Module {
         child: (_, __) => const AdaptiveScaffoldScreen()),
     ChildRoute('/chatbot_ui', child: (_, __) => const ChatbotUiScreen()),
     ChildRoute('/file_upload', child: (_, __) => const FileUploadScreen()),
+    ChildRoute('/surrealdb_console',
+        child: (_, __) => const SurrealdbConsoleScreen()),
   ].reversed);
 }
 

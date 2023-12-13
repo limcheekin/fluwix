@@ -70,6 +70,8 @@ dependencies:
     path: chatbot_ui
   file_upload:
     path: file_upload
+  surrealdb_console:
+    path: surrealdb_console
 
 dependency_overrides:
   intl: ^0.18.1
