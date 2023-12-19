@@ -14,11 +14,11 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  flutter_quill: ^9.0.1
-  flutter_quill_extensions: ^9.0.1
-  flutter_quill_test: ^9.0.1
+  flutter_quill: 9.0.1
+  flutter_quill_extensions: 9.0.1
+  flutter_quill_test: 9.0.1
   quill_html_converter:
-    ^9.0.1
+    9.0.1
 
     # Normal Packages
   path: ^1.8.3
