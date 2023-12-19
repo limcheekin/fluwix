@@ -14,6 +14,7 @@ import 'package:stock_chart/stock_chart_screen.dart';
 import 'package:surrealdb_console/surrealdb_console_screen.dart';
 import 'package:tab_buttons/tab_buttons_screen.dart';
 import 'package:material_design_showcase/material_design_showcase_screen.dart';
+import 'package:three_cols_layout/three_cols_layout_screen.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:about_dialog/about_dialog_screen.dart';
 import 'package:animated_icons/animated_icons_screen.dart';
@@ -101,6 +102,8 @@ class AppModule extends Module {
     ChildRoute('/file_upload', child: (_, __) => const FileUploadScreen()),
     ChildRoute('/surrealdb_console',
         child: (_, __) => const SurrealdbConsoleScreen()),
+    ChildRoute('/three_cols_layout',
+        child: (_, __) => const ThreeColsLayoutScreen()),
   ].reversed);
 }
 
@@ -252,7 +255,7 @@ class _WideLayoutState extends State<WideLayout> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.network(
-                        'https://flutter-widgets-explorer.netlify.app/images/welcome.png',
+                        'https://fluwix.netlify.app/images/welcome.png',
                         width: 633.0,
                         height: 475.0,
                       ),

@@ -72,6 +72,8 @@ dependencies:
     path: file_upload
   surrealdb_console:
     path: surrealdb_console
+  three_cols_layout:
+    path: three_cols_layout
 
 dependency_overrides:
   intl: ^0.18.1

@@ -1,6 +1,6 @@
 # three_cols_layout
 
-The three columns (`Row` in Flutter) layout is a responsive layout created to showcase three-columns layout, two-columns layout and one-column layout based on different screen size.
+The three columns (`Row` in Flutter) layout created to showcase responsive three-columns layout, two-columns layout and one-column layout based on different screen size.
 
 A picture is worth a thousand words:-
 
