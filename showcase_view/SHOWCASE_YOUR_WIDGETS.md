@@ -26,12 +26,14 @@ Please see the following steps to showcase your fantastic widget in the Fluwix:
 2. Create a branch for your showcase with the following command:
     ```
     git checkout -b <branch_name>
+   Think twice about the `branch_name`. As per naming convention, the name of `branch_name`, `module_name` and `route_name` must be same. The `route_name` is for navigation purpose, I will elaborate more later. Let's called the name of the showcase as `fantastic_widget`. 
     ```
    Think twice about the `branch_name`. As per naming convention, the name of `branch_name`, `module_name` and `route_name` must be same. The `route_name` is for navigation purpose, I will elaborate more later. Let's called the name of the showcase as `fantastic_widget`. 
 
 3. Run the following command in the fluwix directory:
     ```
     flutter pub run module_starter <module_name>
+        Module, branch, and route names must be the same, as per the naming convention. The route name is used for navigation. For example, let's name the showcase 'fantastic_widget'.
     ```
 
 4. Update the `FantasticWidgetWidget` class with your showcase code in the `lib/fantastic_widget_screen.dart` file.

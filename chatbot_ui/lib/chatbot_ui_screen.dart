@@ -12,7 +12,7 @@ class ChatbotUiScreen extends StatelessWidget {
   // repository = 'flutter_material_showcase';
   // branch = 'master';
   static const owner = 'limcheekin';
-  static const repository = 'fluwix';
+  static const repository = 'flutter_material_showcase';
   static const branch = 'chatbot_ui';
 
   @override
@@ -26,7 +26,7 @@ class ChatbotUiScreen extends StatelessWidget {
       // $branch/ prefix is not needed for external GitHub repo
       // Please refer to the following sample code:
       // https://github.com/limcheekin/fluwix/blob/main/material_design_showcase/lib/material_design_showcase_screen.dart
-      readMe: '$branch/README.md',
+      readMe: 'packages/flutter_material_showcase/README.md',
       codePaths: [
         '$branch/pubspec.yaml',
         '$branch/lib/chatbot_ui_screen.dart',
