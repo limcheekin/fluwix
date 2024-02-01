@@ -58,6 +58,8 @@ dependencies:
     path: search_bar
   rich_text_editor:
     path: rich_text_editor
+  dependency_overrides:
+    js: ^0.7.0
   number_trivia:
     path: number_trivia
   wallet_connect_showcase:
@@ -72,6 +74,9 @@ dependencies:
     path: file_upload
   surrealdb_console:
     path: surrealdb_console
+  dependency_overrides:
+    js: ^0.7.0
+  version: ^0.7.0
   three_cols_layout:
     path: three_cols_layout
 
