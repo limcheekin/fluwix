@@ -31,7 +31,7 @@ class _SelectableColoredTextState extends State<SelectableColoredText> {
     final int end = _end ?? widget.text.length;
     return SelectableText.rich(
       TextSpan(
-        style: widget.style ?? Theme.of(context).textTheme.bodyText2,
+        style: widget.style ?? Theme.of(context).textTheme.bodyMedium,
         children: [
           // Text before the selection
           TextSpan(text: widget.text.substring(0, start)),
