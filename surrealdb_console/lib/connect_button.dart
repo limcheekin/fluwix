@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:surrealdb_console/ui/widgets/common/input_field.dart';
 
-class ConnectButton extends StatelessWidget {
+class ConnectButton extends StatefulWidget {
   const ConnectButton({super.key});
+
+  @override
+  State<ConnectButton> createState() => _ConnectButtonState();
+}
+
+class _ConnectButtonState extends State<ConnectButton> {
+  final TextEditingController _urlController = TextEditingController();
+  final TextEditingController _namespaceController = TextEditingController();
+  final TextEditingController _databaseController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -18,26 +30,54 @@ class ConnectButton extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const Text(
+                      'Connection',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        DropdownButton<String>(
-                          value: 'WS',
-                          items: const [
-                            DropdownMenuItem(
-                              value: 'WS',
-                              child: Text('WS'),
-                            ),
-                          ],
-                          onChanged: (value) {},
-                        ),
-                        const SizedBox(width: 16),
-                        const Expanded(
-                          child: TextField(
+                        SizedBox(
+                          width: 100.0,
+                          child: DropdownButtonFormField<String>(
                             decoration: InputDecoration(
-                              labelText: 'address:port',
-                              labelStyle: TextStyle(color: Colors.red),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
                             ),
+                            value: 'ws',
+                            items: const [
+                              DropdownMenuItem(
+                                value: 'http',
+                                child: Text('http'),
+                              ),
+                              DropdownMenuItem(
+                                value: 'https',
+                                child: Text('https'),
+                              ),
+                              DropdownMenuItem(
+                                value: 'ws',
+                                child: Text('ws'),
+                              ),
+                              DropdownMenuItem(
+                                value: 'wss',
+                                child: Text('wss'),
+                              ),
+                            ],
+                            onChanged: (value) {},
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: InputField(
+                            hintText: 'address:port',
+                            controller: _urlController,
                           ),
                         ),
                       ],
@@ -45,20 +85,17 @@ class ConnectButton extends StatelessWidget {
                     const SizedBox(height: 16),
                     Row(
                       children: [
-                        const Expanded(
+                        Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Database'),
-                              TextField(
-                                decoration: InputDecoration(
-                                  labelText: 'Namespace',
-                                ),
+                              InputField(
+                                labelText: 'Namespace',
+                                controller: _namespaceController,
                               ),
-                              TextField(
-                                decoration: InputDecoration(
-                                  labelText: 'Database',
-                                ),
+                              InputField(
+                                labelText: 'Database',
+                                controller: _databaseController,
                               ),
                             ],
                           ),
@@ -68,28 +105,14 @@ class ConnectButton extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text('Authentication'),
-                              DropdownButton<String>(
-                                value: 'Root',
-                                items: const [
-                                  DropdownMenuItem(
-                                    value: 'Root',
-                                    child: Text('Root'),
-                                  ),
-                                ],
-                                onChanged: (value) {},
+                              InputField(
+                                labelText: 'Username',
+                                controller: _usernameController,
                               ),
-                              const TextField(
-                                decoration: InputDecoration(
-                                  labelText: 'Username',
-                                ),
-                              ),
-                              const TextField(
-                                decoration: InputDecoration(
-                                  labelText: 'Password',
-                                  suffixIcon: Icon(Icons.visibility),
-                                ),
-                                obscureText: true,
+                              InputField(
+                                labelText: 'Password',
+                                controller: _passwordController,
+                                textInputType: TextInputType.none,
                               ),
                             ],
                           ),

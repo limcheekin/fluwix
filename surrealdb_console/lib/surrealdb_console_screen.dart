@@ -5,7 +5,7 @@ import 'package:surrealdb_console/surrealdb_console_widget_mobile.dart'
     if (dart.library.html) 'package:surrealdb_console/surrealdb_console_widget_web.dart';
 
 class SurrealdbConsoleScreen extends StatelessWidget {
-  const SurrealdbConsoleScreen({Key? key}) : super(key: key);
+  const SurrealdbConsoleScreen({super.key});
 
   // Configure the properties for external GitHub repo, for example:
   // https://github.com/miquelbeltran/flutter_material_showcase
