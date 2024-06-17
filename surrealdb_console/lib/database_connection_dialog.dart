@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:surrealdb_console/ui/widgets/common/input_field.dart';
-import 'package:surrealdb_js/surrealdb_js.dart';
 
 class DatabaseConnectionDialog extends StatefulWidget {
-  const DatabaseConnectionDialog(this.db, {super.key});
+  const DatabaseConnectionDialog(
+      {super.key,
+      this.protocol,
+      this.addressPort,
+      this.namespace,
+      this.database,
+      this.username,
+      this.password,
+      this.errorMessage = '',
+      required this.connectFunction});
 
-  final Surreal db;
+  final Function connectFunction;
+  final String? protocol;
+  final String? addressPort;
+  final String? namespace;
+  final String? database;
+  final String? username;
+  final String? password;
+  final String errorMessage;
 
   @override
   State<DatabaseConnectionDialog> createState() =>
@@ -13,22 +28,28 @@ class DatabaseConnectionDialog extends StatefulWidget {
 }
 
 class _DatabaseConnectionDialogState extends State<DatabaseConnectionDialog> {
-  final TextEditingController _addressPortController =
-      TextEditingController(text: '127.0.0.1:8000');
-  final TextEditingController _namespaceController =
-      TextEditingController(text: 'test');
-  final TextEditingController _databaseController =
-      TextEditingController(text: 'test');
-  final TextEditingController _usernameController =
-      TextEditingController(text: 'root');
-  final TextEditingController _passwordController =
-      TextEditingController(text: 'root');
+  late TextEditingController _addressPortController;
+  late TextEditingController _namespaceController;
+  late TextEditingController _databaseController;
+  late TextEditingController _usernameController;
+  late TextEditingController _passwordController;
   String _selectedProtocol = 'ws'; // Default value for dropdown
-  String _errorMessage = '';
+  late String _errorMessage;
 
   @override
   void initState() {
     super.initState();
+    _errorMessage = widget.errorMessage;
+    _addressPortController =
+        TextEditingController(text: widget.addressPort ?? '127.0.0.1:8000');
+    _namespaceController =
+        TextEditingController(text: widget.namespace ?? 'test');
+    _databaseController =
+        TextEditingController(text: widget.database ?? 'test');
+    _usernameController =
+        TextEditingController(text: widget.username ?? 'root');
+    _passwordController =
+        TextEditingController(text: widget.password ?? 'root');
     _addressPortController.addListener(clearErrorMessage);
     _namespaceController.addListener(clearErrorMessage);
     _databaseController.addListener(clearErrorMessage);
@@ -197,34 +218,22 @@ class _DatabaseConnectionDialogState extends State<DatabaseConnectionDialog> {
                     String username = _usernameController.text;
                     String password = _passwordController.text;
 
-                    debugPrint('Protocol: $protocol');
-                    debugPrint('Address & Port: $addressPort');
-                    debugPrint('Namespace: $namespace');
-                    debugPrint('Database: $database');
-                    debugPrint('Username: $username');
-                    debugPrint('Password: $password');
-                    try {
-                      await widget.db.connect('$protocol://$addressPort/');
-                      await widget.db.use(
-                        namespace: namespace,
-                        database: database,
-                      );
-                      await widget.db.signin(
-                        {'username': username, 'password': password},
-                      );
+                    final errorMessage = await widget.connectFunction(
+                        false,
+                        protocol,
+                        addressPort,
+                        namespace,
+                        database,
+                        username,
+                        password);
+
+                    if (errorMessage != null && errorMessage.isNotEmpty) {
+                      setState(() {
+                        _errorMessage = errorMessage;
+                      });
+                    } else {
                       // ignore: use_build_context_synchronously
                       Navigator.of(context).pop();
-                    } catch (e) {
-                      final error = e.toString();
-                      setState(() {
-                        if (error.startsWith('VersionRetrievalFailure')) {
-                          _errorMessage = 'Unable to connect to database!';
-                        } else if (error.endsWith('authentication')) {
-                          _errorMessage = 'Invalid username or password!';
-                        } else {
-                          _errorMessage = error;
-                        }
-                      });
                     }
                   },
                   child: const Text('Connect'),

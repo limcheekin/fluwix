@@ -19,14 +19,7 @@ class SurrealdbConsoleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ShowcaseView(
       title: 'SurrealDB Console',
-      widget: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SurrealdbConsoleWidget(),
-          ],
-        ),
-      ),
+      widget: SurrealdbConsoleWidget(),
       owner: owner,
       repository: repository,
       ref: branch,

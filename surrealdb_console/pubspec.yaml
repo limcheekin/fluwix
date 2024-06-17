@@ -19,6 +19,7 @@ dependencies:
   showcase_view:
     path: ../showcase_view
   surrealdb_js: ^1.0.0-beta.8+1
+  flutter_secure_storage: ^9.2.2
 
 dev_dependencies:
   flutter_test:

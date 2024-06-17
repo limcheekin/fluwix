@@ -74,7 +74,13 @@ class _ConsoleState extends State<Console> {
     super.initState();
     controller = FlutterConsoleController(consoleContent: widget.content);
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await widget.initFunction();
+      final message = await widget.initFunction();
+      if (message != null) {
+        controller.print(
+          message: message.toString(),
+          endline: true,
+        );
+      }
       echoLoop();
     });
   }
