@@ -9,11 +9,17 @@ class ConnectButton extends StatefulWidget {
 }
 
 class _ConnectButtonState extends State<ConnectButton> {
-  final TextEditingController _urlController = TextEditingController();
-  final TextEditingController _namespaceController = TextEditingController();
-  final TextEditingController _databaseController = TextEditingController();
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _urlController =
+      TextEditingController(text: '127.0.0.1:8000');
+  final TextEditingController _namespaceController =
+      TextEditingController(text: 'test');
+  final TextEditingController _databaseController =
+      TextEditingController(text: 'test');
+  final TextEditingController _usernameController =
+      TextEditingController(text: 'root');
+  final TextEditingController _passwordController =
+      TextEditingController(text: 'root');
+  String _selectedProtocol = 'ws'; // Default value for dropdown
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +57,7 @@ class _ConnectButtonState extends State<ConnectButton> {
                                 borderRadius: BorderRadius.circular(8),
                               ),
                             ),
-                            value: 'ws',
+                            value: _selectedProtocol,
                             items: const [
                               DropdownMenuItem(
                                 value: 'http',
@@ -70,7 +76,9 @@ class _ConnectButtonState extends State<ConnectButton> {
                                 child: Text('wss'),
                               ),
                             ],
-                            onChanged: (value) {},
+                            onChanged: (value) {
+                              _selectedProtocol = value!;
+                            },
                           ),
                         ),
                         const SizedBox(width: 8),
@@ -130,7 +138,21 @@ class _ConnectButtonState extends State<ConnectButton> {
                           child: const Text('Close'),
                         ),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            String protocol = _selectedProtocol;
+                            String url = _urlController.text;
+                            String namespace = _namespaceController.text;
+                            String database = _databaseController.text;
+                            String username = _usernameController.text;
+                            String password = _passwordController.text;
+
+                            debugPrint('Protocol: $protocol');
+                            debugPrint('URL: $url');
+                            debugPrint('Namespace: $namespace');
+                            debugPrint('Database: $database');
+                            debugPrint('Username: $username');
+                            debugPrint('Password: $password');
+                          },
                           child: const Text('Connect'),
                         ),
                       ],
