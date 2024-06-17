@@ -18,7 +18,7 @@ dependencies:
     path: ../common_ui
   showcase_view:
     path: ../showcase_view
-  surrealdb_wasm: ^0.7.0+4
+  surrealdb_js: ^1.0.0-beta.8+1
 
 dev_dependencies:
   flutter_test:

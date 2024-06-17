@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:showcase_view/showcase_view.dart';
-import 'package:surrealdb_console/connect_button.dart';
 import 'package:surrealdb_console/surrealdb_console_widget_mobile.dart'
     if (dart.library.html) 'package:surrealdb_console/surrealdb_console_widget_web.dart';
 
@@ -24,12 +23,7 @@ class SurrealdbConsoleScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ConnectButton(),
-            SurrealdbConsoleWidget(
-              endpoint: 'indxdb://test',
-              ns: 'test',
-              db: 'test',
-            ),
+            SurrealdbConsoleWidget(),
           ],
         ),
       ),

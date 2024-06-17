@@ -1,0 +1,1 @@
+surreal start memory --log trace --allow-all --auth --user root --pass root
