@@ -1,1 +1,1 @@
-Updated SurrealDB Console to surrealdb_wasm 0.7.0+4.
+Updated SurrealDB Console to use surrealdb_js, start from now it can connect to the SurrealDB server.
