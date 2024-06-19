@@ -4,7 +4,7 @@ class ButtonSample extends StatefulWidget {
   const ButtonSample({Key? key}) : super(key: key);
 
   @override
-  _ButtonSampleState createState() => _ButtonSampleState();
+  State<ButtonSample> createState() => _ButtonSampleState();
 }
 
 class _ButtonSampleState extends State<ButtonSample> {
@@ -71,7 +71,7 @@ class __PageState extends State<_Page> {
     return Center(
       child: NeumorphicButton(
         onPressed: () {
-          print('click');
+          debugPrint('click');
         },
         style: const NeumorphicStyle(
           shape: NeumorphicShape.flat,

@@ -4,7 +4,7 @@ class TeslaSample extends StatefulWidget {
   const TeslaSample({Key? key}) : super(key: key);
 
   @override
-  _TeslaSampleState createState() => _TeslaSampleState();
+  State<TeslaSample> createState() => _TeslaSampleState();
 }
 
 class _TeslaSampleState extends State<TeslaSample> {

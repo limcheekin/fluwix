@@ -1,5 +1,5 @@
-import '../../util/Code.dart';
-import '../../util/ThemeConfigurator.dart';
+import '../../util/code.dart';
+import '../../util/theme_configurator.dart';
 import '../../util/top_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
@@ -7,7 +7,7 @@ class ToggleWidgetPage extends StatefulWidget {
   const ToggleWidgetPage({Key? key}) : super(key: key);
 
   @override
-  _WidgetPageState createState() => _WidgetPageState();
+  State<ToggleWidgetPage> createState() => _WidgetPageState();
 }
 
 class _WidgetPageState extends State<ToggleWidgetPage> {
@@ -170,7 +170,7 @@ Expanded(
               onChanged: (value) {
                 setState(() {
                   _selectedIndex = value;
-                  print('_firstSelected: $_selectedIndex');
+                  debugPrint('_firstSelected: $_selectedIndex');
                 });
               },
             ),
@@ -274,13 +274,13 @@ NeumorphicToggle(
               if (value == 0) {
                 ScaffoldMessenger.of(context)
                     .showSnackBar(const SnackBar(content: Text('on back !')));
-                print('onAnimationChangedFinished: $_selectedIndex');
+                debugPrint('onAnimationChangedFinished: $_selectedIndex');
               }
             },
             onChanged: (value) {
               setState(() {
                 _selectedIndex = value;
-                print('_firstSelected: $_selectedIndex');
+                debugPrint('_firstSelected: $_selectedIndex');
               });
             },
           ),

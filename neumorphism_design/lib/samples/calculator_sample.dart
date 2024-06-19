@@ -4,7 +4,7 @@ class CalculatorSample extends StatefulWidget {
   const CalculatorSample({Key? key}) : super(key: key);
 
   @override
-  _CalculatorSampleState createState() => _CalculatorSampleState();
+  State<CalculatorSample> createState() => _CalculatorSampleState();
 }
 
 const Color _calcTextColor = Color(0xFF484848);

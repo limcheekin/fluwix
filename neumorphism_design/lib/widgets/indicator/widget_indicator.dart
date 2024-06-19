@@ -1,5 +1,5 @@
-import '../../util/Code.dart';
-import '../../util/ThemeConfigurator.dart';
+import '../../util/code.dart';
+import '../../util/theme_configurator.dart';
 import '../../util/color_selector.dart';
 import '../../util/top_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -10,7 +10,7 @@ class IndicatorWidgetPage extends StatefulWidget {
   const IndicatorWidgetPage({Key? key}) : super(key: key);
 
   @override
-  _WidgetPageState createState() => _WidgetPageState();
+  State<IndicatorWidgetPage> createState() => _WidgetPageState();
 }
 
 class _WidgetPageState extends State<IndicatorWidgetPage> {

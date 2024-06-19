@@ -1,4 +1,4 @@
-import '../util/ThemeConfigurator.dart';
+import '../util/theme_configurator.dart';
 import '../util/top_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 

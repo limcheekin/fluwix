@@ -1,5 +1,5 @@
-import '../../util/Code.dart';
-import '../../util/ThemeConfigurator.dart';
+import '../../util/code.dart';
+import '../../util/theme_configurator.dart';
 import '../../util/color_selector.dart';
 import '../../util/top_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';

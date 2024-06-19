@@ -5,7 +5,7 @@ class NeumorphicTextPlayground extends StatefulWidget {
   const NeumorphicTextPlayground({Key? key}) : super(key: key);
 
   @override
-  _NeumorphicPlaygroundState createState() => _NeumorphicPlaygroundState();
+  State<NeumorphicTextPlayground> createState() => _NeumorphicPlaygroundState();
 }
 
 class _NeumorphicPlaygroundState extends State<NeumorphicTextPlayground> {
@@ -92,13 +92,13 @@ class __PageState extends State<_Page> {
                       const EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
                   child: ElevatedButton(
                     style: ButtonStyle(
-                      shape: MaterialStateProperty.resolveWith<
+                      shape: WidgetStateProperty.resolveWith<
                           RoundedRectangleBorder>(
                         (_) => RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                      backgroundColor: WidgetStateProperty.resolveWith<Color>(
                         (_) => Theme.of(context).colorScheme.secondary,
                       ),
                     ),
@@ -156,13 +156,13 @@ class __PageState extends State<_Page> {
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
                     style: ButtonStyle(
-                      shape: MaterialStateProperty.resolveWith<
+                      shape: WidgetStateProperty.resolveWith<
                           RoundedRectangleBorder>(
                         (_) => RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                      backgroundColor: WidgetStateProperty.resolveWith<Color>(
                         (_) => selectedConfiguratorIndex == 0
                             ? buttonActiveColor
                             : buttonInnactiveColor,
@@ -190,13 +190,13 @@ class __PageState extends State<_Page> {
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
                     style: ButtonStyle(
-                      shape: MaterialStateProperty.resolveWith<
+                      shape: WidgetStateProperty.resolveWith<
                           RoundedRectangleBorder>(
                         (_) => RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                      backgroundColor: WidgetStateProperty.resolveWith<Color>(
                         (_) => selectedConfiguratorIndex == 1
                             ? buttonActiveColor
                             : buttonInnactiveColor,
@@ -275,13 +275,12 @@ class __PageState extends State<_Page> {
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
               style: ButtonStyle(
-                shape:
-                    MaterialStateProperty.resolveWith<RoundedRectangleBorder>(
+                shape: WidgetStateProperty.resolveWith<RoundedRectangleBorder>(
                   (_) => RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                backgroundColor: WidgetStateProperty.resolveWith<Color>(
                   (_) => shape == NeumorphicShape.concave
                       ? buttonActiveColor
                       : buttonInnactiveColor,
@@ -305,13 +304,12 @@ class __PageState extends State<_Page> {
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
               style: ButtonStyle(
-                shape:
-                    MaterialStateProperty.resolveWith<RoundedRectangleBorder>(
+                shape: WidgetStateProperty.resolveWith<RoundedRectangleBorder>(
                   (_) => RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                backgroundColor: MaterialStateProperty.resolveWith<Color>((_) =>
+                backgroundColor: WidgetStateProperty.resolveWith<Color>((_) =>
                     shape == NeumorphicShape.convex
                         ? buttonActiveColor
                         : buttonInnactiveColor),
@@ -334,13 +332,12 @@ class __PageState extends State<_Page> {
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
               style: ButtonStyle(
-                shape:
-                    MaterialStateProperty.resolveWith<RoundedRectangleBorder>(
+                shape: WidgetStateProperty.resolveWith<RoundedRectangleBorder>(
                   (_) => RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                backgroundColor: MaterialStateProperty.resolveWith<Color>((_) =>
+                backgroundColor: WidgetStateProperty.resolveWith<Color>((_) =>
                     shape == NeumorphicShape.flat
                         ? buttonActiveColor
                         : buttonInnactiveColor),

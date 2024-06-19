@@ -6,7 +6,7 @@ class CreditCardSample extends StatefulWidget {
   const CreditCardSample({Key? key}) : super(key: key);
 
   @override
-  _CreditCardSampleState createState() => _CreditCardSampleState();
+  State<CreditCardSample> createState() => _CreditCardSampleState();
 }
 
 class _CreditCardSampleState extends State<CreditCardSample> {
@@ -57,147 +57,145 @@ class __PageContentState extends State<_PageContent> {
   }
 
   Widget _buildCard(BuildContext context) {
-    return Container(
+    return Neumorphic(
+      style: NeumorphicStyle(
+        depth: 10,
+        boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(20)),
+        shape: NeumorphicShape.flat,
+      ),
       child: Neumorphic(
+        margin: const EdgeInsets.all(8),
         style: NeumorphicStyle(
           depth: 10,
           boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(20)),
           shape: NeumorphicShape.flat,
         ),
-        child: Neumorphic(
-          margin: const EdgeInsets.all(8),
-          style: NeumorphicStyle(
-            depth: 10,
-            boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(20)),
-            shape: NeumorphicShape.flat,
-          ),
-          child: SizedBox(
-            height: 200,
-            child: AspectRatio(
-              aspectRatio: 9 / 16,
-              child: Stack(
-                fit: StackFit.expand,
-                children: <Widget>[
-                  //Image.asset('packages/neumorphism_design/assets/images/map.jpg', fit: BoxFit.cover),
-                  BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              begin: Alignment.topRight,
-                              end: Alignment.bottomLeft,
-                              colors: [
-                            Colors.purple.withOpacity(0.5),
-                            Colors.red.withOpacity(0.5)
-                          ])),
-                    ),
+        child: SizedBox(
+          height: 200,
+          child: AspectRatio(
+            aspectRatio: 9 / 16,
+            child: Stack(
+              fit: StackFit.expand,
+              children: <Widget>[
+                //Image.asset('packages/neumorphism_design/assets/images/map.jpg', fit: BoxFit.cover),
+                BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment.topRight,
+                            end: Alignment.bottomLeft,
+                            colors: [
+                          Colors.purple.withOpacity(0.5),
+                          Colors.red.withOpacity(0.5)
+                        ])),
                   ),
-                  Stack(
-                    children: <Widget>[
-                      Positioned(
-                        top: 12,
-                        left: 16,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            const Text(
-                              'VISA',
-                              style: TextStyle(
-                                  fontSize: 40,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                            const SizedBox(
-                              height: 30,
-                            ),
-                            Text(
-                              '1234 5678',
-                              style: TextStyle(
-                                  fontSize: 30,
-                                  color: Colors.black.withOpacity(0.7)),
-                            ),
-                            const SizedBox(
-                              height: 3,
-                            ),
-                            Text(
-                              '1234 5678',
-                              style: TextStyle(
-                                  fontSize: 30,
-                                  color: Colors.black.withOpacity(0.7)),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Positioned(
-                        top: 12,
-                        right: 16,
-                        child: SizedBox(
-                          height: 60,
-                          child: Neumorphic(
-                            style: NeumorphicStyle(
-                              depth: 5,
-                              intensity: 0.8,
-                              lightSource: LightSource.topLeft,
-                              boxShape: NeumorphicBoxShape.roundRect(
-                                BorderRadius.circular(12),
-                              ),
-                            ),
-                            child: RotatedBox(
-                                quarterTurns: 1,
-                                child: Image.asset(
-                                    'packages/neumorphism_design/assets/images/credit_card_chip.png')),
+                ),
+                Stack(
+                  children: <Widget>[
+                    Positioned(
+                      top: 12,
+                      left: 16,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          const Text(
+                            'VISA',
+                            style: TextStyle(
+                                fontSize: 40,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w800),
                           ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          Text(
+                            '1234 5678',
+                            style: TextStyle(
+                                fontSize: 30,
+                                color: Colors.black.withOpacity(0.7)),
+                          ),
+                          const SizedBox(
+                            height: 3,
+                          ),
+                          Text(
+                            '1234 5678',
+                            style: TextStyle(
+                                fontSize: 30,
+                                color: Colors.black.withOpacity(0.7)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Positioned(
+                      top: 12,
+                      right: 16,
+                      child: SizedBox(
+                        height: 60,
+                        child: Neumorphic(
+                          style: NeumorphicStyle(
+                            depth: 5,
+                            intensity: 0.8,
+                            lightSource: LightSource.topLeft,
+                            boxShape: NeumorphicBoxShape.roundRect(
+                              BorderRadius.circular(12),
+                            ),
+                          ),
+                          child: RotatedBox(
+                              quarterTurns: 1,
+                              child: Image.asset(
+                                  'packages/neumorphism_design/assets/images/credit_card_chip.png')),
                         ),
                       ),
-                      Positioned(
-                        bottom: 12,
-                        right: 16,
-                        child: Column(
-                          children: <Widget>[
-                            Text(
-                              '09/24',
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white.withOpacity(0.7)),
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            Stack(
-                              children: <Widget>[
-                                Neumorphic(
+                    ),
+                    Positioned(
+                      bottom: 12,
+                      right: 16,
+                      child: Column(
+                        children: <Widget>[
+                          Text(
+                            '09/24',
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white.withOpacity(0.7)),
+                          ),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          Stack(
+                            children: <Widget>[
+                              Neumorphic(
+                                style: NeumorphicStyle(
+                                    shape: NeumorphicShape.convex,
+                                    depth: -10,
+                                    boxShape: const NeumorphicBoxShape.circle(),
+                                    color: Colors.grey[300]),
+                                child: const SizedBox(
+                                  height: 30,
+                                  width: 30,
+                                ),
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(left: 18),
+                                child: Neumorphic(
                                   style: NeumorphicStyle(
                                       shape: NeumorphicShape.convex,
-                                      depth: -10,
-                                      boxShape: const NeumorphicBoxShape.circle(),
-                                      color: Colors.grey[300]),
-                                  child: const SizedBox(
+                                      boxShape: NeumorphicBoxShape.circle(),
+                                      depth: 10),
+                                  child: SizedBox(
                                     height: 30,
                                     width: 30,
                                   ),
                                 ),
-                                const Padding(
-                                  padding: EdgeInsets.only(left: 18),
-                                  child: Neumorphic(
-                                    style: NeumorphicStyle(
-                                        shape: NeumorphicShape.convex,
-                                        boxShape: NeumorphicBoxShape.circle(),
-                                        depth: 10),
-                                    child: SizedBox(
-                                      height: 30,
-                                      width: 30,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ],
-              ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ],
             ),
           ),
         ),

@@ -1,4 +1,4 @@
-import '../../util/Code.dart';
+import '../../util/code.dart';
 import '../../util/color_selector.dart';
 import '../../util/top_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -9,7 +9,7 @@ class ProgressWidgetPage extends StatefulWidget {
   const ProgressWidgetPage({Key? key}) : super(key: key);
 
   @override
-  _WidgetPageState createState() => _WidgetPageState();
+  State<ProgressWidgetPage> createState() => _WidgetPageState();
 }
 
 class _WidgetPageState extends State<ProgressWidgetPage> {

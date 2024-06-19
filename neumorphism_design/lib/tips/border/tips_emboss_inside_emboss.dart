@@ -1,5 +1,5 @@
-import '../../util/Code.dart';
-import '../../util/ThemeConfigurator.dart';
+import '../../util/code.dart';
+import '../../util/theme_configurator.dart';
 import '../../util/top_bar.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
@@ -7,7 +7,7 @@ class TipsRecursiveeEmbossPage extends StatefulWidget {
   const TipsRecursiveeEmbossPage({Key? key}) : super(key: key);
 
   @override
-  _WidgetPageState createState() => _WidgetPageState();
+  State<TipsRecursiveeEmbossPage> createState() => _WidgetPageState();
 }
 
 class _WidgetPageState extends State<TipsRecursiveeEmbossPage> {
