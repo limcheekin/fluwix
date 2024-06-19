@@ -15,6 +15,7 @@ class SurrealdbConsoleWidget extends StatefulWidget {
 
 class _SurrealdbConsoleWidgetState extends State<SurrealdbConsoleWidget> {
   final db = Surreal();
+  static const rpcUri = '/rpc';
   final storage = const FlutterSecureStorage(
     aOptions: AndroidOptions(
       encryptedSharedPreferences: true,
@@ -106,7 +107,9 @@ class _SurrealdbConsoleWidgetState extends State<SurrealdbConsoleWidget> {
     debugPrint('Namespace: $namespace');
     debugPrint('Database: $database');
     debugPrint('Username: $username');
-    debugPrint('Password: $password');
+    if (!addressPort.endsWith(rpcUri)) {
+      addressPort = '$addressPort$rpcUri';
+    }
     try {
       await db.connect('$protocol://$addressPort');
       await db.use(
