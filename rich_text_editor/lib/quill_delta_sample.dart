@@ -1,8 +1,30 @@
-const quillTextSample = [
+import 'package:rich_text_editor/assets.dart';
+
+const kQuillDefaultSample = [
+  {
+    'insert': {'image': kScreenshot2},
+    'attributes': {
+      'width': '100',
+      'height': '100',
+      'style': 'width:500px; height:350px;'
+    }
+  },
   {'insert': 'Flutter Quill'},
   {
     'attributes': {'header': 1},
     'insert': '\n'
+  },
+  {
+    'insert': {
+      'video':
+          'https://www.youtube.com/watch?v=V4hgdKhIqtc&list=PLbhaS_83B97s78HsDTtplRTEhcFsqSqIK&index=1'
+    }
+  },
+  {
+    'insert': {
+      'video':
+          'https://user-images.githubusercontent.com/122956/126238875-22e42501-ad41-4266-b1d6-3f89b5e3b79b.mp4'
+    }
   },
   {'insert': '\nRich text editor for Flutter'},
   {
@@ -11,8 +33,8 @@ const quillTextSample = [
   },
   {'insert': 'Quill component for Flutter'},
   {
-    'attributes': {'color': 'rgba(0, 0, 0, 0.847)'},
-    'insert': ' and '
+    'attributes': {'header': 3},
+    'insert': '\n'
   },
   {
     'attributes': {'link': 'https://bulletjournal.us/home/index.html'},
@@ -262,9 +284,12 @@ const quillTextSample = [
   {
     'insert': {
       'image':
-          'https://user-images.githubusercontent.com/122956/72955931-ccc07900-3d52-11ea-89b1-d468a6e2aa2b.png'
+          'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'
     },
-    'attributes': {'width': '230', 'style': 'display: block; margin: auto;'}
+    'attributes': {
+      'width': '230',
+      'style': 'display: block; margin: auto; width: 500px;'
+    }
   },
   {'insert': '\n'}
 ];
