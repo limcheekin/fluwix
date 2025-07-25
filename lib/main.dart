@@ -36,6 +36,8 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:adaptive_scaffold/adaptive_scaffold_screen.dart';
 import 'package:flutter_k_chart/generated/l10n.dart' as k_chart;
 import 'package:file_upload/file_upload_screen.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'string.dart';
 
 final AppModule appModule = AppModule();
@@ -121,6 +123,10 @@ class AppWidget extends StatelessWidget {
       ),
       localizationsDelegates: const [
         k_chart.S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        FlutterQuqillLocalizations.delegate,
       ],
     ).modular();
   }
