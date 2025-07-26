@@ -15,7 +15,13 @@ subprojects {
 subprojects {
     project.evaluationDependsOn(":app")
 }
-
+subprojects{
+    afterEvaluate {
+        android {
+            namespace = 'com.fluwix'
+        }
+    }
+}
 tasks.register<Delete>("clean") {
     delete(rootProject.layout.buildDirectory)
 }
