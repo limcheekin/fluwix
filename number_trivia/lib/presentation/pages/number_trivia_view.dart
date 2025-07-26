@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/flutter_clean_architecture.dart'
-    as fca;
+import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import '../../../../dependencies.dart';
 import '../widgets/widgets.dart';
 import 'number_trivia_controller.dart';
 
-class NumberTriviaView extends fca.View {
+class NumberTriviaView extends CleanView {
   @override
   _NumberTriviaViewState createState() => _NumberTriviaViewState();
 }
 
 class _NumberTriviaViewState
-    extends fca.ViewState<NumberTriviaView, NumberTriviaController> {
+    extends CleanViewState<NumberTriviaView, NumberTriviaController> {
   _NumberTriviaViewState() : super(sl<NumberTriviaController>());
 
   @override
@@ -31,7 +30,7 @@ class _NumberTriviaViewState
         child: Column(
           children: <Widget>[
             SizedBox(height: 10),
-            fca.ControlledWidgetBuilder<NumberTriviaController>(
+            ControlledWidgetBuilder<NumberTriviaController>(
               builder: (context, controller) {
                 switch (controller.status) {
                   case EStatus.none:
