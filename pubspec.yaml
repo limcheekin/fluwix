@@ -18,7 +18,6 @@ dependencies:
   responsive_builder: ^0.4.2
   url_strategy: ^0.2.0
   flutter_native_splash: ^2.1.0
-  flutter_quill: ^11.4.2
   nested_list:
     path: nested_list
   tab_buttons:

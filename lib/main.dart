@@ -126,7 +126,7 @@ class AppWidget extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
-        FlutterQuqillLocalizations.delegate,
+        FlutterQuillLocalizations.delegate,
       ],
     ).modular();
   }

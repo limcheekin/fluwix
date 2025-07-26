@@ -17,7 +17,7 @@ Future<void> main() async {
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
-        FlutterQuqillLocalizations.delegate,
+        FlutterQuillLocalizations.delegate,
       ],
     ),
   );
