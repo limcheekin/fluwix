@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:showcase_view/showcase_view.dart';
-import 'create_widget_stub.dart'
-    if (dart.library.io) 'create_widget_mobile.dart'
-    if (dart.library.html) 'create_widget_web.dart';
+import 'package:wallet_connect_showcase/wallet_connect_showcase_widget.dart';
 
 class WalletConnectShowcaseScreen extends StatelessWidget {
   const WalletConnectShowcaseScreen({Key? key}) : super(key: key);
@@ -20,7 +18,7 @@ class WalletConnectShowcaseScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ShowcaseView(
       title: 'Wallet Connect Showcase',
-      widget: createWidget(),
+      widget: WalletConnectShowcaseWidget(),
       owner: owner,
       repository: repository,
       ref: branch,
@@ -31,13 +29,7 @@ class WalletConnectShowcaseScreen extends StatelessWidget {
       codePaths: const [
         '$branch/pubspec.yaml',
         '$branch/lib/wallet_connect_showcase_screen.dart',
-        '$branch/lib/create_widget_stub.dart',
-        '$branch/lib/create_widget_mobile.dart',
-        '$branch/lib/create_widget_web.dart',
         '$branch/lib/wallet_connect_showcase_widget.dart',
-        '$branch/lib/wallet_connect_web_showcase_widget.dart',
-        '$branch/lib/eth_conversions.dart',
-        '$branch/lib/qr_scan_view.dart',
       ],
     );
   }
