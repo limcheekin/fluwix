@@ -1,1 +1,1 @@
-Updated SurrealDB Console to use surrealdb_js, start from now it can connect to the SurrealDB server.
+Updated Rich Text Editor and Wallet Connect Showcase module.
