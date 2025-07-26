@@ -4,13 +4,7 @@ import '../../../../dependencies.dart';
 import '../widgets/widgets.dart';
 import 'number_trivia_controller.dart';
 
-<<<<<<< HEAD
-class NumberTriviaView extends fca.View {
-  NumberTriviaView({Key? key}) : super(key: key);
-
-=======
 class NumberTriviaView extends CleanView {
->>>>>>> number_trivia_flutter_clean_architecture
   @override
   _NumberTriviaViewState createState() => _NumberTriviaViewState();
 }
