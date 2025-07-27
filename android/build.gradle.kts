@@ -18,7 +18,7 @@ subprojects {
 subprojects{
     afterEvaluate {
         android {
-            namespace = 'com.fluwix'
+            namespace 'com.fluwix'
         }
     }
 }
