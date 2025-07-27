@@ -15,10 +15,14 @@ subprojects {
 subprojects {
     project.evaluationDependsOn(":app")
 }
-subprojects{
+subprojects {
     afterEvaluate {
-        android {
-            namespace 'com.fluwix'
+        // Only configure if the android extension is present
+        extensions.findByName("android")?.let { ext ->
+            // Cast the extension to the correct type
+            (ext as? com.android.build.gradle.BaseExtension)?.apply {
+                this.namespace = "com.fluwix"
+            }
         }
     }
 }
