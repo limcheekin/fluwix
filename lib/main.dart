@@ -30,7 +30,7 @@ import 'package:common_ui/constants.dart';
 import 'package:search_bar/search_bar_screen.dart';
 import 'package:number_trivia/number_trivia_screen.dart';
 import 'package:number_trivia/dependencies.dart' as number_trivia_di;
-import 'package:wallet_connect_showcase/wallet_connect_showcase_screen.dart';
+// import 'package:wallet_connect_showcase/wallet_connect_showcase_screen.dart';
 import 'package:slider_captcha_showcase/slider_captcha_showcase_screen.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:adaptive_scaffold/adaptive_scaffold_screen.dart';
@@ -94,8 +94,8 @@ class AppModule extends Module {
     ChildRoute('/rich_text_editor',
         child: (_, __) => const RichTextEditorScreen()),
     ChildRoute('/number_trivia', child: (_, __) => const NumberTriviaScreen()),
-    ChildRoute('/wallet_connect_showcase',
-        child: (_, __) => const WalletConnectShowcaseScreen()),
+    // ChildRoute('/wallet_connect_showcase',
+    //    child: (_, __) => const WalletConnectShowcaseScreen()),
     ChildRoute('/slider_captcha_showcase',
         child: (_, __) => const SliderCaptchaShowcaseScreen()),
     ChildRoute('/adaptive_scaffold',
@@ -261,7 +261,7 @@ class _WideLayoutState extends State<WideLayout> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.network(
-                        'https://fluwix.netlify.app/images/welcome.png',
+                        'https://www.fluwix.com/images/welcome.png',
                         width: 633.0,
                         height: 475.0,
                       ),
