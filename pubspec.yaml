@@ -62,8 +62,8 @@ dependencies:
     path: rich_text_editor
   number_trivia:
     path: number_trivia
-  wallet_connect_showcase:
-    path: wallet_connect_showcase
+  # wallet_connect_showcase:
+  #  path: wallet_connect_showcase
   slider_captcha_showcase:
     path: slider_captcha_showcase
   adaptive_scaffold:

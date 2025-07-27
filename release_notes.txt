@@ -1,1 +1,1 @@
-Updated Rich Text Editor and Wallet Connect Showcase module.
+Updated Rich Text Editor and Removed Wallet Connect Showcase module.
