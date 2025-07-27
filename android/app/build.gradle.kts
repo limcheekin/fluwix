@@ -48,10 +48,9 @@ android {
 
     buildTypes {
         release {
-            ndk.debugSymbolLevel = "FULL"
             isMinifyEnabled = true
             isShrinkResources = true
-            isDebuggable = true
+            isDebuggable = false
             signingConfig = signingConfigs["release"]
         }
     }
