@@ -88,7 +88,7 @@ dependency_overrides:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.11.0
+  flutter_launcher_icons: ^0.14.4
   flutter_lints: ^2.0.2
   module_starter:
     path: module_starter
