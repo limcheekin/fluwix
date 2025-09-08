@@ -1,13 +1,13 @@
 # Serve WASM with correct MIME and long cache (match nested paths)
 [[headers]]
-  for = "/**/*.wasm"
+  for = "/assets/**/*.wasm"
   [headers.values]
     Content-Type = "application/wasm"
     Cache-Control = "public, max-age=31536000, immutable"
 
 # JS files (match nested paths)
 [[headers]]
-  for = "/**/*.js"
+  for = "/assets/**/*.js"
   [headers.values]
     Content-Type = "application/javascript"
     Cache-Control = "public, max-age=31536000, immutable"
