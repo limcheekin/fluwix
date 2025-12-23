@@ -13,7 +13,7 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.32.8
+          #flutter-version: 3.32.8
       - run: flutter --version
 
       - name: Generate Codes
