@@ -39,14 +39,17 @@ import 'package:file_upload/file_upload_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:edge_ai/edge_ai_screen.dart';
+import 'package:flutter_gemma/flutter_gemma.dart';
 import 'string.dart';
 
 final AppModule appModule = AppModule();
-void main() {
+Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   setPathUrlStrategy();
   number_trivia_di.init();
+  // Initialize Flutter Gemma (required)
+  await FlutterGemma.initialize(enableWebCache: true);
   runApp(ModularApp(module: appModule, child: const AppWidget()));
   FlutterNativeSplash.remove();
 }
