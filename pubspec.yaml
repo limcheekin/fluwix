@@ -3,7 +3,7 @@ description: Fluwix - Flutter showcase platform on the mobile apps and web.
 
 publish_to: "none"
 
-version: 0.6.16
+version: 0.6.17
 
 environment:
   sdk: ^3.8.1
@@ -56,8 +56,8 @@ dependencies:
     path: neumorphism_design
   settings_ui_showcase:
     path: settings_ui_showcase
-  search_bar:
-    path: search_bar
+  #search_bar:
+  #  path: search_bar
   rich_text_editor:
     path: rich_text_editor
   number_trivia:
@@ -76,6 +76,8 @@ dependencies:
     path: surrealdb_console
   three_cols_layout:
     path: three_cols_layout
+  edge_ai:
+    path: edge_ai
 
 dependency_overrides:
   intl: ^0.18.1

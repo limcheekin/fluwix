@@ -80,6 +80,23 @@
       globalThis.SurrealJS = Surreal;
       globalThis.StringRecordId = StringRecordId;
     </script>
+    <!-- MediaPipe GenAI for Inference -->
+    <script type="module">
+      import { FilesetResolver, LlmInference } from 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-genai@latest';
+      window.FilesetResolver = FilesetResolver;
+      window.LlmInference = LlmInference;
+    </script>
+
+    <!-- Cache API for persistent storage -->
+    <script src="https://cdn.jsdelivr.net/gh/DenisovAV/flutter_gemma@v0.11.13/web/cache_api.js"></script>
+
+    <!-- LiteRT.js Embeddings (bundled with Vite) -->
+    <script type="module"
+      src="https://cdn.jsdelivr.net/gh/DenisovAV/flutter_gemma@v0.11.13/web/litert_embeddings.js"></script>
+
+    <!-- SQLite WASM VectorStore (bundled with Vite) -->
+    <script type="module"
+      src="https://cdn.jsdelivr.net/gh/DenisovAV/flutter_gemma@v0.11.13/web/sqlite_vector_store.js"></script>    
     <meta
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
       name="viewport"

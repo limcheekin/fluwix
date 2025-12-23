@@ -27,7 +27,7 @@ import 'package:syntax_view/syntax_view_screen.dart';
 import 'package:url_launcher_showcase/url_launcher_showcase_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:common_ui/constants.dart';
-import 'package:search_bar/search_bar_screen.dart';
+// import 'package:search_bar/search_bar_screen.dart';
 import 'package:number_trivia/number_trivia_screen.dart';
 import 'package:number_trivia/dependencies.dart' as number_trivia_di;
 // import 'package:wallet_connect_showcase/wallet_connect_showcase_screen.dart';
@@ -38,6 +38,7 @@ import 'package:flutter_k_chart/generated/l10n.dart' as k_chart;
 import 'package:file_upload/file_upload_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_quill/flutter_quill.dart';
+import 'package:edge_ai/edge_ai_screen.dart';
 import 'string.dart';
 
 final AppModule appModule = AppModule();
@@ -55,58 +56,101 @@ class AppModule extends Module {
   final List<Bind> binds = [];
 
   @override
-  final List<ModularRoute> routes = List.from([
-    // ChildRoute(Modular.initialRoute, child: (context, args) => HomeScreen()),
-    ChildRoute('/', child: (_, __) => const HomeScreen()),
-    ChildRoute('/nested_list', child: (_, __) => NestedListScreen()),
-    ChildRoute('/tab_buttons', child: (_, __) => TabButtonsScreen()),
-    ChildRoute('/stock_chart', child: (_, __) => const StockChartScreen()),
-    ChildRoute('/expansion_collapse_view',
-        child: (_, __) => const ExpansionCollapseViewScreen()),
-    ChildRoute('/charts_gallery',
-        child: (_, __) => const ChartsGalleryScreen()),
-    ChildRoute('/chart_data_table',
-        child: (_, __) => const ChartDataTableScreen()),
-    ChildRoute('/syntax_view', child: (_, __) => const SyntaxViewScreen()),
+  final List<ModularRoute> routes = List.from(
+    [
+      // ChildRoute(Modular.initialRoute, child: (context, args) => HomeScreen()),
+      ChildRoute('/', child: (_, __) => const HomeScreen()),
+      ChildRoute('/nested_list', child: (_, __) => NestedListScreen()),
+      ChildRoute('/tab_buttons', child: (_, __) => TabButtonsScreen()),
+      ChildRoute('/stock_chart', child: (_, __) => const StockChartScreen()),
+      ChildRoute(
+        '/expansion_collapse_view',
+        child: (_, __) => const ExpansionCollapseViewScreen(),
+      ),
+      ChildRoute(
+        '/charts_gallery',
+        child: (_, __) => const ChartsGalleryScreen(),
+      ),
+      ChildRoute(
+        '/chart_data_table',
+        child: (_, __) => const ChartDataTableScreen(),
+      ),
+      ChildRoute('/syntax_view', child: (_, __) => const SyntaxViewScreen()),
 
-    ChildRoute('/animated_icons',
-        child: (_, __) => const AnimatedIconsScreen()),
-    ChildRoute('/url_launcher_showcase',
-        child: (_, __) => const UrlLauncherShowcaseScreen()),
-    ChildRoute('/markdown_view', child: (_, __) => const MarkdownViewScreen()),
-    ChildRoute('/shimmer_effect',
-        child: (_, __) => const ShimmerEffectScreen()),
-    ChildRoute('/about_dialog', child: (_, __) => const AboutDialogScreen()),
-    ChildRoute('/source_code_view',
-        child: (_, __) => const SourceCodeViewScreen()),
-    ChildRoute('/showcase_view', child: (_, __) => const ShowcaseScreen()),
-    ChildRoute('/material_design_showcase',
-        child: (_, __) => const MaterialDesignShowcaseScreen()),
-    ChildRoute('/percent_indicator_showcase',
-        child: (_, __) => const PercentIndicatorShowcaseScreen()),
-    ChildRoute('/glassmorphism_design',
-        child: (_, __) => const GlassmorphismDesignScreen()),
-    ChildRoute('/neumorphism_design',
-        child: (_, __) => const NeumorphismDesignScreen()),
-    ChildRoute('/settings_ui_showcase',
-        child: (_, __) => const SettingsUiShowcaseScreen()),
-    ChildRoute('/search_bar', child: (_, __) => const SearchBarScreen()),
-    ChildRoute('/rich_text_editor',
-        child: (_, __) => const RichTextEditorScreen()),
-    ChildRoute('/number_trivia', child: (_, __) => const NumberTriviaScreen()),
-    // ChildRoute('/wallet_connect_showcase',
-    //    child: (_, __) => const WalletConnectShowcaseScreen()),
-    ChildRoute('/slider_captcha_showcase',
-        child: (_, __) => const SliderCaptchaShowcaseScreen()),
-    ChildRoute('/adaptive_scaffold',
-        child: (_, __) => const AdaptiveScaffoldScreen()),
-    ChildRoute('/chatbot_ui', child: (_, __) => const ChatbotUiScreen()),
-    ChildRoute('/file_upload', child: (_, __) => const FileUploadScreen()),
-    ChildRoute('/surrealdb_console',
-        child: (_, __) => const SurrealdbConsoleScreen()),
-    ChildRoute('/three_cols_layout',
-        child: (_, __) => const ThreeColsLayoutScreen()),
-  ].reversed);
+      ChildRoute(
+        '/animated_icons',
+        child: (_, __) => const AnimatedIconsScreen(),
+      ),
+      ChildRoute(
+        '/url_launcher_showcase',
+        child: (_, __) => const UrlLauncherShowcaseScreen(),
+      ),
+      ChildRoute(
+        '/markdown_view',
+        child: (_, __) => const MarkdownViewScreen(),
+      ),
+      ChildRoute(
+        '/shimmer_effect',
+        child: (_, __) => const ShimmerEffectScreen(),
+      ),
+      ChildRoute('/about_dialog', child: (_, __) => const AboutDialogScreen()),
+      ChildRoute(
+        '/source_code_view',
+        child: (_, __) => const SourceCodeViewScreen(),
+      ),
+      ChildRoute('/showcase_view', child: (_, __) => const ShowcaseScreen()),
+      ChildRoute(
+        '/material_design_showcase',
+        child: (_, __) => const MaterialDesignShowcaseScreen(),
+      ),
+      ChildRoute(
+        '/percent_indicator_showcase',
+        child: (_, __) => const PercentIndicatorShowcaseScreen(),
+      ),
+      ChildRoute(
+        '/glassmorphism_design',
+        child: (_, __) => const GlassmorphismDesignScreen(),
+      ),
+      ChildRoute(
+        '/neumorphism_design',
+        child: (_, __) => const NeumorphismDesignScreen(),
+      ),
+      ChildRoute(
+        '/settings_ui_showcase',
+        child: (_, __) => const SettingsUiShowcaseScreen(),
+      ),
+      // ChildRoute('/search_bar', child: (_, __) => const SearchBarScreen()),
+      ChildRoute(
+        '/rich_text_editor',
+        child: (_, __) => const RichTextEditorScreen(),
+      ),
+      ChildRoute(
+        '/number_trivia',
+        child: (_, __) => const NumberTriviaScreen(),
+      ),
+      // ChildRoute('/wallet_connect_showcase',
+      //    child: (_, __) => const WalletConnectShowcaseScreen()),
+      ChildRoute(
+        '/slider_captcha_showcase',
+        child: (_, __) => const SliderCaptchaShowcaseScreen(),
+      ),
+      ChildRoute(
+        '/adaptive_scaffold',
+        child: (_, __) => const AdaptiveScaffoldScreen(),
+      ),
+      ChildRoute('/chatbot_ui', child: (_, __) => const ChatbotUiScreen()),
+      ChildRoute('/file_upload', child: (_, __) => const FileUploadScreen()),
+      ChildRoute(
+        '/surrealdb_console',
+        child: (_, __) => const SurrealdbConsoleScreen(),
+      ),
+      ChildRoute(
+        '/three_cols_layout',
+        child: (_, __) => const ThreeColsLayoutScreen(),
+      ),
+      ChildRoute('/edge_ai', child: (_, __) => const EdgeAiScreen()),
+    ].reversed,
+  );
 }
 
 class AppWidget extends StatelessWidget {
@@ -148,10 +192,7 @@ class HomeScreen extends StatelessWidget {
   AppBar _buildAppBar(BuildContext context) {
     final aboutBoxChildren = <Widget>[
       const SizedBox(height: 24),
-      Text(
-        appSubTitle,
-        style: Theme.of(context).textTheme.bodyMedium,
-      ),
+      Text(appSubTitle, style: Theme.of(context).textTheme.bodyMedium),
     ];
 
     return AppBar(
@@ -187,10 +228,7 @@ class HomeScreen extends StatelessWidget {
 
 class NarrowLayout extends StatelessWidget {
   final AppBar appBar;
-  const NarrowLayout({
-    required this.appBar,
-    Key? key,
-  }) : super(key: key);
+  const NarrowLayout({required this.appBar, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -216,10 +254,7 @@ class NarrowLayout extends StatelessWidget {
 
 class WideLayout extends StatefulWidget {
   final AppBar appBar;
-  const WideLayout({
-    required this.appBar,
-    Key? key,
-  }) : super(key: key);
+  const WideLayout({required this.appBar, Key? key}) : super(key: key);
 
   @override
   _WideLayoutState createState() => _WideLayoutState();
@@ -284,7 +319,9 @@ class _WideLayoutState extends State<WideLayout> {
                     ],
                   )
                 : appModule.routes[_selectedIndex].child!(
-                    context, ModularArguments.empty()),
+                    context,
+                    ModularArguments.empty(),
+                  ),
           ),
         ],
       ),

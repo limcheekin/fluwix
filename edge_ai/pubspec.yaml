@@ -1,0 +1,51 @@
+name: edge_ai
+description: Edge AI module.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.3 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  background_downloader: ^9.4.3  # For integration tests
+  common_ui:
+    path: ../common_ui
+  equatable: ^2.0.7
+  flutter_bloc: ^9.1.1
+  flutter_gemma: ^0.11.13
+  flutter_markdown_plus: ^1.0.5
+  http: ^1.6.0
+  # Dependencies for working with images
+  image_picker: ^1.2.1 # For selecting images on mobile devices
+  path_provider: ^2.1.5  
+  shared_preferences: ^2.5.4
+  showcase_view:
+    path: ../showcase_view
+  url_launcher: ^6.3.2
+  web: ^1.1.1
+
+dev_dependencies:
+  integration_test:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
+  
+  flutter_lints:
+
+flutter:
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/
+    - assets/models/
+
+  module:
+    androidX: true
+    androidPackage: com.fluwix.edge_ai
+    iosBundleIdentifier: com.fluwix.edgeAi

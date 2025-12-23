@@ -1,1 +1,1 @@
-Updated Rich Text Editor and Removed Wallet Connect Showcase module.
+Add Edge AI and Removed Search Bar module.
