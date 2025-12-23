@@ -13,6 +13,10 @@ android {
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "27.3.13750724"
 
+    aaptOptions {
+        noCompress("tflite", "safetensors", "bin", "model", "task")
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -49,9 +53,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = true
-            isShrinkResources = true
+            isShrinkResources = false // Disable resource shrinking to avoid MediaPipe issues
             isDebuggable = false
             signingConfig = signingConfigs["release"]
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }
 }
