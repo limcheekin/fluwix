@@ -24,8 +24,8 @@ class ChatScreenState extends State<ChatScreen> {
   bool _isInitializing = false; // Protection against concurrent initialization
   bool _isStreaming = false; // Track streaming state
   String? _error;
-  Color _backgroundColor = const Color(0xFF0b2351);
-  String _appTitle = 'Flutter Gemma Example'; // Track the current app title
+  Color _backgroundColor = const Color.fromRGBO(11, 35, 81, 1);
+  String _appTitle = 'Edge AI'; // Track the current app title
 
   // Toggle for sync/async mode
   bool _useSyncMode = false;
