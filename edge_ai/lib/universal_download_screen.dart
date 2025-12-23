@@ -191,10 +191,10 @@ class _UniversalDownloadScreenState extends State<UniversalDownloadScreen> {
         title: Text(widget.model.displayName),
         backgroundColor: const Color(0xFF0b2351),
       ),
-      body: ListView(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
-        //child: Column(
-          //crossAxisAlignment: CrossAxisAlignment.start,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Model info card
             _buildModelInfoCard(),
@@ -213,12 +213,13 @@ class _UniversalDownloadScreenState extends State<UniversalDownloadScreen> {
             const SizedBox(height: 24),
             _buildActionButtons(),
 
-            const Spacer(),
+            // Spacer replacement
+            const SizedBox(height: 32),
 
             // License info
             if (widget.model.licenseUrl != null) _buildLicenseInfo(),
           ],
-        //),
+        ),
       ),
     );
   }
