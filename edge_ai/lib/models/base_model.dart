@@ -1,5 +1,4 @@
-import 'package:flutter_gemma/pigeon.g.dart';
-import 'package:flutter_gemma/core/model.dart';
+import 'package:flutter_gemma/flutter_gemma.dart';
 
 /// Type of model source for download/installation
 enum ModelSourceType {
