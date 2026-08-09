@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_gemma/core/model.dart';
-import 'package:flutter_gemma/pigeon.g.dart';
+import 'package:flutter_gemma/flutter_gemma.dart';
 import 'base_model.dart';
 
 enum Model implements InferenceModelInterface {
@@ -157,7 +156,7 @@ enum Model implements InferenceModelInterface {
   ),
 
   // Models from JSON - Qwen2.5 1.5B Instruct q8
-  qwen25_1_5B_InstructCpu(
+  qwen2515BInstructCpu(
     baseUrl:
         'https://huggingface.co/litert-community/Qwen2.5-1.5B-Instruct/resolve/main/Qwen2.5-1.5B-Instruct_multi-prefill-seq_q8_ekv1280.task',
     filename: 'Qwen2.5-1.5B-Instruct_multi-prefill-seq_q8_ekv1280.task',
@@ -230,7 +229,7 @@ enum Model implements InferenceModelInterface {
   ),
 
   // Phi-4 Mini Instruct
-  phi4_mini(
+  phi4Mini(
     baseUrl:
         'https://huggingface.co/litert-community/Phi-4-mini-instruct/resolve/main/Phi-4-mini-instruct_multi-prefill-seq_q8_ekv4096.task',
     webUrl:

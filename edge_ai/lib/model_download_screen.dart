@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gemma/pigeon.g.dart';
+import 'package:flutter_gemma/flutter_gemma.dart';
 import 'package:edge_ai/chat_screen.dart';
 import 'package:edge_ai/services/model_download_service.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -116,7 +116,7 @@ class _ModelDownloadScreenState extends State<ModelDownloadScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Download ${widget.model.name} Model',
+              'Download ${widget.model.displayName} Model',
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             if (widget

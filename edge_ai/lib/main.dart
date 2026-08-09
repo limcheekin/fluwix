@@ -7,7 +7,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Initialize Flutter Gemma (required)
-  await FlutterGemma.initialize(enableWebCache: true);
+  await FlutterGemma.initialize(webStorageMode: WebStorageMode.cacheApi);
 
   runApp(
     const MyModule(

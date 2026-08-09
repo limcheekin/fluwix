@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gemma/pigeon.g.dart';
+import 'package:flutter_gemma/flutter_gemma.dart';
 import 'package:edge_ai/models/base_model.dart';
 import 'package:edge_ai/models/model.dart';
 import 'package:edge_ai/universal_download_screen.dart';
