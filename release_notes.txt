@@ -1,1 +1,1 @@
-Add Edge AI and Removed Search Bar module.
+Upgrade flutter_gemma package to v1.5.2.
